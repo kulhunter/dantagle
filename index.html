@@ -1,29 +1,54 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es-CL" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dan Tagle | Creative Technologist & Problem Solver</title>
     
-    <!-- Tailwind CSS -->
+    <title>Dan Tagle | Problem Solver & Creative Technologist #1</title>
+    <meta name="description" content="Dan Tagle es un Creative Technologist especializado en destrabar procesos de negocio mediante Growth, SEO B2B, automatización BTL y dirección estratégica.">
+    <meta name="keywords" content="Creative Technologist, Problem Solver, Dan Tagle, Growth Marketing, SEO B2B, Innovación Digital, Chile, Publicidad">
+    <meta name="author" content="Dan Tagle">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://dantagle.cl/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://dantagle.cl/">
+    <meta property="og:title" content="Dan Tagle | Problem Solver & Creative Technologist">
+    <meta property="og:description" content="Hackeando problemas de negocio con tecnología creativa y estrategia. #1 Global Creative Technologist 2025-2026.">
+    <meta property="og:image" content="https://raw.githubusercontent.com/kulhunter/dantagle/main/creativepool.png">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://dantagle.cl/">
+    <meta property="twitter:title" content="Dan Tagle | Problem Solver">
+    <meta property="twitter:description" content="Hackeando problemas de negocio con tecnología creativa y estrategia. #1 Global Creative Technologist.">
+    <meta property="twitter:image" content="https://raw.githubusercontent.com/kulhunter/dantagle/main/creativepool.png">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Dan Tagle",
+      "jobTitle": "Creative Technologist",
+      "url": "https://dantagle.cl",
+      "image": "https://raw.githubusercontent.com/kulhunter/dantagle/main/creativepool.png",
+      "sameAs": [
+        "https://www.linkedin.com/in/taglecl/",
+        "https://www.behance.net/kulhunter",
+        "https://creativepool.com/Dondt"
+      ],
+      "knowsAbout": ["Creative Technology", "SEO B2B", "Growth Marketing", "BTL Data-Driven", "Business Strategy", "Problem Solving"]
+    }
+    </script>
+    
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Configuración de Tailwind -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
-                    colors: {
-                        zinc: {
-                            950: '#050505',
-                        }
-                    },
-                    animation: {
-                        'fade-in': 'fadeIn 0.5s ease-out forwards',
-                    },
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: { zinc: { 950: '#050505' } },
+                    animation: { 'fade-in': 'fadeIn 0.5s ease-out forwards' },
                     keyframes: {
                         fadeIn: {
                             '0%': { opacity: '0', transform: 'translateY(10px)' },
@@ -35,17 +60,15 @@
         }
     </script>
 
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     
-    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <style>
         body { font-family: 'Inter', sans-serif; }
-        ::selection { background-color: #06b6d4; color: #fff; }
+        ::selection { background-color: #06b6d4; color: #050505; }
         .noise-bg {
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
         }
@@ -53,13 +76,11 @@
 </head>
 <body class="bg-zinc-950 text-zinc-50 overflow-x-hidden selection:bg-cyan-500 selection:text-zinc-950 relative">
 
-    <!-- Background Tech Noise Overlay -->
-    <div class="fixed inset-0 z-0 opacity-[0.15] pointer-events-none mix-blend-overlay noise-bg"></div>
+    <div class="fixed inset-0 z-0 opacity-[0.15] pointer-events-none mix-blend-overlay noise-bg" aria-hidden="true"></div>
 
-    <!-- 1. HEADER -->
-    <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-500 border-b border-transparent py-6">
+    <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-500 border-b border-transparent py-6" role="navigation">
         <div class="container mx-auto px-6 md:px-12 flex justify-between items-center">
-            <a href="#" class="text-xl font-bold tracking-tighter flex items-center gap-2 relative z-10">
+            <a href="#" class="text-xl font-bold tracking-tighter flex items-center gap-2 relative z-10" aria-label="Inicio Dan Tagle">
                 DAN TAGLE <span class="w-2 h-2 rounded-full bg-cyan-500 animate-pulse"></span>
             </a>
             <div class="hidden lg:flex space-x-8 text-sm font-medium text-zinc-400 relative z-10">
@@ -75,11 +96,10 @@
     </nav>
 
     <main class="relative z-10">
-        <!-- HERO SECTION -->
-        <section class="relative min-h-[85vh] flex flex-col justify-center items-start container mx-auto px-6 md:px-12 pt-20">
-            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-cyan-500/10 blur-[120px] rounded-full pointer-events-none z-0"></div>
+        <header class="relative min-h-[85vh] flex flex-col justify-center items-start container mx-auto px-6 md:px-12 pt-20">
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-cyan-500/10 blur-[120px] rounded-full pointer-events-none z-0" aria-hidden="true"></div>
 
-            <a href="https://creativepool.com/top-25/creative-technologists/" target="_blank" rel="noopener noreferrer" class="group relative z-10 inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-zinc-900/50 border border-zinc-800 backdrop-blur-md hover:border-cyan-500/50 transition-all mb-10 cursor-pointer shadow-2xl overflow-hidden">
+            <a href="https://creativepool.com/top-25/creative-technologists/" target="_blank" rel="noopener noreferrer" class="group relative z-10 inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-zinc-900/50 border border-zinc-800 backdrop-blur-md hover:border-cyan-500/50 transition-all mb-10 cursor-pointer shadow-2xl overflow-hidden" aria-label="Ver ranking en Creativepool">
                 <span class="flex h-7 w-7 items-center justify-center rounded-full bg-cyan-500/20 text-cyan-400">
                     <i data-lucide="award" class="w-4 h-4"></i>
                 </span>
@@ -93,29 +113,24 @@
             </h1>
             
             <div class="relative z-10 flex flex-col md:flex-row md:items-center gap-6 max-w-4xl">
-                <div class="w-16 h-[2px] bg-cyan-500 hidden md:block"></div>
+                <div class="w-16 h-[2px] bg-cyan-500 hidden md:block" aria-hidden="true"></div>
                 <h2 class="text-2xl md:text-3xl lg:text-4xl font-light text-zinc-400 leading-tight">
                     <strong class="text-white font-bold">Problem Solver.</strong>
                 </h2>
             </div>
-        </section>
+        </header>
 
-        <!-- 2. QUÉ HAGO & 3. CÓMO LO HAGO -->
-        <section id="que-hago" class="py-24 bg-zinc-950 border-t border-zinc-900">
+        <section id="que-hago" class="py-24 bg-zinc-950 border-t border-zinc-900" aria-label="Sobre mi trabajo">
             <div class="container mx-auto px-6 md:px-12">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-16 lg:gap-24">
-                    <!-- Qué hago -->
                     <div>
                         <h3 class="text-sm font-bold tracking-[0.2em] text-cyan-500 uppercase mb-6 flex items-center gap-2"><i data-lucide="target" class="w-4 h-4"></i> 01. Qué Hago</h3>
-                        <h4 class="text-4xl font-black leading-tight mb-6">
-                            Construyo puentes entre problemas de negocio y tecnología creativa.
-                        </h4>
+                        <h4 class="text-4xl font-black leading-tight mb-6">Construyo puentes entre problemas de negocio y tecnología creativa.</h4>
                         <p class="text-xl text-zinc-400 leading-relaxed font-light">
                             No vendo código aislado ni diseño estético; vendo <strong class="text-white font-bold">destrabe de procesos</strong>. Mi trabajo es descifrar el caos corporativo y construir ecosistemas, estrategias y experiencias que impactan el ROI directamente.
                         </p>
                     </div>
 
-                    <!-- Cómo lo hago -->
                     <div id="como-lo-hago">
                         <h3 class="text-sm font-bold tracking-[0.2em] text-cyan-500 uppercase mb-6 flex items-center gap-2"><i data-lucide="code" class="w-4 h-4"></i> 02. Cómo lo Hago</h3>
                         <div class="space-y-6">
@@ -139,11 +154,10 @@
             </div>
         </section>
 
-        <!-- 7. HERRAMIENTA INTERACTIVA (Desfibrilador) -->
-        <section class="py-24 bg-[#0a0a0a] border-t border-zinc-900">
+        <section class="py-24 bg-[#0a0a0a] border-t border-zinc-900" aria-label="Desfibrilador de Briefs Interactivo">
             <div class="container mx-auto px-6 md:px-12">
                 <div class="bg-zinc-900/50 border border-zinc-800 rounded-3xl p-8 md:p-12 shadow-2xl relative overflow-hidden">
-                    <div class="absolute top-0 right-0 p-8 opacity-5">
+                    <div class="absolute top-0 right-0 p-8 opacity-5" aria-hidden="true">
                         <i data-lucide="activity" class="w-[200px] h-[200px]"></i>
                     </div>
                     
@@ -152,13 +166,10 @@
                         <p class="text-zinc-400 mb-8 font-light">Selecciona el síntoma principal de tu negocio y obtén mi diagnóstico inmediato:</p>
 
                         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                            <!-- Columna Izquierda: Botones generados por JS -->
-                            <div class="space-y-3" id="matrix-buttons">
-                                <!-- JS Inject -->
-                            </div>
+                            <div class="space-y-3" id="matrix-buttons" role="listbox">
+                                </div>
 
-                            <!-- Columna Derecha: Resultado generado por JS -->
-                            <div class="bg-zinc-950 border border-zinc-800 rounded-xl p-6 md:p-8 flex flex-col justify-center min-h-[250px]" id="matrix-result">
+                            <div class="bg-zinc-950 border border-zinc-800 rounded-xl p-6 md:p-8 flex flex-col justify-center min-h-[250px]" id="matrix-result" aria-live="polite">
                                 <div class="text-center text-zinc-600 flex flex-col items-center gap-3">
                                     <i data-lucide="target" class="w-10 h-10 opacity-50"></i>
                                     <p>Esperando selección de síntoma...</p>
@@ -170,8 +181,7 @@
             </div>
         </section>
 
-        <!-- 4. TODOS LOS CASOS -->
-        <section id="casos" class="py-24 md:py-32 bg-[#050505] relative border-t border-zinc-900">
+        <section id="casos" class="py-24 md:py-32 bg-[#050505] relative border-t border-zinc-900" aria-label="Portafolio y Casos de Éxito">
             <div class="container mx-auto px-6 md:px-12">
                 
                 <div class="mb-24 flex justify-between items-end">
@@ -183,72 +193,57 @@
                     </div>
                 </div>
                 
-                <!-- Lista de Casos generada por JS -->
                 <div class="space-y-32 md:space-y-48" id="casos-container">
-                    <!-- JS Inject -->
-                </div>
+                    </div>
 
             </div>
         </section>
 
-        <!-- 5. ADN & SERVICIOS -->
-        <section id="servicios" class="py-24 md:py-32 bg-zinc-950 border-t border-zinc-900">
+        <section id="servicios" class="py-24 md:py-32 bg-zinc-950 border-t border-zinc-900" aria-label="Servicios">
             <div class="container mx-auto px-6 md:px-12">
-                
                 <div class="max-w-4xl mb-20">
                     <h3 class="text-sm font-bold tracking-[0.2em] text-cyan-500 uppercase mb-6">El Ecosistema</h3>
-                    <h4 class="text-5xl md:text-6xl font-black leading-tight mb-8">
-                        6 pilares para aniquilar problemas.
-                    </h4>
+                    <h4 class="text-5xl md:text-6xl font-black leading-tight mb-8">6 pilares para aniquilar problemas.</h4>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <div class="bg-zinc-900/30 border border-zinc-800 p-8 rounded-2xl hover:border-cyan-500/50 hover:bg-zinc-900/80 transition-all group">
+                    <article class="bg-zinc-900/30 border border-zinc-800 p-8 rounded-2xl hover:border-cyan-500/50 hover:bg-zinc-900/80 transition-all group">
                         <i data-lucide="code" class="text-cyan-500 mb-6 group-hover:scale-110 transition-transform w-9 h-9"></i>
                         <h5 class="text-xl font-bold mb-4 text-white">Creative Tech & Dev</h5>
                         <p class="text-zinc-400 leading-relaxed text-sm">Desarrollo de soluciones tecnológicas no tradicionales. Integración de APIs complejas, Dashboards en tiempo real, creación de Apps e infraestructura web.</p>
-                    </div>
-
-                    <div class="bg-zinc-900/30 border border-zinc-800 p-8 rounded-2xl hover:border-cyan-500/50 hover:bg-zinc-900/80 transition-all group">
+                    </article>
+                    <article class="bg-zinc-900/30 border border-zinc-800 p-8 rounded-2xl hover:border-cyan-500/50 hover:bg-zinc-900/80 transition-all group">
                         <i data-lucide="trending-up" class="text-cyan-500 mb-6 group-hover:scale-110 transition-transform w-9 h-9"></i>
                         <h5 class="text-xl font-bold mb-4 text-white">Growth & SEO Matrix</h5>
                         <p class="text-zinc-400 leading-relaxed text-sm">Ingeniería de posicionamiento orgánico. Dominar el algoritmo de Google mediante arquitectura de contenidos para generar flujos de leads masivos en automático.</p>
-                    </div>
-
-                    <div class="bg-zinc-900/30 border border-zinc-800 p-8 rounded-2xl hover:border-cyan-500/50 hover:bg-zinc-900/80 transition-all group">
+                    </article>
+                    <article class="bg-zinc-900/30 border border-zinc-800 p-8 rounded-2xl hover:border-cyan-500/50 hover:bg-zinc-900/80 transition-all group">
                         <i data-lucide="monitor-smartphone" class="text-cyan-500 mb-6 group-hover:scale-110 transition-transform w-9 h-9"></i>
                         <h5 class="text-xl font-bold mb-4 text-white">BTL Data-Driven & DOOH</h5>
                         <p class="text-zinc-400 leading-relaxed text-sm">Conexión del mundo físico con la nube corporativa. Hackeo de hardware, pantallas en vía pública y eventos conectados a bases de datos para captura de leads.</p>
-                    </div>
-
-                    <div class="bg-zinc-900/30 border border-zinc-800 p-8 rounded-2xl hover:border-cyan-500/50 hover:bg-zinc-900/80 transition-all group">
+                    </article>
+                    <article class="bg-zinc-900/30 border border-zinc-800 p-8 rounded-2xl hover:border-cyan-500/50 hover:bg-zinc-900/80 transition-all group">
                         <i data-lucide="pen-tool" class="text-cyan-500 mb-6 group-hover:scale-110 transition-transform w-9 h-9"></i>
                         <h5 class="text-xl font-bold mb-4 text-white">Dirección Estratégica</h5>
                         <p class="text-zinc-400 leading-relaxed text-sm">Dirección de arte premium, conceptualización y copywriting galardonado. Construcción de mensajes psicológicos y diseño visual que convierten.</p>
-                    </div>
-
-                    <div class="bg-zinc-900/30 border border-zinc-800 p-8 rounded-2xl hover:border-cyan-500/50 hover:bg-zinc-900/80 transition-all group">
+                    </article>
+                    <article class="bg-zinc-900/30 border border-zinc-800 p-8 rounded-2xl hover:border-cyan-500/50 hover:bg-zinc-900/80 transition-all group">
                         <i data-lucide="layout" class="text-cyan-500 mb-6 group-hover:scale-110 transition-transform w-9 h-9"></i>
                         <h5 class="text-xl font-bold mb-4 text-white">Arquitectura de Solución</h5>
                         <p class="text-zinc-400 leading-relaxed text-sm">Consultoría pura de negocios. Deconstruir un problema masivo, auditar los cuellos de botella y diseñar el producto, proceso o campaña exacta para resolverlo.</p>
-                    </div>
-
-                    <div class="bg-cyan-950/20 border border-cyan-900/50 p-8 rounded-2xl hover:border-cyan-500/50 hover:bg-cyan-900/30 transition-all group relative overflow-hidden">
-                        <div class="absolute top-0 right-0 p-4 opacity-5 pointer-events-none">
-                            <i data-lucide="graduation-cap" class="w-[150px] h-[150px]"></i>
-                        </div>
+                    </article>
+                    <article class="bg-cyan-950/20 border border-cyan-900/50 p-8 rounded-2xl hover:border-cyan-500/50 hover:bg-cyan-900/30 transition-all group relative overflow-hidden">
+                        <div class="absolute top-0 right-0 p-4 opacity-5 pointer-events-none"><i data-lucide="graduation-cap" class="w-[150px] h-[150px]"></i></div>
                         <i data-lucide="graduation-cap" class="text-cyan-400 mb-6 group-hover:scale-110 transition-transform relative z-10 w-9 h-9"></i>
                         <h5 class="text-xl font-bold mb-4 text-white relative z-10">Capacitación & Mentoría</h5>
                         <p class="text-zinc-300 leading-relaxed text-sm relative z-10">Transferencia de conocimiento. Formación in-house para equipos corporativos y agencias, elevando su estándar táctico en tecnología creativa, marketing y resolución ágil.</p>
-                    </div>
+                    </article>
                 </div>
             </div>
         </section>
 
-        <!-- 6. NEWSLETTER -->
-        <section id="newsletter" class="py-24 bg-[#0a0a0a] border-t border-zinc-900 overflow-hidden relative">
+        <section id="newsletter" class="py-24 bg-[#0a0a0a] border-t border-zinc-900 overflow-hidden relative" aria-label="Suscripción a Newsletter">
             <div class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-cyan-900/20 via-[#0a0a0a] to-[#0a0a0a] pointer-events-none"></div>
-            
             <div class="container mx-auto px-6 md:px-12 relative z-10">
                 <div class="flex flex-col lg:flex-row items-center justify-between gap-12 bg-zinc-900/40 border border-zinc-800 rounded-3xl p-10 md:p-16">
                     <div class="flex-1 max-w-2xl">
@@ -263,35 +258,15 @@
                             Suscribirse en LinkedIn <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
                         </a>
                     </div>
-
-                    <div class="hidden lg:flex w-full max-w-sm relative">
-                        <div class="w-full aspect-square rounded-2xl border border-zinc-800 bg-zinc-900/80 p-8 shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-500">
-                            <div class="w-1/2 h-4 bg-zinc-800 rounded mb-6"></div>
-                            <div class="w-full h-2 bg-zinc-800 rounded mb-3"></div>
-                            <div class="w-5/6 h-2 bg-zinc-800 rounded mb-3"></div>
-                            <div class="w-full h-2 bg-zinc-800 rounded mb-3"></div>
-                            <div class="w-4/6 h-2 bg-zinc-800 rounded mb-8"></div>
-                            <div class="w-12 h-12 rounded-full bg-cyan-500/20 flex items-center justify-center border border-cyan-500/30">
-                                <i data-lucide="pen-tool" class="text-cyan-400 w-5 h-5"></i>
-                            </div>
-                        </div>
-                        <div class="absolute -bottom-6 -right-6 w-full aspect-square rounded-2xl border border-zinc-800 bg-zinc-950/80 p-8 shadow-2xl -z-10 transform -rotate-3"></div>
-                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- 8. CTA -->
-        <section id="contact" class="py-32 bg-[#050505] relative overflow-hidden border-t border-zinc-900">
+        <section id="contact" class="py-32 bg-[#050505] relative overflow-hidden border-t border-zinc-900" aria-label="Contacto y Agendamiento">
             <div class="absolute inset-0 bg-cyan-900/10 blur-[120px] rounded-full w-full h-full transform scale-150 pointer-events-none"></div>
-            
             <div class="container mx-auto px-6 md:px-12 relative z-10 text-center">
-                <h2 class="text-6xl md:text-8xl font-black tracking-tighter text-white mb-8">
-                    Hackeemos tu <br class="hidden md:block"/> próximo problema.
-                </h2>
-                <p class="text-xl md:text-2xl text-zinc-400 max-w-3xl mx-auto mb-12">
-                    Agenda una videollamada de 30 minutos. Explícame tu desafío corporativo y veamos si la tecnología creativa es la respuesta.
-                </p>
+                <h2 class="text-6xl md:text-8xl font-black tracking-tighter text-white mb-8">Hackeemos tu <br class="hidden md:block"/> próximo problema.</h2>
+                <p class="text-xl md:text-2xl text-zinc-400 max-w-3xl mx-auto mb-12">Agenda una videollamada de 30 minutos. Explícame tu desafío corporativo y veamos si la tecnología creativa es la respuesta.</p>
                 <a href="https://calendly.com/dan-tagle/30min" target="_blank" rel="noopener noreferrer" class="group inline-flex items-center gap-4 px-10 py-5 bg-cyan-500 text-zinc-950 font-black tracking-widest uppercase text-sm md:text-base rounded-full hover:bg-white hover:scale-105 transition-all shadow-[0_0_50px_rgba(34,211,238,0.2)] hover:shadow-[0_0_80px_rgba(34,211,238,0.4)]">
                     <i data-lucide="calendar" class="w-5 h-5"></i> Agendar 30 min. en Calendly
                     <i data-lucide="arrow-up-right" class="w-5 h-5 group-hover:rotate-45 transition-transform"></i>
@@ -300,7 +275,6 @@
         </section>
     </main>
 
-    <!-- FOOTER -->
     <footer class="bg-zinc-950 py-12 border-t border-zinc-900">
         <div class="container mx-auto px-6 md:px-12 flex flex-col md:flex-row justify-between items-center gap-6">
             <div class="text-zinc-500 font-medium text-sm flex items-center gap-4">
@@ -309,22 +283,19 @@
                 <span class="hidden md:inline-block uppercase tracking-widest">Problem Solver</span>
             </div>
             <div class="flex flex-wrap justify-center gap-6 md:gap-8 text-zinc-400 font-bold text-xs md:text-sm tracking-widest uppercase">
-                <a href="https://www.linkedin.com/newsletters/algo-que-decir-6943445859950821376/" target="_blank" rel="noopener noreferrer" class="hover:text-[#0A66C2] transition-colors flex items-center gap-2">
+                <a href="https://www.linkedin.com/newsletters/algo-que-decir-6943445859950821376/" target="_blank" rel="noopener noreferrer" class="hover:text-[#0A66C2] transition-colors flex items-center gap-2" aria-label="Newsletter en LinkedIn">
                     <i data-lucide="book-open" class="w-3.5 h-3.5"></i> Newsletter
                 </a>
-                <a href="https://creativepool.com/Dondt" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-400 transition-colors">Creativepool</a>
-                <a href="https://www.behance.net/kulhunter" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-400 transition-colors">Behance</a>
-                <a href="https://www.linkedin.com/in/taglecl/" target="_blank" rel="noopener noreferrer" class="hover:text-[#0A66C2] transition-colors">LinkedIn</a>
+                <a href="https://creativepool.com/Dondt" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-400 transition-colors" aria-label="Perfil de Creativepool">Creativepool</a>
+                <a href="https://www.behance.net/kulhunter" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-400 transition-colors" aria-label="Portafolio en Behance">Behance</a>
+                <a href="https://www.linkedin.com/in/taglecl/" target="_blank" rel="noopener noreferrer" class="hover:text-[#0A66C2] transition-colors" aria-label="Perfil de LinkedIn">LinkedIn</a>
             </div>
         </div>
     </footer>
 
-    <!-- LOGICA JAVASCRIPT (Datos y Renderizado) -->
     <script>
-        // Inicializar Iconos Lucide
         lucide.createIcons();
 
-        // Efecto Navbar Scroll
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
@@ -336,9 +307,6 @@
             }
         });
 
-        // ==========================================
-        // BASE DE DATOS DE CASOS
-        // ==========================================
         const projectsData = [
             {
                 client: "Oracle NetSuite Partner",
@@ -475,7 +443,7 @@
                 insight: "Los peluches necesitan alma. Deben comportarse como entidades vivas en el entorno digital.",
                 solucion: "Creación de historias, perfiles y la regla de oro: todos los personajes solo se comunicaban en rima. Un éxito masivo que se repite anualmente hasta hoy.",
                 link: "https://www.behance.net/gallery/16670095/Duendes-Cencosud",
-                image: "https://images.unsplash.com/photo-1543817112-9cddfa2eb8f7?auto=format&fit=crop&q=80&w=1200",
+                image: "https://images.unsplash.com/photo-1543508282-6319a3e2621f?auto=format&fit=crop&q=80&w=1200",
             },
             {
                 client: "Why Agency",
@@ -551,7 +519,6 @@
             }
         ];
 
-        // Renderizar Casos HTML Dinámicamente
         const casosContainer = document.getElementById('casos-container');
         let htmlCasos = '';
 
@@ -559,7 +526,6 @@
             const isEven = index % 2 !== 0;
             const numberFormat = index + 1 < 10 ? `0${index + 1}` : index + 1;
             
-            // Construir Bloque de Problema/Solución si existe
             let dataBox = '';
             if(project.problema) {
                 let resultadosHtml = project.resultados ? `
@@ -584,14 +550,14 @@
             }
 
             htmlCasos += `
-                <div id="caso-${index}" class="group relative flex flex-col md:flex-row gap-12 lg:gap-20 items-center pt-20 -mt-20"> <!-- pt y mt ayudan con el ancla de navegación -->
-                    <div class="absolute top-0 right-0 md:left-1/2 md:-translate-x-1/2 -translate-y-1/2 text-[10rem] md:text-[20rem] font-black text-zinc-900/20 pointer-events-none select-none z-0">
+                <article id="caso-${index}" class="group relative flex flex-col md:flex-row gap-12 lg:gap-20 items-center pt-20 -mt-20">
+                    <div class="absolute top-0 right-0 md:left-1/2 md:-translate-x-1/2 -translate-y-1/2 text-[10rem] md:text-[20rem] font-black text-zinc-900/20 pointer-events-none select-none z-0" aria-hidden="true">
                         ${numberFormat}
                     </div>
                     
                     <div class="relative z-10 w-full md:w-1/2 overflow-hidden rounded-2xl aspect-[4/3] bg-zinc-900 border border-zinc-800 ${isEven ? 'md:order-last' : ''}">
-                        <a href="${project.link}" target="_blank" rel="noopener noreferrer" class="block w-full h-full relative">
-                            <img src="${project.image}" alt="${project.title}" class="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out" />
+                        <a href="${project.link}" target="_blank" rel="noopener noreferrer" class="block w-full h-full relative" aria-label="Ver caso completo de ${project.client}">
+                            <img src="${project.image}" alt="Imagen del proyecto ${project.title} para ${project.client}" loading="lazy" class="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out" />
                             <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent opacity-90"></div>
                         </a>
                     </div>
@@ -615,47 +581,25 @@
                             </span>
                         </a>
                     </div>
-                </div>
+                </article>
             `;
         });
         casosContainer.innerHTML = htmlCasos;
-        lucide.createIcons(); // Re-render icons for dynamic content
+        lucide.createIcons();
 
-        // ==========================================
-        // LÓGICA DEL DESFIBRILADOR DE BRIEFS (Matrix)
-        // ==========================================
+        // LÓGICA DEL DESFIBRILADOR DE BRIEFS
         const matrixProblems = [
             {
-                id: 1,
-                symptom: "Mi pauta digital (Ads) está carísima y casi no convierte.",
-                diagnosis: "Dependencia de Outbound",
-                solution: "Dejar de interrumpir. Crear una Arquitectura SEO Orgánica que intercepte a tu cliente exactamente en el milisegundo que está buscando tu solución en Google. (Como hicimos con el ERP B2B).",
-                icon: "trending-up",
-                relatedCaseId: 0 // Apunta a Oracle NetSuite (#caso-0)
+                id: 1, symptom: "Mi pauta digital (Ads) está carísima y casi no convierte.", diagnosis: "Dependencia de Outbound", solution: "Dejar de interrumpir. Crear una Arquitectura SEO Orgánica que intercepte a tu cliente exactamente en el milisegundo que está buscando tu solución en Google. (Como hicimos con el ERP B2B).", icon: "trending-up", relatedCaseId: 0
             },
             {
-                id: 2,
-                symptom: "Nuestros eventos BTL son un gasto muerto sin retorno de data.",
-                diagnosis: "BTL Analógico Desconectado",
-                solution: "Hackear el hardware de la activación (ruletas, tótems) e integrarlos vía API a tu CRM corporativo. El entretenimiento físico debe capturar leads en tiempo real.",
-                icon: "monitor-smartphone",
-                relatedCaseId: 4 // Apunta a Tenpo Ruleta (#caso-4)
+                id: 2, symptom: "Nuestros eventos BTL son un gasto muerto sin retorno de data.", diagnosis: "BTL Analógico Desconectado", solution: "Hackear el hardware de la activación (ruletas, tótems) e integrarlos vía API a tu CRM corporativo. El entretenimiento físico debe capturar leads en tiempo real.", icon: "monitor-smartphone", relatedCaseId: 4
             },
             {
-                id: 3,
-                symptom: "Vendemos un software/servicio tan complejo que nadie lo entiende.",
-                diagnosis: "Abstracción Corporativa",
-                solution: "Tangibilizar mediante Visualización de Datos. No vendas el código, muestra lo que el código puede lograr en el mundo real (Como el Dashboard de seguimiento de Santa Claus).",
-                icon: "code",
-                relatedCaseId: 1 // Apunta a Santa's Tracker (#caso-1)
+                id: 3, symptom: "Vendemos un software/servicio tan complejo que nadie lo entiende.", diagnosis: "Abstracción Corporativa", solution: "Tangibilizar mediante Visualización de Datos. No vendas el código, muestra lo que el código puede lograr en el mundo real (Como el Dashboard de seguimiento de Santa Claus).", icon: "code", relatedCaseId: 1
             },
             {
-                id: 4,
-                symptom: "Queremos hacer algo disruptivo pero nuestra marca es 'tradicional'.",
-                diagnosis: "Miedo a la Ejecución",
-                solution: "Aplicar la intersección de Tecnología + Realidad. Unir factores externos (clima, contingencia, apis) con pantallas o productos para crear relevancia instantánea sin perder seriedad.",
-                icon: "zap",
-                relatedCaseId: 2 // Apunta a DOOH Ssangyong Clima (#caso-2)
+                id: 4, symptom: "Queremos hacer algo disruptivo pero nuestra marca es 'tradicional'.", diagnosis: "Miedo a la Ejecución", solution: "Aplicar la intersección de Tecnología + Realidad. Unir factores externos (clima, contingencia, apis) con pantallas o productos para crear relevancia instantánea sin perder seriedad.", icon: "zap", relatedCaseId: 2
             }
         ];
 
@@ -663,10 +607,9 @@
         const matrixResultContainer = document.getElementById('matrix-result');
         let activeMatrixId = null;
 
-        // Render Buttons
         function renderMatrixButtons() {
             matrixButtonsContainer.innerHTML = matrixProblems.map(prob => `
-                <button onclick="handleMatrixClick(${prob.id})" class="w-full text-left p-4 rounded-xl border transition-all duration-300 flex items-center gap-4 ${activeMatrixId === prob.id ? 'bg-cyan-500/10 border-cyan-500 text-white' : 'bg-zinc-950/50 border-zinc-800 text-zinc-400 hover:border-zinc-600'}">
+                <button onclick="handleMatrixClick(${prob.id})" aria-pressed="${activeMatrixId === prob.id}" class="w-full text-left p-4 rounded-xl border transition-all duration-300 flex items-center gap-4 ${activeMatrixId === prob.id ? 'bg-cyan-500/10 border-cyan-500 text-white' : 'bg-zinc-950/50 border-zinc-800 text-zinc-400 hover:border-zinc-600'}">
                     <div class="w-3 h-3 rounded-full ${activeMatrixId === prob.id ? 'bg-cyan-500 shadow-[0_0_10px_#06b6d4]' : 'bg-zinc-700'}"></div>
                     <span class="text-sm font-medium leading-snug">${prob.symptom}</span>
                 </button>
@@ -675,8 +618,7 @@
 
         function handleMatrixClick(id) {
             activeMatrixId = id;
-            renderMatrixButtons(); // Refresh buttons state
-            
+            renderMatrixButtons();
             const prob = matrixProblems.find(p => p.id === id);
             
             matrixResultContainer.innerHTML = `
@@ -689,10 +631,9 @@
                     <p class="text-zinc-300 leading-relaxed font-light mb-8">
                         ${prob.solution}
                     </p>
-                    
                     <div class="flex flex-col sm:flex-row gap-4">
                         <a href="#caso-${prob.relatedCaseId}" class="inline-flex justify-center items-center gap-2 px-5 py-2.5 bg-zinc-800 text-white hover:text-cyan-400 border border-zinc-700 hover:border-cyan-500 font-bold text-sm rounded-full transition-all">
-                            Ver ejemplo de esto <i data-lucide="arrow-down" class="w-4 h-4"></i>
+                            Ver ejemplo <i data-lucide="arrow-down" class="w-4 h-4"></i>
                         </a>
                         <a href="https://calendly.com/dan-tagle/30min" target="_blank" rel="noopener noreferrer" class="inline-flex justify-center items-center gap-2 px-5 py-2.5 bg-cyan-500 text-zinc-950 font-bold text-sm rounded-full hover:bg-white hover:scale-105 transition-all shadow-[0_0_15px_rgba(34,211,238,0.3)]">
                             <i data-lucide="calendar" class="w-4 h-4"></i> Agendar para aplicar
@@ -703,9 +644,7 @@
             lucide.createIcons();
         }
 
-        // Initialize empty state buttons
         renderMatrixButtons();
-
     </script>
 </body>
 </html>
