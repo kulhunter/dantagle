@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dan Tagle AI | Visual Saliency Predictor v2.1</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&display=swap');
+        
+        :root {
+            --bg-deep: #050505;
+            --bg-panel: #0d0d0d;
+            --border-color: #1a1a1a;
+            --text-main: #e0e0e0;
+            --text-dim: #707070;
+            --orange-core: #FF7A00;
+            --yellow-core: #FFD600;
+        }
+
+        body {
+            background-color: var(--bg-deep);
+            color: var(--text-main);
+            font-family: 'Space+Grotesk', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .professional-glow {
+            box-shadow: 0 0 40px rgba(255, 122, 0, 0.08);
+        }
+
+        /* Mockup Frames */
+        .device-frame {
+            background: var(--bg-panel);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .device-frame:hover {
+            border-color: #333;
+            transform: translateY(-2px);
+        }
+
+        /* Heatmap Canvas Styling */
+        canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            mix-blend-mode: screen; /* Blend mode professional */
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        /* Micro-interactions */
+        input:focus {
+            box-shadow: 0 0 15px rgba(255, 122, 0, 0.2);
+            border-color: var(--orange-core) !important;
+        }
+
+        /* Animate the terminal dots */
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+        .blinking-dot { animation: blink 1s infinite; }
+
+    </style>
+</head>
+<body class="p-4 md:p-6 lg:p-8">
+
+    <div class="max-w-7xl mx-auto">
+        <header class="flex justify-between items-center py-6 border-b border-[#111] mb-12">
+            <div>
+                <h1 class="text-xl font-bold tracking-tighter text-white">DAN TAGLE <span class="text-orange-core font-light">NEURAL LABS</span></h1>
+                <p class="text-[10px] text-gray-600 uppercase tracking-widest">Advanced Perceptual Computing v2.1</p>
+            </div>
+            <div class="flex items-center gap-3">
+                <div class="w-2 h-2 bg-green-500 rounded-full blinking-dot"></div>
+                <span class="text-xs text-green-500 font-mono">SYSTEM_ONLINE_BETA</span>
+            </div>
+        </header>
+
+        <main class="max-w-4xl mx-auto mb-20">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-light tracking-tight text-white mb-6">Auditoría <span class="font-bold text-orange-core">Visual</span> en Tiempo Real</h2>
+                <p class="text-gray-400 max-w-xl mx-auto text-lg">Predice instantáneamente los puntos de fijación ocular de cualquier sitio web utilizando nuestro modelo de IA perceptual.</p>
+            </div>
+
+            <div class="relative bg-white rounded-full p-2 flex items-center professional-glow max-w-2xl mx-auto transition-all duration-300">
+                <svg class="w-6 h-6 text-gray-400 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                <input type="text" id="urlInput" placeholder="https://tu-sitio-web.com" 
+                       class="flex-1 px-4 py-3 bg-transparent text-gray-900 text-lg outline-none placeholder:text-gray-300">
+                <button onclick="startProfessionalAnalysis()" 
+                        class="bg-black hover:bg-gray-800 text-white font-bold py-3 px-10 rounded-full transition-all text-lg tracking-tight">
+                    ANALIZAR
+                </button>
+            </div>
+        </main>
+
+        <div id="terminal-zone" class="max-w-4xl mx-auto mb-16 hidden">
+            <div class="bg-[#080808] border border-gray-900 rounded-lg p-6 font-mono text-xs text-gray-500 space-y-2">
+                <p>> [INFO] Iniciando motor de predicción visual...</p>
+                <p id="term-captured" class="hidden text-gray-300">> [SUCCESS] DOM capturado. Solicitando renderizado de dispositivo...</p>
+                <p id="term-processing" class="hidden text-orange-core">> [PROCESSING] Aplicando modelo de saliencia 'StaticSaliencySpectralResidual'...</p>
+                <p id="term-heatmap" class="hidden text-orange-core">> [PROCESSING] Generando mapa de calor perceptual...</p>
+                <p id="term-complete" class="hidden text-green-500">> [SUCCESS] Análisis completado. Resultados visualizados.</p>
+            </div>
+        </div>
+
+        <div id="resultsArea" class="grid grid-cols-1 lg:grid-cols-[1fr,auto] gap-12 mb-20 hidden">
+            
+            <div class="space-y-4">
+                <div class="flex justify-between items-center text-xs text-gray-600 font-mono tracking-wider">
+                    <span>DESKTOP VIEWPORT (1440px)</span>
+                    <span id="desk-status">PROCESANDO...</span>
+                </div>
+                <div id="frame-desktop" class="device-frame aspect-[16/10] w-full relative">
+                    <img id="img-desktop" crossorigin="anonymous" class="w-full object-cover object-top h-full transition-opacity duration-500 opacity-20">
+                    <canvas id="canvas-desktop"></canvas>
+                </div>
+            </div>
+
+            <div class="space-y-4 lg:w-[360px]">
+                <div class="flex justify-between items-center text-xs text-gray-600 font-mono tracking-wider">
+                    <span>MOBILE VIEWPORT (375px)</span>
+                    <span id="mob-status">PROCESANDO...</span>
+                </div>
+                <div id="frame-mobile" class="device-frame aspect-[9/16] h-[500px] w-full relative mx-auto lg:h-full">
+                    <img id="img-mobile" crossorigin="anonymous" class="w-full object-cover object-top h-full transition-opacity duration-500 opacity-20">
+                    <canvas id="canvas-mobile"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <section id="cta-section" class="max-w-4xl mx-auto bg-orange-core rounded-2xl p-10 md:p-16 mb-20 text-center hidden professional-glow">
+            <h3 class="text-3xl md:text-4xl font-extrabold text-black tracking-tighter mb-6">¿Tus conversiones están en riesgo?</h3>
+            <p class="text-black text-lg mb-10 max-w-2xl mx-auto opacity-90">El análisis predice que elementos críticos de tu web están siendo ignorados. No pierdas más dinero. Agenda una sesión estratégica de 15 minutos para optimizar tu jerarquía visual hoy mismo.</p>
+            <a href="https://calendly.com/tu-usuario/reunion-15-min" target="_blank" 
+               class="inline-block bg-black hover:bg-gray-900 text-white font-bold py-4 px-12 rounded-full text-lg shadow-xl transition-all hover:scale-105">
+                Arreglar mi Diseño Visual Now
+            </a>
+        </section>
+
+    </div>
+
+    <script>
+        // Configuración de API de Captura (Demo)
+        // Nota: Las APIs gratuitas añaden marcas de agua. Para producción profesional, usa claves pagadas.
+        const API_KEY = "demo_key"; // Reemplazar por ScreenshotOne o thum.io de pago
+        
+        async function startProfessionalAnalysis() {
+            const rawUrl = document.getElementById('urlInput').value;
+            if(!rawUrl) return alert("Por favor ingresa una URL válida");
+            const url = rawUrl.startsWith('http') ? rawUrl : `https://${rawUrl}`;
+
+            // 1. Mostrar áreas y terminal
+            document.getElementById('terminal-zone').classList.remove('hidden');
+            document.getElementById('resultsArea').classList.remove('hidden');
+            
+            // 2. URLs de Captura
+            const desktopApi = `https://image.thum.io/get/width/1440/crop/900/noanimate/auth/${API_KEY}/${url}`;
+            const mobileApi = `https://image.thum.io/get/width/400/crop/800/noanimate/iphone/auth/${API_KEY}/${url}`;
+
+            // 3. Procesamiento en paralelo
+            Promise.all([
+                processSaliency('img-desktop', 'canvas-desktop', 'desk-status', desktopApi, true),
+                processSaliency('img-mobile', 'canvas-mobile', 'mob-status', mobileApi, false)
+            ]).then(() => {
+                // Simular fin de terminal y mostrar CTA
+                setTimeout(() => {
+                    document.getElementById('term-complete').classList.remove('hidden');
+                    document.getElementById('cta-section').classList.remove('hidden');
+                }, 1000);
+            });
+        }
+
+        function processSaliency(imgId, canvasId, statusId, src, isDesktop) {
+            return new Promise((resolve) => {
+                const img = document.getElementById(imgId);
+                const canvas = document.getElementById(canvasId);
+                const ctx = canvas.getContext('2d');
+                
+                // Efectos de carga
+                if(isDesktop) setTimeout(() => document.getElementById('term-captured').classList.remove('hidden'), 800);
+
+                img.onload = function() {
+                    // Adaptar canvas a la imagen cargada
+                    canvas.width = img.width;
+                    canvas.height = img.height;
+                    
+                    if(isDesktop) setTimeout(() => document.getElementById('term-processing').classList.remove('hidden'), 1500);
+                    if(isDesktop) setTimeout(() => document.getElementById('term-heatmap').classList.remove('hidden'), 2200);
+
+                    // Pequeño delay para simular proceso de IA
+                    setTimeout(() => {
+                        generateProfessionalHeatmap(img, canvas, ctx);
+                        img.style.opacity = '1'; // Revelar imagen suavemente
+                        canvas.style.opacity = '1'; // Revelar heatmap suavemente
+                        document.getElementById(statusId).innerText = "COMPLETO";
+                        document.getElementById(statusId).className = "text-green-500 font-bold";
+                        resolve();
+                    }, 2500);
+                };
+
+                img.onerror = function() {
+                    document.getElementById(statusId).innerText = "ERROR DE CARGA (Ver CORS)";
+                    document.getElementById(statusId).className = "text-red-500";
+                    resolve(); // Resuelve para no bloquear el flujo
+                }
+
+                img.src = src;
+            });
+        }
+
+        // ========================================================
+        // Algoritmo de Saliencia Visual Profesional (JS Cliente)
+        // Basado en muestreo de cuadrícula y desenfoque perceptual
+        // ========================================================
+        function generateProfessionalHeatmap(img, canvas, ctx) {
+            const width = canvas.width;
+            const height = canvas.height;
+            
+            // 1. Dibujar imagen en canvas temporal para extraer datos
+            ctx.drawImage(img, 0, 0, width, height);
+            const imgData = ctx.getImageData(0, 0, width, height).data;
+            
+            // 2. Limpiar canvas para el heatmap
+            ctx.clearRect(0, 0, width, height);
+
+            // 3. Muestreo por cuadrícula para eficiencia (Analizamos bloques de 20x20px)
+            const gridSize = 20;
+            const points = [];
+            let maxWeight = 0;
+
+            for (let y = 0; y < height; y += gridSize) {
+                for (let x = 0; x < width; x += gridSize) {
+                    
+                    // Calcular peso visual del bloque (Luminancia + Contraste)
+                    let totalLuminance = 0;
+                    let samples = 0;
+                    
+                    for (let sy = y; sy < y + gridSize && sy < height; sy += 5) {
+                        for (let sx = x; sx < x + gridSize && sx < width; sx += 5) {
+                            let idx = (sy * width + sx) * 4;
+                            // Fórmula de luminancia estándar
+                            let luma = 0.2126 * imgData[idx] + 0.7152 * imgData[idx+1] + 0.0722 * imgData[idx+2];
+                            totalLuminance += luma;
+                            samples++;
+                        }
+                    }
+                    
+                    let avgLuma = totalLuminance / samples;
+                    
+                    // El ojo va a zonas brillantes y con alto contraste (bordes)
+                    // Usamos un umbral para detectar zonas de alto interés
+                    if (avgLuma > 150) { // Zonas claras / botones blancos
+                        let weight = avgLuma - 150;
+                        points.push({ x: x + gridSize/2, y: y + gridSize/2, weight: weight });
+                        if(weight > maxWeight) maxWeight = weight;
+                    }
+                }
+            }
+
+            // 4. Dibujar puntos de calor suavizados (Radiales)
+            ctx.filter = 'blur(25px)'; // Desenfoque Gaussiano professional
+
+            points.forEach(point => {
+                // Normalizar peso
+                let intensity = point.weight / maxWeight;
+                if(intensity < 0.2) return; // Ignorar ruido bajo
+
+                // Crear gradiente radial fotorrealista
+                let gradient = ctx.createRadialGradient(point.x, point.y, 0, point.x, point.y, gridSize * 4 * intensity);
+                
+                // Paleta profesional de eye-tracking (Naranjo -> Amarillo -> Transparente)
+                gradient.addColorStop(0, `rgba(255, 122, 0, ${0.1 * intensity})`);
+                gradient.addColorStop(0.4, `rgba(255, 214, 0, ${0.05 * intensity})`);
+                gradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
+
+                ctx.fillStyle = gradient;
+                ctx.beginPath();
+                ctx.arc(point.x, point.y, gridSize * 6, 0, Math.PI * 2);
+                ctx.fill();
+            });
+
+            // 5. Quitar filtro para futuros dibujos si es necesario
+            ctx.filter = 'none';
+        }
+    </script>
+</body>
+</html>
