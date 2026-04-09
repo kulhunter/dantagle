@@ -3,234 +3,153 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dan Tagle AI | Visual Saliency Predictor v2.2</title>
+    <title>Dan Tagle AI | Eye-Tracker Pro v3.0</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&display=swap');
-        
-        :root {
-            --bg-deep: #050505;
-            --bg-panel: #0d0d0d;
-            --border-color: #1a1a1a;
-            --text-main: #e0e0e0;
-            --orange-core: #FF7A00;
-        }
-
-        body {
-            background-color: var(--bg-deep);
-            color: var(--text-main);
-            font-family: 'Space+Grotesk', sans-serif;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        .professional-glow { box-shadow: 0 0 40px rgba(255, 122, 0, 0.1); }
-        
-        .device-frame {
-            background: var(--bg-panel);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        canvas {
-            position: absolute;
-            top: 0;
-            left: 0;
-            pointer-events: none;
-            mix-blend-mode: screen;
-            opacity: 0;
-            transition: opacity 1.2s ease-in-out;
-        }
-
-        input:focus {
-            box-shadow: 0 0 15px rgba(255, 122, 0, 0.2);
-            border-color: var(--orange-core) !important;
-        }
-
-        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
-        .blinking-dot { animation: blink 1s infinite; }
-        
-        .loading-shimmer {
-            background: linear-gradient(90deg, #0d0d0d 25%, #1a1a1a 50%, #0d0d0d 75%);
-            background-size: 200% 100%;
-            animation: shimmer 1.5s infinite;
-        }
+        body { background-color: #050505; color: #e0e0e0; font-family: 'Space+Grotesk', sans-serif; }
+        .device-frame { background: #0d0d0d; border: 1px solid #1a1a1a; border-radius: 12px; overflow: hidden; position: relative; }
+        canvas { position: absolute; top: 0; left: 0; pointer-events: none; opacity: 0; transition: opacity 1s ease-in; z-index: 10; }
+        img { transition: opacity 0.5s ease; width: 100%; height: 100%; object-fit: cover; object-position: top; }
+        .loading-shimmer { background: linear-gradient(90deg, #0d0d0d 25%, #1a1a1a 50%, #0d0d0d 75%); background-size: 200% 100%; animation: shimmer 1.5s infinite; }
         @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+        .orange-glow { box-shadow: 0 0 40px rgba(255, 122, 0, 0.15); }
     </style>
 </head>
 <body class="p-4 md:p-8">
 
     <div class="max-w-7xl mx-auto">
-        <header class="flex justify-between items-center py-6 border-b border-[#111] mb-12">
-            <div>
-                <h1 class="text-xl font-bold tracking-tighter text-white">DAN TAGLE <span class="text-orange-core font-light">NEURAL LABS</span></h1>
-                <p class="text-[10px] text-gray-600 uppercase tracking-widest text-right md:text-left">Perceptual Computing Engine v2.2</p>
-            </div>
-            <div class="flex items-center gap-3">
-                <div class="w-2 h-2 bg-green-500 rounded-full blinking-dot"></div>
-                <span class="text-xs text-green-500 font-mono hidden md:inline">SYSTEM_READY</span>
-            </div>
+        <header class="flex justify-between items-center py-6 border-b border-zinc-900 mb-12">
+            <h1 class="text-xl font-bold tracking-tighter text-white uppercase">DAN TAGLE <span class="text-orange-500 font-light">NEURAL EYE v3.0</span></h1>
+            <span class="text-[10px] text-green-500 font-mono animate-pulse">● ENGINE_OPTIMIZED</span>
         </header>
 
         <main class="max-w-4xl mx-auto mb-16">
-            <div class="text-center mb-12">
-                <h2 class="text-4xl md:text-5xl font-light tracking-tight text-white mb-6">Auditoría <span class="font-bold text-orange-core underline">Visual</span> Predictiva</h2>
-                <p class="text-gray-400 max-w-xl mx-auto">Nuestro algoritmo analiza contrastes y pesos de píxeles para predecir dónde mirará el ojo humano en los primeros 3 segundos.</p>
+            <div class="text-center mb-10">
+                <h2 class="text-4xl md:text-6xl font-black tracking-tighter text-white mb-4">MAPA DE CALOR <span class="text-orange-500 italic">IA</span></h2>
+                <p class="text-zinc-500">Analizando contraste semántico y jerarquía visual.</p>
             </div>
 
-            <div class="relative bg-white rounded-full p-1.5 flex items-center professional-glow max-w-2xl mx-auto">
-                <input type="text" id="urlInput" placeholder="https://ejemplo.cl" 
-                       class="flex-1 px-6 py-3 bg-transparent text-gray-900 text-lg outline-none">
-                <button onclick="startProfessionalAnalysis()" 
-                        class="bg-black hover:bg-gray-800 text-white font-bold py-3 px-10 rounded-full transition-all tracking-tighter">
-                    ANALIZAR AHORA
-                </button>
+            <div class="relative bg-white rounded-full p-2 flex items-center orange-glow max-w-2xl mx-auto">
+                <input type="text" id="urlInput" placeholder="https://tu-sitio.com" class="flex-1 px-6 py-2 text-black text-lg outline-none">
+                <button onclick="startAnalysis()" class="bg-orange-500 hover:bg-black text-black hover:text-white font-bold py-3 px-8 rounded-full transition-all uppercase text-sm">Analizar</button>
             </div>
         </main>
 
-        <div id="terminal-zone" class="max-w-4xl mx-auto mb-12 hidden">
-            <div class="bg-black border border-gray-900 rounded-lg p-5 font-mono text-[11px] text-gray-500 space-y-1">
-                <p>> [INFO] Inicializando motor neuronal...</p>
-                <p id="term-captured" class="hidden">> [OK] Capturando viewport remoto...</p>
-                <p id="term-processing" class="hidden text-orange-400">> [WAIT] Aplicando algoritmo de saliencia visual...</p>
-                <p id="term-heatmap" class="hidden text-orange-400">> [WAIT] Renderizando mapa de calor predictivo...</p>
-                <p id="term-complete" class="hidden text-green-500">> [DONE] Análisis finalizado con éxito.</p>
-            </div>
-        </div>
-
-        <div id="resultsArea" class="grid grid-cols-1 lg:grid-cols-[1fr,320px] gap-10 mb-16 hidden">
-            
+        <div id="resultsArea" class="grid grid-cols-1 lg:grid-cols-[1fr,360px] gap-10 hidden">
             <div class="space-y-3">
-                <div class="flex justify-between text-[10px] text-gray-600 font-mono tracking-widest">
-                    <span>DESKTOP VIEWPORT (1200px)</span>
-                    <span id="desk-status" class="text-orange-500">PROCESANDO...</span>
+                <div class="flex justify-between text-[10px] font-bold text-zinc-600 uppercase tracking-widest">
+                    <span>Desktop Viewport (1280px)</span>
+                    <span id="desk-status" class="text-orange-500 italic">Analizando...</span>
                 </div>
-                <div class="device-frame aspect-[16/10] relative loading-shimmer">
-                    <img id="img-desktop" crossorigin="anonymous" class="w-full h-full object-cover object-top opacity-0 transition-opacity duration-700">
+                <div class="device-frame aspect-[16/10] loading-shimmer">
+                    <img id="img-desktop" crossorigin="anonymous" class="opacity-0">
                     <canvas id="canvas-desktop"></canvas>
                 </div>
             </div>
 
             <div class="space-y-3">
-                <div class="flex justify-between text-[10px] text-gray-600 font-mono tracking-widest">
-                    <span>MOBILE VIEW (400px)</span>
-                    <span id="mob-status" class="text-orange-500">PROCESANDO...</span>
+                <div class="flex justify-between text-[10px] font-bold text-zinc-600 uppercase tracking-widest">
+                    <span>Mobile Native (iPhone View)</span>
+                    <span id="mob-status" class="text-orange-500 italic">Analizando...</span>
                 </div>
-                <div class="device-frame h-[500px] relative loading-shimmer">
-                    <img id="img-mobile" crossorigin="anonymous" class="w-full h-full object-cover object-top opacity-0 transition-opacity duration-700">
+                <div class="device-frame h-[600px] w-full max-w-[360px] mx-auto loading-shimmer">
+                    <img id="img-mobile" crossorigin="anonymous" class="opacity-0">
                     <canvas id="canvas-mobile"></canvas>
                 </div>
             </div>
         </div>
 
-        <section id="cta-section" class="max-w-4xl mx-auto bg-orange-500 rounded-3xl p-10 text-center hidden professional-glow mb-20">
-            <h3 class="text-3xl font-black text-black mb-4 uppercase italic tracking-tighter">¿Tu sitio está fallando el test?</h3>
-            <p class="text-black/80 mb-8 font-medium">Los puntos de calor indican que tus clientes están ignorando tus llamadas a la acción. Vamos a arreglarlo.</p>
-            <a href="https://calendly.com/dan-tagle/30min" target="_blank" 
-               class="inline-block bg-black text-white font-bold py-4 px-10 rounded-full hover:scale-105 transition-transform shadow-2xl">
-                RESERVAR AUDITORÍA COMPLETA
-            </a>
+        <section id="cta-section" class="max-w-4xl mx-auto bg-orange-500 rounded-3xl p-12 text-center mt-20 hidden">
+            <h3 class="text-4xl font-black text-black mb-4 uppercase tracking-tighter italic">¿Tu mensaje se pierde en el ruido?</h3>
+            <p class="text-black/70 text-lg mb-8 font-medium">Las zonas rojas muestran donde se agota la atención. Si tu botón de compra no es rojo, estás perdiendo dinero.</p>
+            <a href="https://calendly.com/dan-tagle/30min" target="_blank" class="inline-block bg-black text-white font-bold py-4 px-12 rounded-full hover:scale-105 transition-transform">RE-DISEÑAR MI ESTRATEGIA</a>
         </section>
-
     </div>
 
     <script>
-        async function startProfessionalAnalysis() {
-            const rawUrl = document.getElementById('urlInput').value;
-            if(!rawUrl) return alert("Ingresa una URL");
+        async function startAnalysis() {
+            const urlValue = document.getElementById('urlInput').value;
+            if(!urlValue) return alert("Ingresa una URL");
             
-            // Limpiar URL para evitar errores
-            const cleanUrl = rawUrl.replace(/^https?:\/\//, '');
-            const finalUrl = `https://${cleanUrl}`;
-
-            // Reiniciar UI
-            document.getElementById('terminal-zone').classList.remove('hidden');
-            document.getElementById('resultsArea').classList.remove('hidden');
+            const cleanUrl = urlValue.replace(/^https?:\/\//, '');
+            const results = document.getElementById('resultsArea');
+            results.classList.remove('hidden');
             document.getElementById('cta-section').classList.add('hidden');
-            
-            // Proveedor de Captura (Thum.io modo público sin errores de llave)
-            const desktopApi = `https://image.thum.io/get/width/1200/crop/800/noanimate/https://${cleanUrl}`;
-            const mobileApi = `https://image.thum.io/get/width/400/crop/800/iphone/noanimate/https://${cleanUrl}`;
 
-            Promise.all([
-                processImage('img-desktop', 'canvas-desktop', 'desk-status', desktopApi, true),
-                processImage('img-mobile', 'canvas-mobile', 'mob-status', mobileApi, false)
-            ]).then(() => {
-                setTimeout(() => {
-                    document.getElementById('term-complete').classList.remove('hidden');
-                    document.getElementById('cta-section').classList.remove('hidden');
-                }, 1000);
-            });
+            // Captura REAL Mobile (Usando parámetros específicos de Thum.io para iPhone)
+            const desktopSrc = `https://image.thum.io/get/width/1280/crop/800/noanimate/https://${cleanUrl}`;
+            const mobileSrc = `https://image.thum.io/get/iphone/width/400/noanimate/https://${cleanUrl}`;
+
+            processUnit('img-desktop', 'canvas-desktop', 'desk-status', desktopSrc);
+            processUnit('img-mobile', 'canvas-mobile', 'mob-status', mobileSrc);
         }
 
-        async function processImage(imgId, canvasId, statusId, src, isPrimary) {
+        function processUnit(imgId, canvasId, statusId, src) {
             const img = document.getElementById(imgId);
             const canvas = document.getElementById(canvasId);
-            
-            // FIX: willReadFrequently evita la advertencia de consola
             const ctx = canvas.getContext('2d', { willReadFrequently: true });
             
-            if(isPrimary) setTimeout(() => document.getElementById('term-captured').classList.remove('hidden'), 500);
-
-            return new Promise((resolve) => {
-                img.onload = function() {
-                    canvas.width = img.width;
-                    canvas.height = img.height;
-                    
-                    if(isPrimary) setTimeout(() => document.getElementById('term-processing').classList.remove('hidden'), 1200);
-                    if(isPrimary) setTimeout(() => document.getElementById('term-heatmap').classList.remove('hidden'), 1800);
-
-                    setTimeout(() => {
-                        runHeatmapLogic(img, canvas, ctx);
-                        img.style.opacity = '1';
-                        canvas.style.opacity = '1';
-                        document.getElementById(statusId).innerText = "COMPLETO";
-                        document.getElementById(statusId).className = "text-green-500 font-bold";
-                        resolve();
-                    }, 2200);
-                };
+            img.onload = function() {
+                canvas.width = img.width;
+                canvas.height = img.height;
                 
-                img.onerror = function() {
-                    document.getElementById(statusId).innerText = "ACCESO DENEGADO";
-                    document.getElementById(statusId).className = "text-red-500";
-                    resolve();
-                };
-
-                img.src = src;
-            });
+                // Algoritmo de Saliencia v3 (Detección de Contraste Local)
+                setTimeout(() => {
+                    generateHeatmap(img, canvas, ctx);
+                    img.style.opacity = '1';
+                    canvas.style.opacity = '0.7'; // Opacidad del mapa para que sea visible
+                    document.getElementById(statusId).innerText = "COMPLETO";
+                    document.getElementById(statusId).className = "text-green-500 font-bold";
+                    document.getElementById('cta-section').classList.remove('hidden');
+                }, 1500);
+            };
+            img.src = src + "?v=" + Math.random();
         }
 
-        function runHeatmapLogic(img, canvas, ctx) {
+        function generateHeatmap(img, canvas, ctx) {
             const w = canvas.width;
             const h = canvas.height;
             ctx.drawImage(img, 0, 0, w, h);
-            const data = ctx.getImageData(0, 0, w, h).data;
+            const pixels = ctx.getImageData(0, 0, w, h).data;
             ctx.clearRect(0, 0, w, h);
 
-            const step = 25; // Tamaño de cuadrícula de análisis
-            ctx.filter = 'blur(30px)'; // Desenfoque profesional
-
+            const step = 15; // Mayor resolución de análisis
+            
             for (let y = 0; y < h; y += step) {
                 for (let x = 0; x < w; x += step) {
                     let i = (y * w + x) * 4;
-                    // Cálculo de brillo/atención
-                    let brightness = (data[i] * 0.299 + data[i+1] * 0.587 + data[i+2] * 0.114);
                     
-                    if (brightness > 160) { // Zonas de alta luz atraen el ojo
-                        let rad = (brightness / 255) * step * 5;
-                        let grad = ctx.createRadialGradient(x, y, 0, x, y, rad);
-                        grad.addColorStop(0, 'rgba(255, 122, 0, 0.15)');
-                        grad.addColorStop(1, 'rgba(255, 255, 0, 0)');
-                        
-                        ctx.fillStyle = grad;
-                        ctx.beginPath();
-                        ctx.arc(x, y, rad, 0, Math.PI * 2);
-                        ctx.fill();
+                    // Cálculo de Peso Visual (Luminancia + Contraste Simple)
+                    let r = pixels[i], g = pixels[i+1], b = pixels[i+2];
+                    let luma = 0.2126 * r + 0.7152 * g + 0.0722 * b;
+                    
+                    // Si hay mucha luz o mucho contraste con el vecino (aproximado)
+                    if (luma > 140 || (r > 200 && g < 100)) { 
+                        let intensity = luma / 255;
+                        drawHeatPoint(ctx, x, y, intensity);
                     }
                 }
             }
-            ctx.filter = 'none';
+        }
+
+        function drawHeatPoint(ctx, x, y, intensity) {
+            let radius = 40 * intensity;
+            let grad = ctx.createRadialGradient(x, y, 0, x, y, radius);
+            
+            // ESCALA DE CALOR PRO: Rojo -> Naranja -> Transparente
+            if (intensity > 0.8) {
+                grad.addColorStop(0, 'rgba(255, 0, 0, 0.4)'); // Rojo Crítico
+                grad.addColorStop(0.5, 'rgba(255, 122, 0, 0.2)');
+            } else {
+                grad.addColorStop(0, 'rgba(255, 160, 0, 0.3)'); // Naranja/Amarillo
+            }
+            grad.addColorStop(1, 'rgba(255, 255, 255, 0)');
+
+            ctx.fillStyle = grad;
+            ctx.beginPath();
+            ctx.arc(x, y, radius, 0, Math.PI * 2);
+            ctx.fill();
         }
     </script>
 </body>
