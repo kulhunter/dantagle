@@ -3,153 +3,173 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dan Tagle AI | Eye-Tracker Pro v3.0</title>
+    <title>Dan Tagle AI | Eye-Tracker Pro v4.0</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&display=swap');
-        body { background-color: #050505; color: #e0e0e0; font-family: 'Space+Grotesk', sans-serif; }
-        .device-frame { background: #0d0d0d; border: 1px solid #1a1a1a; border-radius: 12px; overflow: hidden; position: relative; }
-        canvas { position: absolute; top: 0; left: 0; pointer-events: none; opacity: 0; transition: opacity 1s ease-in; z-index: 10; }
-        img { transition: opacity 0.5s ease; width: 100%; height: 100%; object-fit: cover; object-position: top; }
-        .loading-shimmer { background: linear-gradient(90deg, #0d0d0d 25%, #1a1a1a 50%, #0d0d0d 75%); background-size: 200% 100%; animation: shimmer 1.5s infinite; }
-        @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
-        .orange-glow { box-shadow: 0 0 40px rgba(255, 122, 0, 0.15); }
+        body { background-color: #050505; color: #e5e5e5; font-family: 'Space+Grotesk', sans-serif; -webkit-font-smoothing: antialiased; }
+        .device-frame { background: #000; border: 2px solid #1a1a1a; border-radius: 16px; overflow: hidden; position: relative; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+        canvas { position: absolute; top: 0; left: 0; pointer-events: none; opacity: 0.75; transition: opacity 1s ease; z-index: 10; }
+        img { width: 100%; height: 100%; object-fit: cover; object-position: top; opacity: 0; transition: opacity 0.5s ease; }
+        .pro-input { background: #111; border: 1px solid #333; transition: all 0.3s ease; }
+        .pro-input:focus { border-color: #ff7a00; box-shadow: 0 0 20px rgba(255,122,0,0.2); }
+        .loader-bar { height: 2px; background: #ff7a00; position: absolute; top: 0; left: 0; width: 0%; transition: width 0.5s; z-index: 30; }
     </style>
 </head>
-<body class="p-4 md:p-8">
+<body class="p-4 md:p-10">
 
-    <div class="max-w-7xl mx-auto">
-        <header class="flex justify-between items-center py-6 border-b border-zinc-900 mb-12">
-            <h1 class="text-xl font-bold tracking-tighter text-white uppercase">DAN TAGLE <span class="text-orange-500 font-light">NEURAL EYE v3.0</span></h1>
-            <span class="text-[10px] text-green-500 font-mono animate-pulse">● ENGINE_OPTIMIZED</span>
+    <div class="max-w-6xl mx-auto">
+        <header class="flex flex-col md:flex-row justify-between items-center mb-16 gap-4">
+            <div>
+                <h1 class="text-2xl font-bold tracking-tighter text-white uppercase">DAN TAGLE <span class="text-orange-500 font-light">NEURAL EYE v4.0</span></h1>
+                <p class="text-[10px] text-zinc-500 font-mono tracking-[0.3em]">Advanced Saliency Mapping // Edge Detection</p>
+            </div>
+            <div class="bg-zinc-900 px-4 py-2 rounded-full border border-zinc-800">
+                <span class="text-[10px] text-green-500 font-mono">● ALGORITHM: CONTRAST_DENSITY_v4</span>
+            </div>
         </header>
 
-        <main class="max-w-4xl mx-auto mb-16">
-            <div class="text-center mb-10">
-                <h2 class="text-4xl md:text-6xl font-black tracking-tighter text-white mb-4">MAPA DE CALOR <span class="text-orange-500 italic">IA</span></h2>
-                <p class="text-zinc-500">Analizando contraste semántico y jerarquía visual.</p>
+        <section class="max-w-3xl mx-auto text-center mb-20">
+            <h2 class="text-5xl md:text-7xl font-black tracking-tighter text-white mb-6 uppercase italic">Heatmap <span class="text-orange-500">Real</span></h2>
+            <p class="text-zinc-400 text-lg mb-10 font-light">Nuestro motor ignora los espacios vacíos y detecta focos de atención real mediante análisis de densidad de contraste.</p>
+            
+            <div class="flex flex-col md:flex-row gap-3 p-2 bg-zinc-900/50 rounded-2xl md:rounded-full border border-zinc-800">
+                <input type="text" id="urlInput" placeholder="https://tu-sitio.com" class="flex-1 bg-transparent px-6 py-3 text-white outline-none">
+                <button onclick="runAnalysis()" class="bg-orange-500 hover:bg-white text-black font-bold py-3 px-10 rounded-xl md:rounded-full transition-all uppercase text-sm tracking-widest">Analizar Sistema</button>
+            </div>
+        </section>
+
+        <div id="resultsArea" class="grid grid-cols-1 lg:grid-cols-[1fr,360px] gap-12 hidden animate-in fade-in duration-1000">
+            <div class="space-y-4">
+                <div class="flex justify-between items-end">
+                    <span class="text-[10px] font-bold text-zinc-600 tracking-widest uppercase">Desktop View (1280px)</span>
+                    <span id="status-d" class="text-orange-500 text-[10px] font-mono italic">Waiting...</span>
+                </div>
+                <div class="device-frame aspect-[16/10]">
+                    <div id="loader-d" class="loader-bar"></div>
+                    <img id="img-d" crossorigin="anonymous">
+                    <canvas id="canvas-d"></canvas>
+                </div>
             </div>
 
-            <div class="relative bg-white rounded-full p-2 flex items-center orange-glow max-w-2xl mx-auto">
-                <input type="text" id="urlInput" placeholder="https://tu-sitio.com" class="flex-1 px-6 py-2 text-black text-lg outline-none">
-                <button onclick="startAnalysis()" class="bg-orange-500 hover:bg-black text-black hover:text-white font-bold py-3 px-8 rounded-full transition-all uppercase text-sm">Analizar</button>
-            </div>
-        </main>
-
-        <div id="resultsArea" class="grid grid-cols-1 lg:grid-cols-[1fr,360px] gap-10 hidden">
-            <div class="space-y-3">
-                <div class="flex justify-between text-[10px] font-bold text-zinc-600 uppercase tracking-widest">
-                    <span>Desktop Viewport (1280px)</span>
-                    <span id="desk-status" class="text-orange-500 italic">Analizando...</span>
+            <div class="space-y-4">
+                <div class="flex justify-between items-end">
+                    <span class="text-[10px] font-bold text-zinc-600 tracking-widest uppercase">Mobile Native (iPhone)</span>
+                    <span id="status-m" class="text-orange-500 text-[10px] font-mono italic">Waiting...</span>
                 </div>
-                <div class="device-frame aspect-[16/10] loading-shimmer">
-                    <img id="img-desktop" crossorigin="anonymous" class="opacity-0">
-                    <canvas id="canvas-desktop"></canvas>
-                </div>
-            </div>
-
-            <div class="space-y-3">
-                <div class="flex justify-between text-[10px] font-bold text-zinc-600 uppercase tracking-widest">
-                    <span>Mobile Native (iPhone View)</span>
-                    <span id="mob-status" class="text-orange-500 italic">Analizando...</span>
-                </div>
-                <div class="device-frame h-[600px] w-full max-w-[360px] mx-auto loading-shimmer">
-                    <img id="img-mobile" crossorigin="anonymous" class="opacity-0">
-                    <canvas id="canvas-mobile"></canvas>
+                <div class="device-frame h-[600px]">
+                    <div id="loader-m" class="loader-bar"></div>
+                    <img id="img-m" crossorigin="anonymous">
+                    <canvas id="canvas-m"></canvas>
                 </div>
             </div>
         </div>
 
-        <section id="cta-section" class="max-w-4xl mx-auto bg-orange-500 rounded-3xl p-12 text-center mt-20 hidden">
-            <h3 class="text-4xl font-black text-black mb-4 uppercase tracking-tighter italic">¿Tu mensaje se pierde en el ruido?</h3>
-            <p class="text-black/70 text-lg mb-8 font-medium">Las zonas rojas muestran donde se agota la atención. Si tu botón de compra no es rojo, estás perdiendo dinero.</p>
-            <a href="https://calendly.com/dan-tagle/30min" target="_blank" class="inline-block bg-black text-white font-bold py-4 px-12 rounded-full hover:scale-105 transition-transform">RE-DISEÑAR MI ESTRATEGIA</a>
-        </section>
+        <div id="cta" class="mt-20 p-10 bg-orange-500 rounded-3xl text-center hidden">
+            <h3 class="text-3xl font-black text-black uppercase mb-4">¿Tu contenido está en la zona fría?</h3>
+            <p class="text-black/80 mb-8 font-medium">Si los elementos clave no están en rojo, el usuario los está ignorando por completo.</p>
+            <a href="https://calendly.com/dan-tagle/30min" target="_blank" class="inline-block bg-black text-white font-bold py-4 px-12 rounded-full hover:scale-105 transition-transform">Optimizar mi Conversión</a>
+        </div>
     </div>
 
     <script>
-        async function startAnalysis() {
-            const urlValue = document.getElementById('urlInput').value;
-            if(!urlValue) return alert("Ingresa una URL");
+        function runAnalysis() {
+            const val = document.getElementById('urlInput').value;
+            if(!val) return alert("URL requerida");
+            const url = val.replace(/^https?:\/\//, '');
+
+            document.getElementById('resultsArea').classList.remove('hidden');
             
-            const cleanUrl = urlValue.replace(/^https?:\/\//, '');
-            const results = document.getElementById('resultsArea');
-            results.classList.remove('hidden');
-            document.getElementById('cta-section').classList.add('hidden');
+            // APIs corregidas para captura Real
+            const dSrc = `https://image.thum.io/get/width/1280/crop/800/noanimate/https://${url}`;
+            const mSrc = `https://image.thum.io/get/iphone/width/400/noanimate/https://${url}`;
 
-            // Captura REAL Mobile (Usando parámetros específicos de Thum.io para iPhone)
-            const desktopSrc = `https://image.thum.io/get/width/1280/crop/800/noanimate/https://${cleanUrl}`;
-            const mobileSrc = `https://image.thum.io/get/iphone/width/400/noanimate/https://${cleanUrl}`;
-
-            processUnit('img-desktop', 'canvas-desktop', 'desk-status', desktopSrc);
-            processUnit('img-mobile', 'canvas-mobile', 'mob-status', mobileSrc);
+            setupUnit('img-d', 'canvas-d', 'status-d', 'loader-d', dSrc);
+            setupUnit('img-m', 'canvas-m', 'status-m', 'loader-m', mSrc);
         }
 
-        function processUnit(imgId, canvasId, statusId, src) {
+        function setupUnit(imgId, canvasId, statId, loadId, src) {
             const img = document.getElementById(imgId);
             const canvas = document.getElementById(canvasId);
+            const loader = document.getElementById(loadId);
+            const stat = document.getElementById(statId);
             const ctx = canvas.getContext('2d', { willReadFrequently: true });
-            
-            img.onload = function() {
+
+            loader.style.width = '30%';
+            stat.innerText = 'Capturando...';
+
+            img.onload = () => {
+                loader.style.width = '100%';
+                stat.innerText = 'Procesando Saliencia...';
                 canvas.width = img.width;
                 canvas.height = img.height;
                 
-                // Algoritmo de Saliencia v3 (Detección de Contraste Local)
                 setTimeout(() => {
-                    generateHeatmap(img, canvas, ctx);
+                    analyzeSaliency(img, canvas, ctx);
                     img.style.opacity = '1';
-                    canvas.style.opacity = '0.7'; // Opacidad del mapa para que sea visible
-                    document.getElementById(statusId).innerText = "COMPLETO";
-                    document.getElementById(statusId).className = "text-green-500 font-bold";
-                    document.getElementById('cta-section').classList.remove('hidden');
-                }, 1500);
+                    canvas.style.opacity = '0.8';
+                    stat.innerText = 'ANÁLISIS COMPLETO';
+                    stat.className = 'text-green-500 text-[10px] font-mono';
+                    document.getElementById('cta').classList.remove('hidden');
+                    loader.style.opacity = '0';
+                }, 1000);
             };
             img.src = src + "?v=" + Math.random();
         }
 
-        function generateHeatmap(img, canvas, ctx) {
+        function analyzeSaliency(img, canvas, ctx) {
             const w = canvas.width;
             const h = canvas.height;
             ctx.drawImage(img, 0, 0, w, h);
-            const pixels = ctx.getImageData(0, 0, w, h).data;
+            const data = ctx.getImageData(0, 0, w, h).data;
             ctx.clearRect(0, 0, w, h);
 
-            const step = 15; // Mayor resolución de análisis
-            
-            for (let y = 0; y < h; y += step) {
-                for (let x = 0; x < w; x += step) {
+            const step = 10; 
+            const points = [];
+
+            // Algoritmo de Diferencia de Contraste (Edge Density)
+            for (let y = step; y < h - step; y += step) {
+                for (let x = step; x < w - step; x += step) {
                     let i = (y * w + x) * 4;
-                    
-                    // Cálculo de Peso Visual (Luminancia + Contraste Simple)
-                    let r = pixels[i], g = pixels[i+1], b = pixels[i+2];
-                    let luma = 0.2126 * r + 0.7152 * g + 0.0722 * b;
-                    
-                    // Si hay mucha luz o mucho contraste con el vecino (aproximado)
-                    if (luma > 140 || (r > 200 && g < 100)) { 
-                        let intensity = luma / 255;
-                        drawHeatPoint(ctx, x, y, intensity);
+                    let iRight = (y * w + (x + 1)) * 4;
+                    let iDown = ((y + 1) * w + x) * 4;
+
+                    // Comparamos el brillo del pixel con sus vecinos
+                    let lum = (data[i] + data[i+1] + data[i+2]) / 3;
+                    let lumR = (data[iRight] + data[iRight+1] + data[iRight+2]) / 3;
+                    let lumD = (data[iDown] + data[iDown+1] + data[iDown+2]) / 3;
+
+                    // Contraste = diferencia acumulada (esto detecta texto/bordes)
+                    let diff = Math.abs(lum - lumR) + Math.abs(lum - lumD);
+
+                    if (diff > 15) { // Umbral de "interés"
+                        points.push({x, y, v: diff});
                     }
                 }
             }
-        }
 
-        function drawHeatPoint(ctx, x, y, intensity) {
-            let radius = 40 * intensity;
-            let grad = ctx.createRadialGradient(x, y, 0, x, y, radius);
-            
-            // ESCALA DE CALOR PRO: Rojo -> Naranja -> Transparente
-            if (intensity > 0.8) {
-                grad.addColorStop(0, 'rgba(255, 0, 0, 0.4)'); // Rojo Crítico
-                grad.addColorStop(0.5, 'rgba(255, 122, 0, 0.2)');
-            } else {
-                grad.addColorStop(0, 'rgba(255, 160, 0, 0.3)'); // Naranja/Amarillo
-            }
-            grad.addColorStop(1, 'rgba(255, 255, 255, 0)');
+            // Dibujar el calor con gradientes reales (Rojo > Amarillo > Verde > Azul)
+            ctx.filter = 'blur(18px)';
+            points.forEach(p => {
+                let intensity = Math.min(p.v / 100, 1);
+                let rad = 30 * intensity;
+                let g = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, rad);
+                
+                // Escala de calor REAL
+                if (intensity > 0.6) {
+                    g.addColorStop(0, 'rgba(255, 0, 0, 0.4)');    // Caliente (Rojo)
+                    g.addColorStop(0.5, 'rgba(255, 120, 0, 0.2)');
+                } else if (intensity > 0.3) {
+                    g.addColorStop(0, 'rgba(255, 200, 0, 0.2)');  // Medio (Amarillo)
+                } else {
+                    g.addColorStop(0, 'rgba(0, 255, 100, 0.1)');  // Frío (Verde)
+                }
+                g.addColorStop(1, 'rgba(0,0,0,0)');
 
-            ctx.fillStyle = grad;
-            ctx.beginPath();
-            ctx.arc(x, y, radius, 0, Math.PI * 2);
-            ctx.fill();
+                ctx.fillStyle = g;
+                ctx.beginPath(); ctx.arc(p.x, p.y, rad, 0, Math.PI*2); ctx.fill();
+            });
+            ctx.filter = 'none';
         }
     </script>
 </body>
