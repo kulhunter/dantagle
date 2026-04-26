@@ -7,7 +7,7 @@ import re
 # --- CONFIGURACIÓN ---
 # Necesitarás una API Key de Groq (GRATIS en console.groq.com)
 GROQ_API_KEY = os.environ.get("GROQ_API_KEY")
-MODEL = "deepseek-r1-distill-llama-70b" # Modelo DeepSeek gratuito en Groq
+MODEL = "llama-3.3-70b-specdec" # Modelo activo y potente en Groq
 
 # Rutas de archivos
 BLOG_DIR = "blog/"
@@ -56,9 +56,10 @@ def generate_content(topic):
     4. Incluye una sección de "Datos Clave" o "Estrategia Táctica".
     5. Termina con una reflexión potente.
     6. No uses muletillas de IA.
-    7. DEVOLVER ÚNICAMENTE UN OBJETO JSON con las claves: 'title', 'date', 'slug', 'content_html', 'meta_description'.
+    7. DEVOLVER ÚNICAMENTE UN OBJETO JSON con las claves: 'title', 'date', 'slug', 'content_html', 'meta_description', 'image_keyword'.
     
     El 'content_html' debe usar etiquetas <h2>, <h3>, <p>, <strong>, y <ul>.
+    El 'image_keyword' debe ser un término en inglés para buscar una imagen técnica/profesional relacionada (ej: 'artificial intelligence', 'data center', 'creative technology').
     """
     
     headers = {
@@ -122,7 +123,16 @@ def create_article_page(article):
     page_content = page_content.replace("{{DESCRIPTION}}", article['meta_description'])
     page_content = page_content.replace("{{CONTENT}}", article['content_html'])
     
-    cover_img = "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1200"
+    keyword = article.get('image_keyword', 'technology')
+    cover_img = f"https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1200&sig={article['slug']}"
+    # Si queremos algo más dinámico basado en el keyword:
+    cover_img = f"https://source.unsplash.com/featured/1200x675?{keyword.replace(' ', ',')}"
+    # Nota: source.unsplash.com está deprecado, usamos la nueva estructura:
+    cover_img = f"https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=1200" # Fallback tech
+    
+    # Intentar construir una URL de Unsplash semi-real basada en el keyword
+    cover_img = f"https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1200" # Tech default
+    
     page_content = page_content.replace("{{COVER_IMAGE}}", cover_img)
     
     filename = f"{BLOG_DIR}{article['slug']}.html"
@@ -134,11 +144,14 @@ def update_indices(article, filename):
     print(f"DEBUG: Actualizando índices {BLOG_INDEX} e {INDEX_FILE}...")
     
     # Actualizar blog.html
+    keyword = article.get('image_keyword', 'tech')
+    img_url = f"https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1200"
+    
     new_entry = f"""
             <!-- Auto-generated entry: {article['title']} -->
             <a href="{filename}" class="glass-panel p-6 flex flex-col group">
                 <div class="rounded-2xl overflow-hidden aspect-video mb-6 grayscale group-hover:grayscale-0 transition-all duration-500">
-                    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1200" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <img src="{img_url}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                 </div>
                 <span class="text-cyan-500 font-mono text-[10px] mb-2 uppercase">{article['date']}</span>
                 <h3 class="text-2xl font-black mb-4 group-hover:text-cyan-400 transition-colors uppercase">{article['title']}</h3>
