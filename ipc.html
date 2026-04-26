@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es-CL" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de IPC Chile | Reajuste de Precios | Dan Tagle</title>
+    <meta name="description" content="Calcula el reajuste de precios por inflación (IPC) en Chile. Ideal para arriendos, pensiones y contratos. Actualizado y gratis.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root { --accent: #f59e0b; }
+        body { font-family: 'Outfit', sans-serif; background-color: #050505; color: #f4f4f5; }
+        .glass-panel { background: rgba(255,255,255,0.03); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.08); border-radius: 2rem; }
+        .input-premium { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 1rem; padding: 1rem; width: 100%; outline: none; color: white; text-align: center; font-size: 1.5rem; font-weight: 700; }
+        .input-premium:focus { border-color: var(--accent); }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center p-6">
+    <div class="w-full max-w-2xl glass-panel p-12">
+        <header class="text-center mb-10">
+            <span class="text-[10px] font-black uppercase tracking-[0.4em] text-amber-500 mb-4 block">Cálculo de Inflación Chile</span>
+            <h1 class="text-4xl font-black mb-4 uppercase tracking-tighter">Calculadora <span class="text-amber-500">IPC.</span></h1>
+        </header>
+
+        <div class="space-y-8">
+            <div>
+                <label class="text-[10px] font-black uppercase tracking-widest text-zinc-500 mb-4 block">Monto Original ($)</label>
+                <input type="number" id="monto" placeholder="0" class="input-premium" oninput="calculate()">
+            </div>
+            <div>
+                <label class="text-[10px] font-black uppercase tracking-widest text-zinc-500 mb-4 block">Variación IPC (%)</label>
+                <input type="number" id="variacion" placeholder="4.5" class="input-premium" oninput="calculate()">
+            </div>
+
+            <div class="pt-10 border-t border-white/5 text-center">
+                <span class="text-[10px] font-black uppercase tracking-widest text-zinc-600 block mb-4">Monto Reajustado</span>
+                <span id="resultado" class="text-6xl font-black text-white">$ 0</span>
+            </div>
+        </div>
+    </div>
+    <script>
+        function calculate() {
+            const m = parseFloat(document.getElementById('monto').value) || 0;
+            const v = parseFloat(document.getElementById('variacion').value) || 0;
+            const res = m * (1 + (v / 100));
+            document.getElementById('resultado').innerText = '$ ' + Math.round(res).toLocaleString('es-CL');
+        }
+    </script>
+</body>
+</html>

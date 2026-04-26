@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es-CL" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Prompt Architect | Generador de Prompts | Dan Tagle</title>
+    <meta name="description" content="Diseña instrucciones perfectas para ChatGPT, Claude y Gemini. Generador de prompts estructurados para resultados profesionales.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root { --accent: #a855f7; }
+        body { font-family: 'Outfit', sans-serif; background-color: #050505; color: #f4f4f5; }
+        .bg-mesh { background: radial-gradient(circle at 100% 0%, rgba(168, 85, 247, 0.1) 0%, transparent 40%); }
+        .glass-panel { background: rgba(255,255,255,0.03); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.08); border-radius: 2.5rem; transition: all 0.4s ease; }
+        .input-premium { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 1.2rem; padding: 1.2rem; width: 100%; outline: none; transition: all 0.3s; color: white; font-size: 0.9rem; }
+        .input-premium:focus { border-color: var(--accent); box-shadow: 0 0 30px rgba(168, 85, 247, 0.15); }
+    </style>
+</head>
+<body class="bg-mesh min-h-screen">
+    <nav class="py-10 px-10 flex justify-between items-center">
+        <a href="index.html" class="text-2xl font-black tracking-tighter uppercase">DAN TAGLE <span class="text-purple-500">.</span></a>
+        <a href="desarrollos.html" class="text-[10px] font-black uppercase tracking-[0.3em] text-zinc-500 hover:text-white transition-colors">Ecosistema</a>
+    </nav>
+
+    <main class="container mx-auto px-6 py-10 max-w-5xl">
+        <header class="text-center mb-16">
+            <span class="text-[10px] font-mono text-purple-500 tracking-[0.4em] uppercase mb-4 block">INGENIERÍA DE INSTRUCCIONES</span>
+            <h1 class="text-5xl md:text-7xl font-black mb-6 tracking-tighter uppercase">Prompt <span class="text-purple-500">Architect.</span></h1>
+            <p class="text-zinc-500 font-light max-w-xl mx-auto">Deja de hablarle a la IA como a un buscador. Diseña estructuras de pensamiento para obtener resultados de nivel experto.</p>
+        </header>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            <!-- Builder -->
+            <div class="lg:col-span-7 glass-panel p-10 space-y-6">
+                <div class="grid grid-cols-2 gap-6">
+                    <div>
+                        <label class="text-[10px] font-black uppercase tracking-widest text-zinc-500 mb-4 block">Rol del Experto</label>
+                        <select id="role" class="input-premium appearance-none" onchange="buildPrompt()">
+                            <option value="Senior Software Engineer">Senior Developer</option>
+                            <option value="Marketing Strategist & Growth Hacker">Growth Marketer</option>
+                            <option value="Creative Director (Cannes Lions winner)">Director Creativo</option>
+                            <option value="Legal Consultant (Chilean Law)">Consultor Legal</option>
+                            <option value="Data Scientist & ML Expert">Data Scientist</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="text-[10px] font-black uppercase tracking-widest text-zinc-500 mb-4 block">Tono</label>
+                        <select id="tone" class="input-premium appearance-none" onchange="buildPrompt()">
+                            <option value="profesional, directo y técnico">Profesional</option>
+                            <option value="creativo, disruptivo y visionario">Creativo</option>
+                            <option value="conciso, ejecutivo y orientado a resultados">Ejecutivo</option>
+                            <option value="pedagógico, paciente y detallado">Educativo</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="text-[10px] font-black uppercase tracking-widest text-zinc-500 mb-4 block">Tarea Principal</label>
+                    <textarea id="task" rows="3" placeholder="Ej: Analizar los estados financieros de una PyME..." class="input-premium" oninput="buildPrompt()"></textarea>
+                </div>
+
+                <div>
+                    <label class="text-[10px] font-black uppercase tracking-widest text-zinc-500 mb-4 block">Contexto / Restricciones</label>
+                    <textarea id="context" rows="3" placeholder="Ej: Enfócate en el flujo de caja y no uses tecnicismos complejos..." class="input-premium" oninput="buildPrompt()"></textarea>
+                </div>
+
+                <div>
+                    <label class="text-[10px] font-black uppercase tracking-widest text-zinc-500 mb-4 block">Formato de Salida</label>
+                    <select id="format" class="input-premium appearance-none" onchange="buildPrompt()">
+                        <option value="Markdown con tablas y bullet points">Markdown</option>
+                        <option value="Objeto JSON estructurado">JSON</option>
+                        <option value="Email profesional listo para enviar">Email</option>
+                        <option value="Código ejecutable (Python/JS)">Código</option>
+                        <option value="Lista de pasos accionables (Checklist)">Checklist</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Result -->
+            <div class="lg:col-span-5 flex flex-col">
+                <div class="glass-panel p-10 bg-purple-500/5 border-purple-500/20 flex-1 flex flex-col">
+                    <div class="flex justify-between items-center mb-8">
+                        <span class="text-[10px] font-black uppercase tracking-[0.4em] text-purple-500">Estructura Final</span>
+                        <button onclick="copyPrompt()" class="text-zinc-500 hover:text-white transition-colors">
+                            <i data-lucide="copy" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                    <div id="result-prompt" class="text-sm text-zinc-300 font-mono leading-relaxed whitespace-pre-wrap flex-1 overflow-y-auto max-h-[400px]">
+                        Tu prompt aparecerá aquí mientras escribes...
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Why Prompts? -->
+        <section class="mt-32 pt-20 border-t border-white/5">
+            <h2 class="text-3xl font-black mb-12 uppercase tracking-tighter text-center">La anatomía de un prompt perfecto</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <div class="p-10 glass-panel border-white/5">
+                    <span class="text-purple-500 font-black text-4xl mb-6 block">01</span>
+                    <h4 class="text-white font-black uppercase tracking-widest text-xs mb-4">Personalidad</h4>
+                    <p class="text-sm text-zinc-500 font-light">Asignar un rol específico obliga a la IA a priorizar un conjunto de datos y un estilo de respuesta profesional.</p>
+                </div>
+                <div class="p-10 glass-panel border-white/5">
+                    <span class="text-purple-500 font-black text-4xl mb-6 block">02</span>
+                    <h4 class="text-white font-black uppercase tracking-widest text-xs mb-4">Contexto</h4>
+                    <p class="text-sm text-zinc-500 font-light">Sin restricciones, la IA tiende a ser genérica. El contexto le da los límites necesarios para ser precisa.</p>
+                </div>
+                <div class="p-10 glass-panel border-white/5">
+                    <span class="text-purple-500 font-black text-4xl mb-6 block">03</span>
+                    <h4 class="text-white font-black uppercase tracking-widest text-xs mb-4">Formato</h4>
+                    <p class="text-sm text-zinc-500 font-light">Definir el formato ahorra tiempo de edición. Pide tablas, JSON o Markdown para integrar el resultado de inmediato.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        lucide.createIcons();
+
+        function buildPrompt() {
+            const role = document.getElementById('role').value;
+            const tone = document.getElementById('tone').value;
+            const task = document.getElementById('task').value || '[Define una tarea]';
+            const context = document.getElementById('context').value || '[Añade contexto]';
+            const format = document.getElementById('format').value;
+
+            const prompt = `Actúa como un ${role}. 
+
+OBJETIVO: 
+${task}
+
+CONTEXTO Y RESTRICCIONES:
+${context}
+
+TONO DE RESPUESTA:
+Tu comunicación debe ser ${tone}.
+
+FORMATO DE SALIDA:
+Entrega el resultado en ${format}.`;
+
+            document.getElementById('result-prompt').innerText = prompt;
+        }
+
+        function copyPrompt() {
+            const text = document.getElementById('result-prompt').innerText;
+            navigator.clipboard.writeText(text);
+            alert('¡Prompt copiado al portapapeles!');
+        }
+
+        // Init
+        buildPrompt();
+    </script>
+</body>
+</html>

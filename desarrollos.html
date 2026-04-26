@@ -3,133 +3,140 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Desarrollos & SaaS | Dan Tagle</title>
-    <meta name="description" content="Ecosistema de soluciones tecnológicas: Tikk, Criptobot, Saben, Ley Responsable, Teve.">
+    <title>Desarrollos & Suite de Utilidad | Dan Tagle</title>
+    <meta name="description" content="Ecosistema de soluciones tecnológicas y herramientas gratuitas: Calculadoras, Generadores, IA y más.">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
     <style>
-        :root { --accent: #06b6d4; --accent-glow: rgba(6, 182, 212, 0.3); }
-        body { font-family: 'Inter', sans-serif; background-color: #050505; color: #f4f4f5; }
-        .glass-panel { background: rgba(255,255,255,0.02); backdrop-filter: blur(15px); border: 1px solid rgba(255,255,255,0.05); border-radius: 2rem; transition: all 0.4s; overflow: hidden; }
-        .glass-panel:hover { border-color: var(--accent); transform: scale(1.02); }
-        .text-aeo { color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.3em; }
+        :root { --accent: #06b6d4; }
+        body { font-family: 'Outfit', sans-serif; background-color: #050505; color: #f4f4f5; }
+        .bg-mesh { background: radial-gradient(circle at 50% -20%, rgba(6, 182, 212, 0.1) 0%, transparent 50%); }
+        .glass-panel { background: rgba(255,255,255,0.03); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.08); border-radius: 2rem; transition: all 0.4s ease; display: flex; flex-direction: column; }
+        .glass-panel:hover { border-color: var(--accent); transform: translateY(-5px); background: rgba(255,255,255,0.05); }
+        .text-aeo { color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.3em; }
     </style>
 </head>
-<body class="relative min-h-screen">
+<body class="bg-mesh min-h-screen">
     <!-- Global Consistent Menu -->
-    <nav class="fixed top-0 w-full z-50 py-8 px-10 flex justify-between items-center transition-all bg-black/40 backdrop-blur-xl border-b border-white/5">
+    <nav class="fixed top-0 w-full z-50 py-6 px-10 flex justify-between items-center bg-black/40 backdrop-blur-2xl border-b border-white/5">
         <a href="index.html" class="text-2xl font-black tracking-tighter uppercase">DAN TAGLE <span class="text-cyan-500">.</span></a>
-        <div class="hidden lg:flex gap-12 text-[10px] font-black uppercase tracking-[0.3em] text-zinc-500">
+        <div class="hidden lg:flex gap-14 text-[10px] font-black uppercase tracking-[0.4em] text-zinc-500">
             <a href="casos.html" class="hover:text-white transition-colors">Casos</a>
             <a href="desarrollos.html" class="text-white transition-colors">Desarrollos</a>
             <a href="blog.html" class="hover:text-white transition-colors">Blog</a>
             <a href="index.html#contacto" class="hover:text-white transition-colors">Contacto</a>
         </div>
-        <a href="https://calendly.com/dan-tagle/30min" target="_blank" class="px-8 py-3 bg-white text-black font-black text-xs uppercase tracking-widest rounded-full hover:bg-cyan-500 transition-colors">Agendar</a>
+        <a href="https://calendly.com/dan-tagle/30min" target="_blank" class="px-10 py-3 bg-white text-black font-black text-[10px] uppercase tracking-[0.2em] rounded-full hover:bg-cyan-500 transition-all">Agendar</a>
     </nav>
 
     <main class="pt-40 pb-20 px-6 container mx-auto">
-        <header class="mb-24 text-center">
-            <span class="text-aeo mb-6 block">INFRAESTRUCTURA & PRODUCTO</span>
-            <h1 class="text-6xl md:text-8xl font-black mb-8 uppercase tracking-tighter">ECOSISTEMA <span class="text-cyan-500">SAAS</span></h1>
-            <p class="text-xl text-zinc-500 max-w-3xl mx-auto font-light">Soluciones tecnológicas escalables diseñadas para automatizar y destrabar procesos complejos.</p>
+        <header class="mb-24 text-center max-w-4xl mx-auto">
+            <span class="text-aeo mb-6 block">ECOSISTEMA DE SOLUCIONES</span>
+            <h1 class="text-6xl md:text-8xl font-black mb-8 uppercase tracking-tighter">SUITE <span class="text-cyan-500">UTIL.</span></h1>
+            <p class="text-xl text-zinc-500 font-light">Herramientas profesionales diseñadas para destrabar procesos, automatizar tareas y atraer el futuro.</p>
         </header>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Tikk -->
-            <a href="https://tikk.cl" target="_blank" class="glass-panel p-12 group flex flex-col h-full">
-                <i data-lucide="shopping-cart" class="w-16 h-16 text-emerald-400 mb-10"></i>
-                <h3 class="text-4xl font-black mb-6 group-hover:text-emerald-400 transition-colors uppercase">Tikk.cl</h3>
-                <p class="text-zinc-400 mb-12">La forma más rápida de convertir un Google Sheets en un e-commerce con pedidos vía WhatsApp.</p>
-                <div class="mt-auto pt-8 border-t border-white/5 flex justify-between items-center">
-                    <span class="text-[10px] font-black tracking-widest text-zinc-600">PROYECTO ACTIVO</span>
-                    <i data-lucide="arrow-up-right" class="w-5 h-5 text-zinc-600 group-hover:text-white transition-all"></i>
-                </div>
-            </a>
+        <!-- Category: CORE SaaS -->
+        <div class="mb-16">
+            <h2 class="text-xs font-black uppercase tracking-[0.5em] text-zinc-700 mb-10 border-b border-white/5 pb-4">Proyectos Core & SaaS</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Tikk -->
+                <a href="https://tikk.cl" target="_blank" class="glass-panel p-10 group">
+                    <i data-lucide="shopping-bag" class="w-10 h-10 text-emerald-400 mb-8"></i>
+                    <h3 class="text-2xl font-black mb-4 uppercase">Tikk.cl</h3>
+                    <p class="text-zinc-500 text-sm mb-8">Transforma Google Sheets en tiendas e-commerce instantáneas.</p>
+                </a>
+                <!-- Criptobot -->
+                <a href="https://criptobot.cl" target="_blank" class="glass-panel p-10 group">
+                    <i data-lucide="zap" class="w-10 h-10 text-cyan-400 mb-8"></i>
+                    <h3 class="text-2xl font-black mb-4 uppercase">CriptoBot</h3>
+                    <p class="text-zinc-500 text-sm mb-8">Algoritmos de trading y señales de mercado automatizadas.</p>
+                </a>
+                <!-- Ley Responsable -->
+                <a href="https://leyresponsable.cl" target="_blank" class="glass-panel p-10 group">
+                    <i data-lucide="shield-check" class="w-10 h-10 text-violet-400 mb-8"></i>
+                    <h3 class="text-2xl font-black mb-4 uppercase">LeyResponsable</h3>
+                    <p class="text-zinc-500 text-sm mb-8">Navaja suiza legal gratuita para familias chilenas.</p>
+                </a>
+            </div>
+        </div>
 
-            <!-- Criptobot -->
-            <a href="https://criptobot.cl" target="_blank" class="glass-panel p-12 group flex flex-col h-full">
-                <i data-lucide="cpu" class="w-16 h-16 text-cyan-400 mb-10"></i>
-                <h3 class="text-4xl font-black mb-6 group-hover:text-cyan-400 transition-colors uppercase">CriptoBot</h3>
-                <p class="text-zinc-400 mb-12">Análisis algorítmico y señales de trading automatizadas para mercados de criptomonedas.</p>
-                <div class="mt-auto pt-8 border-t border-white/5 flex justify-between items-center">
-                    <span class="text-[10px] font-black tracking-widest text-zinc-600">PROYECTO ACTIVO</span>
-                    <i data-lucide="arrow-up-right" class="w-5 h-5 text-zinc-600 group-hover:text-white transition-all"></i>
-                </div>
-            </a>
-
-            <!-- Saben -->
-            <a href="https://saben.cl" target="_blank" class="glass-panel p-12 group flex flex-col h-full">
-                <i data-lucide="gamepad-2" class="w-16 h-16 text-amber-400 mb-10"></i>
-                <h3 class="text-4xl font-black mb-6 group-hover:text-amber-400 transition-colors uppercase">Saben.cl</h3>
-                <p class="text-zinc-400 mb-12">Plataforma de trivias gamificadas e interactivas para engagement masivo en tiempo real.</p>
-                <div class="mt-auto pt-8 border-t border-white/5 flex justify-between items-center">
-                    <span class="text-[10px] font-black tracking-widest text-zinc-600">PROYECTO ACTIVO</span>
-                    <i data-lucide="arrow-up-right" class="w-5 h-5 text-zinc-600 group-hover:text-white transition-all"></i>
-                </div>
-            </a>
-
-            <!-- Ley Responsable -->
-            <a href="https://leyresponsable.cl" target="_blank" class="glass-panel p-12 group flex flex-col h-full">
-                <i data-lucide="shield-check" class="w-16 h-16 text-violet-400 mb-10"></i>
-                <h3 class="text-4xl font-black mb-6 group-hover:text-violet-400 transition-colors uppercase">LeyResponsable</h3>
-                <p class="text-zinc-400 mb-12">Tu navaja suiza legal de familia en Chile. Software educativo gratuito para orientar y empoderar a padres y madres.</p>
-                <div class="mt-auto pt-8 border-t border-white/5 flex justify-between items-center">
-                    <span class="text-[10px] font-black tracking-widest text-zinc-600">PROYECTO SOCIAL / ACTIVO</span>
-                    <i data-lucide="arrow-up-right" class="w-5 h-5 text-zinc-600 group-hover:text-white transition-all"></i>
-                </div>
-            </a>
-
-            <!-- Neural Eye -->
-            <a href="dantagle-ai-eye.html" class="glass-panel p-12 group flex flex-col h-full border-cyan-500/20 bg-cyan-500/5">
-                <i data-lucide="eye" class="w-16 h-16 text-cyan-400 mb-10"></i>
-                <h3 class="text-4xl font-black mb-6 group-hover:text-cyan-400 transition-colors uppercase">Neural Eye</h3>
-                <p class="text-zinc-400 mb-12">Herramienta de diagnóstico visual mediante IA. Analiza heatmaps y saliencia neuronal para optimizar conversión.</p>
-                <div class="mt-auto pt-8 border-t border-white/5 flex justify-between items-center">
-                    <span class="text-[10px] font-black tracking-widest text-cyan-600">TOOL / IA ACTIVA</span>
-                    <i data-lucide="arrow-up-right" class="w-5 h-5 text-cyan-600 group-hover:text-white transition-all"></i>
-                </div>
-            </a>
-
-            <!-- Calculadora Boleta -->
-            <a href="boleta.html" class="glass-panel p-12 group flex flex-col h-full border-cyan-500/10">
-                <i data-lucide="calculator" class="w-16 h-16 text-cyan-400 mb-10"></i>
-                <h3 class="text-4xl font-black mb-6 group-hover:text-cyan-400 transition-colors uppercase">Boleta 2026</h3>
-                <p class="text-zinc-400 mb-12">Calculadora ultra-simple y actualizada con la retención del 15.25% para el año 2026 en Chile.</p>
-                <div class="mt-auto pt-8 border-t border-white/5 flex justify-between items-center">
-                    <span class="text-[10px] font-black tracking-widest text-zinc-600">TOOL / SEO BOOSTER</span>
-                    <i data-lucide="arrow-up-right" class="w-5 h-5 text-zinc-600 group-hover:text-white transition-all"></i>
-                </div>
-            </a>
-
-            <!-- Teve -->
-            <a href="https://teve.cl" target="_blank" class="glass-panel p-12 group flex flex-col h-full">
-                <i data-lucide="tv" class="w-16 h-16 text-pink-400 mb-10"></i>
-                <h3 class="text-4xl font-black mb-6 group-hover:text-pink-400 transition-colors uppercase">Teve.cl</h3>
-                <p class="text-zinc-400 mb-12">Plataforma de video y contenido digital con enfoque en distribución masiva.</p>
-                <div class="mt-auto pt-8 border-t border-white/5 flex justify-between items-center">
-                    <span class="text-[10px] font-black tracking-widest text-zinc-600">PROYECTO ACTIVO</span>
-                    <i data-lucide="arrow-up-right" class="w-5 h-5 text-zinc-600 group-hover:text-white transition-all"></i>
-                </div>
-            </a>
+        <!-- Category: UTILITIES -->
+        <div class="mb-16">
+            <h2 class="text-xs font-black uppercase tracking-[0.5em] text-zinc-700 mb-10 border-b border-white/5 pb-4">Suite de Utilidad SEO / AEO</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Boleta -->
+                <a href="boleta.html" class="glass-panel p-8">
+                    <h4 class="text-lg font-black uppercase text-white mb-2">Boleta 2026</h4>
+                    <p class="text-xs text-zinc-500">Cálculo de honorarios SII.</p>
+                </a>
+                <!-- Sueldo -->
+                <a href="sueldo.html" class="glass-panel p-8">
+                    <h4 class="text-lg font-black uppercase text-white mb-2">Sueldo 2026</h4>
+                    <p class="text-xs text-zinc-500">Líquido y leyes sociales.</p>
+                </a>
+                <!-- WA -->
+                <a href="wa.html" class="glass-panel p-8">
+                    <h4 class="text-lg font-black uppercase text-emerald-500 mb-2">WA Link + QR</h4>
+                    <p class="text-xs text-zinc-500">Growth tool para PyMEs.</p>
+                </a>
+                <!-- Prompt -->
+                <a href="prompt.html" class="glass-panel p-8">
+                    <h4 class="text-lg font-black uppercase text-purple-500 mb-2">AI Architect</h4>
+                    <p class="text-xs text-zinc-500">Ingeniería de prompts.</p>
+                </a>
+                <!-- IPC -->
+                <a href="ipc.html" class="glass-panel p-8">
+                    <h4 class="text-lg font-black uppercase text-amber-500 mb-2">IPC Chile</h4>
+                    <p class="text-xs text-zinc-500">Reajuste por inflación.</p>
+                </a>
+                <!-- UF -->
+                <a href="uf.html" class="glass-panel p-8">
+                    <h4 class="text-lg font-black uppercase text-white mb-2">Conversor UF</h4>
+                    <p class="text-xs text-zinc-500">UF a Pesos instantáneo.</p>
+                </a>
+                <!-- RUT -->
+                <a href="rut.html" class="glass-panel p-8">
+                    <h4 class="text-lg font-black uppercase text-cyan-500 mb-2">RUT Chile</h4>
+                    <p class="text-xs text-zinc-500">Validador y Generador.</p>
+                </a>
+                <!-- IVA -->
+                <a href="iva.html" class="glass-panel p-8">
+                    <h4 class="text-lg font-black uppercase text-blue-500 mb-2">Calculadora IVA</h4>
+                    <p class="text-xs text-zinc-500">Desglose 19% rápido.</p>
+                </a>
+                <!-- Interes -->
+                <a href="interes.html" class="glass-panel p-8">
+                    <h4 class="text-lg font-black uppercase text-violet-500 mb-2">Interés Compuesto</h4>
+                    <p class="text-xs text-zinc-500">Proyección de inversiones.</p>
+                </a>
+                <!-- Words -->
+                <a href="words.html" class="glass-panel p-8">
+                    <h4 class="text-lg font-black uppercase text-zinc-300 mb-2">Contador SEO</h4>
+                    <p class="text-xs text-zinc-500">Palabras y caracteres.</p>
+                </a>
+                <!-- UTM Tributaria -->
+                <a href="calculadora-utm.html" class="glass-panel p-8 border-rose-500/10 hover:bg-rose-500/5">
+                    <h4 class="text-lg font-black uppercase text-rose-500 mb-2">Calculadora UTM</h4>
+                    <p class="text-xs text-zinc-500">Pensión de Alimentos y Multas.</p>
+                </a>
+                <!-- UTM Builder -->
+                <a href="utm-builder.html" class="glass-panel p-8">
+                    <h4 class="text-lg font-black uppercase text-orange-500 mb-2">UTM Builder</h4>
+                    <p class="text-xs text-zinc-500">Etiquetas para marketing digital.</p>
+                </a>
+                <!-- Firma -->
+                <a href="firma.html" class="glass-panel p-8">
+                    <h4 class="text-lg font-black uppercase text-white mb-2">Firma Email</h4>
+                    <p class="text-xs text-zinc-500">Branding profesional HTML.</p>
+                </a>
+            </div>
         </div>
     </main>
 
-    <footer class="py-20 border-t border-zinc-900 container mx-auto px-10 flex flex-col md:flex-row justify-between items-center gap-10">
-        <div class="flex flex-col gap-2">
-            <span class="text-2xl font-black tracking-tighter uppercase">DAN TAGLE <span class="text-cyan-500">.</span></span>
-            <span class="text-zinc-600 text-[10px] font-bold tracking-widest uppercase">© 2026 / SANTIAGO, CHILE</span>
-        </div>
-        <div class="flex gap-10 text-[10px] font-black uppercase tracking-[0.3em] text-zinc-500">
-            <a href="https://www.linkedin.com/in/taglecl/" target="_blank" class="hover:text-white">LinkedIn</a>
-            <a href="https://github.com/kulhunter" target="_blank" class="hover:text-white">GitHub</a>
-            <a href="https://www.behance.net/kulhunter" target="_blank" class="hover:text-white">Behance</a>
-        </div>
-    </footer>
-
-    <script>
-        lucide.createIcons();
-    </script>
+    <script>lucide.createIcons();</script>
 </body>
 </html>

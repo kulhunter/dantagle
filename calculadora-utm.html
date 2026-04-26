@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es-CL" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora UTM Chile | Pensión de Alimentos y Multas | Dan Tagle</title>
+    <meta name="description" content="Calcula el valor de la UTM en pesos chilenos de forma instantánea. Especial para cálculo de pensión de alimentos, multas y trámites legales.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root { --accent: #f43f5e; }
+        body { font-family: 'Outfit', sans-serif; background-color: #050505; color: #f4f4f5; }
+        .bg-mesh { background: radial-gradient(circle at 50% 0%, rgba(244, 63, 94, 0.1) 0%, transparent 40%); }
+        .glass-panel { background: rgba(255,255,255,0.03); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.08); border-radius: 2.5rem; }
+        .input-premium { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 1.5rem; padding: 1.5rem; font-size: 2.5rem; font-weight: 900; width: 100%; outline: none; transition: all 0.3s; color: white; text-align: center; }
+        .input-premium:focus { border-color: var(--accent); box-shadow: 0 0 40px rgba(244, 63, 94, 0.2); }
+        .ad-placeholder { background: rgba(255,255,255,0.02); border: 1px dashed rgba(255,255,255,0.1); border-radius: 1rem; height: 100px; display: flex; items-center; justify-content: center; color: #333; font-size: 10px; text-transform: uppercase; letter-spacing: 0.2em; margin: 2rem 0; }
+    </style>
+</head>
+<body class="bg-mesh min-h-screen">
+    <nav class="py-10 px-10 flex justify-between items-center">
+        <a href="index.html" class="text-2xl font-black tracking-tighter uppercase">DAN TAGLE <span class="text-rose-500">.</span></a>
+        <a href="desarrollos.html" class="text-[10px] font-black uppercase tracking-[0.3em] text-zinc-500 hover:text-white transition-colors">Ecosistema</a>
+    </nav>
+
+    <main class="container mx-auto px-6 py-10 max-w-4xl">
+        <header class="text-center mb-12">
+            <span class="text-[10px] font-mono text-rose-500 tracking-[0.4em] uppercase mb-4 block">SUITE LEGAL & TRIBUTARIA</span>
+            <h1 class="text-5xl md:text-7xl font-black mb-6 tracking-tighter uppercase">Calculadora <span class="text-rose-500">UTM.</span></h1>
+            <p class="text-zinc-500 font-light max-w-xl mx-auto italic">Actualizado para procesos de Pensión de Alimentos, Multas de Tránsito y trámites judiciales.</p>
+        </header>
+
+        <!-- AdSense Top -->
+        <div class="ad-placeholder">Publicidad / AdSense Placeholder</div>
+
+        <div class="glass-panel p-10 md:p-16 mb-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-8 text-center md:text-left">
+                    <div>
+                        <label class="text-[10px] font-black uppercase tracking-widest text-zinc-500 mb-4 block">Valor UTM Actual ($)</label>
+                        <input type="number" id="valorUTM" value="67500" class="input-premium" oninput="calculate()">
+                        <p class="text-[10px] text-zinc-600 mt-4 uppercase tracking-widest">Valor oficial según SII</p>
+                    </div>
+                    <div>
+                        <label class="text-[10px] font-black uppercase tracking-widest text-zinc-500 mb-4 block">Cantidad de UTM</label>
+                        <input type="number" id="cantidad" placeholder="1.5" step="0.1" class="input-premium" oninput="calculate()">
+                        <p class="text-[10px] text-zinc-600 mt-4 uppercase tracking-widest">Ej: 1.5 UTM, 3 UTM, etc.</p>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center justify-center border-t md:border-t-0 md:border-l border-white/5 pt-10 md:pt-0 md:pl-12">
+                    <span class="text-[10px] font-black uppercase tracking-widest text-zinc-500 mb-6 block">Equivalente en Pesos (CLP)</span>
+                    <span id="resultado" class="text-6xl md:text-7xl font-black text-white">$ 0</span>
+                    <p class="text-[11px] text-rose-500 font-bold mt-8 uppercase tracking-widest">Monto Final a Transferir</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ: Pensión de Alimentos Focus -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-12 mt-20">
+            <div class="space-y-6">
+                <h2 class="text-2xl font-black uppercase tracking-tighter">Pensión de Alimentos en UTM</h2>
+                <p class="text-sm text-zinc-500 leading-relaxed font-light">Muchos tribunales de familia en Chile fijan las pensiones de alimentos en UTM para asegurar que el monto se reajuste automáticamente con la inflación. Esto evita tener que volver a mediación cada año.</p>
+                <div class="p-6 bg-rose-500/5 border border-rose-500/10 rounded-3xl">
+                    <h3 class="text-xs font-black uppercase text-white mb-2">Tip de Ahorro</h3>
+                    <p class="text-xs text-zinc-500 font-light">Recuerda que la UTM cambia mes a mes. Asegúrate de revisar el valor oficial del SII antes de cada transferencia bancaria.</p>
+                </div>
+            </div>
+            <div class="space-y-6">
+                <h2 class="text-2xl font-black uppercase tracking-tighter">Otras utilidades</h2>
+                <ul class="space-y-4 text-sm text-zinc-500 font-light">
+                    <li class="flex items-center gap-3">
+                        <i data-lucide="check" class="w-4 h-4 text-rose-500"></i> Multas de Tránsito y Municipales.
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <i data-lucide="check" class="w-4 h-4 text-rose-500"></i> Patentes Comerciales y de Alcoholes.
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <i data-lucide="check" class="w-4 h-4 text-rose-500"></i> Aranceles Judiciales y Multas del Juzgado.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- AdSense Bottom -->
+        <div class="ad-placeholder mt-20">Publicidad / AdSense Placeholder</div>
+    </main>
+
+    <script>
+        lucide.createIcons();
+        function calculate() {
+            const utm = parseFloat(document.getElementById('valorUTM').value) || 0;
+            const cant = parseFloat(document.getElementById('cantidad').value) || 0;
+            const res = utm * cant;
+            document.getElementById('resultado').innerText = '$ ' + Math.round(res).toLocaleString('es-CL');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es-CL" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Link WhatsApp con QR | Gratis | Dan Tagle</title>
+    <meta name="description" content="Crea tu enlace de WhatsApp personalizado con código QR en segundos. Gratis, sin publicidad y optimizado para negocios.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- JSON-LD: SoftwareApplication -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "WhatsApp Link & QR Generator",
+      "operatingSystem": "All",
+      "applicationCategory": "BusinessApplication",
+      "url": "https://dantagle.cl/wa",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CLP" }
+    }
+    </script>
+
+    <style>
+        :root { --accent: #25d366; }
+        body { font-family: 'Outfit', sans-serif; background-color: #050505; color: #f4f4f5; }
+        .bg-mesh { background: radial-gradient(circle at 50% -20%, rgba(37, 211, 102, 0.1) 0%, transparent 50%); }
+        .glass-panel { background: rgba(255,255,255,0.03); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.08); border-radius: 2.5rem; transition: all 0.3s ease; }
+        .input-premium { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 1.2rem; padding: 1.2rem; width: 100%; outline: none; transition: all 0.3s; color: white; }
+        .input-premium:focus { border-color: var(--accent); box-shadow: 0 0 30px rgba(37, 211, 102, 0.15); }
+    </style>
+</head>
+<body class="bg-mesh min-h-screen">
+    <nav class="py-10 px-10 flex justify-between items-center">
+        <a href="index.html" class="text-2xl font-black tracking-tighter uppercase">DAN TAGLE <span class="text-emerald-500">.</span></a>
+        <a href="desarrollos.html" class="text-[10px] font-black uppercase tracking-[0.3em] text-zinc-500 hover:text-white transition-colors">Ecosistema</a>
+    </nav>
+
+    <main class="container mx-auto px-6 py-10 max-w-4xl">
+        <header class="text-center mb-16">
+            <h1 class="text-5xl md:text-7xl font-black mb-6 tracking-tighter uppercase">WhatsApp <span class="text-emerald-500">Link.</span></h1>
+            <p class="text-zinc-500 font-light max-w-xl mx-auto">Crea enlaces personalizados para tu bio de Instagram, anuncios o sitio web con código QR incluido.</p>
+        </header>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <!-- Form -->
+            <div class="glass-panel p-10 space-y-8">
+                <div>
+                    <label class="text-[10px] font-black uppercase tracking-widest text-zinc-500 mb-4 block">Número (Ej: 56912345678)</label>
+                    <input type="text" id="phone" placeholder="569" class="input-premium font-mono" oninput="updateLink()">
+                </div>
+                <div>
+                    <label class="text-[10px] font-black uppercase tracking-widest text-zinc-500 mb-4 block">Mensaje predeterminado</label>
+                    <textarea id="message" rows="3" placeholder="Hola Dan, me gustaría..." class="input-premium" oninput="updateLink()"></textarea>
+                </div>
+                <div class="pt-4">
+                    <button onclick="copyLink()" class="w-full bg-emerald-500 hover:bg-white text-black font-black py-5 rounded-2xl transition-all uppercase text-xs tracking-widest flex items-center justify-center gap-3">
+                        <i data-lucide="copy" class="w-4 h-4"></i> Copiar Enlace
+                    </button>
+                </div>
+            </div>
+
+            <!-- Preview & QR -->
+            <div class="glass-panel p-10 flex flex-col items-center justify-center text-center">
+                <div id="qr-container" class="bg-white p-6 rounded-3xl mb-8 opacity-20 transition-opacity">
+                    <img id="qr-image" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://dantagle.cl" alt="QR Code">
+                </div>
+                <p id="preview-url" class="text-[10px] font-mono text-zinc-600 break-all mb-8 max-w-[200px]">wa.link/wa...</p>
+                <button id="download-qr" onclick="downloadQR()" class="text-xs font-black uppercase tracking-widest text-zinc-400 hover:text-emerald-500 transition-colors disabled:opacity-30" disabled>
+                    Descargar QR (.png)
+                </button>
+            </div>
+        </div>
+
+        <!-- SEO Text -->
+        <section class="mt-32 pt-20 border-t border-white/5 grid grid-cols-1 md:grid-cols-3 gap-12 text-sm text-zinc-500 font-light leading-relaxed">
+            <div>
+                <h3 class="text-white font-black uppercase tracking-widest text-xs mb-4">Gratis para siempre</h3>
+                <p>Nuestra herramienta no tiene publicidad ni capturamos tus datos. Es una utilidad pública para la comunidad de emprendedores en Chile.</p>
+            </div>
+            <div>
+                <h3 class="text-white font-black uppercase tracking-widest text-xs mb-4">Optimizado para Ads</h3>
+                <p>Usa estos enlaces en tus campañas de Facebook e Instagram Ads para dirigir el tráfico directamente a tu chat comercial.</p>
+            </div>
+            <div>
+                <h3 class="text-white font-black uppercase tracking-widest text-xs mb-4">Código QR incluido</h3>
+                <p>Ideal para imprimir en tarjetas de presentación, flyers o menús de restaurantes. Escanear y conectar.</p>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        lucide.createIcons();
+        const phoneInput = document.getElementById('phone');
+        const messageInput = document.getElementById('message');
+        const previewUrl = document.getElementById('preview-url');
+        const qrContainer = document.getElementById('qr-container');
+        const qrImage = document.getElementById('qr-image');
+        const downloadBtn = document.getElementById('download-qr');
+
+        function updateLink() {
+            const phone = phoneInput.value.replace(/\D/g,'');
+            const message = encodeURIComponent(messageInput.value);
+            if(phone.length > 8) {
+                const url = `https://wa.me/${phone}?text=${message}`;
+                previewUrl.innerText = url;
+                qrImage.src = `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${encodeURIComponent(url)}`;
+                qrContainer.style.opacity = '1';
+                downloadBtn.disabled = false;
+            } else {
+                qrContainer.style.opacity = '0.2';
+                downloadBtn.disabled = true;
+            }
+        }
+
+        function copyLink() {
+            const url = previewUrl.innerText;
+            if(url.startsWith('https')) {
+                navigator.clipboard.writeText(url);
+                alert('¡Enlace copiado!');
+            }
+        }
+
+        function downloadQR() {
+            const link = document.createElement('a');
+            link.href = qrImage.src;
+            link.download = 'whatsapp-qr-dantagle.png';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+    </script>
+</body>
+</html>

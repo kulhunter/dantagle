@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validador de RUT Chile | Gratis | Dan Tagle</title>
+    <meta name="description" content="Valida y genera RUTs chilenos de forma rápida. Herramienta esencial para desarrolladores y procesos administrativos.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Outfit', sans-serif; background-color: #050505; color: #f4f4f5; }
+        .glass-panel { background: rgba(255,255,255,0.03); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.08); border-radius: 2rem; }
+        .input-premium { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 1rem; padding: 1rem; width: 100%; outline: none; color: white; text-align: center; font-size: 1.5rem; font-weight: 700; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center p-6">
+    <div class="w-full max-w-xl glass-panel p-12">
+        <header class="text-center mb-10">
+            <h1 class="text-3xl font-black mb-4 uppercase tracking-widest">Validador <span class="text-cyan-500">RUT.</span></h1>
+        </header>
+        <div class="space-y-6">
+            <input type="text" id="rutInput" placeholder="12.345.678-9" class="input-premium" oninput="validate()">
+            <div id="status" class="text-center text-xs font-black uppercase tracking-widest py-4 rounded-xl transition-all opacity-0">--</div>
+            
+            <div class="pt-8 border-t border-white/5 text-center">
+                <button onclick="generate()" class="text-[10px] font-black uppercase tracking-[0.3em] text-zinc-500 hover:text-white transition-colors">Generar RUT Aleatorio</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        function validate() {
+            const input = document.getElementById('rutInput').value;
+            const status = document.getElementById('status');
+            const clean = input.replace(/\./g, '').replace(/-/g, '').toUpperCase();
+            if(clean.length < 2) { status.style.opacity = '0'; return; }
+            
+            const rut = clean.slice(0, -1);
+            const dv = clean.slice(-1);
+            const expected = calculateDV(rut);
+            
+            status.style.opacity = '1';
+            if(dv === expected) {
+                status.innerText = 'RUT VÁLIDO';
+                status.className = 'text-center text-xs font-black uppercase tracking-widest py-4 rounded-xl bg-emerald-500/10 text-emerald-500';
+            } else {
+                status.innerText = 'RUT INVÁLIDO';
+                status.className = 'text-center text-xs font-black uppercase tracking-widest py-4 rounded-xl bg-red-500/10 text-red-500';
+            }
+        }
+
+        function calculateDV(rut) {
+            let sum = 0;
+            let mul = 2;
+            for(let i = rut.length - 1; i >= 0; i--) {
+                sum += parseInt(rut.charAt(i)) * mul;
+                mul = mul === 7 ? 2 : mul + 1;
+            }
+            const res = 11 - (sum % 11);
+            if(res === 11) return '0';
+            if(res === 10) return 'K';
+            return res.toString();
+        }
+
+        function generate() {
+            const num = Math.floor(Math.random() * (25000000 - 5000000) + 5000000);
+            const dv = calculateDV(num.toString());
+            document.getElementById('rutInput').value = num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + "-" + dv;
+            validate();
+        }
+    </script>
+</body>
+</html>
