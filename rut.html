@@ -4,69 +4,146 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Validador de RUT Chile | Gratis | Dan Tagle</title>
-    <meta name="description" content="Valida y genera RUTs chilenos de forma rápida. Herramienta esencial para desarrolladores y procesos administrativos.">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@0.473.0/dist/umd/lucide.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;900&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Outfit', sans-serif; background-color: #050505; color: #f4f4f5; }
-        .glass-panel { background: rgba(255,255,255,0.03); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.08); border-radius: 2rem; }
-        .input-premium { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 1rem; padding: 1rem; width: 100%; outline: none; color: white; text-align: center; font-size: 1.5rem; font-weight: 700; }
+        body { font-family: 'Outfit', sans-serif; background-color: #050505; color: #fff; }
+        .bg-mesh { background-image: radial-gradient(circle at 50% 0%, rgba(6, 182, 212, 0.15) 0%, transparent 70%); }
+        input::-webkit-outer-spin-button, input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
     </style>
 </head>
-<body class="min-h-screen flex flex-col items-center justify-center p-6">
-    <div class="w-full max-w-xl glass-panel p-12">
-        <header class="text-center mb-10">
-            <h1 class="text-3xl font-black mb-4 uppercase tracking-widest">Validador <span class="text-cyan-500">RUT.</span></h1>
-        </header>
-        <div class="space-y-6">
-            <input type="text" id="rutInput" placeholder="12.345.678-9" class="input-premium" oninput="validate()">
-            <div id="status" class="text-center text-xs font-black uppercase tracking-widest py-4 rounded-xl transition-all opacity-0">--</div>
-            
-            <div class="pt-8 border-t border-white/5 text-center">
-                <button onclick="generate()" class="text-[10px] font-black uppercase tracking-[0.3em] text-zinc-500 hover:text-white transition-colors">Generar RUT Aleatorio</button>
+<body class="bg-mesh min-h-screen flex flex-col">
+    <nav class="p-6 flex justify-between items-center">
+        <a href="desarrollos.html" class="p-2 hover:bg-white/10 rounded-full transition-all"><i data-lucide="arrow-left" class="w-6 h-6"></i></a>
+        <span class="text-[8px] font-black uppercase tracking-[0.4em] opacity-30">RUT Validator</span>
+        <div class="w-10"></div>
+    </nav>
+
+    <main class="flex-1 flex flex-col items-center justify-center px-6 pb-20">
+        <div class="w-full max-w-md text-center">
+            <header class="mb-12">
+                <span class="text-[10px] font-black uppercase tracking-[0.5em] text-cyan-500 mb-4 block">Herramienta de Utilidad</span>
+                <h1 class="text-4xl font-black uppercase tracking-tighter">Validador <span class="text-white">de RUT.</span></h1>
+            </header>
+
+            <div class="mb-16">
+                <span class="text-[10px] font-black uppercase tracking-[0.3em] text-zinc-500 mb-4 block">Ingresa el RUT</span>
+                <div class="relative">
+                    <input type="text" id="rut" placeholder="12.345.678-9" class="w-full bg-transparent text-4xl md:text-6xl font-black text-center border-none outline-none focus:ring-0 placeholder:text-white/5" oninput="validate()">
+                </div>
+            </div>
+
+            <div id="result" class="hidden reveal">
+                <div id="statusIcon" class="w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-6">
+                    <i id="icon" data-lucide="check" class="w-10 h-10"></i>
+                </div>
+                <div id="statusText" class="text-xl font-black uppercase tracking-widest">VÁLIDO</div>
             </div>
         </div>
-    </div>
+    </main>
+
+    <!-- Discovery Section: Hub & Blog -->
+    <section class="bg-zinc-900/40 py-24 px-6 border-t border-white/5">
+        <div class="max-w-4xl mx-auto">
+            <div class="mb-20">
+                <span class="text-[10px] font-black uppercase tracking-[0.5em] text-cyan-500 mb-8 block">Hub de Herramientas</span>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <a href="boleta.html" class="bg-white/5 p-4 rounded-2xl border border-white/10 hover:border-cyan-500 transition-all text-center group">
+                        <span class="text-[10px] font-black uppercase tracking-widest group-hover:text-white">Boleta</span>
+                    </a>
+                    <a href="sueldo.html" class="bg-white/5 p-4 rounded-2xl border border-white/10 hover:border-cyan-500 transition-all text-center group">
+                        <span class="text-[10px] font-black uppercase tracking-widest group-hover:text-white">Sueldo</span>
+                    </a>
+                    <a href="iva.html" class="bg-white/5 p-4 rounded-2xl border border-white/10 hover:border-cyan-500 transition-all text-center group">
+                        <span class="text-[10px] font-black uppercase tracking-widest group-hover:text-white">IVA</span>
+                    </a>
+                    <a href="uf.html" class="bg-white/5 p-4 rounded-2xl border border-white/10 hover:border-cyan-500 transition-all text-center group">
+                        <span class="text-[10px] font-black uppercase tracking-widest group-hover:text-white">UF</span>
+                    </a>
+                    <a href="calculadora-utm.html" class="bg-white/5 p-4 rounded-2xl border border-white/10 hover:border-cyan-500 transition-all text-center group">
+                        <span class="text-[10px] font-black uppercase tracking-widest group-hover:text-white">UTM</span>
+                    </a>
+                    <a href="ipc.html" class="bg-white/5 p-4 rounded-2xl border border-white/10 hover:border-cyan-500 transition-all text-center group">
+                        <span class="text-[10px] font-black uppercase tracking-widest group-hover:text-white">IPC</span>
+                    </a>
+                    <a href="wa.html" class="bg-white/5 p-4 rounded-2xl border border-white/10 hover:border-cyan-500 transition-all text-center group">
+                        <span class="text-[10px] font-black uppercase tracking-widest group-hover:text-white text-emerald-500">WA Link</span>
+                    </a>
+                    <a href="rut.html" class="bg-white/5 p-4 rounded-2xl border border-white/10 hover:border-cyan-500 transition-all text-center group">
+                        <span class="text-[10px] font-black uppercase tracking-widest group-hover:text-white">RUT</span>
+                    </a>
+                </div>
+            </div>
+
+            <div>
+                <span class="text-[10px] font-black uppercase tracking-[0.5em] text-zinc-500 mb-8 block">Pensamiento Estratégico</span>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <a href="blog/el-trafico-web-esta-muriendo-google.html" class="group">
+                        <div class="rounded-3xl overflow-hidden aspect-video mb-6 grayscale group-hover:grayscale-0 transition-all duration-700">
+                            <img src="https://media.licdn.com/dms/image/v2/D4D12AQEDpUKDnvs6Ng/article-cover_image-shrink_720_1280/B4DZwA1L94J0AI-/0/1769540472568?e=2147483647&v=beta&t=uUSY4PGmiwuRht_UCWoO2WzqoOuQYXilM3yAmbB8tRI" class="w-full h-full object-cover group-hover:scale-110 transition-all duration-700">
+                        </div>
+                        <h4 class="text-lg font-black uppercase tracking-tighter group-hover:text-cyan-500 transition-colors leading-tight">El tráfico web está muriendo. Google no.</h4>
+                    </a>
+                    <a href="blog/el-cm-murio-orquestador-comunidades.html" class="group">
+                        <div class="rounded-3xl overflow-hidden aspect-video mb-6 grayscale group-hover:grayscale-0 transition-all duration-700">
+                            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=1200" class="w-full h-full object-cover group-hover:scale-110 transition-all duration-700">
+                        </div>
+                        <h4 class="text-lg font-black uppercase tracking-tighter group-hover:text-cyan-500 transition-colors leading-tight">El CM Murió: Orquestador de Comunidades</h4>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="mt-20 pt-10 border-t border-white/5 flex justify-between items-center opacity-30">
+                <span class="text-[9px] font-black uppercase tracking-widest text-zinc-600">© 2026 Dan Tagle</span>
+                <a href="index.html" class="text-[9px] font-black uppercase tracking-widest hover:text-white transition-colors">Volver al Inicio</a>
+            </div>
+        </div>
+    </section>
+
     <script>
         function validate() {
-            const input = document.getElementById('rutInput').value;
-            const status = document.getElementById('status');
-            const clean = input.replace(/\./g, '').replace(/-/g, '').toUpperCase();
-            if(clean.length < 2) { status.style.opacity = '0'; return; }
-            
-            const rut = clean.slice(0, -1);
-            const dv = clean.slice(-1);
-            const expected = calculateDV(rut);
-            
-            status.style.opacity = '1';
-            if(dv === expected) {
-                status.innerText = 'RUT VÁLIDO';
-                status.className = 'text-center text-xs font-black uppercase tracking-widest py-4 rounded-xl bg-emerald-500/10 text-emerald-500';
-            } else {
-                status.innerText = 'RUT INVÁLIDO';
-                status.className = 'text-center text-xs font-black uppercase tracking-widest py-4 rounded-xl bg-red-500/10 text-red-500';
+            let value = document.getElementById('rut').value.replace(/\./g, '').replace(/-/g, '');
+            if (value.length < 2) {
+                document.getElementById('result').classList.add('hidden');
+                return;
             }
-        }
 
-        function calculateDV(rut) {
+            const body = value.slice(0, -1);
+            const dv = value.slice(-1).toUpperCase();
+            
             let sum = 0;
             let mul = 2;
-            for(let i = rut.length - 1; i >= 0; i--) {
-                sum += parseInt(rut.charAt(i)) * mul;
+            for (let i = body.length - 1; i >= 0; i--) {
+                sum += body[i] * mul;
                 mul = mul === 7 ? 2 : mul + 1;
             }
+            
             const res = 11 - (sum % 11);
-            if(res === 11) return '0';
-            if(res === 10) return 'K';
-            return res.toString();
+            const expectedDv = res === 11 ? '0' : res === 10 ? 'K' : res.toString();
+            
+            const isValid = dv === expectedDv;
+            const resDiv = document.getElementById('result');
+            const iconDiv = document.getElementById('statusIcon');
+            const icon = document.getElementById('icon');
+            const text = document.getElementById('statusText');
+
+            resDiv.classList.remove('hidden');
+            if (isValid) {
+                iconDiv.className = "w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-6 bg-emerald-500";
+                icon.setAttribute('data-lucide', 'check');
+                text.innerText = "RUT VÁLIDO";
+                text.className = "text-xl font-black uppercase tracking-widest text-emerald-500";
+            } else {
+                iconDiv.className = "w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-6 bg-rose-500";
+                icon.setAttribute('data-lucide', 'x');
+                text.innerText = "RUT INVÁLIDO";
+                text.className = "text-xl font-black uppercase tracking-widest text-rose-500";
+            }
+            lucide.createIcons();
         }
 
-        function generate() {
-            const num = Math.floor(Math.random() * (25000000 - 5000000) + 5000000);
-            const dv = calculateDV(num.toString());
-            document.getElementById('rutInput').value = num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + "-" + dv;
-            validate();
-        }
+        document.addEventListener('DOMContentLoaded', () => lucide.createIcons());
     </script>
 </body>
 </html>

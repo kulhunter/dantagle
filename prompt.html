@@ -1,158 +1,84 @@
 <!DOCTYPE html>
-<html lang="es-CL" class="scroll-smooth">
+<html lang="es-CL">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Prompt Architect | Generador de Prompts | Dan Tagle</title>
-    <meta name="description" content="Diseña instrucciones perfectas para ChatGPT, Claude y Gemini. Generador de prompts estructurados para resultados profesionales.">
-    
+    <title>Prompt Optimizer | AI Tools | Dan Tagle</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-    
+    <script src="https://unpkg.com/lucide@0.473.0/dist/umd/lucide.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;900&display=swap" rel="stylesheet">
     <style>
-        :root { --accent: #a855f7; }
-        body { font-family: 'Outfit', sans-serif; background-color: #050505; color: #f4f4f5; }
-        .bg-mesh { background: radial-gradient(circle at 100% 0%, rgba(168, 85, 247, 0.1) 0%, transparent 40%); }
-        .glass-panel { background: rgba(255,255,255,0.03); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.08); border-radius: 2.5rem; transition: all 0.4s ease; }
-        .input-premium { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 1.2rem; padding: 1.2rem; width: 100%; outline: none; transition: all 0.3s; color: white; font-size: 0.9rem; }
-        .input-premium:focus { border-color: var(--accent); box-shadow: 0 0 30px rgba(168, 85, 247, 0.15); }
+        body { font-family: 'Outfit', sans-serif; background-color: #050505; color: #fff; }
+        .bg-mesh { background-image: radial-gradient(circle at 50% 0%, rgba(139, 92, 246, 0.1) 0%, transparent 70%); }
+        textarea { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: white; border-radius: 1.5rem; padding: 1.5rem; width: 100%; outline: none; transition: all 0.3s; }
+        textarea:focus { border-color: #a78bfa; background: rgba(255,255,255,0.08); }
+        .optimized-box { background: rgba(167, 139, 250, 0.05); border: 1px solid rgba(167, 139, 250, 0.2); border-radius: 1.5rem; padding: 2rem; color: #a78bfa; font-style: italic; }
     </style>
 </head>
-<body class="bg-mesh min-h-screen">
-    <nav class="py-10 px-10 flex justify-between items-center">
-        <a href="index.html" class="text-2xl font-black tracking-tighter uppercase">DAN TAGLE <span class="text-purple-500">.</span></a>
-        <a href="desarrollos.html" class="text-[10px] font-black uppercase tracking-[0.3em] text-zinc-500 hover:text-white transition-colors">Ecosistema</a>
+<body class="bg-mesh min-h-screen flex flex-col">
+    <nav class="p-6 flex justify-between items-center">
+        <a href="desarrollos.html" class="p-2 hover:bg-white/10 rounded-full transition-all"><i data-lucide="arrow-left" class="w-6 h-6"></i></a>
+        <span class="text-[8px] font-black uppercase tracking-[0.4em] opacity-30">Prompt Engine v3.0</span>
+        <div class="w-10"></div>
     </nav>
 
-    <main class="container mx-auto px-6 py-10 max-w-5xl">
+    <main class="flex-1 px-6 pb-20 container mx-auto max-w-4xl">
         <header class="text-center mb-16">
-            <span class="text-[10px] font-mono text-purple-500 tracking-[0.4em] uppercase mb-4 block">INGENIERÍA DE INSTRUCCIONES</span>
-            <h1 class="text-5xl md:text-7xl font-black mb-6 tracking-tighter uppercase">Prompt <span class="text-purple-500">Architect.</span></h1>
-            <p class="text-zinc-500 font-light max-w-xl mx-auto">Deja de hablarle a la IA como a un buscador. Diseña estructuras de pensamiento para obtener resultados de nivel experto.</p>
+            <span class="text-[10px] font-black uppercase tracking-[0.5em] text-violet-400 mb-4 block">AI Orchestration Tool</span>
+            <h1 class="text-4xl font-black uppercase tracking-tighter">Prompt <span class="text-white">Optimizer.</span></h1>
         </header>
 
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
-            <!-- Builder -->
-            <div class="lg:col-span-7 glass-panel p-10 space-y-6">
-                <div class="grid grid-cols-2 gap-6">
-                    <div>
-                        <label class="text-[10px] font-black uppercase tracking-widest text-zinc-500 mb-4 block">Rol del Experto</label>
-                        <select id="role" class="input-premium appearance-none" onchange="buildPrompt()">
-                            <option value="Senior Software Engineer">Senior Developer</option>
-                            <option value="Marketing Strategist & Growth Hacker">Growth Marketer</option>
-                            <option value="Creative Director (Cannes Lions winner)">Director Creativo</option>
-                            <option value="Legal Consultant (Chilean Law)">Consultor Legal</option>
-                            <option value="Data Scientist & ML Expert">Data Scientist</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="text-[10px] font-black uppercase tracking-widest text-zinc-500 mb-4 block">Tono</label>
-                        <select id="tone" class="input-premium appearance-none" onchange="buildPrompt()">
-                            <option value="profesional, directo y técnico">Profesional</option>
-                            <option value="creativo, disruptivo y visionario">Creativo</option>
-                            <option value="conciso, ejecutivo y orientado a resultados">Ejecutivo</option>
-                            <option value="pedagógico, paciente y detallado">Educativo</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div>
-                    <label class="text-[10px] font-black uppercase tracking-widest text-zinc-500 mb-4 block">Tarea Principal</label>
-                    <textarea id="task" rows="3" placeholder="Ej: Analizar los estados financieros de una PyME..." class="input-premium" oninput="buildPrompt()"></textarea>
-                </div>
-
-                <div>
-                    <label class="text-[10px] font-black uppercase tracking-widest text-zinc-500 mb-4 block">Contexto / Restricciones</label>
-                    <textarea id="context" rows="3" placeholder="Ej: Enfócate en el flujo de caja y no uses tecnicismos complejos..." class="input-premium" oninput="buildPrompt()"></textarea>
-                </div>
-
-                <div>
-                    <label class="text-[10px] font-black uppercase tracking-widest text-zinc-500 mb-4 block">Formato de Salida</label>
-                    <select id="format" class="input-premium appearance-none" onchange="buildPrompt()">
-                        <option value="Markdown con tablas y bullet points">Markdown</option>
-                        <option value="Objeto JSON estructurado">JSON</option>
-                        <option value="Email profesional listo para enviar">Email</option>
-                        <option value="Código ejecutable (Python/JS)">Código</option>
-                        <option value="Lista de pasos accionables (Checklist)">Checklist</option>
-                    </select>
-                </div>
+        <div class="space-y-12">
+            <div>
+                <label class="text-[8px] font-black uppercase tracking-widest text-zinc-500 mb-4 block text-center md:text-left">Tu Idea Base</label>
+                <textarea id="input" rows="4" placeholder="Ej: Escribe un post para LinkedIn sobre SEO..." oninput="optimize()"></textarea>
             </div>
 
-            <!-- Result -->
-            <div class="lg:col-span-5 flex flex-col">
-                <div class="glass-panel p-10 bg-purple-500/5 border-purple-500/20 flex-1 flex flex-col">
-                    <div class="flex justify-between items-center mb-8">
-                        <span class="text-[10px] font-black uppercase tracking-[0.4em] text-purple-500">Estructura Final</span>
-                        <button onclick="copyPrompt()" class="text-zinc-500 hover:text-white transition-colors">
-                            <i data-lucide="copy" class="w-4 h-4"></i>
-                        </button>
-                    </div>
-                    <div id="result-prompt" class="text-sm text-zinc-300 font-mono leading-relaxed whitespace-pre-wrap flex-1 overflow-y-auto max-h-[400px]">
-                        Tu prompt aparecerá aquí mientras escribes...
-                    </div>
+            <div class="reveal">
+                <label class="text-[8px] font-black uppercase tracking-widest text-zinc-500 mb-4 block text-center md:text-left">Prompt Optimizado (Role + Context + Goal)</label>
+                <div id="output" class="optimized-box mb-8">Escribe tu idea arriba para orquestar un prompt profesional...</div>
+                <button onclick="copy()" class="w-full py-4 bg-white text-black font-black uppercase tracking-widest rounded-2xl hover:scale-105 transition-all">Copiar Prompt</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Discovery Section: Hub & Blog -->
+    <section class="bg-zinc-900/40 py-24 px-6 border-t border-white/5">
+        <div class="max-w-4xl mx-auto">
+            <div class="mb-20">
+                <span class="text-[10px] font-black uppercase tracking-[0.5em] text-cyan-500 mb-8 block text-center md:text-left">Hub de Herramientas</span>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                    <a href="boleta.html" class="bg-white/5 p-4 rounded-2xl border border-white/10 hover:border-cyan-500 transition-all text-center group"><span class="text-[10px] font-black uppercase tracking-widest group-hover:text-white">Boleta</span></a>
+                    <a href="sueldo.html" class="bg-white/5 p-4 rounded-2xl border border-white/10 hover:border-cyan-500 transition-all text-center group"><span class="text-[10px] font-black uppercase tracking-widest group-hover:text-white">Sueldo</span></a>
+                    <a href="iva.html" class="bg-white/5 p-4 rounded-2xl border border-white/10 hover:border-cyan-500 transition-all text-center group"><span class="text-[10px] font-black uppercase tracking-widest group-hover:text-white">IVA</span></a>
+                    <a href="uf.html" class="bg-white/5 p-4 rounded-2xl border border-white/10 hover:border-cyan-500 transition-all text-center group"><span class="text-[10px] font-black uppercase tracking-widest group-hover:text-white">UF</span></a>
+                    <a href="calculadora-utm.html" class="bg-white/5 p-4 rounded-2xl border border-white/10 hover:border-cyan-500 transition-all text-center group"><span class="text-[10px] font-black uppercase tracking-widest group-hover:text-white">UTM</span></a>
+                    <a href="ipc.html" class="bg-white/5 p-4 rounded-2xl border border-white/10 hover:border-cyan-500 transition-all text-center group"><span class="text-[10px] font-black uppercase tracking-widest group-hover:text-white">IPC</span></a>
+                    <a href="wa.html" class="bg-white/5 p-4 rounded-2xl border border-white/10 hover:border-cyan-500 transition-all text-center group"><span class="text-[10px] font-black uppercase tracking-widest text-emerald-500 group-hover:text-white">WA Link</span></a>
+                    <a href="rut.html" class="bg-white/5 p-4 rounded-2xl border border-white/10 hover:border-cyan-500 transition-all text-center group"><span class="text-[10px] font-black uppercase tracking-widest group-hover:text-white">RUT</span></a>
                 </div>
             </div>
         </div>
-
-        <!-- Why Prompts? -->
-        <section class="mt-32 pt-20 border-t border-white/5">
-            <h2 class="text-3xl font-black mb-12 uppercase tracking-tighter text-center">La anatomía de un prompt perfecto</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-                <div class="p-10 glass-panel border-white/5">
-                    <span class="text-purple-500 font-black text-4xl mb-6 block">01</span>
-                    <h4 class="text-white font-black uppercase tracking-widest text-xs mb-4">Personalidad</h4>
-                    <p class="text-sm text-zinc-500 font-light">Asignar un rol específico obliga a la IA a priorizar un conjunto de datos y un estilo de respuesta profesional.</p>
-                </div>
-                <div class="p-10 glass-panel border-white/5">
-                    <span class="text-purple-500 font-black text-4xl mb-6 block">02</span>
-                    <h4 class="text-white font-black uppercase tracking-widest text-xs mb-4">Contexto</h4>
-                    <p class="text-sm text-zinc-500 font-light">Sin restricciones, la IA tiende a ser genérica. El contexto le da los límites necesarios para ser precisa.</p>
-                </div>
-                <div class="p-10 glass-panel border-white/5">
-                    <span class="text-purple-500 font-black text-4xl mb-6 block">03</span>
-                    <h4 class="text-white font-black uppercase tracking-widest text-xs mb-4">Formato</h4>
-                    <p class="text-sm text-zinc-500 font-light">Definir el formato ahorra tiempo de edición. Pide tablas, JSON o Markdown para integrar el resultado de inmediato.</p>
-                </div>
-            </div>
-        </section>
-    </main>
+    </section>
 
     <script>
-        lucide.createIcons();
-
-        function buildPrompt() {
-            const role = document.getElementById('role').value;
-            const tone = document.getElementById('tone').value;
-            const task = document.getElementById('task').value || '[Define una tarea]';
-            const context = document.getElementById('context').value || '[Añade contexto]';
-            const format = document.getElementById('format').value;
-
-            const prompt = `Actúa como un ${role}. 
-
-OBJETIVO: 
-${task}
-
-CONTEXTO Y RESTRICCIONES:
-${context}
-
-TONO DE RESPUESTA:
-Tu comunicación debe ser ${tone}.
-
-FORMATO DE SALIDA:
-Entrega el resultado en ${format}.`;
-
-            document.getElementById('result-prompt').innerText = prompt;
+        function optimize() {
+            const input = document.getElementById('input').value;
+            if (!input) {
+                document.getElementById('output').innerText = "Escribe tu idea arriba...";
+                return;
+            }
+            const optimized = `Actúa como un experto en estrategia digital y copywriter senior. Tu objetivo es: ${input}. Proporciona una estructura clara, tono profesional y orientado a la conversión. Evita generalidades y enfócate en valor accionable.`;
+            document.getElementById('output').innerText = optimized;
         }
-
-        function copyPrompt() {
-            const text = document.getElementById('result-prompt').innerText;
+        function copy() {
+            const text = document.getElementById('output').innerText;
             navigator.clipboard.writeText(text);
-            alert('¡Prompt copiado al portapapeles!');
+            const btn = event.target;
+            btn.innerText = '¡Copiado!';
+            setTimeout(() => btn.innerText = 'Copiar Prompt', 2000);
         }
-
-        // Init
-        buildPrompt();
+        document.addEventListener('DOMContentLoaded', () => lucide.createIcons());
     </script>
 </body>
 </html>

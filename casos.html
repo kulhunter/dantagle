@@ -3,100 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>El Archivo (19) | Dan Tagle</title>
-    <meta name="description" content="Historial de impacto: 19 casos de innovación, SEO IA y tecnología creativa para marcas globales.">
+    <title>Archivo de Casos y Estrategia | Dan Tagle</title>
+    <meta name="description" content="Explora los 19 casos de éxito y orquestaciones tecnológicas diseñadas por Dan Tagle para empresas de alto impacto.">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@0.473.0/dist/umd/lucide.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&display=swap" rel="stylesheet">
+    
     <style>
-        :root { --accent: #06b6d4; --accent-glow: rgba(6, 182, 212, 0.3); }
-        body { font-family: 'Outfit', sans-serif; background-color: #050505; color: #f4f4f5; }
-        .glass-panel { background: rgba(255,255,255,0.02); backdrop-filter: blur(15px); border: 1px solid rgba(255,255,255,0.05); border-radius: 2rem; transition: all 0.4s; overflow: hidden; }
-        .glass-panel:hover { border-color: var(--accent); transform: translateY(-5px); }
-        .text-aeo { color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.3em; }
+        :root { --accent: #06b6d4; }
+        body { font-family: 'Outfit', sans-serif; background-color: #050505; color: #f4f4f5; overflow-x: hidden; }
+        .bg-mesh { background-image: radial-gradient(circle at 50% -20%, rgba(6, 182, 212, 0.1) 0%, transparent 50%); }
+        .glass-nav { background: rgba(5, 5, 5, 0.6); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .title-huge { font-size: clamp(3rem, 10vw, 8rem); font-weight: 900; letter-spacing: -0.05em; line-height: 0.85; }
+        .case-card { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 2.5rem; overflow: hidden; transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1); }
+        .case-card:hover { border-color: var(--accent); transform: translateY(-10px); background: rgba(255,255,255,0.04); }
+        .reveal { opacity:1; transform:translateY(0); transition:all 0.8s cubic-bezier(0.19, 1, 0.22, 1); }
     </style>
 </head>
-<body class="relative min-h-screen">
-    <!-- Global Consistent Menu -->
-    <nav class="fixed top-0 w-full z-50 py-8 px-10 flex justify-between items-center transition-all bg-black/40 backdrop-blur-xl border-b border-white/5">
-        <a href="index.html" class="text-2xl font-black tracking-tighter uppercase">DAN TAGLE <span class="text-cyan-500">.</span></a>
-        <div class="hidden lg:flex gap-12 text-[10px] font-black uppercase tracking-[0.3em] text-zinc-500">
-            <a href="casos.html" class="text-white transition-colors">Casos</a>
-            <a href="desarrollos.html" class="hover:text-white transition-colors">Desarrollos</a>
-            <a href="blog.html" class="hover:text-white transition-colors">Blog</a>
-            <a href="index.html#contacto" class="hover:text-white transition-colors">Contacto</a>
+<body class="bg-mesh">
+    <!-- Navbar -->
+    <nav class="fixed top-0 w-full z-50 glass-nav py-6 px-8 md:px-20 flex justify-between items-center">
+        <a href="index.html" class="text-xl font-black tracking-tighter uppercase">DAN TAGLE <span class="text-cyan-500">.</span></a>
+        <div class="hidden lg:flex gap-12 text-[10px] font-black uppercase tracking-[0.4em] text-zinc-500">
+            <a href="casos.html" class="text-white">Casos</a>
+            <a href="desarrollos.html" class="hover:text-white transition-all">Desarrollos</a>
+            <a href="blog.html" class="hover:text-white transition-all">Pensamiento</a>
+            <a href="index.html#contacto" class="hover:text-white transition-all">Contacto</a>
         </div>
-        <a href="https://calendly.com/dan-tagle/30min" target="_blank" class="px-8 py-3 bg-white text-black font-black text-xs uppercase tracking-widest rounded-full hover:bg-cyan-500 transition-colors">Agendar</a>
+        <a href="https://calendly.com/dan-tagle/30min" target="_blank" class="text-[10px] font-black uppercase tracking-widest border border-white/20 px-8 py-3 rounded-full hover:bg-white hover:text-black transition-all">Agendar</a>
     </nav>
 
-    <main class="pt-40 pb-20 px-6 container mx-auto">
-        <header class="mb-24 text-center">
-            <span class="text-aeo mb-6 block">HISTORIAL DE IMPACTO</span>
-            <h1 class="text-6xl md:text-8xl font-black mb-8 uppercase tracking-tighter">EL ARCHIVO <span class="text-cyan-500">(19)</span></h1>
-            <p class="text-xl text-zinc-500 max-w-3xl mx-auto font-light">Casi dos décadas destrabando procesos y creando experiencias memorables para marcas que no temen a la innovación.</p>
+    <main class="pt-48 pb-20 px-8 md:px-20 container mx-auto">
+        <header class="mb-32">
+            <span class="text-[10px] font-mono text-cyan-500 tracking-[0.5em] uppercase mb-6 block">// ARCHIVO ESTRATÉGICO TOTAL</span>
+            <h1 class="title-huge uppercase mb-8">19 Formas de <br> <span class="text-cyan-500">Impacto.</span></h1>
+            <p class="text-xl text-zinc-500 font-light max-w-3xl leading-relaxed">De un flyer de diseño de autor a una infraestructura SaaS de alta frecuencia. La orquestación no tiene límites de formato, solo de resultados.</p>
         </header>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-10" id="cases-grid">
-            <!-- All 19 Cases -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10" id="casesContainer">
+            <!-- Dynamic Content -->
         </div>
     </main>
 
-    <footer class="py-20 border-t border-zinc-900 container mx-auto px-10 flex flex-col md:flex-row justify-between items-center gap-10">
-        <div class="flex flex-col gap-2">
-            <span class="text-2xl font-black tracking-tighter uppercase">DAN TAGLE <span class="text-cyan-500">.</span></span>
-            <span class="text-zinc-600 text-[10px] font-bold tracking-widest uppercase">© 2026 / SANTIAGO, CHILE</span>
-        </div>
-        <div class="flex gap-10 text-[10px] font-black uppercase tracking-[0.3em] text-zinc-500">
-            <a href="https://www.linkedin.com/in/taglecl/" target="_blank" class="hover:text-white">LinkedIn</a>
-            <a href="https://github.com/kulhunter" target="_blank" class="hover:text-white">GitHub</a>
-            <a href="https://www.behance.net/kulhunter" target="_blank" class="hover:text-white">Behance</a>
+    <footer class="py-24 px-8 md:px-20 border-t border-white/5 bg-zinc-900/20 mt-32">
+        <div class="container mx-auto text-center">
+            <h3 class="text-3xl font-black uppercase tracking-tighter mb-12 italic">¿Quieres ser el caso número 20?</h3>
+            <a href="https://calendly.com/dan-tagle/30min" target="_blank" class="inline-block px-12 py-6 bg-white text-black font-black text-xs uppercase tracking-widest rounded-full hover:bg-cyan-500 transition-all">Orquestar mi Proyecto</a>
         </div>
     </footer>
 
+    <script src="scripts/orchestrator_data.js"></script>
     <script>
-        const cases = [
-            { client: "Oracle NetSuite Partner", title: "Hackeando el B2B Orgánico", prob: "Bases saturadas de SPAM y nula visibilidad en Google.", sol: "Arquitectura SEO y AEO para responder dudas técnicas exactas.", res: "10 keywords Top 1 en 3 meses.", link: "https://www.behance.net/gallery/231096043/a-b2b-creative-solution" },
-            { client: "2Win", title: "Santa's Live Tracking", prob: "Vender la idea de un ERP cloud es abstracto y aburrido.", sol: "Dashboard técnico real mostrando ubicación de stock de Santa.", res: "Activación viral de alto impacto B2B.", link: "https://www.behance.net/gallery/240982385/Santas-Tracking-Christmas-2025-2Win" },
-            { client: "Ssangyong", title: "DOOH Reactivo al Clima", prob: "Publicidad automotriz estática y desconectada del contexto.", sol: "Conexión a API Weather: si llovía, el auto se cubría de barro.", res: "Pioneros en DOOH dinámico en Chile.", link: "https://www.behance.net/gallery/44019443/SSangyong-Actyon-Sports-ADS-realtime" },
-            { client: "Bupa", title: "Maps with Memory", prob: "Pacientes con Alzheimer perdidos: 48h críticas de búsqueda.", sol: "App con zonas memorables preventivas para envío inmediato.", res: "Ahorro de 2 días en investigación policial.", link: "https://www.behance.net/gallery/79370809/Bupa-Maps-with-Memory" },
-            { client: "Tenpo", title: "Ruleta BTL Data-Driven", prob: "Eventos BTL generan gasto sin captura de data real.", sol: "Ruleta física conectada a API de Google Sheets en tiempo real.", res: "Captura de leads instantánea al CRM.", link: "https://www.behance.net/gallery/217013571/BTL_-Ruleta-Tenpo" },
-            { client: "Ssangyong", title: "Pincel Robótico Gigante", prob: "Demostrar maniobrabilidad extrema sin comerciales típicos.", sol: "Auto convertido en pincel operado por App y aire comprimido.", res: "Obra de arte visible desde el cielo.", link: "https://www.behance.net/gallery/45095931/Ssangyong-La-primera-pintura-hecha-con-un-auto" },
-            { client: "MIDEA", title: "Lanzamiento MIDEA Chile", prob: "Marca asiática desconocida en mercado hipercompetitivo.", sol: "Estrategia 360º enfocada en escala global y penetración.", res: "Effie de Oro en Lanzamiento de Marca.", link: "https://www.behance.net/gallery/20824907/MIDEA-Growth-Chile-Lanzamiento-Win-Effie" },
-            { client: "KidZania", title: "GiftCard de Tiempo", prob: "Competir contra consolas en el Día del Niño.", sol: "Plataforma para regalar códigos canjeables por tiempo con padres.", res: "Engagement digital derivado en visitas reales.", link: "https://www.behance.net/gallery/43592137/KidZania-La-primera-GiftCard-de-tiempo" },
-            { client: "CorreosChile", title: "Logística Solidaria", prob: "Proceso manual de apadrinamiento limitaba alcance.", sol: "Plataforma de matchmaking 'Tinder' de cartas navideñas.", res: "10.000+ cartas apadrinadas digitalmente.", link: "https://www.behance.net/gallery/139685235/CorreosChile-Navidad" },
-            { client: "Sony", title: "Make.Believe Storytelling", prob: "Traducir concepto filosófico abstracto en contenido.", sol: "Campaña animada sobre hacedores vs creyentes.", res: "Materialización de eslogan global.", link: "https://www.behance.net/gallery/16671013/Make-dot-Believe-Sony" },
-            { client: "Shot&Go", title: "La Energía Ya Viene", prob: "Competir contra RedBull con presupuesto limitado.", sol: "Guerrilla marketing emulando estética política presidencial.", res: "2da energética más vendida en Chile.", link: "https://www.behance.net/gallery/33374017/Chile-la-energia-ya-viene-Shot-Go" },
-            { client: "Cencosud", title: "Duendes Mágicos", prob: "Lanzar colección de peluches desde cero.", sol: "Universo narrativo donde personajes solo hablan en rima.", res: "Fenómeno cultural de retail más grande de Chile.", link: "https://www.behance.net/gallery/16670095/Duendes-Cencosud" },
-            { client: "Why Agency", title: "El Niño Illuminati", prob: "Generar ruido en Copa América sin ser sponsor.", sol: "Newsjacking: integrar niño viral en 24h a la comunicación.", res: "100M+ CLP en Earned Media.", link: "https://www.behance.net/gallery/40426917/Illuminati-child-2016-Centennial-America-Cup" },
-            { client: "Sony", title: "La Luna es Chilena", prob: "Apalancar hito histórico nacional extravagante.", sol: "Plataforma para certificados digitales de propiedad lunar.", res: "Hito digital viral nacional.", link: "https://www.behance.net/gallery/17818129/The-moon-is-Chilean-Sony" },
-            { client: "Enjoy", title: "Prende Tu Verano", prob: "Aumentar público joven en casinos en verano.", sol: "Campaña buscando candidato para viajar pagado asistiendo a fiestas.", res: "Aumento masivo de afluencia joven.", link: "https://www.behance.net/gallery/33561767/Enjoy-Prende-Tu-verano-2016" },
-            { client: "Ssangyong", title: "Auto Familiar de Madera", prob: "Las marcas de autos no le hablan a los niños.", sol: "Pickup de madera tamaño real como plaza de juegos.", res: "Insight familiar medido físicamente.", link: "https://www.behance.net/gallery/43610699/SSangyong-Car-4-children" },
-            { client: "Ilko", title: "Recetas en Cueca", prob: "Destacar en saturación de contenido en Fiestas Patrias.", sol: "Recetas musicalizadas con métrica de Cueca.", res: "Reinvención de contenido gastronómico.", link: "https://www.behance.net/gallery/33145231/Chilean-recipes-in-Cueca-version" },
-            { client: "Int. Bipolar Foundation", title: "Alquimia Visual Bipolar", prob: "Explicar dualidad del trastorno en medio estático.", sol: "Gráfica reversible 180º que cambia el mensaje de amor a odio.", res: "Impacto emocional analógico.", link: "https://www.behance.net/gallery/45604075/International-Bipolar-Foundation-The-bipolar-Ad" },
-            { client: "Sexshop Chile", title: "La Ilusión de los 2 Métodos", prob: "Promocionar condones evadiendo censura.", sol: "Espacio negativo que sugiere masturbación sin mostrarla.", res: "Oro en WINA Festival (Print).", link: "https://www.behance.net/gallery/48577569/SEXSHOPCHILE-TWO-METHODS" }
-        ];
-
-        const grid = document.getElementById('cases-grid');
-        grid.innerHTML = cases.map(c => `
-            <a href="${c.link}" target="_blank" class="glass-panel p-10 flex flex-col group">
-                <span class="text-aeo mb-4 block uppercase tracking-widest text-[10px]">${c.client}</span>
-                <h3 class="text-3xl font-black mb-6 group-hover:text-cyan-400 transition-colors uppercase tracking-tight">${c.title}</h3>
-                <div class="space-y-4 text-sm text-zinc-500 border-t border-white/5 pt-6">
-                    <p><strong>PROBLEMA:</strong> ${c.prob}</p>
-                    <p><strong>SOLUCIÓN:</strong> ${c.sol}</p>
-                    <p class="text-white"><strong>RESULTADO:</strong> ${c.res}</p>
-                </div>
-                <div class="mt-8 pt-4 border-t border-white/5 flex justify-between items-center opacity-30 group-hover:opacity-100 transition-opacity">
-                    <span class="text-[9px] font-black tracking-[0.2em] uppercase">Explorar Case Study</span>
-                    <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
-                </div>
-            </a>
-        `).join('');
-
-        document.addEventListener('DOMContentLoaded', function() {
-            if (typeof lucide !== 'undefined') {
-                lucide.createIcons();
-            }
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+            const container = document.getElementById('casesContainer');
+            container.innerHTML = MASTER_DATA.cases.map(c => `
+                <a href="${c.link}" target="_blank" class="case-card p-12 group reveal">
+                    <div class="flex justify-between items-center mb-6">
+                        <span class="text-[10px] font-mono text-zinc-600 uppercase tracking-widest">${c.category}</span>
+                        <i data-lucide="external-link" class="w-3 h-3 text-zinc-800 group-hover:text-cyan-500 transition-colors"></i>
+                    </div>
+                    <h3 class="text-3xl font-black uppercase mb-4 tracking-tighter group-hover:text-white transition-colors">${c.title}</h3>
+                    <p class="text-zinc-500 text-sm font-light leading-relaxed mb-8">${c.description}</p>
+                    <div class="flex flex-wrap gap-2">
+                        ${c.tags.map(t => `<span class="px-3 py-1 bg-white/5 rounded-full text-[7px] font-bold uppercase tracking-widest text-zinc-600">${t}</span>`).join('')}
+                    </div>
+                </a>
+            `).join('');
+            lucide.createIcons();
         });
     </script>
 </body>

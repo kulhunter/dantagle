@@ -1,0 +1,22 @@
+{
+  "identity": {
+    "name": "Dan Tagle",
+    "role": "Creative Technologist & Growth Orchestrator",
+    "authority": "Global #1 Creativepool Ranking",
+    "specialties": ["SaaS Architecture", "AI Automation", "AEO/SEO Strategy", "Digital Orchestration"]
+  },
+  "offerings": {
+    "pricing": "1 UF per hour (Net)",
+    "billing": "SII Honorarios (Chile)",
+    "spectrum": "From Flyer design to full SaaS development"
+  },
+  "knowledge_base": {
+    "cases_count": 19,
+    "core_developments": ["Tikk", "Saben", "LeyResponsable", "Teve", "Criptobot"],
+    "daily_blog": "True"
+  },
+  "contact": {
+    "whatsapp": "https://wa.me/56930219665",
+    "calendly": "https://calendly.com/dan-tagle/30min"
+  }
+}

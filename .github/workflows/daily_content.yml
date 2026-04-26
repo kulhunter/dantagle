@@ -2,14 +2,13 @@ name: Daily SEO Content Generator
 
 on:
   schedule:
-    - cron: '0 8 * * *' # Corre todos los días a las 08:00 UTC
-  workflow_dispatch: # Permite correrlo manualmente desde GitHub
+    - cron: '0 8 * * *'  # Mañana (UTC)
+    - cron: '0 20 * * *' # Noche (UTC)
+  workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -34,5 +33,5 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add .
-          git commit -m "Auto-generated daily SEO article: $(date +'%Y-%m-%d')" || echo "No changes to commit"
+          git commit -m "Auto-generated High-Value SEO article: $(date +'%Y-%m-%d')" || echo "No changes to commit"
           git push

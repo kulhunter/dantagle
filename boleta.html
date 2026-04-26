@@ -1,215 +1,159 @@
 <!DOCTYPE html>
-<html lang="es-CL" class="scroll-smooth">
+<html lang="es-CL">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora Boleta Honorarios 2026 | Chile | Dan Tagle</title>
-    <meta name="description" content="Calculadora de Boletas de Honorarios 2026 Chile. Calcula montos brutos, líquidos y retención del 15.25% de forma instantánea y actualizada.">
-    <link rel="canonical" href="https://dantagle.cl/boleta">
-    
-    <!-- JSON-LD: Software & FAQ -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "Calculadora Boleta Honorarios 2026 Chile",
-      "operatingSystem": "All",
-      "applicationCategory": "BusinessApplication",
-      "url": "https://dantagle.cl/boleta",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "CLP"
-      }
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [{
-        "@type": "Question",
-        "name": "¿Cuál es la retención de boletas de honorarios en 2026?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "La retención de boletas de honorarios en Chile para el año 2026 es del 15.25%, siguiendo el cronograma de aumento gradual del SII."
-        }
-      }, {
-        "@type": "Question",
-        "name": "¿Cómo calcular el bruto desde el líquido en una boleta de honorarios?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Para calcular el bruto a partir del monto líquido en 2026, debes dividir el valor líquido por 0.8475."
-        }
-      }]
-    }
-    </script>
-
+    <title>Boleta Honorarios 2026 | Dan Tagle</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&display=swap" rel="stylesheet">
-    
+    <script src="https://unpkg.com/lucide@0.473.0/dist/umd/lucide.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;900&display=swap" rel="stylesheet">
     <style>
-        :root { --accent: #06b6d4; }
-        body { font-family: 'Outfit', sans-serif; background-color: #000; color: #fff; overflow-x: hidden; }
-        
-        .main-input { 
-            background: #111; 
-            border: 1px solid #222; 
-            border-radius: 1rem; 
-            font-size: clamp(3rem, 8vw, 6rem); 
-            font-weight: 900; 
-            width: 100%; 
-            outline: none; 
-            text-align: center;
-            padding: 2rem;
-            color: #fff;
-            transition: all 0.3s;
-        }
-        .main-input:focus { border-color: var(--accent); box-shadow: 0 0 50px rgba(6, 182, 212, 0.1); }
-        
-        .radio-custom { display: none; }
-        .radio-label { 
-            padding: 0.5rem 1.5rem; 
-            border-radius: 99px; 
-            cursor: pointer; 
-            font-size: 0.8rem; 
-            font-weight: 700; 
-            border: 1px solid #222; 
-            transition: all 0.3s;
-            color: #555;
-        }
-        .radio-custom:checked + .radio-label { 
-            background: #fff; 
-            color: #000; 
-            border-color: #fff; 
-            box-shadow: 0 0 20px rgba(255,255,255,0.2);
-        }
-
-        .ad-placeholder { background: rgba(255,255,255,0.02); border: 1px dashed rgba(255,255,255,0.1); border-radius: 1rem; height: 100px; display: flex; align-items: center; justify-content: center; color: #333; font-size: 10px; text-transform: uppercase; letter-spacing: 0.2em; margin: 2rem 0; }
+        body { font-family: 'Outfit', sans-serif; background-color: #050505; color: #fff; }
+        .bg-mesh { background-image: radial-gradient(circle at 50% -20%, rgba(6, 182, 212, 0.15) 0%, transparent 50%); }
+        input::-webkit-outer-spin-button, input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+        .toggle-active { background: white; color: black; }
     </style>
 </head>
-<body class="min-h-screen flex flex-col items-center justify-center p-6">
-    <div class="w-full max-w-4xl">
-        <!-- AdSense Top -->
-        <div class="ad-placeholder">Publicidad / AdSense Placeholder</div>
-        <a href="index.html" class="text-xl font-black tracking-tighter uppercase mb-4 block">DAN TAGLE <span class="text-cyan-500">.</span></a>
-        <h1 class="text-sm font-black uppercase tracking-[0.4em] text-zinc-500">Calcula tu boleta de honorarios</h1>
-    </header>
+<body class="bg-mesh min-h-screen flex flex-col">
+    <!-- Mini Nav -->
+    <nav class="p-6 flex justify-between items-center">
+        <a href="desarrollos.html" class="p-2 hover:bg-white/10 rounded-full transition-all"><i data-lucide="arrow-left" class="w-6 h-6"></i></a>
+        <span class="text-[10px] font-black uppercase tracking-[0.4em] opacity-30">Boleta v3.0</span>
+        <div class="w-10"></div>
+    </nav>
 
-    <div class="w-full max-w-4xl">
-        <!-- Input Principal -->
-        <div class="relative mb-12">
-            <span class="absolute left-8 top-1/2 -translate-y-1/2 text-4xl font-black text-zinc-800">$</span>
-            <input type="number" id="monto" placeholder="0" class="main-input" autofocus oninput="doMath()">
-        </div>
-
-        <!-- Selector de Retención -->
-        <div class="flex justify-center gap-6 mb-20">
-            <div>
-                <input type="radio" name="ret" id="ret2026" value="0.1525" class="radio-custom" checked onchange="doMath()">
-                <label for="ret2026" class="radio-label">15,25% (2026)</label>
+    <main class="flex-1 flex flex-col items-center justify-center px-6 pb-20">
+        <div class="w-full max-w-md text-center">
+            <!-- Toggle Mode -->
+            <div class="inline-flex bg-white/5 p-1 rounded-2xl mb-12 border border-white/5">
+                <button id="modeBruto" onclick="setMode('bruto')" class="px-6 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all toggle-active">Tengo Bruto</button>
+                <button id="modeLiquido" onclick="setMode('liquido')" class="px-6 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all">Quiero Líquido</button>
             </div>
-            <div>
-                <input type="radio" name="ret" id="ret2025" value="0.145" class="radio-custom" onchange="doMath()">
-                <label for="ret2025" class="radio-label">14,5% (2025)</label>
-            </div>
-        </div>
 
-        <!-- Resultados en Columnas -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-20">
-            <!-- Si pactaste LÍQUIDO -->
-            <div class="space-y-6">
-                <h2 class="text-xs font-black uppercase tracking-[0.3em] text-zinc-500 border-b border-zinc-900 pb-4">Si pactaste LÍQUIDO</h2>
-                <p class="text-sm text-zinc-400 leading-relaxed font-light">
-                    Si lo pactado fue en valores líquidos, deberás hacer la boleta por <span id="liq-bruto" class="text-white font-bold">$0</span> y recibirás:
-                </p>
-                <div class="pt-4">
-                    <span id="liq-final" class="text-5xl font-black text-cyan-500">$0</span>
-                    <p class="text-[10px] text-zinc-600 uppercase tracking-widest mt-2">en efectivo / transferencia</p>
+            <!-- Main Input -->
+            <div class="mb-16">
+                <span id="inputLabel" class="text-[10px] font-black uppercase tracking-[0.3em] text-cyan-500 mb-4 block">Monto Bruto</span>
+                <div class="relative">
+                    <span class="absolute left-0 top-1/2 -translate-y-1/2 text-4xl font-black text-white/20">$</span>
+                    <input type="number" id="monto" placeholder="0" class="w-full bg-transparent text-6xl md:text-8xl font-black text-center border-none outline-none focus:ring-0 placeholder:text-white/5" oninput="calculate()">
                 </div>
             </div>
 
-            <!-- SEO Content Section: THE SILOGISMO KILLER -->
-        <section class="max-w-4xl mt-32 border-t border-white/5 pt-20">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
-                <div>
-                    <h2 class="text-3xl font-black mb-8 uppercase tracking-tighter">Cronograma SII (2023 - 2028)</h2>
-                    <p class="text-zinc-500 text-sm mb-8 font-light">Según la Ley 21.133, la retención de boletas de honorarios en Chile aumenta gradualmente cada año para financiar la seguridad social.</p>
-                    
-                    <div class="space-y-3">
-                        <div class="flex justify-between p-4 bg-white/5 rounded-2xl border border-white/5">
-                            <span class="text-xs text-zinc-400">Año 2025</span>
-                            <span class="text-xs font-bold">14.50%</span>
-                        </div>
-                        <div class="flex justify-between p-4 bg-cyan-500/10 rounded-2xl border border-cyan-500/30">
-                            <span class="text-xs text-cyan-500 font-bold">Año 2026 (Actual)</span>
-                            <span class="text-xs text-cyan-500 font-bold">15.25%</span>
-                        </div>
-                        <div class="flex justify-between p-4 bg-white/5 rounded-2xl border border-white/5">
-                            <span class="text-xs text-zinc-400">Año 2027</span>
-                            <span class="text-xs font-bold">16.00%</span>
-                        </div>
-                        <div class="flex justify-between p-4 bg-white/5 rounded-2xl border border-white/5">
-                            <span class="text-xs text-zinc-400">Año 2028 en adelante</span>
-                            <span class="text-xs font-bold">17.00%</span>
-                        </div>
+            <!-- Big Results -->
+            <div class="space-y-12">
+                <div class="reveal">
+                    <span id="resultLabel" class="text-[10px] font-black uppercase tracking-[0.3em] text-zinc-500 mb-2 block">Recibirás (Líquido)</span>
+                    <div id="resPrincipal" class="text-6xl font-black text-white">$ 0</div>
+                </div>
+                
+                <div class="grid grid-cols-2 gap-4 opacity-40">
+                    <div class="bg-white/5 p-4 rounded-2xl border border-white/5">
+                        <span class="text-[8px] font-black uppercase tracking-widest block mb-1">Retención (15.25%)</span>
+                        <div id="resRetencion" class="text-xl font-black">$ 0</div>
                     </div>
-                </div>
-
-                <div>
-                    <h2 class="text-3xl font-black mb-8 uppercase tracking-tighter">Preguntas Frecuentes (FAQ)</h2>
-                    <div class="space-y-8">
-                        <div>
-                            <h3 class="text-xs font-black uppercase tracking-widest text-white mb-3">¿Cómo calculo el líquido si tengo el bruto?</h3>
-                            <p class="text-sm text-zinc-500 font-light leading-relaxed">Multiplica tu valor bruto por 0.8475. El resultado es el monto que recibirás en tu cuenta bancaria después de impuestos.</p>
-                        </div>
-                        <div>
-                            <h3 class="text-xs font-black uppercase tracking-widest text-white mb-3">¿Por qué aumenta la retención cada año?</h3>
-                            <p class="text-sm text-zinc-500 font-light leading-relaxed">Este aumento progresivo permite que los trabajadores independientes tengan cobertura en salud, pensiones, ley de accidentes del trabajo y ley SANNA.</p>
-                        </div>
-                        <div>
-                            <h3 class="text-xs font-black uppercase tracking-widest text-white mb-3">¿Quién paga la retención de la boleta?</h3>
-                            <p class="text-sm text-zinc-500 font-light leading-relaxed">Si emites la boleta a una empresa, ellos retienen el monto y lo pagan al SII. Si la emites a una persona natural, tú eres responsable de pagar la retención mensualmente.</p>
-                        </div>
+                    <div class="bg-white/5 p-4 rounded-2xl border border-white/5">
+                        <span id="secLabel" class="text-[8px] font-black uppercase tracking-widest block mb-1">Monto Bruto</span>
+                        <div id="resSecundario" class="text-xl font-black">$ 0</div>
                     </div>
                 </div>
             </div>
-        </section>
-     <!-- Si pactaste BRUTO -->
-            <div class="space-y-6">
-                <h2 class="text-xs font-black uppercase tracking-[0.3em] text-zinc-500 border-b border-zinc-900 pb-4">Si pactaste BRUTO</h2>
-                <p class="text-sm text-zinc-400 leading-relaxed font-light">
-                    Si lo pactado fue en valores brutos, deberás hacer la boleta por <span id="bru-bruto" class="text-white font-bold">$0</span> y recibirás:
-                </p>
-                <div class="pt-4">
-                    <span id="bru-final" class="text-5xl font-black text-white">$0</span>
-                    <p class="text-[10px] text-zinc-600 uppercase tracking-widest mt-2">en efectivo / transferencia</p>
+        </div>
+    </main>
+
+    <!-- Discovery Section: Hub & Blog -->
+    <section class="bg-zinc-900/40 py-24 px-6 border-t border-white/5">
+        <div class="max-w-4xl mx-auto">
+            <div class="mb-20">
+                <span class="text-[10px] font-black uppercase tracking-[0.5em] text-cyan-500 mb-8 block">Hub de Herramientas</span>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <a href="boleta.html" class="bg-white/5 p-4 rounded-2xl border border-white/10 hover:border-cyan-500 transition-all text-center group">
+                        <span class="text-[10px] font-black uppercase tracking-widest group-hover:text-white">Boleta</span>
+                    </a>
+                    <a href="sueldo.html" class="bg-white/5 p-4 rounded-2xl border border-white/10 hover:border-cyan-500 transition-all text-center group">
+                        <span class="text-[10px] font-black uppercase tracking-widest group-hover:text-white">Sueldo</span>
+                    </a>
+                    <a href="iva.html" class="bg-white/5 p-4 rounded-2xl border border-white/10 hover:border-cyan-500 transition-all text-center group">
+                        <span class="text-[10px] font-black uppercase tracking-widest group-hover:text-white">IVA</span>
+                    </a>
+                    <a href="uf.html" class="bg-white/5 p-4 rounded-2xl border border-white/10 hover:border-cyan-500 transition-all text-center group">
+                        <span class="text-[10px] font-black uppercase tracking-widest group-hover:text-white">UF</span>
+                    </a>
+                    <a href="calculadora-utm.html" class="bg-white/5 p-4 rounded-2xl border border-white/10 hover:border-cyan-500 transition-all text-center group">
+                        <span class="text-[10px] font-black uppercase tracking-widest group-hover:text-white">UTM</span>
+                    </a>
+                    <a href="ipc.html" class="bg-white/5 p-4 rounded-2xl border border-white/10 hover:border-cyan-500 transition-all text-center group">
+                        <span class="text-[10px] font-black uppercase tracking-widest group-hover:text-white">IPC</span>
+                    </a>
+                    <a href="wa.html" class="bg-white/5 p-4 rounded-2xl border border-white/10 hover:border-cyan-500 transition-all text-center group">
+                        <span class="text-[10px] font-black uppercase tracking-widest group-hover:text-white text-emerald-500">WA Link</span>
+                    </a>
+                    <a href="rut.html" class="bg-white/5 p-4 rounded-2xl border border-white/10 hover:border-cyan-500 transition-all text-center group">
+                        <span class="text-[10px] font-black uppercase tracking-widest group-hover:text-white">RUT</span>
+                    </a>
                 </div>
             </div>
-        </div>
-    </div>
 
-    <footer class="mt-32 text-center text-zinc-800 text-[10px] font-black uppercase tracking-[0.5em]">
-        <a href="index.html" class="hover:text-white transition-colors">By Dan Tagle . 2026</a>
-    </footer>
+            <div>
+                <span class="text-[10px] font-black uppercase tracking-[0.5em] text-zinc-500 mb-8 block">Pensamiento Estratégico</span>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <a href="blog/el-trafico-web-esta-muriendo-google.html" class="group">
+                        <div class="rounded-3xl overflow-hidden aspect-video mb-6 grayscale group-hover:grayscale-0 transition-all duration-700">
+                            <img src="https://media.licdn.com/dms/image/v2/D4D12AQEDpUKDnvs6Ng/article-cover_image-shrink_720_1280/B4DZwA1L94J0AI-/0/1769540472568?e=2147483647&v=beta&t=uUSY4PGmiwuRht_UCWoO2WzqoOuQYXilM3yAmbB8tRI" class="w-full h-full object-cover group-hover:scale-110 transition-all duration-700">
+                        </div>
+                        <h4 class="text-lg font-black uppercase tracking-tighter group-hover:text-cyan-500 transition-colors leading-tight">El tráfico web está muriendo. Google no.</h4>
+                    </a>
+                    <a href="blog/el-cm-murio-orquestador-comunidades.html" class="group">
+                        <div class="rounded-3xl overflow-hidden aspect-video mb-6 grayscale group-hover:grayscale-0 transition-all duration-700">
+                            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=1200" class="w-full h-full object-cover group-hover:scale-110 transition-all duration-700">
+                        </div>
+                        <h4 class="text-lg font-black uppercase tracking-tighter group-hover:text-cyan-500 transition-colors leading-tight">El CM Murió: Orquestador de Comunidades</h4>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="mt-20 pt-10 border-t border-white/5 flex justify-between items-center opacity-30">
+                <span class="text-[9px] font-black uppercase tracking-widest text-zinc-600">© 2026 Dan Tagle</span>
+                <a href="index.html" class="text-[9px] font-black uppercase tracking-widest hover:text-white transition-colors">Volver al Inicio</a>
+            </div>
+        </div>
+    </section>
 
     <script>
-        function doMath() {
-            const val = parseFloat(document.getElementById('monto').value) || 0;
-            const rate = parseFloat(document.querySelector('input[name="ret"]:checked').value);
-            const factor = 1 - rate;
+        let mode = 'bruto';
+        const ret = 0.1525;
 
-            // Escenario 1: Pactaste Líquido (El input es lo que quieres recibir)
-            const b1 = val / factor;
-            document.getElementById('liq-bruto').innerText = '$' + Math.round(b1).toLocaleString('es-CL');
-            document.getElementById('liq-final').innerText = '$' + Math.round(val).toLocaleString('es-CL');
-
-            // Escenario 2: Pactaste Bruto (El input es el valor de la boleta)
-            const l2 = val * factor;
-            document.getElementById('bru-bruto').innerText = '$' + Math.round(val).toLocaleString('es-CL');
-            document.getElementById('bru-final').innerText = '$' + Math.round(l2).toLocaleString('es-CL');
+        function setMode(m) {
+            mode = m;
+            document.getElementById('modeBruto').classList.toggle('toggle-active', m === 'bruto');
+            document.getElementById('modeLiquido').classList.toggle('toggle-active', m === 'liquido');
+            document.getElementById('inputLabel').innerText = m === 'bruto' ? 'Monto Bruto' : 'Monto Líquido';
+            document.getElementById('resultLabel').innerText = m === 'bruto' ? 'Recibirás (Líquido)' : 'Debes Cobrar (Bruto)';
+            document.getElementById('secLabel').innerText = m === 'bruto' ? 'Monto Bruto' : 'Monto Líquido';
+            calculate();
         }
+
+        function calculate() {
+            const val = parseFloat(document.getElementById('monto').value) || 0;
+            let bruto, liq, retencion;
+
+            if (mode === 'bruto') {
+                bruto = val;
+                retencion = Math.round(bruto * ret);
+                liq = bruto - retencion;
+                document.getElementById('resPrincipal').innerText = '$ ' + liq.toLocaleString('es-CL');
+                document.getElementById('resRetencion').innerText = '$ ' + retencion.toLocaleString('es-CL');
+                document.getElementById('resSecundario').innerText = '$ ' + bruto.toLocaleString('es-CL');
+            } else {
+                liq = val;
+                bruto = Math.round(liq / (1 - ret));
+                retencion = bruto - liq;
+                document.getElementById('resPrincipal').innerText = '$ ' + bruto.toLocaleString('es-CL');
+                document.getElementById('resRetencion').innerText = '$ ' + retencion.toLocaleString('es-CL');
+                document.getElementById('resSecundario').innerText = '$ ' + liq.toLocaleString('es-CL');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => lucide.createIcons());
     </script>
 </body>
 </html>
