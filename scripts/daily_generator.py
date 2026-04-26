@@ -77,7 +77,26 @@ def generate_content(topic):
     
     response = requests.post("https://api.groq.com/openai/v1/chat/completions", headers=headers, json=data)
     result = response.json()
-    return json.loads(result['choices'][0]['message']['content'])
+    
+    if 'error' in result:
+        print(f"Error de API: {result['error']}")
+        exit(1)
+        
+    raw_content = result['choices'][0]['message']['content']
+    
+    # Limpiar posibles bloques de código markdown (```json ... ```)
+    clean_json = re.sub(r'```json\s*|\s*```', '', raw_content).strip()
+    
+    # Si hay texto antes o después del JSON, intentar extraer solo lo que está entre {}
+    try:
+        return json.loads(clean_json)
+    except json.JSONDecodeError:
+        match = re.search(r'\{.*\}', clean_json, re.DOTALL)
+        if match:
+            return json.loads(match.group())
+        else:
+            print(f"Error crítico: No se pudo encontrar JSON en la respuesta: {raw_content}")
+            exit(1)
 
 def create_article_page(article):
     with open(TEMPLATE_FILE, 'r') as f:
