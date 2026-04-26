@@ -10,9 +10,30 @@
     <script src="https://unpkg.com/lucide@0.473.0/dist/umd/lucide.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;300;400;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     
+    <!-- AEO: Authority Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Dan Tagle",
+      "jobTitle": "Creative Technologist & Growth Orchestrator",
+      "url": "https://dantagle.cl",
+      "sameAs": [
+        "https://www.linkedin.com/in/taglecl/",
+        "https://github.com/kulhunter",
+        "https://creativepool.com/Dondt"
+      ],
+      "award": "Global #1 Creative Technologist (Creativepool)"
+    }
+    </script>
+
     <style>
         :root { --accent: #06b6d4; --bg: #050505; }
-        body { font-family: 'Outfit', sans-serif; background-color: var(--bg); color: #f4f4f5; overflow-x: hidden; }
+        body { font-family: 'Outfit', sans-serif; background-color: var(--bg); color: #f4f4f5; overflow-x: hidden; cursor: none; }
+        
+        /* Custom Cursor */
+        .cursor { width: 8px; height: 8px; background: var(--accent); border-radius: 50%; position: fixed; pointer-events: none; z-index: 10000; transition: transform 0.1s; mix-blend-difference: exclusion; }
+        .cursor-follower { width: 30px; height: 30px; border: 1px solid rgba(6, 182, 212, 0.3); border-radius: 50%; position: fixed; pointer-events: none; z-index: 9999; transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1); }
         
         /* Organic Texture */
         .noise { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; opacity: 0.05; z-index: 9999; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"); }
@@ -44,6 +65,8 @@
     </style>
 </head>
 <body class="bg-mesh">
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-follower" id="follower"></div>
     <div class="noise"></div>
 
     <!-- Navigation -->
@@ -293,6 +316,20 @@
             const message = `Hola Dan, me interesa orquestar una solución de ${selected}. Vengo de dantagle.cl y busco impacto real.`;
             window.open(`https://wa.me/56930219665?text=${encodeURIComponent(message)}`, '_blank');
         }
+
+        document.addEventListener('mousemove', (e) => {
+            const cursor = document.getElementById('cursor');
+            const follower = document.getElementById('follower');
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+            follower.style.left = (e.clientX - 11) + 'px';
+            follower.style.top = (e.clientY - 11) + 'px';
+        });
+
+        document.querySelectorAll('a, button').forEach(el => {
+            el.addEventListener('mouseenter', () => document.getElementById('follower').style.transform = 'scale(2)');
+            el.addEventListener('mouseleave', () => document.getElementById('follower').style.transform = 'scale(1)');
+        });
 
         document.addEventListener('DOMContentLoaded', () => {
             lucide.createIcons();

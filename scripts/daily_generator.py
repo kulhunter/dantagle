@@ -6,7 +6,7 @@ import re
 
 # --- CONFIGURACIÓN ---
 GROQ_API_KEY = os.environ.get("GROQ_API_KEY")
-MODEL = "llama-3.3-70b-specdec"
+MODEL = "llama-3.3-70b-versatile"
 
 # Rutas de archivos
 BLOG_DIR = "blog/"
@@ -20,7 +20,8 @@ CASES = [
     "The Factory: Agency Growth", "Obsolescencia del CM: Strategy", "Como dijo que dijo: Viral Branding",
     "FIAP 2016: Creative Marathon", "El Ojo de Iberoamérica Jury", "Flyer to SaaS Spectrum",
     "SEO AEO Optimization", "WhatsApp Sales Engine", "Real-time Finance Suite",
-    "Creativepool #1 Global Ranking", "UDD Masterclass", "B2B Automation Hub", "Personal Branding V3"
+    "Creativepool #1 Global Ranking", "UDD Masterclass", "B2B Automation Hub", "Personal Branding V3",
+    "Teve: Stream Platform Strategy"
 ]
 
 DEVELOPMENTS = ["Tikk", "Saben", "LeyResponsable", "Teve", "Criptobot", "Calculadora UTM", "Validador RUT", "UF Real-time"]
@@ -78,6 +79,12 @@ def generate_content(topic):
     
     response = requests.post("https://api.groq.com/openai/v1/chat/completions", headers=headers, json=data)
     result = response.json()
+    
+    if 'choices' not in result:
+        print(f"ERROR DE API: La respuesta no contiene 'choices'.")
+        print(f"Respuesta completa: {json.dumps(result, indent=2)}")
+        exit(1)
+        
     raw_content = result['choices'][0]['message']['content']
     clean_json = re.sub(r'```json\s*|\s*```', '', raw_content).strip()
     return json.loads(re.search(r'\{.*\}', clean_json, re.DOTALL).group())
