@@ -3,732 +3,495 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>Dan Tagle | Problem Solver & Creative Technologist #1 — CriptoBot, Tikk, Saben</title>
-    <meta name="description" content="Dan Tagle: Creative Technologist #1 Global. Creador de CriptoBot.cl (señales crypto), Tikk.cl (ecommerce WhatsApp), Saben.cl (trivia IA) y más SaaS para Chile y Latinoamérica.">
-    <meta name="keywords" content="Dan Tagle, Creative Technologist Chile, CriptoBot señales crypto Chile, Tikk ecommerce WhatsApp Google Sheets, Saben trivia IA, SaaS Chile, automatización PyMEs, Growth SEO B2B, Problem Solver">
+    <title>Dan Tagle | Problem Solver & Creative Technologist</title>
+    <meta name="description" content="Destrabando procesos de negocio con Growth, SEO IA y automatización. Creador de CriptoBot, Tikk, Saben.">
+    <meta name="keywords" content="Creative Technologist, SaaS Chile, Automatización PyMEs, Growth B2B, SEO para IA, Dan Tagle">
     <meta name="author" content="Dan Tagle">
-    <meta name="robots" content="index, follow">
-    <meta name="theme-color" content="#06b6d4">
-    <link rel="canonical" href="https://dantagle.cl/">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://dantagle.cl/">
-    <meta property="og:title" content="Dan Tagle | Problem Solver & Creative Technologist #1">
-    <meta property="og:description" content="Creador de CriptoBot, Tikk, Saben y más. Hackeando problemas de negocio con tecnología creativa. #1 Global Creative Technologist 2025-2026.">
-    <meta property="og:image" content="https://raw.githubusercontent.com/kulhunter/dantagle/main/creativepool.png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://dantagle.cl/">
-    <meta name="twitter:title" content="Dan Tagle | Problem Solver & Creative Technologist">
-    <meta name="twitter:description" content="Creador de CriptoBot, Tikk, Saben y más SaaS. #1 Global Creative Technologist.">
-    <meta name="twitter:image" content="https://raw.githubusercontent.com/kulhunter/dantagle/main/creativepool.png">
+    <meta name="theme-color" content="#050505">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root { --accent: #06b6d4; --accent-glow: rgba(6, 182, 212, 0.3); }
+        body { font-family: 'Inter', sans-serif; cursor: none; background-color: #050505; color: #f4f4f5; overflow-x: hidden; }
+        ::selection { background-color: var(--accent); color: #050505; }
+        
+        .noise-bg { background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"); }
+        
+        /* Cursors */
+        #cursor-dot { position:fixed; width:8px; height:8px; background:var(--accent); border-radius:50%; pointer-events:none; z-index:9999; transform:translate(-50%,-50%); transition:transform .1s; }
+        #cursor-ring { position:fixed; width:32px; height:32px; border:1.5px solid var(--accent-glow); border-radius:50%; pointer-events:none; z-index:9998; transform:translate(-50%,-50%); transition:left .12s ease,top .12s ease,width .2s,height .2s,opacity .2s; }
+        
+        /* Horizontal Scroll - Cases */
+        .h-scroll-container { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; -ms-overflow-style: none; padding-bottom: 4rem; }
+        .h-scroll-container::-webkit-scrollbar { display: none; }
+        .h-scroll-item { scroll-snap-align: center; flex: 0 0 90vw; max-width: 1100px; margin-right: 2rem; position: relative; }
+        
+        /* Bento Grid */
+        .bento-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; grid-auto-rows: 280px; }
+        .bento-large { grid-column: span 2; grid-row: span 2; }
+        .bento-wide { grid-column: span 2; grid-row: span 1; }
+        .bento-tall { grid-column: span 1; grid-row: span 2; }
+        @media (max-width: 768px) { .bento-large, .bento-wide, .bento-tall { grid-column: span 1; grid-row: span 1; } .bento-grid { grid-auto-rows: auto; } }
+        
+        .glass-panel { background: rgba(255,255,255,0.02); backdrop-filter: blur(15px); border: 1px solid rgba(255,255,255,0.05); border-radius: 2rem; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); overflow: hidden; position: relative; }
+        .glass-panel:hover { border-color: var(--accent); transform: translateY(-8px) scale(1.02); box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 20px var(--accent-glow); }
+        
+        .reveal { opacity:0; transform:translateY(40px); transition:opacity .8s ease,transform .8s ease; }
+        .reveal.visible { opacity:1; transform:translateY(0); }
+        
+        /* Scanner Effect */
+        .scanner-line { position: absolute; top: 0; left: 0; width: 100%; height: 2px; background: var(--accent); box-shadow: 0 0 15px var(--accent); animation: scan 4s linear infinite; pointer-events: none; }
+        @keyframes scan { 0% { top: 0; } 100% { top: 100%; } }
+
+        /* Typography */
+        .text-huge { font-size: clamp(3rem, 15vw, 10rem); line-height: 0.85; letter-spacing: -0.04em; }
+        .text-aeo { color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.2em; }
+
+        /* HUD Diagnostic Tool */
+        .hud-btn { border-left: 2px solid transparent; transition: all 0.3s; }
+        .hud-btn.active { border-left-color: var(--accent); background: rgba(6, 182, 212, 0.1); color: var(--accent); }
+
+        .marquee { white-space: nowrap; overflow: hidden; position: relative; display: flex; }
+        .marquee span { display: inline-block; animation: marquee 25s linear infinite; font-weight: 900; font-size: 10rem; color: rgba(255,255,255,0.02); text-transform: uppercase; padding-right: 4rem; }
+        @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+    </style>
+
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Dan Tagle",
-      "jobTitle": "Creative Technologist",
-      "description": "Creative Technologist #1 Global 2025-2026. Especialista en SaaS, Growth SEO B2B y automatización para PyMEs en Chile y Latinoamérica.",
-      "url": "https://dantagle.cl",
-      "image": "https://raw.githubusercontent.com/kulhunter/dantagle/main/creativepool.png",
-      "sameAs": ["https://www.linkedin.com/in/taglecl/","https://www.behance.net/kulhunter","https://creativepool.com/Dondt"],
-      "knowsAbout": ["Creative Technology","SaaS Development","SEO B2B","Growth Marketing","Crypto Signals","WhatsApp eCommerce","BTL Data-Driven","Business Strategy"],
-      "owns": [
-        {"@type":"SoftwareApplication","name":"CriptoBot","url":"https://criptobot.cl","applicationCategory":"FinanceApplication","description":"Señales y guías automatizadas para traders de criptomonedas en Chile"},
-        {"@type":"SoftwareApplication","name":"Tikk","url":"https://tikk.cl","applicationCategory":"BusinessApplication","description":"Convierte un Google Sheet en un e-commerce con venta directa en WhatsApp en 3 clics"},
-        {"@type":"SoftwareApplication","name":"Saben","url":"https://saben.cl","applicationCategory":"GameApplication","description":"Juego de trivia interactivo con IA para grupos y empresas"},
-        {"@type":"SoftwareApplication","name":"Teve","url":"https://teve.cl","applicationCategory":"EntertainmentApplication","description":"Plataforma de streaming gratuita desde Archive.org"},
-        {"@type":"SoftwareApplication","name":"LeyResponsable","url":"https://leyresponsable.cl","applicationCategory":"EducationApplication","description":"Guía para padres y madres sobre responsabilidad digital de los hijos"}
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "¿Cómo automatizar las ventas de una PyME usando WhatsApp?", "acceptedAnswer": { "@type": "Answer", "text": "Utilizando Tikk.cl, un SaaS que convierte Google Sheets en un e-commerce completo integrado con WhatsApp en 3 clics." } },
+        { "@type": "Question", "name": "¿Cómo escalar ventas B2B automáticamente?", "acceptedAnswer": { "@type": "Answer", "text": "A través de Arquitectura SEO y Growth Data-Driven. Dominando el algoritmo para captar leads corporativos en el momento exacto en que buscan soluciones." } },
+        { "@type": "Question", "name": "¿Cómo integrar activaciones BTL físicas con bases de datos en la nube?", "acceptedAnswer": { "@type": "Answer", "text": "Mediante BTL Data-Driven. Hackeando hardware (ruletas, tótems) y conectándolos vía API a CRM o Google Sheets en tiempo real." } }
       ]
     }
     </script>
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: { 
-                        sans: ['Inter', 'sans-serif'],
-                        mono: ['JetBrains Mono', 'monospace'] 
-                    },
-                    colors: { zinc: { 950: '#050505' } },
-                    animation: { 
-                        'fade-in': 'fadeIn 0.5s ease-out forwards',
-                        'scanline': 'scan 8s linear infinite',
-                        'pulse-fast': 'pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite'
-                    },
-                    keyframes: {
-                        fadeIn: { '0%': { opacity: '0', transform: 'translateY(10px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
-                        scan: { '0%': { transform: 'translateY(-100%)' }, '100%': { transform: 'translateY(200%)' } }
-                    }
-                }
-            }
-        }
-    </script>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-    
-    <script src="https://unpkg.com/lucide@latest"></script>
-
-    <style>
-        body { font-family: 'Inter', sans-serif; cursor: none; }
-        ::selection { background-color: #06b6d4; color: #050505; }
-        .noise-bg { background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"); }
-        .hud-border { border: 1px solid rgba(6,182,212,0.3); box-shadow: inset 0 0 20px rgba(6,182,212,0.05); }
-        .typewriter::after { content: '█'; animation: blink 1s step-start infinite; color: #06b6d4; margin-left: 4px; }
-        @keyframes blink { 50% { opacity: 0; } }
-        .scan-container { overflow: hidden; position: relative; }
-        .scan-line { position: absolute; width: 100%; height: 2px; background: linear-gradient(90deg, transparent, rgba(6,182,212,0.8), transparent); opacity: 0.5; }
-        /* Custom cursor */
-        #cursor-dot { position:fixed; width:8px; height:8px; background:#06b6d4; border-radius:50%; pointer-events:none; z-index:9999; transform:translate(-50%,-50%); transition:transform .1s; }
-        #cursor-ring { position:fixed; width:32px; height:32px; border:1.5px solid rgba(6,182,212,0.6); border-radius:50%; pointer-events:none; z-index:9998; transform:translate(-50%,-50%); transition:left .12s ease,top .12s ease,width .2s,height .2s,opacity .2s; }
-        body:hover #cursor-ring { opacity:1; }
-        a:hover ~ #cursor-ring, button:hover ~ #cursor-ring { width:48px; height:48px; }
-        /* Particles */
-        .particle { position:absolute; border-radius:50%; pointer-events:none; animation:float-up linear infinite; }
-        @keyframes float-up { 0%{transform:translateY(0) scale(1);opacity:.6} 100%{transform:translateY(-120vh) scale(0);opacity:0} }
-        /* Scroll reveal */
-        .reveal { opacity:0; transform:translateY(30px); transition:opacity .7s ease,transform .7s ease; }
-        .reveal.visible { opacity:1; transform:translateY(0); }
-        .reveal-left { opacity:0; transform:translateX(-40px); transition:opacity .7s ease,transform .7s ease; }
-        .reveal-left.visible { opacity:1; transform:translateX(0); }
-        /* Glassmorphism project cards */
-        .glass-card { background:rgba(255,255,255,0.03); backdrop-filter:blur(12px); border:1px solid rgba(255,255,255,0.08); transition:all .3s ease; }
-        .glass-card:hover { transform:translateY(-6px); border-color:rgba(255,255,255,0.2); box-shadow:0 20px 60px rgba(0,0,0,0.4); }
-        /* Animated gradient border */
-        .grad-border { position:relative; }
-        .grad-border::before { content:''; position:absolute; inset:-1px; border-radius:inherit; padding:1px; background:linear-gradient(135deg,var(--glow-a),var(--glow-b)); -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0); -webkit-mask-composite:xor; mask-composite:exclude; opacity:0; transition:opacity .3s; }
-        .glass-card:hover .grad-border::before, .glass-card:hover::before { opacity:1; }
-        /* Live badge */
-        .live-badge { animation:pulse-live 2s ease-in-out infinite; }
-        @keyframes pulse-live { 0%,100%{opacity:1} 50%{opacity:.4} }
-        /* Floating CTA */
-        #floating-cta { position:fixed; bottom:2rem; right:2rem; z-index:100; transform:translateY(100px); opacity:0; transition:all .4s cubic-bezier(.34,1.56,.64,1); }
-        #floating-cta.show { transform:translateY(0); opacity:1; }
-        /* Stats counter */
-        .stat-num { font-variant-numeric:tabular-nums; }
-        /* Aurora background */
-        .aurora { background: radial-gradient(ellipse at 20% 50%, rgba(6,182,212,0.08) 0%, transparent 60%), radial-gradient(ellipse at 80% 20%, rgba(139,92,246,0.06) 0%, transparent 60%), radial-gradient(ellipse at 50% 80%, rgba(16,185,129,0.05) 0%, transparent 60%); }
-        @media(max-width:768px){body{cursor:auto;}#cursor-dot,#cursor-ring{display:none;}}
-    </style>
 </head>
-<body class="bg-zinc-950 text-zinc-50 overflow-x-hidden relative">
+<body class="relative">
+    <div class="fixed inset-0 z-0 opacity-[0.2] pointer-events-none mix-blend-overlay noise-bg"></div>
+    <div id="cursor-dot" class="hidden md:block"></div>
+    <div id="cursor-ring" class="hidden md:block"></div>
 
-    <div class="fixed inset-0 z-0 opacity-[0.15] pointer-events-none mix-blend-overlay noise-bg"></div>
-
-    <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-500 border-b border-transparent py-4 bg-gradient-to-b from-zinc-950/80 to-transparent">
-        <div class="container mx-auto px-6 md:px-12 flex justify-between items-center">
-            
-            <a href="#" class="text-xl font-bold tracking-tighter flex items-center gap-2 relative z-50">
-                DAN TAGLE <span class="w-2 h-2 rounded-full bg-cyan-500 animate-pulse"></span>
-            </a>
-            
-            <div class="hidden lg:flex items-center space-x-8 text-sm font-medium text-zinc-400 relative z-10">
-                <a href="#que-hago" class="hover:text-cyan-400 transition-colors" data-i18n="nav_what">Qué Hago</a>
-                <a href="#proyectos" class="hover:text-cyan-400 transition-colors font-bold text-cyan-500/80" data-i18n="nav_projects">Proyectos</a>
-                <a href="#casos" class="hover:text-cyan-400 transition-colors" data-i18n="nav_cases">Casos</a>
-                <a href="#servicios" class="hover:text-cyan-400 transition-colors" data-i18n="nav_services">Servicios</a>
-                <a href="#newsletter" class="hover:text-cyan-400 transition-colors">Newsletter</a>
-                <a href="/dantagle-ai-eye.html" class="flex items-center gap-2 px-4 py-2 border border-orange-500/50 text-orange-400 font-bold rounded-full hover:bg-orange-500 hover:text-zinc-950 transition-all">
-                    <i data-lucide="eye" class="w-4 h-4"></i> Eye-Tracker IA
-                </a>
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 py-6 px-10 flex justify-between items-center transition-all" id="navbar">
+        <a href="#" class="text-2xl font-black tracking-tighter mix-blend-difference">DAN TAGLE <span class="text-cyan-500">.</span></a>
+        <div class="hidden md:flex gap-10 text-[10px] font-black uppercase tracking-[0.3em] text-zinc-500">
+            <a href="#diagnostico" class="hover:text-white transition-colors">Diagnóstico IA</a>
+            <a href="#ecosistema" class="hover:text-white transition-colors">Ecosistema</a>
+            <a href="#soluciones" class="hover:text-white transition-colors">Soluciones</a>
+            <a href="blog.html" class="hover:text-white transition-colors">Blog</a>
+            <a href="#archivo" class="hover:text-white transition-colors">Archivo (19)</a>
+        </div>
+        <div class="flex items-center gap-6">
+            <div class="flex gap-3 text-xs font-bold">
+                <button onclick="setLang('es')" class="hover:text-cyan-500 transition-colors" id="lang-es">ES</button>
+                <button onclick="setLang('en')" class="hover:text-cyan-400 transition-colors opacity-50" id="lang-en">EN</button>
             </div>
-
-            <div class="flex items-center gap-4 relative z-50">
-                <div class="flex gap-2 text-base md:text-lg bg-zinc-900/80 rounded-full px-2 py-1 md:px-3 border border-zinc-800 backdrop-blur-sm">
-                    <button onclick="setLang('es')" class="hover:scale-110 transition-transform grayscale hover:grayscale-0 opacity-50 hover:opacity-100" id="lang-es" aria-label="Español">🇨🇱</button>
-                    <button onclick="setLang('en')" class="hover:scale-110 transition-transform grayscale hover:grayscale-0 opacity-50 hover:opacity-100" id="lang-en" aria-label="English">🇺🇸</button>
-                    <button onclick="setLang('pt')" class="hover:scale-110 transition-transform grayscale hover:grayscale-0 opacity-50 hover:opacity-100" id="lang-pt" aria-label="Português">🇧🇷</button>
-                    <button onclick="setLang('fr')" class="hover:scale-110 transition-transform grayscale hover:grayscale-0 opacity-50 hover:opacity-100" id="lang-fr" aria-label="Français">🇫🇷</button>
-                </div>
-                
-                <a href="https://calendly.com/dan-tagle/30min" target="_blank" rel="noopener noreferrer" class="hidden md:flex items-center gap-2 px-6 py-2.5 bg-cyan-500 text-zinc-950 text-sm font-bold rounded-full hover:bg-white hover:scale-105 transition-all shadow-[0_0_15px_rgba(34,211,238,0.4)]" data-i18n="nav_cta">
-                    <i data-lucide="calendar" class="w-4 h-4"></i> Agendar
-                </a>
-
-                <button id="mobile-menu-btn" class="lg:hidden text-zinc-300 hover:text-cyan-400 focus:outline-none transition-colors">
-                    <i data-lucide="menu" class="w-7 h-7"></i>
-                </button>
-            </div>
+            <a href="https://calendly.com/dan-tagle/30min" target="_blank" class="px-6 py-2 bg-white text-black font-black text-[10px] uppercase tracking-widest rounded-full hover:bg-cyan-500 transition-colors">Agendar</a>
         </div>
     </nav>
 
-    <div id="mobile-menu" class="fixed inset-0 bg-zinc-950/95 backdrop-blur-xl z-40 flex flex-col items-center justify-center gap-8 opacity-0 pointer-events-none transition-opacity duration-300">
-        <a href="#que-hago" class="mobile-link text-3xl font-black text-white hover:text-cyan-400 transition-colors" data-i18n="nav_what">Qué Hago</a>
-        <a href="#proyectos" class="mobile-link text-3xl font-black text-cyan-400" data-i18n="nav_projects">Proyectos</a>
-        <a href="#casos" class="mobile-link text-3xl font-black text-white hover:text-cyan-400 transition-colors" data-i18n="nav_cases">Casos</a>
-        <a href="#servicios" class="mobile-link text-3xl font-black text-white hover:text-cyan-400 transition-colors" data-i18n="nav_services">Servicios</a>
-        <a href="#newsletter" class="mobile-link text-3xl font-black text-white hover:text-cyan-400 transition-colors">Newsletter</a>
-        
-        <a href="#" class="mobile-link flex items-center gap-2 px-6 py-3 mt-4 border border-orange-500/50 text-orange-400 font-bold rounded-full hover:bg-orange-500 hover:text-zinc-950 transition-all text-lg">
-            <i data-lucide="eye" class="w-5 h-5"></i> Eye-Tracker IA
-        </a>
-
-        <a href="https://calendly.com/dan-tagle/30min" target="_blank" rel="noopener noreferrer" class="mobile-link flex items-center gap-2 px-8 py-4 bg-cyan-500 text-zinc-950 text-lg font-black uppercase tracking-widest rounded-full mt-4" data-i18n="nav_cta">
-            <i data-lucide="calendar" class="w-5 h-5"></i> Agendar
-        </a>
-    </div>
-
     <main class="relative z-10">
-        <header class="relative min-h-[90vh] flex items-center container mx-auto px-6 md:px-12 pt-24 pb-12">
-            <div class="absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cyan-500/10 blur-[120px] rounded-full pointer-events-none z-0"></div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center w-full">
-                
-                <div class="lg:col-span-7 relative z-10 flex flex-col items-start order-2 lg:order-1">
-                    <a href="https://creativepool.com/top-25/creative-technologists/" target="_blank" rel="noopener noreferrer" class="group relative z-10 inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-zinc-900/50 border border-zinc-800 backdrop-blur-md mb-8 shadow-2xl hover:border-cyan-500/50 transition-all cursor-pointer">
-                        <span class="flex h-7 w-7 items-center justify-center rounded-full bg-cyan-500/20 text-cyan-400">
-                            <i data-lucide="award" class="w-4 h-4"></i>
-                        </span>
-                        <span class="text-sm font-bold tracking-wide text-zinc-300 group-hover:text-white transition-colors" data-i18n="hero_badge">
-                            #1 GLOBAL CREATIVE TECHNOLOGIST (2025 - 2026)
-                        </span>
-                        <i data-lucide="chevron-right" class="w-4 h-4 text-zinc-500 group-hover:text-cyan-400 transition-colors"></i>
-                    </a>
-
-                    <h1 class="text-[5rem] md:text-[8rem] lg:text-[10rem] font-black tracking-tighter leading-[0.85] mb-8 text-transparent bg-clip-text bg-gradient-to-b from-white via-zinc-200 to-zinc-600">
-                        DAN <br /> TAGLE
-                    </h1>
-                    
-                    <div class="flex flex-col md:flex-row md:items-center gap-6 max-w-2xl">
-                        <div class="w-16 h-[2px] bg-cyan-500 hidden md:block"></div>
-                        <h2 class="text-2xl md:text-3xl lg:text-4xl font-light text-zinc-400 leading-tight">
-                            <strong class="text-white font-bold">Problem Solver.</strong>
-                        </h2>
-                    </div>
-                </div>
-
-                <div class="lg:col-span-5 relative z-10 order-1 lg:order-2 flex justify-center lg:justify-end">
-                    <div class="relative w-full max-w-[320px] md:max-w-sm aspect-[3/4] rounded-2xl overflow-hidden border border-zinc-800 hud-border group shadow-2xl">
-                        <div class="absolute inset-0 bg-cyan-900/20 mix-blend-overlay z-10 group-hover:opacity-0 transition-opacity duration-700 pointer-events-none"></div>
-                        <img src="https://raw.githubusercontent.com/kulhunter/dantagle/main/creativepool.png" alt="Dan Tagle recibiendo premio Creativepool" class="w-full h-full object-cover grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700 scale-105 group-hover:scale-100">
-                        <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/40 to-transparent z-20 pointer-events-none"></div>
-                    </div>
-                </div>
-
+        <!-- HERO SECTION -->
+        <header class="min-h-screen flex flex-col justify-center container mx-auto px-10 pt-20">
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[80vw] bg-cyan-500/10 blur-[150px] rounded-full -z-10 animate-pulse"></div>
+            
+            <div class="reveal">
+                <span class="text-aeo mb-6 block" data-i18n="hero_status">STATUS: #1 GLOBAL CREATIVE TECHNOLOGIST (2025)</span>
+                <h1 class="text-huge font-black mb-10" data-i18n="hero_title">
+                    UNFUCK<br>YOUR<br><span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-violet-500">BUSINESS</span>
+                </h1>
+                <p class="text-xl md:text-3xl text-zinc-400 max-w-4xl font-light leading-snug" data-i18n="hero_desc">
+                    No vendo sitios web. Vendo destrabe de procesos. Soy el puente entre el caos corporativo y la tecnología creativa de alto impacto.
+                </p>
             </div>
         </header>
 
-        <section id="que-hago" class="py-24 bg-zinc-950 border-t border-zinc-900">
-            <div class="container mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 gap-16 lg:gap-24">
-                <div>
-                    <h3 class="text-sm font-bold tracking-[0.2em] text-cyan-500 uppercase mb-6 flex items-center gap-2"><i data-lucide="target" class="w-4 h-4"></i> <span data-i18n="about_title">01. Qué Hago</span></h3>
-                    <h4 class="text-4xl font-black leading-tight mb-6" data-i18n="about_heading">Construyo puentes entre problemas de negocio y tecnología creativa.</h4>
-                    <p class="text-xl text-zinc-400 leading-relaxed font-light" data-i18n="about_desc">
-                        No vendo código aislado ni diseño estético; vendo <strong class="text-white font-bold">destrabe de procesos</strong>. Mi trabajo es descifrar el caos corporativo y construir ecosistemas, estrategias y experiencias que impactan el ROI directamente.
-                    </p>
+        <!-- Marquee Background -->
+        <div class="marquee py-10 border-y border-zinc-900 bg-black/50">
+            <span>Problem Solver • AI Architect • SaaS Builder • Growth Engineer • Problem Solver • AI Architect • SaaS Builder • Growth Engineer • </span>
+            <span>Problem Solver • AI Architect • SaaS Builder • Growth Engineer • Problem Solver • AI Architect • SaaS Builder • Growth Engineer • </span>
+        </div>
+
+        <!-- AI DIAGNOSTIC TOOL (HUD) -->
+        <section id="diagnostico" class="py-32 container mx-auto px-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+                <div class="lg:col-span-5 reveal">
+                    <span class="text-aeo mb-4 block" data-i18n="hud_tag">SISTEMA DE DIAGNÓSTICO B2B</span>
+                    <h2 class="text-5xl md:text-7xl font-black mb-8 leading-tight" data-i18n="hud_title">Selecciona tu síntoma de negocio.</h2>
+                    <div id="hud-buttons" class="space-y-4 font-mono text-sm">
+                        <!-- Buttons injected by JS -->
+                    </div>
                 </div>
-                <div>
-                    <h3 class="text-sm font-bold tracking-[0.2em] text-cyan-500 uppercase mb-6 flex items-center gap-2"><i data-lucide="code" class="w-4 h-4"></i> <span data-i18n="how_title">02. Cómo lo Hago</span></h3>
-                    <div class="space-y-6">
-                        <div class="flex gap-4">
-                            <div class="w-12 h-12 rounded-full bg-zinc-900 border border-zinc-800 flex items-center justify-center text-cyan-400"><i data-lucide="layout" class="w-5 h-5"></i></div>
-                            <div>
-                                <h5 class="text-xl font-bold text-white mb-2" data-i18n="how_1_title">Intersección Pura</h5>
-                                <p class="text-zinc-400" data-i18n="how_1_desc">Audito el negocio, encuentro la fricción y diseño una solución que combina ingeniería de software, arquitectura de datos y dirección de arte premiada.</p>
-                            </div>
+                <div class="lg:col-span-7">
+                    <div class="glass-panel p-10 min-h-[400px] flex flex-col justify-between border-cyan-500/20 bg-zinc-900/40 relative">
+                        <div class="scanner-line"></div>
+                        <div id="hud-result" class="font-mono text-sm leading-relaxed">
+                            <span class="text-zinc-600 animate-pulse">> ESPERANDO INPUT DEL USUARIO...</span>
                         </div>
-                        <div class="flex gap-4">
-                            <div class="w-12 h-12 rounded-full bg-zinc-900 border border-zinc-800 flex items-center justify-center text-cyan-400"><i data-lucide="zap" class="w-5 h-5"></i></div>
-                            <div>
-                                <h5 class="text-xl font-bold text-white mb-2" data-i18n="how_2_title">Hackeo de Formatos</h5>
-                                <p class="text-zinc-400" data-i18n="how_2_desc">Uso tecnología donde no se espera (DOOH reactivo al clima, ruletas IoT, ERP para Santa). Lo complejo lo hago usable; lo aburrido lo hago inolvidable.</p>
-                            </div>
+                        <div class="flex justify-between items-center mt-10 text-[10px] text-zinc-600 font-bold tracking-[0.2em]">
+                            <span>DATA_STREAM_01</span>
+                            <span>IA_MODEL_V4.2</span>
+                            <span>DAN_TAGLE_SYS</span>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="py-24 bg-[#050505] border-t border-zinc-900 font-mono">
-            <div class="container mx-auto px-6 md:px-12">
-                <div class="hud-border bg-zinc-950/80 rounded-2xl p-1 md:p-2 relative overflow-hidden">
-                    <div class="scan-line animate-scanline z-0"></div>
-                    <div class="bg-black/90 rounded-xl p-6 md:p-10 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8">
-                        
-                        <div class="col-span-full border-b border-cyan-900/50 pb-4 mb-4 flex justify-between items-center">
-                            <div class="flex items-center gap-3 text-cyan-400">
-                                <i data-lucide="cpu" class="w-5 h-5"></i>
-                                <span class="font-bold tracking-widest text-sm" data-i18n="hud_title">SISTEMA DE DIAGNÓSTICO B2B</span>
-                            </div>
-                            <div class="text-xs text-zinc-600">v3.1.4 // STATUS: <span class="text-green-500 pulse-fast">ONLINE</span></div>
-                        </div>
-
-                        <div class="lg:col-span-5 space-y-4">
-                            <p class="text-xs text-zinc-500 uppercase tracking-widest mb-4" data-i18n="hud_select">> SELECCIONAR_SÍNTOMA_DE_NEGOCIO:</p>
-                            <div id="hud-buttons" class="space-y-2"></div>
-                        </div>
-
-                        <div class="lg:col-span-7 bg-zinc-950 border border-zinc-800/50 rounded-lg p-6 relative">
-                            <div class="absolute top-0 right-0 p-2 opacity-20"><i data-lucide="terminal" class="w-20 h-20"></i></div>
-                            <p class="text-xs text-cyan-500/50 uppercase tracking-widest mb-4" data-i18n="hud_output">> OUTPUT_TERMINAL:</p>
-                            <div id="hud-result" class="min-h-[200px]"></div>
-                        </div>
-
-                    </div>
-                </div>
+        <!-- SAAS ECOSISTEMA -->
+        <section id="ecosistema" class="py-32 container mx-auto px-10">
+            <div class="mb-20 reveal">
+                <span class="text-aeo mb-4 block" data-i18n="saas_tag">INFRAESTRUCTURA PROPIA</span>
+                <h2 class="text-6xl font-black" data-i18n="saas_title">Ecosistema SaaS.</h2>
             </div>
-        </section>
-
-        <section id="casos" class="py-24 md:py-32 bg-[#0a0a0a] relative border-t border-zinc-900 font-sans">
-            <div class="container mx-auto px-6 md:px-12">
-                <div class="mb-24 flex justify-between items-end">
-                    <div>
-                        <h3 class="text-sm font-bold tracking-[0.2em] text-cyan-500 uppercase mb-4 flex items-center gap-2">
-                            <i data-lucide="award" class="w-4 h-4"></i> <span data-i18n="cases_subtitle">19 Casos de Éxito</span>
-                        </h3>
-                        <h2 class="text-5xl md:text-7xl font-black tracking-tighter" data-i18n="cases_title">Innovación <br/>Aplicada.</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Criptobot -->
+                <a href="https://criptobot.cl" target="_blank" class="glass-panel p-12 group">
+                    <div class="flex justify-between mb-8">
+                        <i data-lucide="cpu" class="w-10 h-10 text-cyan-400"></i>
+                        <span class="text-[10px] font-black px-3 py-1 border border-green-500/50 text-green-400 rounded-full">LIVE</span>
                     </div>
-                </div>
+                    <h3 class="text-3xl font-bold mb-4 group-hover:text-cyan-400 transition-colors">CriptoBot</h3>
+                    <p class="text-zinc-400 mb-8" data-i18n="saas_crypto">Señales algorítmicas y guías para traders en tiempo real.</p>
+                    <span class="text-xs font-mono text-zinc-600">criptobot.cl ↗</span>
+                </a>
                 
-                <div class="space-y-32 md:space-y-48" id="casos-container">
+                <!-- Tikk -->
+                <a href="https://tikk.cl" target="_blank" class="glass-panel p-12 group">
+                    <div class="flex justify-between mb-8">
+                        <i data-lucide="shopping-cart" class="w-10 h-10 text-emerald-400"></i>
+                        <span class="text-[10px] font-black px-3 py-1 border border-green-500/50 text-green-400 rounded-full">LIVE</span>
                     </div>
-            </div>
-        </section>
-
-        <section id="servicios" class="py-24 md:py-32 bg-zinc-950 border-t border-zinc-900 font-sans">
-            <div class="container mx-auto px-6 md:px-12">
-                <div class="max-w-4xl mb-20">
-                    <h3 class="text-sm font-bold tracking-[0.2em] text-cyan-500 uppercase mb-6" data-i18n="services_subtitle">El Ecosistema</h3>
-                    <h4 class="text-5xl md:text-6xl font-black leading-tight mb-8" data-i18n="services_title">6 pilares para aniquilar problemas.</h4>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    
-                    <article class="bg-zinc-900/30 border border-zinc-800 p-8 rounded-2xl hover:border-cyan-500/50 transition-all group">
-                        <i data-lucide="code" class="text-cyan-500 mb-6 w-9 h-9 group-hover:scale-110 transition-transform"></i>
-                        <h5 class="text-xl font-bold mb-4 text-white" data-i18n="srv_1_title">Creative Tech & Dev</h5>
-                        <p class="text-zinc-400 text-sm" data-i18n="srv_1">Integración de APIs complejas, Dashboards en tiempo real, creación de Apps e infraestructura web.</p>
-                    </article>
-
-                    <article class="bg-zinc-900/30 border border-zinc-800 p-8 rounded-2xl hover:border-cyan-500/50 transition-all group">
-                        <i data-lucide="trending-up" class="text-cyan-500 mb-6 w-9 h-9 group-hover:scale-110 transition-transform"></i>
-                        <h5 class="text-xl font-bold mb-4 text-white" data-i18n="srv_2_title">Growth & SEO Matrix</h5>
-                        <p class="text-zinc-400 text-sm" data-i18n="srv_2">Ingeniería de posicionamiento orgánico. Dominar el algoritmo para generar flujos de leads masivos en automático.</p>
-                    </article>
-
-                    <article class="bg-zinc-900/30 border border-zinc-800 p-8 rounded-2xl hover:border-cyan-500/50 transition-all group">
-                        <i data-lucide="monitor-smartphone" class="text-cyan-500 mb-6 w-9 h-9 group-hover:scale-110 transition-transform"></i>
-                        <h5 class="text-xl font-bold mb-4 text-white" data-i18n="srv_3_title">BTL Data-Driven & DOOH</h5>
-                        <p class="text-zinc-400 text-sm" data-i18n="srv_3">Conexión del mundo físico con la nube corporativa. Hackeo de hardware y eventos conectados a BBDD para captura de leads.</p>
-                    </article>
-
-                    <article class="bg-zinc-900/30 border border-zinc-800 p-8 rounded-2xl hover:border-cyan-500/50 transition-all group">
-                        <i data-lucide="pen-tool" class="text-cyan-500 mb-6 w-9 h-9 group-hover:scale-110 transition-transform"></i>
-                        <h5 class="text-xl font-bold mb-4 text-white" data-i18n="srv_4_title">Dirección Estratégica</h5>
-                        <p class="text-zinc-400 text-sm" data-i18n="srv_4">Dirección de arte premium, conceptualización y copywriting galardonado. Construcción de mensajes psicológicos y diseño visual.</p>
-                    </article>
-
-                    <article class="bg-zinc-900/30 border border-zinc-800 p-8 rounded-2xl hover:border-cyan-500/50 transition-all group">
-                        <i data-lucide="layout" class="text-cyan-500 mb-6 w-9 h-9 group-hover:scale-110 transition-transform"></i>
-                        <h5 class="text-xl font-bold mb-4 text-white" data-i18n="srv_5_title">Arquitectura de Solución</h5>
-                        <p class="text-zinc-400 text-sm" data-i18n="srv_5">Consultoría pura de negocios. Deconstruir un problema masivo, auditar los cuellos de botella y diseñar el proceso para resolverlo.</p>
-                    </article>
-
-                    <article class="bg-cyan-950/20 border border-cyan-900/50 p-8 rounded-2xl hover:border-cyan-500/50 hover:bg-cyan-900/30 transition-all group relative overflow-hidden">
-                        <div class="absolute top-0 right-0 p-4 opacity-5 pointer-events-none"><i data-lucide="graduation-cap" class="w-[150px] h-[150px]"></i></div>
-                        <i data-lucide="graduation-cap" class="text-cyan-400 mb-6 w-9 h-9 group-hover:scale-110 transition-transform relative z-10"></i>
-                        <h5 class="text-xl font-bold mb-4 text-white relative z-10" data-i18n="srv_6_title">Capacitación & Mentoría</h5>
-                        <p class="text-zinc-300 text-sm relative z-10" data-i18n="srv_6">Transferencia de conocimiento. Formación in-house para equipos corporativos y agencias, elevando su estándar táctico en tecnología.</p>
-                    </article>
-
-                </div>
-            </div>
-        </section>
-
-        <section id="newsletter" class="py-24 bg-[#0a0a0a] border-t border-zinc-900 overflow-hidden relative">
-            <div class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-cyan-900/20 via-[#0a0a0a] to-[#0a0a0a] pointer-events-none"></div>
-            <div class="container mx-auto px-6 md:px-12 relative z-10">
-                <div class="flex flex-col lg:flex-row items-center justify-between gap-12 bg-zinc-900/40 border border-zinc-800 rounded-3xl p-10 md:p-16">
-                    <div class="flex-1 max-w-2xl">
-                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-800/50 border border-zinc-700 text-zinc-300 text-xs font-bold tracking-widest uppercase mb-6">
-                            <i data-lucide="book-open" class="text-cyan-400 w-3.5 h-3.5"></i> <span data-i18n="nl_tag">Newsletter en LinkedIn</span>
-                        </div>
-                        <h3 class="text-4xl md:text-5xl font-black text-white mb-6" data-i18n="nl_title">Algo que decir.</h3>
-                        <p class="text-xl text-zinc-400 leading-relaxed mb-8 font-light" data-i18n="nl_desc">
-                            No todo es código y campañas. Mes a mes escribo para los que buscan entender la intersección real entre tecnología, marketing y negocios. Análisis profundos, sin humo.
-                        </p>
-                        <a href="https://www.linkedin.com/newsletters/algo-que-decir-6943445859950821376/" target="_blank" class="inline-flex items-center gap-3 px-8 py-4 bg-[#0A66C2] text-white font-bold rounded-full hover:bg-[#004182] hover:scale-105 transition-all shadow-lg">
-                            <span data-i18n="nl_btn">Suscribirse en LinkedIn</span> <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
-                        </a>
+                    <h3 class="text-3xl font-bold mb-4 group-hover:text-emerald-400 transition-colors">Tikk</h3>
+                    <p class="text-zinc-400 mb-8" data-i18n="saas_tikk">Google Sheets a E-commerce WhatsApp en tiempo récord.</p>
+                    <span class="text-xs font-mono text-zinc-600">tikk.cl ↗</span>
+                </a>
+                
+                <!-- Saben -->
+                <a href="https://saben.cl" target="_blank" class="glass-panel p-12 group">
+                    <div class="flex justify-between mb-8">
+                        <i data-lucide="gamepad-2" class="w-10 h-10 text-amber-400"></i>
+                        <span class="text-[10px] font-black px-3 py-1 border border-green-500/50 text-green-400 rounded-full">LIVE</span>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="py-32 bg-[#050505] relative overflow-hidden border-t border-zinc-900">
-            <div class="absolute inset-0 bg-cyan-900/10 blur-[120px] rounded-full w-full h-full transform scale-150 pointer-events-none"></div>
-            <div class="container mx-auto px-6 md:px-12 relative z-10 text-center font-sans">
-                <h2 class="text-6xl md:text-8xl font-black tracking-tighter text-white mb-8" data-i18n="cta_title">Hackeemos tu <br class="hidden md:block"/> próximo problema.</h2>
-                <p class="text-xl md:text-2xl text-zinc-400 max-w-3xl mx-auto mb-12" data-i18n="cta_desc">Agenda una videollamada de 30 minutos. Explícame tu desafío corporativo y veamos si la tecnología creativa es la respuesta.</p>
-                <a href="https://calendly.com/dan-tagle/30min" target="_blank" class="inline-flex items-center gap-4 px-10 py-5 bg-cyan-500 text-zinc-950 font-black tracking-widest uppercase text-sm rounded-full hover:bg-white hover:scale-105 transition-all shadow-[0_0_50px_rgba(34,211,238,0.2)]">
-                    <i data-lucide="calendar" class="w-5 h-5"></i> <span data-i18n="cta_btn">Agendar 30 min. en Calendly</span>
+                    <h3 class="text-3xl font-bold mb-4 group-hover:text-amber-400 transition-colors">Saben</h3>
+                    <p class="text-zinc-400 mb-8" data-i18n="saas_saben">Trivia interactiva multi-sala potenciada por IA.</p>
+                    <span class="text-xs font-mono text-zinc-600">saben.cl ↗</span>
                 </a>
             </div>
         </section>
+
+        <!-- SOLUCIONES BENTO -->
+        <section id="soluciones" class="py-32 container mx-auto px-10">
+            <div class="mb-20 reveal">
+                <span class="text-aeo mb-4 block" data-i18n="sol_tag">METODOLOGÍA TÁCTICA</span>
+                <h2 class="text-6xl font-black" data-i18n="sol_title">Soluciones AEO.</h2>
+            </div>
+            
+            <div class="bento-grid">
+                <div class="glass-panel p-12 bento-large flex flex-col justify-end bg-gradient-to-br from-zinc-900 to-black reveal">
+                    <i data-lucide="search" class="w-16 h-16 text-cyan-400 mb-auto"></i>
+                    <h3 class="text-4xl font-black mb-6">AEO (AI Optimization)</h3>
+                    <p class="text-zinc-400 text-lg leading-relaxed" data-i18n="bento_seo">¿Cómo ganar en la era de Gemini y ChatGPT? Estructurando tu data corporativa para que las IA te recomienden primero.</p>
+                </div>
+                <div class="glass-panel p-12 bento-wide flex items-center gap-8 reveal">
+                    <i data-lucide="code-2" class="w-12 h-12 text-emerald-400 shrink-0"></i>
+                    <div>
+                        <h3 class="text-2xl font-black mb-2">Creative Tech & Dev</h3>
+                        <p class="text-zinc-400 text-sm" data-i18n="bento_dev">Automatización de flujos B2B y Dashboards de visualización compleja.</p>
+                    </div>
+                </div>
+                <div class="glass-panel p-12 bento-tall bg-zinc-900/50 reveal">
+                    <i data-lucide="zap" class="w-10 h-10 text-amber-400 mb-8"></i>
+                    <h3 class="text-2xl font-black mb-6">Growth Matrix</h3>
+                    <p class="text-zinc-400 text-sm" data-i18n="bento_growth">Ingeniería de adquisición masiva de leads sin depender de pauta publicitaria.</p>
+                </div>
+                <div class="glass-panel p-10 reveal">
+                    <h3 class="text-xl font-black text-violet-400 mb-4">BTL Data-Driven</h3>
+                    <p class="text-zinc-400 text-sm" data-i18n="bento_btl">Conexión de hardware físico con bases de datos en tiempo real.</p>
+                </div>
+                <div class="glass-panel p-10 reveal">
+                    <h3 class="text-xl font-black text-pink-400 mb-4">Estrategia & Art</h3>
+                    <p class="text-zinc-400 text-sm" data-i18n="bento_art">Conceptualización y copywriting para el impacto psicológico.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ARCHIVO DE CASOS (19) -->
+        <section id="archivo" class="py-32 overflow-hidden bg-zinc-950/50">
+            <div class="container mx-auto px-10 mb-20 reveal flex justify-between items-end">
+                <div>
+                    <span class="text-aeo mb-4 block" data-i18n="cases_tag">HISTORIAL DE IMPACTO</span>
+                    <h2 class="text-6xl font-black" data-i18n="cases_title">El Archivo (19).</h2>
+                </div>
+                <div class="hidden md:flex gap-4">
+                    <button class="w-14 h-14 rounded-full border border-zinc-800 flex items-center justify-center hover:bg-white hover:text-black transition-all" onclick="document.getElementById('case-scroll').scrollBy({left: -600, behavior: 'smooth'})">←</button>
+                    <button class="w-14 h-14 rounded-full border border-zinc-800 flex items-center justify-center hover:bg-white hover:text-black transition-all" onclick="document.getElementById('case-scroll').scrollBy({left: 600, behavior: 'smooth'})">→</button>
+                </div>
+            </div>
+            
+            <div class="h-scroll-container px-10" id="case-scroll">
+                <!-- 19 Cases injected by JS -->
+            </div>
+        </section>
+
+        <!-- BLOG PREVIEW -->
+        <section id="blog" class="py-32 container mx-auto px-10">
+            <div class="mb-20 reveal flex justify-between items-end">
+                <div>
+                    <span class="text-aeo mb-4 block" data-i18n="blog_tag">PENSAMIENTO ESTRATÉGICO</span>
+                    <h2 class="text-6xl font-black" data-i18n="blog_title">Últimos Artículos.</h2>
+                </div>
+                <a href="blog.html" class="text-cyan-400 hover:text-white transition-colors underline underline-offset-8 font-black uppercase text-xs tracking-widest mb-2">Ver todo el blog →</a>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <a href="blog/el-trafico-web-esta-muriendo-google.html" class="glass-panel p-6 group reveal">
+                    <div class="rounded-2xl overflow-hidden aspect-video mb-6 grayscale group-hover:grayscale-0 transition-all duration-500">
+                        <img src="https://media.licdn.com/dms/image/v2/D4D12AQEDpUKDnvs6Ng/article-cover_image-shrink_720_1280/B4DZwA1L94J0AI-/0/1769540472568?e=2147483647&v=beta&t=uUSY4PGmiwuRht_UCWoO2WzqoOuQYXilM3yAmbB8tRI" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 group-hover:text-cyan-400 transition-colors uppercase">El tráfico web está muriendo. Google no.</h3>
+                    <p class="text-zinc-500 text-xs mb-4 line-clamp-2">Análisis del fenómeno Zero-Click y cómo las AI Overviews de Google están cambiando la estrategia SEO.</p>
+                    <span class="text-[10px] font-black uppercase tracking-widest text-zinc-700 group-hover:text-white transition-colors">Leer más</span>
+                </a>
+                
+                <a href="blog/ho-ho-holidays-guia-2025.html" class="glass-panel p-6 group reveal">
+                    <div class="rounded-2xl overflow-hidden aspect-video mb-6 grayscale group-hover:grayscale-0 transition-all duration-500">
+                        <img src="https://media.licdn.com/dms/image/v2/D4E12AQG1FwZKXFWDCA/article-cover_image-shrink_720_1280/B4EZs81J61IQAI-/0/1766252127810?e=2147483647&v=beta&t=rapeyp59upH-brk2GOfmoy62IsRfTNPGltHSU5xNsCg" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 group-hover:text-cyan-400 transition-colors uppercase">Ho Ho Holidays: Guía para cerrar el 2025</h3>
+                    <p class="text-zinc-500 text-xs mb-4 line-clamp-2">Estrategias y datos frescos de Chile y LatAm para un fin de año estratégico y un 2026 con ventaja.</p>
+                    <span class="text-[10px] font-black uppercase tracking-widest text-zinc-700 group-hover:text-white transition-colors">Leer más</span>
+                </a>
+                
+                <a href="blog/el-cm-murio-orquestador-comunidades.html" class="glass-panel p-6 group reveal">
+                    <div class="rounded-2xl overflow-hidden aspect-video mb-6 grayscale group-hover:grayscale-0 transition-all duration-500">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=1200" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 group-hover:text-cyan-400 transition-colors uppercase">El CM Murió: Orquestador de Comunidades</h3>
+                    <p class="text-zinc-500 text-xs mb-4 line-clamp-2">El rol del Community Manager ha evolucionado. Conoce las 10 herramientas IA que definen al Orquestador.</p>
+                    <span class="text-[10px] font-black uppercase tracking-widest text-zinc-700 group-hover:text-white transition-colors">Leer más</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- CTA FINAL -->
+        <section class="py-48 text-center container mx-auto px-10">
+            <h2 class="text-huge font-black mb-16 reveal" data-i18n="cta_title">HACKEEMOS<br>EL FUTURO.</h2>
+            <a href="https://calendly.com/dan-tagle/30min" target="_blank" class="px-12 py-6 bg-cyan-500 text-black font-black text-xl uppercase tracking-widest rounded-full hover:bg-white hover:scale-110 transition-all shadow-[0_0_50px_rgba(6,182,212,0.3)]">
+                Agendar Consultoría
+            </a>
+        </section>
     </main>
 
-    <footer class="bg-zinc-950 py-12 border-t border-zinc-900">
-        <div class="container mx-auto px-6 md:px-12 flex flex-col md:flex-row justify-between items-center gap-6">
-            <span class="text-zinc-500 text-sm font-bold tracking-widest uppercase">DAN TAGLE &copy; 2026</span>
-            <div class="flex flex-wrap justify-center gap-6 text-zinc-400 text-sm font-bold uppercase">
-                <a href="https://creativepool.com/Dondt" target="_blank" class="hover:text-cyan-400">Creativepool</a>
-                <a href="https://www.linkedin.com/in/taglecl/" target="_blank" class="hover:text-cyan-400">LinkedIn</a>
+    <footer class="py-20 border-t border-zinc-900 container mx-auto px-10 flex flex-col md:flex-row justify-between items-center gap-10">
+        <div class="flex flex-col gap-2">
+            <span class="text-2xl font-black tracking-tighter">DAN TAGLE <span class="text-cyan-500">.</span></span>
+            <span class="text-zinc-600 text-[10px] font-bold tracking-widest uppercase">© 2026 / SANTIAGO, CHILE</span>
+            <div class="flex gap-4 mt-2 text-[9px] font-black uppercase tracking-widest text-zinc-700">
+                <a href="politica-de-privacidad.html" class="hover:text-cyan-500">Privacidad</a>
+                <a href="terminos-y-condiciones.html" class="hover:text-cyan-500">Términos</a>
             </div>
+        </div>
+        <div class="flex gap-10 text-[10px] font-black uppercase tracking-[0.3em] text-zinc-500">
+            <a href="https://www.linkedin.com/in/taglecl/" target="_blank" class="hover:text-white">LinkedIn</a>
+            <a href="https://github.com/kulhunter" target="_blank" class="hover:text-white">GitHub</a>
+            <a href="https://www.behance.net/kulhunter" target="_blank" class="hover:text-white">Behance</a>
         </div>
     </footer>
 
     <script>
         lucide.createIcons();
 
-        // Navbar Scroll Effect
-        const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                navbar.classList.add('bg-[#050505]/95', 'backdrop-blur-xl', 'border-zinc-900', 'py-4');
-                navbar.classList.remove('bg-transparent', 'border-transparent', 'py-4', 'bg-gradient-to-b');
-            } else {
-                navbar.classList.remove('bg-[#050505]/95', 'backdrop-blur-xl', 'border-zinc-900', 'py-4');
-                navbar.classList.add('bg-transparent', 'border-transparent', 'py-4', 'bg-gradient-to-b');
-            }
-        });
-
-        // ----------------------------------------------------
-        // LÓGICA DEL MENÚ MÓVIL
-        // ----------------------------------------------------
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const mobileLinks = document.querySelectorAll('.mobile-link');
-        let isMenuOpen = false;
-
-        function toggleMenu() {
-            isMenuOpen = !isMenuOpen;
-            if (isMenuOpen) {
-                mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
-                mobileMenu.classList.add('opacity-100', 'pointer-events-auto');
-                mobileMenuBtn.innerHTML = '<i data-lucide="x" class="w-7 h-7 text-cyan-400"></i>';
-                document.body.style.overflow = 'hidden';
-            } else {
-                mobileMenu.classList.add('opacity-0', 'pointer-events-none');
-                mobileMenu.classList.remove('opacity-100', 'pointer-events-auto');
-                mobileMenuBtn.innerHTML = '<i data-lucide="menu" class="w-7 h-7"></i>';
-                document.body.style.overflow = 'auto';
-            }
-            lucide.createIcons();
-        }
-        mobileMenuBtn.addEventListener('click', toggleMenu);
-        mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
-
-
-        // ----------------------------------------------------
-        // DICCIONARIO DE IDIOMAS (i18n)
-        // ----------------------------------------------------
+        // Language Engine
         const translations = {
             es: {
-                nav_what: "Qué Hago", nav_cases: "Casos", nav_services: "Servicios", nav_cta: "Agendar",
-                hero_badge: "#1 GLOBAL CREATIVE TECHNOLOGIST (2025 - 2026)",
-                about_title: "01. Qué Hago", about_heading: "Construyo puentes entre problemas de negocio y tecnología creativa.",
-                about_desc: "No vendo código aislado ni diseño estético; vendo destrabe de procesos. Mi trabajo es descifrar el caos corporativo y construir ecosistemas que impactan el ROI directamente.",
-                how_title: "02. Cómo lo Hago", how_1_title: "Intersección Pura", how_1_desc: "Audito el negocio, encuentro la fricción y diseño una solución que combina ingeniería de software y dirección de arte.",
-                how_2_title: "Hackeo de Formatos", how_2_desc: "Uso tecnología donde no se espera. Lo complejo lo hago usable; lo aburrido lo hago inolvidable.",
-                hud_title: "SISTEMA DE DIAGNÓSTICO B2B", hud_select: "> SELECCIONAR_SÍNTOMA_DE_NEGOCIO:", hud_output: "> OUTPUT_TERMINAL:", hud_waiting: "Esperando input del usuario...",
-                cases_subtitle: "19 Casos de Éxito", cases_title: "Innovación Aplicada.",
-                services_subtitle: "El Ecosistema", services_title: "6 pilares para aniquilar problemas.",
-                srv_1_title: "Creative Tech & Dev", srv_1: "Integración de APIs complejas, Dashboards en tiempo real, creación de Apps e infraestructura web.",
-                srv_2_title: "Growth & SEO Matrix", srv_2: "Ingeniería de posicionamiento orgánico. Dominar el algoritmo para generar flujos de leads masivos en automático.",
-                srv_3_title: "BTL Data-Driven & DOOH", srv_3: "Conexión del mundo físico con la nube corporativa. Hackeo de hardware y eventos conectados a BBDD para captura de leads.",
-                srv_4_title: "Dirección Estratégica", srv_4: "Dirección de arte premium, conceptualización y copywriting galardonado. Construcción de mensajes psicológicos y diseño visual.",
-                srv_5_title: "Arquitectura de Solución", srv_5: "Consultoría pura de negocios. Deconstruir un problema masivo, auditar los cuellos de botella y diseñar el proceso para resolverlo.",
-                srv_6_title: "Capacitación & Mentoría", srv_6: "Transferencia de conocimiento. Formación in-house para equipos corporativos y agencias, elevando su estándar táctico en tecnología.",
-                nl_tag: "Newsletter en LinkedIn", nl_title: "Algo que decir.", nl_desc: "No todo es código y campañas. Mes a mes escribo para los que buscan entender la intersección real entre tecnología, marketing y negocios. Análisis profundos, sin humo.", nl_btn: "Suscribirse en LinkedIn",
-                cta_title: "Hackeemos tu próximo problema.", cta_desc: "Agenda una videollamada de 30 minutos y veamos si la tecnología creativa es la respuesta.", cta_btn: "Agendar 30 min. en Calendly",
-                lbl_problem: "PROBLEMA", lbl_solution: "SOLUCIÓN", lbl_result: "RESULTADO", btn_case: "VER CASO EN BEHANCE"
+                hero_status: "STATUS: #1 GLOBAL CREATIVE TECHNOLOGIST (2025)",
+                hero_title: "UNFUCK<br>YOUR<br><span class='text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-violet-500'>BUSINESS</span>",
+                hero_desc: "No vendo sitios web. Vendo destrabe de procesos. Soy el puente entre el caos corporativo y la tecnología creativa de alto impacto.",
+                hud_tag: "SISTEMA DE DIAGNÓSTICO B2B",
+                hud_title: "Selecciona tu síntoma de negocio.",
+                saas_tag: "INFRAESTRUCTURA PROPIA",
+                saas_title: "Ecosistema SaaS.",
+                saas_crypto: "Señales algorítmicas y guías para traders en tiempo real.",
+                saas_tikk: "Google Sheets a E-commerce WhatsApp en tiempo récord.",
+                saas_saben: "Trivia interactiva multi-sala potenciada por IA.",
+                sol_tag: "METODOLOGÍA TÁCTICA",
+                sol_title: "Soluciones AEO.",
+                bento_seo: "¿Cómo ganar en la era de Gemini y ChatGPT? Estructurando tu data corporativa para que las IA te recomienden primero.",
+                bento_dev: "Automatización de flujos B2B y Dashboards de visualización compleja.",
+                bento_growth: "Ingeniería de adquisición masiva de leads sin depender de pauta publicitaria.",
+                bento_btl: "Conexión de hardware físico con bases de datos en tiempo real.",
+                bento_art: "Conceptualización y copywriting para el impacto psicológico.",
+                cases_tag: "HISTORIAL DE IMPACTO",
+                cases_title: "El Archivo (19).",
+                cta_title: "HACKEEMOS<br>EL FUTURO.",
+                blog_tag: "PENSAMIENTO ESTRATÉGICO",
+                blog_title: "Últimos Artículos.",
+                hud_waiting: "> ESPERANDO INPUT DEL USUARIO...",
+                hud_scanning: "> ANALIZANDO VECTORES DE FRICCIÓN...",
+                lbl_prob: "PROBLEMA", lbl_sol: "SOLUCIÓN", lbl_res: "RESULTADO"
             },
             en: {
-                nav_what: "What I Do", nav_cases: "Work", nav_services: "Services", nav_cta: "Book 30m",
-                hero_badge: "#1 GLOBAL CREATIVE TECHNOLOGIST (2025 - 2026)",
-                about_title: "01. What I Do", about_heading: "I build bridges between business problems and creative tech.",
-                about_desc: "I don't just sell code or design; I sell process unlocking. My job is to decipher corporate chaos and build ecosystems that directly impact ROI.",
-                how_title: "02. How I Do It", how_1_title: "Pure Intersection", how_1_desc: "I audit the business, find friction, and design a solution combining software engineering and art direction.",
-                how_2_title: "Format Hacking", how_2_desc: "I use tech where it's not expected. I make the complex usable; the boring unforgettable.",
-                hud_title: "B2B DIAGNOSTIC SYSTEM", hud_select: "> SELECT_BUSINESS_SYMPTOM:", hud_output: "> TERMINAL_OUTPUT:", hud_waiting: "Awaiting user input...",
-                cases_subtitle: "19 Success Stories", cases_title: "Applied Innovation.",
-                services_subtitle: "The Ecosystem", services_title: "6 pillars to destroy problems.",
-                srv_1_title: "Creative Tech & Dev", srv_1: "Complex API integrations, real-time dashboards, app creation, and web infrastructure.",
-                srv_2_title: "Growth & SEO Matrix", srv_2: "Organic positioning engineering. Mastering the algorithm to generate massive automated lead flows.",
-                srv_3_title: "BTL Data-Driven & DOOH", srv_3: "Connecting the physical world to the corporate cloud. Hardware hacking and DB-connected events for lead capture.",
-                srv_4_title: "Strategic Direction", srv_4: "Premium art direction, conceptualization, and award-winning copywriting. Building psychological messages.",
-                srv_5_title: "Solution Architecture", srv_5: "Pure business consulting. Deconstructing a massive problem, auditing bottlenecks, and designing the process to solve it.",
-                srv_6_title: "Training & Mentoring", srv_6: "Knowledge transfer. In-house training for corporate teams and agencies, raising their tactical standard in tech.",
-                nl_tag: "LinkedIn Newsletter", nl_title: "Something to say.", nl_desc: "It's not all code and campaigns. Every month I write for those looking to understand the real intersection between tech, marketing, and business. Deep analysis, no fluff.", nl_btn: "Subscribe on LinkedIn",
-                cta_title: "Let's hack your next problem.", cta_desc: "Book a 30-minute call and let's see if creative technology is the answer.", cta_btn: "Book 30 min. on Calendly",
-                lbl_problem: "PROBLEM", lbl_solution: "SOLUTION", lbl_result: "RESULT", btn_case: "VIEW CASE ON BEHANCE"
-            },
-            pt: {
-                nav_what: "O que eu faço", nav_cases: "Projetos", nav_services: "Serviços", nav_cta: "Agendar",
-                hero_badge: "#1 GLOBAL CREATIVE TECHNOLOGIST (2025 - 2026)",
-                about_title: "01. O que eu faço", about_heading: "Construo pontes entre problemas de negócios e tecnologia criativa.",
-                about_desc: "Não vendo código isolado nem design estético; vendo desbloqueio de processos. Meu trabalho é decifrar o caos corporativo e construir ecossistemas que impactam o ROI.",
-                how_title: "02. Como eu faço", how_1_title: "Interseção Pura", how_1_desc: "Audito o negócio, encontro o atrito e desenho uma solução que combina engenharia de software e direção de arte.",
-                how_2_title: "Hackeando Formatos", how_2_desc: "Uso tecnologia onde não se espera. Torno o complexo usável; o chato inesquecível.",
-                hud_title: "SISTEMA DE DIAGNÓSTICO B2B", hud_select: "> SELECIONAR_SINTOMA:", hud_output: "> OUTPUT_TERMINAL:", hud_waiting: "Aguardando input do usuário...",
-                cases_subtitle: "19 Casos de Sucesso", cases_title: "Inovação Aplicada.",
-                services_subtitle: "O Ecossistema", services_title: "6 pilares para aniquilar problemas.",
-                srv_1_title: "Creative Tech & Dev", srv_1: "Integração de APIs, Dashboards em tempo real, criação de Apps e infraestrutura web.",
-                srv_2_title: "Growth & SEO Matrix", srv_2: "Engenharia de posicionamento orgânico. Dominar o algoritmo para gerar leads massivos.",
-                srv_3_title: "BTL Data-Driven & DOOH", srv_3: "Conexão do mundo físico com a nuvem corporativa. Hack de hardware e eventos conectados para captura de leads.",
-                srv_4_title: "Direção Estratégica", srv_4: "Direção de arte premium e copywriting premiado. Construção de mensagens psicológicas.",
-                srv_5_title: "Arquitetura de Solução", srv_5: "Consultoria pura. Desconstruir um problema, auditar gargalos e desenhar o processo exato para resolvê-lo.",
-                srv_6_title: "Treinamento e Mentoria", srv_6: "Transferência de conhecimento para equipes corporativas e agências.",
-                nl_tag: "Newsletter no LinkedIn", nl_title: "Algo a dizer.", nl_desc: "Nem tudo é código e campanhas. Mês a mês escrevo análises profundas sobre tecnologia, marketing e negócios.", nl_btn: "Inscrever-se no LinkedIn",
-                cta_title: "Vamos hackear seu próximo problema.", cta_desc: "Agende uma chamada de 30 minutos e vamos ver se a tecnologia criativa é a resposta.", cta_btn: "Agendar no Calendly",
-                lbl_problem: "PROBLEMA", lbl_solution: "SOLUÇÃO", lbl_result: "RESULTADO", btn_case: "VER CASO NO BEHANCE"
-            },
-            fr: {
-                nav_what: "Ce que je fais", nav_cases: "Projets", nav_services: "Services", nav_cta: "Réserver",
-                hero_badge: "#1 GLOBAL CREATIVE TECHNOLOGIST (2025 - 2026)",
-                about_title: "01. Ce que je fais", about_heading: "Je construis des ponts entre les problèmes commerciaux et la tech créative.",
-                about_desc: "Je ne vends pas de code isolé ni de design esthétique ; je vends le déblocage de processus. Mon travail consiste à déchiffrer le chaos pour impacter le ROI.",
-                how_title: "02. Comment je le fais", how_1_title: "Intersection Pure", how_1_desc: "J'audite l'entreprise, trouve la friction et conçois une solution alliant ingénierie logicielle et direction artistique.",
-                how_2_title: "Piratage de Formats", how_2_desc: "J'utilise la technologie là où on ne l'attend pas. Je rends le complexe utilisable ; l'ennuyeux inoubliable.",
-                hud_title: "SYSTÈME DE DIAGNOSTIC B2B", hud_select: "> SÉLECTIONNER_SYMPTÔME:", hud_output: "> OUTPUT_TERMINAL:", hud_waiting: "En attente de saisie...",
-                cases_subtitle: "19 Histoires de Succès", cases_title: "Innovation Appliquée.",
-                services_subtitle: "L'Écosystème", services_title: "6 piliers pour détruire les problèmes.",
-                srv_1_title: "Creative Tech & Dev", srv_1: "Intégration d'API complexes, tableaux de bord, création d'applications et infrastructure web.",
-                srv_2_title: "Growth & SEO Matrix", srv_2: "Ingénierie de positionnement organique. Maîtriser l'algorithme pour générer des leads massifs.",
-                srv_3_title: "BTL Data-Driven & DOOH", srv_3: "Connexion du monde physique au cloud corporatif. Hack de matériel et événements connectés aux BDD.",
-                srv_4_title: "Direction Stratégique", srv_4: "Direction artistique premium, conceptualisation et copywriting primé.",
-                srv_5_title: "Architecture de Solution", srv_5: "Consulting pur. Déconstruire un problème, auditer les goulots d'étranglement et concevoir le processus pour le résoudre.",
-                srv_6_title: "Formation et Mentorat", srv_6: "Transfert de connaissances. Formation interne pour les équipes d'entreprise et les agences.",
-                nl_tag: "Newsletter sur LinkedIn", nl_title: "Quelque chose à dire.", nl_desc: "Des analyses approfondies sur l'intersection réelle entre la technologie, le marketing et les affaires.", nl_btn: "S'abonner sur LinkedIn",
-                cta_title: "Hackons votre prochain problème.", cta_desc: "Réservez un appel de 30 min pour voir si la technologie créative est la réponse.", cta_btn: "Réserver sur Calendly",
-                lbl_problem: "PROBLÈME", lbl_solution: "SOLUTION", lbl_result: "RÉSULTAT", btn_case: "VOIR LE CAS SUR BEHANCE"
+                hero_status: "STATUS: #1 GLOBAL CREATIVE TECHNOLOGIST (2025)",
+                hero_title: "UNFUCK<br>YOUR<br><span class='text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-violet-500'>BUSINESS</span>",
+                hero_desc: "I don't sell websites. I sell process unlocking. I am the bridge between corporate chaos and high-impact creative technology.",
+                hud_tag: "B2B DIAGNOSTIC SYSTEM",
+                hud_title: "Select your business symptom.",
+                saas_tag: "OWN INFRASTRUCTURE",
+                saas_title: "SaaS Ecosystem.",
+                saas_crypto: "Algorithmic signals and guides for traders in real-time.",
+                saas_tikk: "Google Sheets to WhatsApp E-commerce in record time.",
+                saas_saben: "Interactive multi-room trivia powered by AI.",
+                sol_tag: "TACTICAL METHODOLOGY",
+                sol_title: "AEO Solutions.",
+                bento_seo: "How to win in the era of Gemini and ChatGPT? Structuring your corporate data so AIs recommend you first.",
+                bento_dev: "B2B flow automation and complex visualization dashboards.",
+                bento_growth: "Massive lead acquisition engineering without depending on ads.",
+                bento_btl: "Connecting physical hardware with real-time databases.",
+                bento_art: "Conceptualization and copywriting for psychological impact.",
+                cases_tag: "IMPACT HISTORY",
+                cases_title: "The Archive (19).",
+                cta_title: "HACK<br>THE FUTURE.",
+                blog_tag: "STRATEGIC THINKING",
+                blog_title: "Latest Articles.",
+                hud_waiting: "> WAITING FOR USER INPUT...",
+                hud_scanning: "> ANALYZING FRICTION VECTORS...",
+                lbl_prob: "PROBLEM", lbl_sol: "SOLUTION", lbl_res: "RESULT"
             }
         };
 
-        // ----------------------------------------------------
-        // DATOS HUD (Matriz IA)
-        // ----------------------------------------------------
         const hudData = {
             es: [
-                { id: 1, symptom: "[01] Pauta digital muy cara y no convierte.", diag: "DEPENDENCIA_OUTBOUND", sol: "Crear Arquitectura SEO Orgánica para interceptar al cliente cuando busca la solución. (Ej: ERP B2B).", link: 0 },
-                { id: 2, symptom: "[02] Eventos BTL son gasto muerto sin data.", diag: "BTL_DESCONECTADO", sol: "Hackear hardware (ruletas, tótems) e integrarlos vía API al CRM. Captura leads en tiempo real.", link: 4 },
-                { id: 3, symptom: "[03] Software muy complejo, nadie entiende.", diag: "ABSTRACCIÓN_CORPORATIVA", sol: "Tangibilizar mediante Visualización de Datos interactiva. Muestra lo que el código hace en el mundo real.", link: 1 },
-                { id: 4, symptom: "[04] Queremos innovar pero la marca es 'tradicional'.", diag: "MIEDO_EJECUCIÓN", sol: "Unir variables externas en tiempo real (ej: Clima API) con publicidad en vía pública para ganar relevancia pura.", link: 2 }
+                { id: 1, symptom: "[01] Pauta digital muy cara y no convierte.", diag: "DEPENDENCIA_OUTBOUND", sol: "Crear Arquitectura SEO Orgánica (AEO) para interceptar al cliente cuando busca la solución vía IA." },
+                { id: 2, symptom: "[02] Eventos BTL son gasto muerto sin data.", diag: "BTL_DESCONECTADO", sol: "Hackear hardware (ruletas, tótems) e integrarlos vía API al CRM para captura en tiempo real." },
+                { id: 3, symptom: "[03] Software muy complejo, nadie entiende.", diag: "ABSTRACCIÓN_CORPORATIVA", sol: "Tangibilizar mediante Visualización de Datos interactiva que muestra el valor real del código." },
+                { id: 4, symptom: "[04] Queremos innovar pero la marca es 'tradicional'.", diag: "MIEDO_EJECUCIÓN", sol: "Unir variables externas (ej: Clima API) con publicidad dinámica para ganar relevancia pura." }
             ],
             en: [
-                { id: 1, symptom: "[01] Digital ads are expensive, no conversions.", diag: "OUTBOUND_DEPENDENCY", sol: "Build Organic SEO Architecture to intercept clients exactly when they search for solutions.", link: 0 },
-                { id: 2, symptom: "[02] BTL events are a dead expense without data.", diag: "DISCONNECTED_BTL", sol: "Hack physical hardware (roulettes, totems) and integrate via API to your CRM for real-time leads.", link: 4 },
-                { id: 3, symptom: "[03] Software is too complex, nobody understands.", diag: "CORPORATE_ABSTRACTION", sol: "Tangibilize via interactive Data Visualization. Show what the code does in the real world.", link: 1 },
-                { id: 4, symptom: "[04] We want to innovate but the brand is 'traditional'.", diag: "EXECUTION_FEAR", sol: "Merge real-time external variables (e.g. Weather API) with out-of-home advertising to gain pure relevance.", link: 2 }
-            ],
-            pt: [
-                { id: 1, symptom: "[01] Anúncios digitais caros e sem conversão.", diag: "DEPENDÊNCIA_OUTBOUND", sol: "Criar Arquitetura SEO Orgânica para interceptar o cliente quando ele busca a solução. (Ex: ERP B2B).", link: 0 },
-                { id: 2, symptom: "[02] Eventos BTL são um gasto morto sem dados.", diag: "BTL_DESCONECTADO", sol: "Hackear hardware (roletas, tótens) e integrá-los via API ao CRM. Captura de leads em tempo real.", link: 4 },
-                { id: 3, symptom: "[03] Software muito complexo, ninguém entende.", diag: "ABSTRAÇÃO_CORPORATIVA", sol: "Tangibilizar através de Visualização de Dados interativa. Mostra o que o código faz no mundo real.", link: 1 },
-                { id: 4, symptom: "[04] Queremos inovar, mas a marca é 'tradicional'.", diag: "MEDO_EXECUÇÃO", sol: "Unir variáveis externas em tempo real (ex: Clima API) com publicidade em via pública para ganhar relevância pura.", link: 2 }
-            ],
-            fr: [
-                { id: 1, symptom: "[01] Les pubs numériques sont chères et ne convertissent pas.", diag: "DÉPENDANCE_OUTBOUND", sol: "Créer une architecture SEO organique pour intercepter le client lorsqu'il cherche la solution. (Ex: ERP B2B).", link: 0 },
-                { id: 2, symptom: "[02] Les événements BTL sont une dépense morte sans données.", diag: "BTL_DÉCONNECTÉ", sol: "Pirater le matériel (roulettes, totems) et les intégrer via API au CRM. Capture de leads en temps réel.", link: 4 },
-                { id: 3, symptom: "[03] Le logiciel est trop complexe, personne ne comprend.", diag: "ABSTRACTION_CORPORATIVE", sol: "Tangibiliser grâce à la visualisation interactive des données. Montrez ce que fait le code dans le monde réel.", link: 1 },
-                { id: 4, symptom: "[04] Nous voulons innover mais la marque est 'traditionnelle'.", diag: "PEUR_EXÉCUTION", sol: "Associer des variables externes en temps réel (ex: API météo) avec la publicité extérieure pour gagner en pertinence.", link: 2 }
+                { id: 1, symptom: "[01] Digital ads are expensive, no conversions.", diag: "OUTBOUND_DEPENDENCY", sol: "Build Organic SEO Architecture (AEO) to intercept clients searching via AI." },
+                { id: 2, symptom: "[02] BTL events are a dead expense without data.", diag: "DISCONNECTED_BTL", sol: "Hack physical hardware (roulettes, totems) and integrate via API for real-time lead capture." },
+                { id: 3, symptom: "[03] Software is too complex, nobody understands.", diag: "CORPORATE_ABSTRACTION", sol: "Tangibilize via interactive Data Visualization showing the real value of the code." },
+                { id: 4, symptom: "[04] We want to innovate but the brand is 'traditional'.", diag: "EXECUTION_FEAR", sol: "Merge external variables (e.g. Weather API) with dynamic ads for pure relevance." }
             ]
         };
 
-        // ----------------------------------------------------
-        // BASE DE DATOS DE PROYECTOS (LOS 19 CASOS COMPLETOS)
-        // ----------------------------------------------------
         const projectsDb = [
-            {
-                client: "Oracle NetSuite Partner", tech: "SEO Architecture · Content Engineering · Growth", link: "https://www.behance.net/gallery/231096043/a-b2b-creative-solution", img: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=1200",
-                es: { title: "Hackeando el B2B Orgánico", desc: "Transformamos el algoritmo de búsqueda en el principal motor de ventas corporativas.", prob: "Bases saturadas de SPAM y nula visibilidad en Google frente a gigantes.", sol: "Ingeniería de contenidos y arquitectura SEO avanzada respondiendo a dudas exactas de los usuarios.", res: "10 keywords Top 1 en Google en 3 meses y más de 20.000 menciones mensuales." },
-                en: { title: "Hacking Organic B2B", desc: "Transformed the search algorithm into the partner's main corporate sales engine.", prob: "SPAM-saturated databases and zero Google visibility against giants.", sol: "Content engineering and advanced SEO architecture answering exact user questions.", res: "10 Top 1 keywords on Google in 3 months and 20,000+ monthly mentions." }
-            },
-            {
-                client: "2Win", tech: "Data Visualization · Dashboarding · API", link: "https://www.behance.net/gallery/240982385/Santas-Tracking-Christmas-2025-2Win", img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1200",
-                es: { title: "Santa's Live Tracking", desc: "Demostración de fuerza tecnológica camuflada como activación navideña.", prob: "Vender la idea de un ERP en la nube es abstracto y aburrido para leads no técnicos.", sol: "Dashboard técnico en tiempo real mostrando ubicación y stock global de paquetes de Santa." },
-                en: { title: "Santa's Live Tracking", desc: "Technological show of force disguised as a Christmas activation.", prob: "Selling the idea of a cloud ERP is abstract and boring for non-technical leads.", sol: "Real-time technical dashboard showing Santa's global package stock and location." }
-            },
-            {
-                client: "Ssangyong", tech: "DOOH · Geolocalización · API Weather", link: "https://www.behance.net/gallery/44019443/SSangyong-Actyon-Sports-ADS-realtime", img: "https://images.unsplash.com/photo-1514316454349-750a7fd3da3a?auto=format&fit=crop&q=80&w=1200",
-                es: { title: "DOOH Reactivo al Clima", desc: "Pioneros en publicidad exterior dinámica (DOOH) en Chile.", prob: "La publicidad automotriz en vía pública es estática y desconectada del conductor.", sol: "Conexión a API Weather. Si llovía en la esquina, el render del auto se cubría de barro y lluvia en tiempo real." },
-                en: { title: "Weather-Reactive DOOH", desc: "Pioneers in dynamic out-of-home (DOOH) advertising in Chile.", prob: "Automotive outdoor advertising is static and disconnected from the driver.", sol: "Weather API connection. If it rained on the street, the car on the billboard got covered in mud in real-time." }
-            },
-            {
-                client: "Bupa", tech: "App Development · GPS Tracking", link: "https://www.behance.net/gallery/79370809/Bupa-Maps-with-Memory", img: "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&q=80&w=1200",
-                es: { title: "Maps with Memory", desc: "Almacenamiento de datos como herramienta literal de rescate de vida.", prob: "Cuando un paciente con Alzheimer se extravía, las policías pierden casi 48 horas recabando información.", sol: "App que recopila preventivamente 'zonas memorables'. En caso de extravío, se envían los perímetros al instante.", res: "Ahorro de hasta 2 días de investigación policial preliminar." },
-                en: { title: "Maps with Memory", desc: "Data storage as a literal life-saving tool.", prob: "When an Alzheimer's patient goes missing, police lose almost 48 hours gathering info.", sol: "App that pre-saves 'memorable zones'. If the patient is lost, perimeters are sent to police instantly.", res: "Saves up to 2 days of preliminary police investigation." }
-            },
-            {
-                client: "Tenpo", tech: "Hardware BTL · G-Sheets API · Leads", link: "https://www.behance.net/gallery/217013571/BTL_-Ruleta-Tenpo", img: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1200",
-                es: { title: "Ruleta BTL Data-Driven", desc: "Cruzar la activación BTL tradicional con el backend corporativo en la nube.", prob: "Eventos generan quiebres de stock no mapeados y captura de datos manual.", sol: "Ruleta física conectada a Google Sheets. Manejo de stock automatizado y envío de leads al CRM al instante." },
-                en: { title: "Data-Driven BTL Roulette", desc: "Crossing traditional BTL activations with the corporate cloud backend.", prob: "Events generate untracked stock shortages and manual data capture.", sol: "Physical roulette connected to Google Sheets. Automated stock management and instant CRM lead generation." }
-            },
-            {
-                client: "Ssangyong", tech: "Hackeo de Hardware · Neumática · App", link: "https://www.behance.net/gallery/45095931/Ssangyong-La-primera-pintura-hecha-con-un-auto", img: "https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&q=80&w=1200",
-                es: { title: "Pincel Robótico Gigante", desc: "Arte inmersivo a gran escala para demostrar precisión automotriz.", prob: "Demostrar maniobrabilidad extrema sin caer en el típico comercial derrapando en tierra.", sol: "Instalación de sistema de aire comprimido operado por App. El auto funcionó como pincel creando una obra visible desde el cielo." },
-                en: { title: "Giant Robotic Paintbrush", desc: "Large-scale immersive art to demonstrate automotive precision.", prob: "Demonstrate extreme maneuverability without the typical dirt-drifting commercial.", sol: "App-operated compressed air installation. The car acted as a paintbrush creating artwork visible from the sky." }
-            },
-            {
-                client: "MIDEA", tech: "Go-To-Market · Creative Strategy", link: "https://www.behance.net/gallery/20824907/MIDEA-Growth-Chile-Lanzamiento-Win-Effie", img: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=1200",
-                es: { title: "Lanzamiento MIDEA Chile", desc: "Estrategia integral de penetración de mercado para el gigante de electrodomésticos.", prob: "Introducir una marca asiática desconocida en un mercado chileno hipercompetitivo.", sol: "Campaña de lanzamiento 360º enfocada en posicionamiento acelerado demostrando escala global.", res: "Premio Effie de Oro en Lanzamiento de Marca." },
-                en: { title: "MIDEA Chile Launch", desc: "Comprehensive market penetration strategy for the appliance giant.", prob: "Introducing an unknown Asian brand into a hyper-competitive Chilean market.", sol: "360º launch campaign focused on accelerated positioning demonstrating global scale.", res: "Gold Effie Award in Brand Launch." }
-            },
-            {
-                client: "KidZania", tech: "E-Commerce Hack · Plataforma Web", link: "https://www.behance.net/gallery/43592137/KidZania-La-primera-GiftCard-de-tiempo", img: "https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&q=80&w=1200",
-                es: { title: "La GiftCard de Tiempo", desc: "Hackeo del concepto de regalo material por el Día del Niño.", prob: "Generar visitas al parque compitiendo contra consolas y juguetes físicos.", sol: "Plataforma web para regalar códigos canjeables por 'tiempo con los padres'. Engagement digital derivó en visitas reales." },
-                en: { title: "The Time GiftCard", desc: "Hacking the material gift concept for Children's Day.", prob: "Generate park visits competing against video game consoles and physical toys.", sol: "Web platform to gift redeemable codes for 'time with parents'. Digital engagement drove physical foot traffic." }
-            },
-            {
-                client: "CorreosChile", tech: "Plataforma de Matchmaking", link: "https://www.behance.net/gallery/139685235/CorreosChile-Navidad", img: "https://images.unsplash.com/photo-1512389142860-9c449e58a543?auto=format&fit=crop&q=80&w=1200",
-                es: { title: "Logística Solidaria Navideña", desc: "Digitalización de la tradicional campaña de apadrinamiento de cartas.", prob: "El proceso manual de apadrinar cartas físicas en sucursales limitaba el alcance solidario.", sol: "Plataforma web centralizada (tipo 'Tinder' de regalos) para seleccionar y comprometer regalos a niños a nivel nacional.", res: "Más de 10.000 cartas leídas y regalos entregados." },
-                en: { title: "Christmas Solidarity Logistics", desc: "Digitization of the traditional letter sponsorship campaign.", prob: "The manual process of sponsoring physical letters limited the charitable reach.", sol: "Centralized web platform (like a 'Tinder' for gifts) to select and commit to children's gifts nationwide.", res: "Over 10,000 letters read and gifts successfully delivered." }
-            },
-            {
-                client: "Sony", tech: "Motion Graphics · Brand Storytelling", link: "https://www.behance.net/gallery/16671013/Make-dot-Believe-Sony", img: "https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&fit=crop&q=80&w=1200",
-                es: { title: "Make.Believe: Doers & Believers", desc: "Materialización audiovisual del eslogan global de la marca.", prob: "Traducir un concepto filosófico abstracto ('Make.Believe') en contenido digerible.", sol: "Campaña animada explicando cómo el mundo se divide entre los que creen y los que hacen, y Sony es el punto intermedio." },
-                en: { title: "Make.Believe: Doers & Believers", desc: "Audiovisual materialization of the brand's global slogan.", prob: "Translate an abstract philosophical concept ('Make.Believe') into digestible content.", sol: "Animated campaign explaining how the world is divided between doers and believers, and Sony is the dot in between." }
-            },
-            {
-                client: "Shot&Go", tech: "Guerrilla Marketing · Positioning", link: "https://www.behance.net/gallery/33374017/Chile-la-energia-ya-viene-Shot-Go", img: "https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&q=80&w=1200",
-                es: { title: "La Energía Ya Viene", desc: "Apalancamiento de formatos políticos para penetración de mercado masiva.", prob: "Competir contra el presupuesto infinito de RedBull con una bebida emergente.", sol: "Campaña de guerrilla emulando la estética de carteles presidenciales para robar el impacto visual callejero.", res: "Posicionamiento relámpago; se convirtió en la 2da bebida energética más vendida en Chile." },
-                en: { title: "The Energy is Coming", desc: "Leveraging political formats for massive market penetration.", prob: "Compete against RedBull's infinite budget with an emerging energy drink.", sol: "Guerrilla campaign emulating presidential campaign posters to steal street-level visual impact.", res: "Lightning-fast positioning; became the 2nd best-selling energy drink in Chile." }
-            },
-            {
-                client: "Cencosud", tech: "Brand Universe · Social Media", link: "https://www.behance.net/gallery/16670095/Duendes-Cencosud", img: "https://images.unsplash.com/photo-1543508282-6319a3e2621f?auto=format&fit=crop&q=80&w=1200",
-                es: { title: "Lanzamiento Duendes Mágicos", desc: "Creación del fenómeno cultural de retail más grande de Chile.", prob: "Lanzar una nueva colección de peluches navideños desde cero dándoles 'alma'.", sol: "Creación del universo narrativo, perfiles y la regla de oro: todos los personajes solo se comunicaban en rima." },
-                en: { title: "Magic Elves Launch", desc: "Creation of the biggest retail cultural phenomenon in Chile.", prob: "Launch a new collection of Christmas plush toys from scratch by giving them a 'soul'.", sol: "Creation of the narrative universe, social profiles, and the golden rule: all characters only spoke in rhymes." }
-            },
-            {
-                client: "Why Agency", tech: "Newsjacking · Real-time Marketing", link: "https://www.behance.net/gallery/40426917/Illuminati-child-2016-Centennial-America-Cup", img: "https://images.unsplash.com/photo-1504450758481-7338eba7524a?auto=format&fit=crop&q=80&w=1200",
-                es: { title: "El Niño Illuminati", desc: "Apalancamiento de contingencia viral para ROI publicitario masivo.", prob: "Generar ruido publicitario durante la Copa América Centenario sin ser sponsor oficial.", sol: "Campaña relámpago encontrando al niño viral del momento e integrándolo a la comunicación de la agencia en 24 horas.", res: "Más de 100 millones de pesos chilenos en Earned Media." },
-                en: { title: "The Illuminati Child", desc: "Leveraging viral contingency for massive advertising ROI.", prob: "Generate buzz during the Centennial Copa America without being an official sponsor.", sol: "Lightning campaign finding the viral child of the moment and integrating him into the agency's comms within 24 hours.", res: "Over 100 million CLP in Earned Media." }
-            },
-            {
-                client: "Sony", tech: "Web Platform · UX · Conceptual", link: "https://www.behance.net/gallery/17818129/The-moon-is-Chilean-Sony", img: "https://images.unsplash.com/photo-1532692144381-80bbbd5397f3?auto=format&fit=crop&q=80&w=1200",
-                es: { title: "La Luna es Chilena", desc: "Digitalización interactiva de un hito histórico nacional extravagante.", prob: "Usar a favor de la marca el hecho real de que un chileno inscribió legalmente la luna como suya.", sol: "Plataforma web dinámica donde Sony entregaba certificados digitales de propiedad de pequeñas parcelas lunares." },
-                en: { title: "The Moon is Chilean", desc: "Interactive digitization of an extravagant national historical milestone.", prob: "Leverage the real fact that a Chilean citizen legally registered the moon as his property.", sol: "Dynamic web platform where Sony handed out digital property certificates for small lunar plots." }
-            },
-            {
-                client: "Enjoy", tech: "Employer Branding · Activation", link: "https://www.behance.net/gallery/33561767/Enjoy-Prende-Tu-verano-2016", img: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&q=80&w=1200",
-                es: { title: "Prende Tu Verano", desc: "El 'trabajo soñado' como motor de campaña de captación.", prob: "Aumentar la afluencia de público joven a los casinos Enjoy en verano.", sol: "Campaña masiva buscando al candidato ideal para pagarle por viajar por todo Chile asistiendo a fiestas Enjoy." },
-                en: { title: "Ignite Your Summer", desc: "The 'dream job' as the engine for an acquisition campaign.", prob: "Increase young audience attendance at Enjoy casinos during the summer.", sol: "Massive campaign looking for the ideal candidate to get paid to travel across Chile attending Enjoy parties." }
-            },
-            {
-                client: "Ssangyong", tech: "BTL Físico · Carpintería · Insights", link: "https://www.behance.net/gallery/43610699/SSangyong-Car-4-children", img: "https://images.unsplash.com/photo-1596464716127-f2a82984de30?auto=format&fit=crop&q=80&w=1200",
-                es: { title: "Auto Familiar de Madera", desc: "Desafío físico a los verdaderos tomadores de decisión del hogar.", prob: "Las marcas de autos le hablan a los padres, no a los usuarios del asiento trasero (los niños).", sol: "Construcción de una pickup tamaño real en madera de plaza de juegos para medir la interacción familiar real." },
-                en: { title: "Wooden Family Car", desc: "A physical challenge to the real decision-makers of the household.", prob: "Car brands talk to parents, not the true backseat users (the kids).", sol: "Construction of a life-size wooden pickup truck (playground style) to measure real family interaction." }
-            },
-            {
-                client: "Ilko", tech: "Content Creation · Sound Design", link: "https://www.behance.net/gallery/33145231/Chilean-recipes-in-Cueca-version", img: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&q=80&w=1200",
-                es: { title: "Recetas en versión Cueca", desc: "Reinvención del contenido gastronómico para las Fiestas Patrias.", prob: "Destacar en la saturación de contenido de recetas durante septiembre.", sol: "Estructuramos y musicalizamos recetas tradicionales chilenas con la estricta métrica poética de la Cueca." },
-                en: { title: "Recipes in Cueca Version", desc: "Reinvention of gastronomic content for National Holidays.", prob: "Stand out in the saturation of recipe content during September.", sol: "Structured and scored traditional Chilean recipes using the strict poetic metric of the Cueca dance." }
-            },
-            {
-                client: "Int. Bipolar Foundation", tech: "Optical Illusion · Copywriting", link: "https://www.behance.net/gallery/45604075/International-Bipolar-Foundation-The-bipolar-Ad", img: "https://images.unsplash.com/photo-1510425463958-dcced28da480?auto=format&fit=crop&q=80&w=1200",
-                es: { title: "Alquimia Visual Bipolar", desc: "Truco visual analógico de altísimo impacto emocional.", prob: "Explicar la dualidad extrema de vivir con trastorno bipolar en un medio estático impreso.", sol: "Gráfica reversible. Leída al derecho entrega un mensaje de amor; girada 180º dice exactamente lo contrario." },
-                en: { title: "Bipolar Visual Alchemy", desc: "High emotional impact analog visual trick.", prob: "Explain the extreme duality of living with bipolar disorder in a static print medium.", sol: "Reversible graphic. Read right-side up it delivers a message of love; rotated 180º it says the exact opposite." }
-            },
-            {
-                client: "Sexshop Chile", tech: "Minimalismo · Espacio Negativo", link: "https://www.behance.net/gallery/48577569/SEXSHOPCHILE-TWO-METHODS", img: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=1200",
-                es: { title: "La Ilusión de los 2 Métodos", desc: "Diseño minimalista evadiendo la censura publicitaria.", prob: "Promocionar condones y masturbación sin mostrar contenido explícito que bloquee la pauta.", sol: "Fotografía sutil de una mano desenrollando un condón; el espacio negativo componía el acto de la masturbación.", res: "Oro en la categoría Print en el WINA Festival." },
-                en: { title: "The Illusion of 2 Methods", desc: "Minimalist design evading advertising censorship.", prob: "Promote condoms and masturbation without showing explicit content that would get blocked.", sol: "Subtle photography of a hand unrolling a condom; the negative space visually composed the act of masturbation.", res: "Gold in the Print category at the WINA Festival." }
-            }
+            { client: "Oracle NetSuite Partner", img: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=1200", es: { t: "Hackeando el B2B Orgánico", q: "Bases saturadas de SPAM y nula visibilidad en Google.", a: "Arquitectura SEO y AEO para responder dudas técnicas exactas.", r: "10 keywords Top 1 en 3 meses." }, en: { t: "Hacking Organic B2B", q: "SPAM-saturated bases and zero visibility.", a: "SEO & AEO Architecture to answer exact technical questions.", r: "10 Top 1 keywords in 3 months." }, link: "https://www.behance.net/gallery/231096043/a-b2b-creative-solution" },
+            { client: "2Win", img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1200", es: { t: "Santa's Live Tracking", q: "Vender la idea de un ERP cloud es abstracto y aburrido.", a: "Dashboard técnico real mostrando ubicación de stock de Santa.", r: "Activación viral de alto impacto B2B." }, en: { t: "Santa's Live Tracking", q: "Selling a cloud ERP is abstract and boring.", a: "Real technical dashboard showing Santa's stock location.", r: "Viral high-impact B2B activation." }, link: "https://www.behance.net/gallery/240982385/Santas-Tracking-Christmas-2025-2Win" },
+            { client: "Ssangyong", img: "https://images.unsplash.com/photo-1514316454349-750a7fd3da3a?auto=format&fit=crop&q=80&w=1200", es: { t: "DOOH Reactivo al Clima", q: "Publicidad automotriz estática y desconectada del contexto.", a: "Conexión a API Weather: si llovía, el auto se cubría de barro.", r: "Pioneros en DOOH dinámico en Chile." }, en: { t: "Weather-Reactive DOOH", q: "Static automotive advertising disconnected from context.", a: "Weather API connection: if it rained, the car got covered in mud.", r: "Pioneers in dynamic DOOH in Chile." }, link: "https://www.behance.net/gallery/44019443/SSangyong-Actyon-Sports-ADS-realtime" },
+            { client: "Bupa", img: "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&q=80&w=1200", es: { t: "Maps with Memory", q: "Pacientes con Alzheimer perdidos: 48h críticas de búsqueda.", a: "App con zonas memorables preventivas para envío inmediato.", r: "Ahorro de 2 días en investigación policial." }, en: { t: "Maps with Memory", q: "Lost Alzheimer's patients: 48h critical search time.", a: "App with preventive memorable zones for instant dispatch.", r: "2 days saved in police investigation." }, link: "https://www.behance.net/gallery/79370809/Bupa-Maps-with-Memory" },
+            { client: "Tenpo", img: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1200", es: { t: "Ruleta BTL Data-Driven", q: "Eventos BTL generan gasto sin captura de data real.", a: "Ruleta física conectada a API de Google Sheets en tiempo real.", r: "Captura de leads instantánea al CRM." }, en: { t: "Data-Driven BTL Roulette", q: "BTL events generate expense without real data capture.", a: "Physical roulette connected to Google Sheets API in real-time.", r: "Instant lead capture to CRM." }, link: "https://www.behance.net/gallery/217013571/BTL_-Ruleta-Tenpo" },
+            { client: "Ssangyong", img: "https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&q=80&w=1200", es: { t: "Pincel Robótico Gigante", q: "Demostrar maniobrabilidad extrema sin comerciales típicos.", a: "Auto convertido en pincel operado por App y aire comprimido.", r: "Obra de arte visible desde el cielo." }, en: { t: "Giant Robotic Paintbrush", q: "Demonstrate maneuverability without typical commercials.", a: "Car turned into a paintbrush operated by App and air systems.", r: "Artwork visible from the sky." }, link: "https://www.behance.net/gallery/45095931/Ssangyong-La-primera-pintura-hecha-con-un-auto" },
+            { client: "MIDEA", img: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=1200", es: { t: "Lanzamiento MIDEA Chile", q: "Marca asiática desconocida en mercado hipercompetitivo.", a: "Estrategia 360º enfocada en escala global y penetración.", r: "Effie de Oro en Lanzamiento de Marca." }, en: { t: "MIDEA Chile Launch", q: "Unknown Asian brand in hyper-competitive market.", a: "360º strategy focused on global scale and penetration.", r: "Gold Effie in Brand Launch." }, link: "https://www.behance.net/gallery/20824907/MIDEA-Growth-Chile-Lanzamiento-Win-Effie" },
+            { client: "KidZania", img: "https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&q=80&w=1200", es: { t: "GiftCard de Tiempo", q: "Competir contra consolas en el Día del Niño.", a: "Plataforma para regalar códigos canjeables por tiempo con padres.", r: "Engagement digital derivado en visitas reales." }, en: { t: "Time GiftCard", q: "Competing against consoles on Children's Day.", a: "Platform to gift codes redeemable for time with parents.", r: "Digital engagement driven to physical visits." }, link: "https://www.behance.net/gallery/43592137/KidZania-La-primera-GiftCard-de-tiempo" },
+            { client: "CorreosChile", img: "https://images.unsplash.com/photo-1512389142860-9c449e58a543?auto=format&fit=crop&q=80&w=1200", es: { t: "Logística Solidaria", q: "Proceso manual de apadrinamiento limitaba alcance.", a: "Plataforma de matchmaking 'Tinder' de cartas navideñas.", r: "10.000+ cartas apadrinadas digitalmente." }, en: { t: "Solidarity Logistics", q: "Manual sponsorship process limited reach.", a: "Matchmaking platform 'Tinder' for Christmas letters.", r: "10,000+ letters sponsored digitally." }, link: "https://www.behance.net/gallery/139685235/CorreosChile-Navidad" },
+            { client: "Sony", img: "https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&fit=crop&q=80&w=1200", es: { t: "Make.Believe Storytelling", q: "Traducir concepto filosófico abstracto en contenido.", a: "Campaña animada sobre hacedores vs creyentes.", r: "Materialización de eslogan global." }, en: { t: "Make.Believe Storytelling", q: "Translate abstract philosophical concept into content.", a: "Animated campaign about doers vs believers.", r: "Global slogan materialization." }, link: "https://www.behance.net/gallery/16671013/Make-dot-Believe-Sony" },
+            { client: "Shot&Go", img: "https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&q=80&w=1200", es: { t: "La Energía Ya Viene", q: "Competir contra RedBull con presupuesto limitado.", a: "Guerrilla marketing emulando estética política presidencial.", r: "2da energética más vendida en Chile." }, en: { t: "Energy is Coming", q: "Compete against RedBull with limited budget.", a: "Guerrilla marketing emulating presidential politics.", r: "2nd best-selling energy drink in Chile." }, link: "https://www.behance.net/gallery/33374017/Chile-la-energia-ya-viene-Shot-Go" },
+            { client: "Cencosud", img: "https://images.unsplash.com/photo-1543508282-6319a3e2621f?auto=format&fit=crop&q=80&w=1200", es: { t: "Duendes Mágicos", q: "Lanzar colección de peluches desde cero.", a: "Universo narrativo donde personajes solo hablan en rima.", r: "Fenómeno cultural de retail más grande de Chile." }, en: { t: "Magic Elves", q: "Launch plush collection from scratch.", a: "Narrative universe where characters only speak in rhyme.", r: "Largest retail cultural phenomenon in Chile." }, link: "https://www.behance.net/gallery/16670095/Duendes-Cencosud" },
+            { client: "Why Agency", img: "https://images.unsplash.com/photo-1504450758481-7338eba7524a?auto=format&fit=crop&q=80&w=1200", es: { t: "El Niño Illuminati", q: "Generar ruido en Copa América sin ser sponsor.", a: "Newsjacking: integrar niño viral en 24h a la comunicación.", r: "100M+ CLP en Earned Media." }, en: { t: "Illuminati Child", q: "Generate buzz in Copa America without sponsoring.", a: "Newsjacking: integrate viral child in 24h to comms.", r: "100M+ CLP in Earned Media." }, link: "https://www.behance.net/gallery/40426917/Illuminati-child-2016-Centennial-America-Cup" },
+            { client: "Sony", img: "https://images.unsplash.com/photo-1532692144381-80bbbd5397f3?auto=format&fit=crop&q=80&w=1200", es: { t: "La Luna es Chilena", q: "Apalancar hito histórico nacional extravagante.", a: "Plataforma para certificados digitales de propiedad lunar.", r: "Hito digital viral nacional." }, en: { t: "The Moon is Chilean", q: "Leverage extravagant national historical milestone.", a: "Platform for digital lunar property certificates.", r: "National viral digital milestone." }, link: "https://www.behance.net/gallery/17818129/The-moon-is-Chilean-Sony" },
+            { client: "Enjoy", img: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&q=80&w=1200", es: { t: "Prende Tu Verano", q: "Aumentar público joven en casinos en verano.", a: "Campaña buscando candidato para viajar pagado asistiendo a fiestas.", r: "Aumento masivo de afluencia joven." }, en: { t: "Ignite Your Summer", q: "Increase young audience in casinos during summer.", a: "Campaign looking for candidate to travel paid attending parties.", r: "Massive young audience increase." }, link: "https://www.behance.net/gallery/33561767/Enjoy-Prende-Tu-verano-2016" },
+            { client: "Ssangyong", img: "https://images.unsplash.com/photo-1596464716127-f2a82984de30?auto=format&fit=crop&q=80&w=1200", es: { t: "Auto Familiar de Madera", q: "Las marcas de autos no le hablan a los niños.", a: "Pickup de madera tamaño real como plaza de juegos.", r: "Insight familiar medido físicamente." }, en: { t: "Wooden Family Car", q: "Car brands don't talk to children.", a: "Life-size wooden pickup as a playground.", r: "Physically measured family insight." }, link: "https://www.behance.net/gallery/43610699/SSangyong-Car-4-children" },
+            { client: "Ilko", img: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&q=80&w=1200", es: { t: "Recetas en Cueca", q: "Destacar en saturación de contenido en Fiestas Patrias.", a: "Recetas musicalizadas con métrica de Cueca.", r: "Reinvención de contenido gastronómico." }, en: { t: "Recipes in Cueca", q: "Stand out in holiday content saturation.", a: "Recipes scored with Cueca metrics.", r: "Gastronomic content reinvention." }, link: "https://www.behance.net/gallery/33145231/Chilean-recipes-in-Cueca-version" },
+            { client: "Int. Bipolar Foundation", img: "https://images.unsplash.com/photo-1510425463958-dcced28da480?auto=format&fit=crop&q=80&w=1200", es: { t: "Alquimia Visual Bipolar", q: "Explicar dualidad del trastorno en medio estático.", a: "Gráfica reversible 180º que cambia el mensaje de amor a odio.", r: "Impacto emocional analógico." }, en: { t: "Bipolar Visual Alchemy", q: "Explain disorder duality in static media.", a: "Reversible 180º graphic that changes message from love to hate.", r: "Analog emotional impact." }, link: "https://www.behance.net/gallery/45604075/International-Bipolar-Foundation-The-bipolar-Ad" },
+            { client: "Sexshop Chile", img: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=1200", es: { t: "La Ilusión de los 2 Métodos", q: "Promocionar condones evadiendo censura.", a: "Espacio negativo que sugiere masturbación sin mostrarla.", r: "Oro en WINA Festival (Print)." }, en: { t: "Illusion of 2 Methods", q: "Promote condoms evading censorship.", a: "Negative space suggesting masturbation without showing it.", r: "Gold in WINA Festival (Print)." }, link: "https://www.behance.net/gallery/48577569/SEXSHOPCHILE-TWO-METHODS" }
         ];
 
         let currentLang = 'es';
-
         function setLang(lang) {
             currentLang = lang;
-            ['es','en','pt','fr'].forEach(l => {
-                document.getElementById(`lang-${l}`).classList.replace('opacity-100', 'opacity-50');
-                document.getElementById(`lang-${l}`).classList.add('grayscale');
-            });
-            document.getElementById(`lang-${lang}`).classList.replace('opacity-50', 'opacity-100');
-            document.getElementById(`lang-${lang}`).classList.remove('grayscale');
-
+            document.querySelectorAll('#navbar button').forEach(b => b.classList.add('opacity-50'));
+            document.getElementById(`lang-${lang}`).classList.remove('opacity-50');
+            
             document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.getAttribute('data-i18n');
                 if(translations[lang][key]) el.innerHTML = translations[lang][key];
             });
-
-            renderHUD();
+            renderHud();
             renderCases();
         }
 
         let activeHudId = null;
-        function renderHUD() {
-            const data = hudData[currentLang] || hudData['en'];
+        function renderHud() {
+            const data = hudData[currentLang];
             const container = document.getElementById('hud-buttons');
             container.innerHTML = data.map(item => `
-                <button onclick="triggerHud(${item.id})" class="w-full text-left px-4 py-3 text-xs md:text-sm border border-zinc-800 bg-zinc-900/50 hover:border-cyan-500/50 hover:bg-cyan-900/20 transition-colors text-zinc-400 hover:text-cyan-400 ${activeHudId === item.id ? 'border-cyan-500 text-cyan-400 bg-cyan-900/20' : ''}">
+                <button onclick="triggerHud(${item.id})" class="hud-btn w-full text-left px-4 py-3 border-zinc-800 bg-white/5 hover:bg-white/10 transition-all ${activeHudId === item.id ? 'active' : ''}">
                     ${item.symptom}
                 </button>
             `).join('');
-
-            if(activeHudId === null) {
-                document.getElementById('hud-result').innerHTML = `<div class="text-zinc-600 flex justify-center items-center h-[200px] border border-dashed border-zinc-800">>${translations[currentLang].hud_waiting}</div>`;
-            }
         }
 
         function triggerHud(id) {
             activeHudId = id;
-            renderHUD();
-            const data = (hudData[currentLang] || hudData['en']).find(d => d.id === id);
-            const resBox = document.getElementById('hud-result');
+            renderHud();
+            const res = document.getElementById('hud-result');
+            res.innerHTML = `<span class="text-cyan-500 animate-pulse">${translations[currentLang].hud_scanning}</span>`;
             
-            resBox.innerHTML = `<div class="h-[200px] flex flex-col justify-center items-start text-cyan-500 font-mono text-sm"><span class="animate-pulse">> Analizando vectores de fricción...</span><span class="animate-pulse delay-75">> Conectando modelo...</span></div>`;
-
             setTimeout(() => {
-                resBox.innerHTML = `
-                    <div class="animate-fade-in space-y-4">
-                        <div class="inline-block bg-cyan-500 text-black font-bold px-2 py-1 text-xs">> DIAG_MATCH: ${data.diag}</div>
-                        <p class="text-white text-sm md:text-base typewriter leading-relaxed">${data.sol}</p>
-                        <div class="pt-6 flex gap-4">
-                            <a href="#caso-${data.link}" class="border border-cyan-500/50 text-cyan-400 hover:bg-cyan-500 hover:text-black px-4 py-2 text-xs font-bold transition-colors uppercase">[ VER_EJEMPLO ]</a>
+                const item = hudData[currentLang].find(d => d.id === id);
+                res.innerHTML = `
+                    <div class="animate-reveal space-y-6">
+                        <div class="inline-block bg-cyan-500 text-black px-2 py-1 text-[10px] font-black tracking-widest">DIAG_MATCH: ${item.diag}</div>
+                        <p class="text-white text-lg">${item.sol}</p>
+                        <div class="pt-4 border-t border-zinc-800">
+                            <span class="text-[10px] text-zinc-500 block mb-2 tracking-widest uppercase">RECOMENDACIÓN TÁCTICA</span>
+                            <a href="#archivo" class="text-cyan-400 hover:text-white transition-colors underline underline-offset-8">Explorar casos similares en el archivo →</a>
                         </div>
                     </div>
                 `;
-            }, 800);
+            }, 1000);
         }
 
         function renderCases() {
-            const container = document.getElementById('casos-container');
+            const container = document.getElementById('case-scroll');
             const lbl = translations[currentLang];
-            
             container.innerHTML = projectsDb.map((p, i) => {
-                const langData = p[currentLang] || p['en']; 
-                let resHtml = langData.res ? `<div class="border-t border-zinc-800/50 pt-3"><span class="text-cyan-400 text-[10px] font-bold block mb-1 uppercase">${lbl.lbl_result}</span><span class="text-white text-sm">${langData.res}</span></div>` : '';
-                
+                const d = p[currentLang];
                 return `
-                <article id="caso-${i}" class="flex flex-col md:flex-row gap-12 items-center pt-24 -mt-24">
-                    <div class="w-full md:w-1/2 rounded-lg overflow-hidden border border-zinc-800 bg-zinc-900 group aspect-[4/3] relative">
-                        <div class="absolute top-0 right-0 p-4 text-6xl font-black text-zinc-950/50 z-10 pointer-events-none">${i + 1 < 10 ? '0'+(i+1) : i+1}</div>
-                        <img src="${p.img}" alt="${langData.title}" class="w-full h-full object-cover grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500" loading="lazy">
-                        <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent opacity-90 group-hover:opacity-50 transition-opacity"></div>
-                    </div>
-                    <div class="w-full md:w-1/2">
-                        <div class="text-[10px] text-cyan-400 border border-cyan-500/30 bg-cyan-500/10 px-3 py-1 rounded-full inline-block mb-4 uppercase tracking-widest">${p.tech}</div>
-                        <h4 class="text-3xl font-black text-white mb-4">${langData.title}</h4>
-                        <p class="text-zinc-400 mb-6">${langData.desc}</p>
-                        <div class="bg-zinc-900/50 border border-zinc-800 rounded-lg p-5 mb-6 space-y-3">
-                            <div><span class="text-cyan-400 text-[10px] font-bold block mb-1 uppercase">${lbl.lbl_problem}</span><span class="text-zinc-300 text-sm leading-relaxed">${langData.prob}</span></div>
-                            <div class="border-t border-zinc-800/50 pt-3"><span class="text-cyan-400 text-[10px] font-bold block mb-1 uppercase">${lbl.lbl_solution}</span><span class="text-zinc-300 text-sm leading-relaxed">${langData.sol}</span></div>
-                            ${resHtml}
+                <a href="${p.link}" target="_blank" class="h-scroll-item glass-panel group block aspect-video md:aspect-[21/9] relative">
+                    <img src="${p.img}" class="w-full h-full object-cover opacity-30 group-hover:opacity-50 transition-all duration-700 grayscale group-hover:grayscale-0">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent p-12 flex flex-col justify-end">
+                        <div class="mb-4">
+                            <span class="text-[10px] font-mono text-zinc-500 mb-2 block tracking-[0.3em] uppercase">${p.client} / 0${i+1}</span>
+                            <h3 class="text-4xl font-black group-hover:text-cyan-400 transition-colors uppercase tracking-tighter">${d.t}</h3>
                         </div>
-                        <a href="${p.link}" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-white hover:text-cyan-400 flex items-center gap-2 uppercase tracking-widest transition-colors w-max">
-                            ${lbl.btn_case} <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
-                        </a>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pt-8 border-t border-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                            <div><span class="text-[10px] text-cyan-500 font-bold block mb-1 tracking-widest">${lbl.lbl_prob}</span><p class="text-xs text-zinc-400">${d.q}</p></div>
+                            <div><span class="text-[10px] text-emerald-500 font-bold block mb-1 tracking-widest">${lbl.lbl_sol}</span><p class="text-xs text-zinc-400">${d.a}</p></div>
+                            <div><span class="text-[10px] text-white font-bold block mb-1 tracking-widest">${lbl.lbl_res}</span><p class="text-xs text-white">${d.r}</p></div>
+                        </div>
                     </div>
-                </article>`;
+                </a>`;
             }).join('');
-            lucide.createIcons();
         }
+
+        // Custom Cursor
+        const dot = document.getElementById('cursor-dot');
+        const ring = document.getElementById('cursor-ring');
+        document.addEventListener('mousemove', e => {
+            dot.style.left = e.clientX + 'px'; dot.style.top = e.clientY + 'px';
+            ring.style.left = e.clientX + 'px'; ring.style.top = e.clientY + 'px';
+        });
+
+        // Reveals
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Scroll listener for nav
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if(window.scrollY > 100) nav.classList.add('bg-black/80', 'backdrop-blur-xl', 'py-4');
+            else nav.classList.remove('bg-black/80', 'backdrop-blur-xl', 'py-4');
+        });
 
         setLang('es');
     </script>
