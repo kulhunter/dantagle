@@ -3,265 +3,106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dan Tagle | #1 Global Creative Technologist | Growth Orchestrator</title>
-    <meta name="description" content="Orquestación tecnológica y creativa de alto impacto. Desde un flyer estratégico hasta arquitecturas SaaS. 1 UF x Hora.">
+    <title>Dan Tagle | Soluciones Digitales & Desarrollo SaaS</title>
+    <meta name="description" content="Desarrollo de software, automatización B2B y estrategias de crecimiento real. Casos de éxito con Ssangyong, Bupa, Tenpo y más.">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@0.473.0/dist/umd/lucide.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;300;400;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     
-    <!-- AEO: Authority Schema -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Dan Tagle",
-      "jobTitle": "Creative Technologist & Growth Orchestrator",
-      "url": "https://dantagle.cl",
-      "sameAs": [
-        "https://www.linkedin.com/in/taglecl/",
-        "https://github.com/kulhunter",
-        "https://creativepool.com/Dondt"
-      ],
-      "award": "Global #1 Creative Technologist (Creativepool)"
-    }
-    </script>
-
     <style>
         :root { --accent: #06b6d4; --bg: #050505; }
-        body { font-family: 'Outfit', sans-serif; background-color: var(--bg); color: #f4f4f5; overflow-x: hidden; cursor: none; }
-        
-        /* Custom Cursor */
-        .cursor { width: 8px; height: 8px; background: var(--accent); border-radius: 50%; position: fixed; pointer-events: none; z-index: 10000; transition: transform 0.1s; mix-blend-difference: exclusion; }
-        .cursor-follower { width: 30px; height: 30px; border: 1px solid rgba(6, 182, 212, 0.3); border-radius: 50%; position: fixed; pointer-events: none; z-index: 9999; transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1); }
-        
-        /* Organic Texture */
+        body { font-family: 'Outfit', sans-serif; background-color: var(--bg); color: #f4f4f5; overflow-x: hidden; }
         .noise { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; opacity: 0.05; z-index: 9999; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"); }
-        
-        .bg-mesh { background-image: radial-gradient(circle at 80% 20%, rgba(6, 182, 212, 0.08) 0%, transparent 40%), radial-gradient(circle at 20% 80%, rgba(6, 182, 212, 0.05) 0%, transparent 40%); }
-        
-        .text-huge { font-size: clamp(4rem, 18vw, 16rem); line-height: 0.75; letter-spacing: -0.07em; font-weight: 900; }
-        .text-vertical { writing-mode: vertical-rl; transform: rotate(180deg); }
-        
-        .reveal { opacity: 0; transform: translateY(40px); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1); }
+        .bg-mesh { background-image: radial-gradient(circle at 80% 20%, rgba(6, 182, 212, 0.05) 0%, transparent 40%); }
+        .text-huge { font-size: clamp(3rem, 15vw, 12rem); line-height: 0.85; letter-spacing: -0.05em; font-weight: 900; }
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
         .reveal.active { opacity: 1; transform: translateY(0); }
-        
-        .bento-card { background: rgba(255,255,255,0.01); border: 1px solid rgba(255,255,255,0.03); border-radius: 0; transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1); position: relative; }
-        .bento-card:hover { background: rgba(255,255,255,0.03); border-color: var(--accent); }
-        
-        .btn-industrial { position: relative; overflow: hidden; padding: 1.5rem 3rem; background: transparent; border: 1px solid rgba(255,255,255,0.1); color: #fff; font-size: 0.7rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.3em; transition: all 0.4s; }
-        .btn-industrial:hover { border-color: var(--accent); color: var(--accent); padding-left: 4rem; }
-        
-        .ticker { white-space: nowrap; animation: ticker 30s linear infinite; font-family: 'JetBrains Mono', monospace; }
-        @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-        
-        .line-accent { height: 1px; background: linear-gradient(90deg, transparent, var(--accent), transparent); width: 100%; }
-        
-        /* Customized Scrollbar */
-        ::-webkit-scrollbar { width: 4px; }
-        ::-webkit-scrollbar-track { background: #000; }
-        ::-webkit-scrollbar-thumb { background: #111; }
-        ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+        .btn-direct { padding: 1.2rem 2.5rem; background: #fff; color: #000; font-weight: 900; text-transform: uppercase; letter-spacing: 0.1em; border-radius: 0.5rem; transition: all 0.3s; }
+        .btn-direct:hover { background: var(--accent); transform: scale(1.05); }
     </style>
 </head>
 <body class="bg-mesh">
-    <div class="cursor" id="cursor"></div>
-    <div class="cursor-follower" id="follower"></div>
     <div class="noise"></div>
 
-    <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 py-10 px-8 md:px-20 flex justify-between items-center mix-blend-difference">
-        <a href="index.html" class="text-2xl font-black tracking-tighter uppercase leading-none">DT <span class="text-cyan-500 text-4xl leading-none">.</span></a>
-        <div class="hidden lg:flex gap-16 text-[9px] font-black uppercase tracking-[0.5em] text-zinc-500">
-            <a href="casos.html" class="hover:text-white transition-all">Archive</a>
-            <a href="desarrollos.html" class="hover:text-white transition-all">SaaS</a>
-            <a href="blog.html" class="hover:text-white transition-all">Thoughts</a>
+    <nav class="fixed top-0 w-full z-50 py-8 px-8 md:px-20 flex justify-between items-center bg-black/50 backdrop-blur-md border-b border-white/5">
+        <a href="index.html" class="text-xl font-black tracking-tighter uppercase">DAN TAGLE <span class="text-cyan-500">.</span></a>
+        <div class="hidden lg:flex gap-12 text-[10px] font-black uppercase tracking-[0.3em] text-zinc-500">
+            <a href="casos.html" class="hover:text-white transition-all">Casos Reales</a>
+            <a href="desarrollos.html" class="hover:text-white transition-all">Apps & Software</a>
+            <a href="blog.html" class="hover:text-white transition-all">Blog</a>
         </div>
-        <a href="https://calendly.com/dan-tagle/30min" target="_blank" class="text-[9px] font-black uppercase tracking-[0.3em] border-b border-white/20 pb-2 hover:border-cyan-500 transition-all">Agenda Strategy</a>
+        <a href="https://wa.me/56930219665" class="text-[10px] font-black uppercase tracking-widest bg-white/10 px-6 py-3 rounded-md hover:bg-white hover:text-black transition-all">Contacto Directo</a>
     </nav>
 
-    <!-- Hero: The Brutalist Impact -->
-    <header class="min-h-screen flex flex-col justify-center px-8 md:px-20 relative overflow-hidden">
-        <div class="absolute top-1/4 right-0 opacity-5 pointer-events-none select-none hidden lg:block">
-            <span class="text-[30rem] font-black leading-none uppercase">ORCHESTRA</span>
-        </div>
-        
-        <div class="relative z-10">
-            <span class="text-cyan-500 font-mono text-[10px] tracking-[0.5em] mb-10 block reveal">// CREATIVE TECHNOLOGIST #1</span>
-            <h1 class="text-huge uppercase mb-16 reveal">
-                Orquestar <br> 
-                <span class="italic font-light">el</span> impacto <span class="text-cyan-500">.</span>
-            </h1>
-            <div class="flex flex-col md:flex-row gap-20 items-start reveal">
-                <p class="text-xl md:text-3xl text-zinc-500 font-extralight max-w-2xl leading-[1.1] tracking-tight">
-                    Desde un flyer estratégico hasta arquitecturas SaaS complejas. Destrabo negocios mediante <span class="text-white font-medium">ingeniería creativa</span> y automatización absoluta.
-                </p>
-                <div class="flex flex-col gap-4">
-                    <span class="text-[10px] font-black text-zinc-700 uppercase tracking-widest">Rate</span>
-                    <span class="text-4xl font-black">1 UF <span class="text-xs opacity-30">/ HR</span></span>
-                </div>
-            </div>
+    <header class="min-h-screen flex flex-col justify-center px-8 md:px-20 pt-20">
+        <span class="text-cyan-500 font-mono text-[10px] tracking-[0.5em] mb-8 block reveal">// #1 GLOBAL CREATIVE TECHNOLOGIST</span>
+        <h1 class="text-huge uppercase mb-12 reveal">Software <br> con <span class="text-cyan-500 text-huge">Impacto.</span></h1>
+        <p class="text-xl md:text-3xl text-zinc-400 font-light max-w-3xl leading-tight reveal">
+            Ayudo a empresas a vender más y operar mejor mediante <span class="text-white font-medium">automatización real</span> y desarrollo de software a medida. Sin humo, solo resultados.
+        </p>
+        <div class="mt-16 flex flex-wrap gap-6 reveal">
+            <a href="casos.html" class="btn-direct text-sm">Ver Casos de Éxito</a>
+            <a href="desarrollos.html" class="p-5 border border-white/20 rounded-md text-[10px] font-black uppercase tracking-widest hover:border-white transition-all">Explorar Apps</a>
         </div>
     </header>
 
-    <!-- Ticker Section -->
-    <div class="py-10 border-y border-white/5 overflow-hidden">
-        <div class="ticker flex gap-20 text-[10px] font-black uppercase tracking-[0.6em] text-zinc-800">
-            <span>GLOBAL RANKING #1</span> <span>CREATIVE TECHNOLOGIST</span> <span>SEO AI DOMINATION</span> <span>SAAS ARCHITECTURE</span> <span>B2B AUTOMATION</span>
-            <span>GLOBAL RANKING #1</span> <span>CREATIVE TECHNOLOGIST</span> <span>SEO AI DOMINATION</span> <span>SAAS ARCHITECTURE</span> <span>B2B AUTOMATION</span>
-        </div>
-    </div>
-
-    <!-- Diagnosis: The Tactical Interface -->
-    <section class="py-48 px-8 md:px-20 container mx-auto">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-20 items-start">
-            <div class="lg:col-span-4 reveal">
-                <span class="text-cyan-500 font-mono text-[10px] tracking-[0.5em] mb-8 block">// DIAGNÓSTICO</span>
-                <h2 class="text-6xl font-black uppercase tracking-tighter leading-none mb-12">¿Qué <br> te duele <br> hoy?</h2>
-                <p class="text-zinc-600 font-light text-lg">Selecciona tu fricción de negocio para orquestar una solución inmediata.</p>
-            </div>
-            <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-px bg-white/5 border border-white/5 reveal">
-                <button onclick="showRecommendation(0)" class="p-16 bg-bg text-left hover:bg-white/5 transition-all group">
-                    <span class="text-[10px] text-zinc-800 mb-4 block group-hover:text-cyan-500 transition-colors">01</span>
-                    <h3 class="text-2xl font-black uppercase tracking-tight">Ventas estancadas</h3>
-                </button>
-                <button onclick="showRecommendation(1)" class="p-16 bg-bg text-left hover:bg-white/5 transition-all group">
-                    <span class="text-[10px] text-zinc-800 mb-4 block group-hover:text-cyan-500 transition-colors">02</span>
-                    <h3 class="text-2xl font-black uppercase tracking-tight">Invisibilidad IA</h3>
-                </button>
-                <button onclick="showRecommendation(2)" class="p-16 bg-bg text-left hover:bg-white/5 transition-all group">
-                    <span class="text-[10px] text-zinc-800 mb-4 block group-hover:text-cyan-500 transition-colors">03</span>
-                    <h3 class="text-2xl font-black uppercase tracking-tight">UX / Conversión baja</h3>
-                </button>
-                <button onclick="showRecommendation(3)" class="p-16 bg-bg text-left hover:bg-white/5 transition-all group">
-                    <span class="text-[10px] text-zinc-800 mb-4 block group-hover:text-cyan-500 transition-colors">04</span>
-                    <h3 class="text-2xl font-black uppercase tracking-tight">Procesos manuales</h3>
-                </button>
-            </div>
-        </div>
-        
-        <div id="diagnosisResult" class="hidden mt-12 p-20 border border-cyan-500/20 bg-cyan-500/5 reveal">
-            <p id="recommendationText" class="text-3xl md:text-5xl font-black uppercase tracking-tighter text-white leading-tight mb-12"></p>
-            <a id="recommendationLink" href="#" class="btn-industrial inline-block">Ver Caso de Éxito</a>
-        </div>
-    </section>
-
-    <!-- The Titan Suite: Industrial Grid -->
-    <section class="py-48 px-8 md:px-20 container mx-auto">
-        <div class="flex justify-between items-end mb-32 reveal">
-            <h2 class="text-8xl font-black uppercase tracking-tighter leading-none italic">The Titan <br> Suite <span class="text-cyan-500">.</span></h2>
-            <div class="hidden lg:block text-right">
-                <span class="text-[10px] font-black text-zinc-700 uppercase tracking-widest block mb-4">Core Developments</span>
-                <a href="desarrollos.html" class="text-xs font-black uppercase tracking-widest border-b border-zinc-800 pb-2">Full Archive</a>
-            </div>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12" id="developmentsGrid">
+    <!-- Apps: Clarity first -->
+    <section class="py-32 px-8 md:px-20 container mx-auto">
+        <h2 class="text-4xl font-black uppercase tracking-tighter mb-20 reveal">Herramientas que <span class="text-cyan-500">Funcionan.</span></h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="developmentsGrid">
             <!-- Rendered via JS -->
         </div>
     </section>
 
-    <!-- Strategic Archive: Dynamic & Brutalist -->
-    <section class="py-48 bg-zinc-900/10">
-        <div class="px-8 md:px-20 container mx-auto">
-            <div class="flex flex-col md:flex-row justify-between items-start gap-10 mb-32 reveal">
-                <h2 class="text-huge uppercase leading-none opacity-10">Archive</h2>
-                <div class="max-w-xl">
-                    <span class="text-cyan-500 font-mono text-[10px] tracking-[0.5em] mb-8 block">// 19 CASE STUDIES</span>
-                    <p class="text-4xl font-black uppercase tracking-tighter leading-none mb-12">Selección táctica de impacto orquestado.</p>
-                    <button onclick="renderCases()" class="btn-industrial">Rotar Selección ↻</button>
-                </div>
+    <!-- Diagnosis: Simple & Useful -->
+    <section class="py-32 px-8 md:px-20 container mx-auto bg-zinc-900/20 rounded-[3rem] border border-white/5">
+        <div class="max-w-4xl">
+            <h2 class="text-5xl font-black uppercase tracking-tighter mb-12 reveal">¿Qué problema <br> resolvemos hoy?</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12 reveal">
+                <button onclick="showRecommendation(0)" class="p-8 border border-white/10 rounded-xl text-left hover:border-cyan-500 transition-all font-bold uppercase tracking-tight">Tengo pocas ventas</button>
+                <button onclick="showRecommendation(1)" class="p-8 border border-white/10 rounded-xl text-left hover:border-cyan-500 transition-all font-bold uppercase tracking-tight">Nadie me encuentra en Google/IA</button>
+                <button onclick="showRecommendation(2)" class="p-8 border border-white/10 rounded-xl text-left hover:border-cyan-500 transition-all font-bold uppercase tracking-tight">Mi web es lenta o confusa</button>
+                <button onclick="showRecommendation(3)" class="p-8 border border-white/10 rounded-xl text-left hover:border-cyan-500 transition-all font-bold uppercase tracking-tight">Pierdo tiempo en tareas manuales</button>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12" id="casesGrid">
-                <!-- Rendered via JS -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Cotizador: Professional Quoter -->
-    <section class="py-48 px-8 md:px-20 container mx-auto">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-20 items-center">
-            <div class="lg:col-span-5 reveal">
-                <h2 class="text-7xl font-black uppercase tracking-tighter leading-none mb-12">Cotiza <br> tu <br> salto <span class="text-cyan-500">.</span></h2>
-                <p class="text-zinc-600 text-lg font-light mb-12">Define el alcance de tu orquestación y recibe una estimación directa.</p>
-                <div class="space-y-4">
-                    <div class="p-8 border border-white/5 flex justify-between items-center bg-white/20">
-                        <span class="text-xs font-black uppercase tracking-widest">Fee Ejecutivo</span>
-                        <span class="text-2xl font-black uppercase">1 UF / Hr</span>
-                    </div>
-                </div>
-            </div>
-            <div class="lg:col-span-7 reveal">
-                <div class="p-12 md:p-20 border border-white/5 bg-zinc-900/20">
-                    <label class="text-[9px] font-black uppercase tracking-widest text-zinc-500 mb-6 block">Tipo de Proyecto</label>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12">
-                        <label class="p-6 border border-white/10 cursor-pointer hover:border-cyan-500 transition-all">
-                            <input type="radio" name="projType" value="SaaS" class="hidden" checked>
-                            <span class="text-[10px] font-black uppercase tracking-widest">SaaS / Arquitectura</span>
-                        </label>
-                        <label class="p-6 border border-white/10 cursor-pointer hover:border-cyan-500 transition-all">
-                            <input type="radio" name="projType" value="Automation" class="hidden">
-                            <span class="text-[10px] font-black uppercase tracking-widest">Automatización B2B</span>
-                        </label>
-                        <label class="p-6 border border-white/10 cursor-pointer hover:border-cyan-500 transition-all">
-                            <input type="radio" name="projType" value="AEO" class="hidden">
-                            <span class="text-[10px] font-black uppercase tracking-widest">Estrategia AEO / IA</span>
-                        </label>
-                        <label class="p-6 border border-white/10 cursor-pointer hover:border-cyan-500 transition-all">
-                            <input type="radio" name="projType" value="Flyer" class="hidden">
-                            <span class="text-[10px] font-black uppercase tracking-widest">Diseño Estratégico</span>
-                        </label>
-                    </div>
-                    <button onclick="sendQuote()" class="btn-industrial w-full py-8 text-lg">Solicitar vía WhatsApp</button>
-                </div>
+            <div id="diagnosisResult" class="hidden p-12 bg-cyan-500/10 border border-cyan-500/30 rounded-2xl reveal active">
+                <p id="recommendationText" class="text-2xl font-black uppercase text-white mb-8"></p>
+                <a id="recommendationLink" href="#" class="text-xs font-black uppercase tracking-widest border-b border-white pb-1">Ver solución detallada →</a>
             </div>
         </div>
     </section>
 
-    <!-- Footer: The Wall of Fame -->
-    <footer class="py-48 px-8 md:px-20 border-t border-white/10 relative overflow-hidden">
-        <div class="absolute bottom-0 right-0 opacity-[0.02] text-[20rem] font-black tracking-tighter leading-none select-none pointer-events-none">TAGLE</div>
-        
+    <!-- Cases: Real Value -->
+    <section class="py-32 px-8 md:px-20 container mx-auto">
+        <div class="flex justify-between items-end mb-20 reveal">
+            <h2 class="text-6xl font-black uppercase tracking-tighter">Portafolio <br> <span class="text-cyan-500 italic">Real.</span></h2>
+            <a href="casos.html" class="text-[10px] font-black uppercase tracking-widest border-b border-zinc-800 pb-2">Ver los 19 casos</a>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8" id="casesGrid">
+            <!-- Rendered via JS -->
+        </div>
+    </section>
+
+    <footer class="py-32 px-8 md:px-20 border-t border-white/5 mt-32">
         <div class="container mx-auto grid grid-cols-1 lg:grid-cols-12 gap-20">
             <div class="lg:col-span-4">
-                <span class="text-4xl font-black uppercase tracking-tighter mb-12 block">DAN TAGLE <span class="text-cyan-500">.</span></span>
-                <p class="text-zinc-600 text-sm leading-relaxed mb-12 uppercase tracking-tight font-light">
-                    #1 Global Creative Technologist (Creativepool). <br>
-                    Orquestando el crecimiento de PyMEs y Corporaciones <br>
-                    desde el diseño a la arquitectura SaaS.
-                </p>
-                <div class="flex gap-8">
-                    <a href="https://www.linkedin.com/in/taglecl/" class="hover:text-white transition-colors"><i data-lucide="linkedin" class="w-4 h-4"></i></a>
-                    <a href="https://github.com/kulhunter" class="hover:text-white transition-colors"><i data-lucide="github" class="w-4 h-4"></i></a>
+                <span class="text-3xl font-black uppercase tracking-tighter block mb-8">DAN TAGLE <span class="text-cyan-500">.</span></span>
+                <p class="text-zinc-500 text-sm leading-relaxed mb-10">Desarrollo de software y automatización con foco en resultados de negocio. Ssangyong, Bupa, Tenpo y más.</p>
+                <div class="flex gap-6">
+                    <a href="https://www.linkedin.com/in/taglecl/" class="hover:text-white"><i data-lucide="linkedin" class="w-5 h-5 text-zinc-600"></i></a>
+                    <a href="https://github.com/kulhunter" class="hover:text-white"><i data-lucide="github" class="w-5 h-5 text-zinc-600"></i></a>
                 </div>
             </div>
-            
-            <div class="lg:col-span-8 grid grid-cols-2 md:grid-cols-3 gap-12">
-                <div class="space-y-6">
-                    <span class="text-[9px] font-black uppercase tracking-[0.4em] text-cyan-500 block mb-8">Authority</span>
-                    <ul class="space-y-4 text-[10px] font-bold uppercase tracking-widest text-zinc-500">
-                        <li><a href="https://creativepool.com/top-25/creative-technologists/" target="_blank" class="hover:text-white">Creativepool #1</a></li>
-                        <li><a href="https://www.adlatina.com/campa%C3%B1as/maps-with-memory" target="_blank" class="hover:text-white">Adlatina Insight</a></li>
-                        <li><a href="https://www.duoc.cl/eventos/el-viaje-del-consumidor-mitos-y-realidades-del-marketing-digital/" target="_blank" class="hover:text-white">Duoc Masterclass</a></li>
-                        <li><a href="https://www.elojodeiberoamerica.com" target="_blank" class="hover:text-white">El Ojo Jury</a></li>
+            <div class="lg:col-span-8 grid grid-cols-2 md:grid-cols-3 gap-10">
+                <div class="space-y-4">
+                    <span class="text-[10px] font-black uppercase tracking-widest text-white">Backlinks</span>
+                    <ul class="space-y-3 text-[10px] font-bold uppercase tracking-widest text-zinc-600">
+                        <li><a href="https://www.duoc.cl/eventos/el-viaje-del-consumidor-mitos-y-realidades-del-marketing-digital/" target="_blank" class="hover:text-cyan-500">Duoc UC</a></li>
+                        <li><a href="https://es.linkedin.com/pulse/la-obsolescencia-programada-del-cm-daniel-tagle-dennis" target="_blank" class="hover:text-cyan-500">LinkedIn Article</a></li>
+                        <li><a href="http://agenciathefactory.blogspot.com/" target="_blank" class="hover:text-cyan-500">The Factory</a></li>
                     </ul>
-                </div>
-                <div class="space-y-6">
-                    <span class="text-[9px] font-black uppercase tracking-[0.4em] text-cyan-500 block mb-8">Ecosystem</span>
-                    <ul class="space-y-4 text-[10px] font-bold uppercase tracking-widest text-zinc-500">
-                        <li><a href="blog.html" class="hover:text-white">Strategic Blog</a></li>
-                        <li><a href="desarrollos.html" class="hover:text-white">Utility Suite</a></li>
-                        <li><a href="casos.html" class="hover:text-white">Project Archive</a></li>
-                    </ul>
-                </div>
-                <div class="space-y-6">
-                    <span class="text-[9px] font-black uppercase tracking-[0.4em] text-cyan-500 block mb-8">Location</span>
-                    <span class="text-[10px] font-bold uppercase tracking-widest text-zinc-700 block">SANTIAGO, CHILE <br> REMOTE WORLDWIDE</span>
                 </div>
             </div>
-        </div>
-        <div class="mt-48 pt-10 border-t border-white/5 flex justify-between items-center text-[8px] font-black uppercase tracking-[0.6em] text-zinc-800">
-            <span>© 2026 ARCHITECTING GROWTH</span>
-            <span>TOP 1 GLOBAL CREATIVE TECHNOLOGIST</span>
         </div>
     </footer>
 
@@ -270,17 +111,17 @@
         function renderCases() {
             const grid = document.getElementById('casesGrid');
             const featured = getFeaturedCases(4);
-            grid.innerHTML = featured.map((c, i) => `
-                <a href="${c.link}" class="p-16 border border-white/5 hover:border-cyan-500 transition-all group flex flex-col justify-between h-[400px]">
-                    <div>
-                        <span class="text-[10px] font-mono text-zinc-800 group-hover:text-cyan-500 block mb-8">CASE STUDY 0${i+1}</span>
-                        <h4 class="text-5xl font-black uppercase tracking-tighter leading-none mb-8 group-hover:text-white">${c.title}</h4>
-                        <p class="text-zinc-600 text-sm font-light uppercase tracking-tight">${c.description}</p>
+            grid.innerHTML = featured.map(c => `
+                <div class="p-10 border border-white/5 rounded-3xl bg-zinc-900/10 group hover:border-cyan-500 transition-all">
+                    <span class="text-[8px] font-black uppercase tracking-widest text-zinc-600 mb-4 block">${c.client}</span>
+                    <h4 class="text-3xl font-black uppercase mb-6 group-hover:text-white transition-colors">${c.title}</h4>
+                    <div class="space-y-4 text-xs text-zinc-500">
+                        <p><strong>PROBLEMA:</strong> ${c.prob}</p>
+                        <p><strong>SOLUCIÓN:</strong> ${c.sol}</p>
+                        <p class="text-white"><strong>RESULTADO:</strong> ${c.res}</p>
                     </div>
-                    <div class="flex gap-4">
-                        ${c.tags.map(t => `<span class="text-[8px] font-black uppercase tracking-widest border border-zinc-900 px-4 py-2">${t}</span>`).join('')}
-                    </div>
-                </a>
+                    <a href="${c.link}" target="_blank" class="mt-8 inline-block text-[9px] font-black uppercase tracking-widest border-b border-white pb-1">Ver Case Study →</a>
+                </div>
             `).join('');
             lucide.createIcons();
         }
@@ -288,10 +129,10 @@
         function renderDevelopments() {
             const grid = document.getElementById('developmentsGrid');
             grid.innerHTML = MASTER_DATA.developments.map(d => `
-                <a href="${d.link}" class="p-12 border border-white/5 hover:border-cyan-500 group transition-all">
-                    <i data-lucide="${d.icon}" class="w-10 h-10 text-cyan-500 mb-10 opacity-30 group-hover:opacity-100 transition-all"></i>
-                    <h3 class="text-3xl font-black uppercase tracking-tighter mb-4 group-hover:text-white">${d.title}</h3>
-                    <p class="text-zinc-600 text-[10px] font-bold uppercase tracking-widest">${d.desc}</p>
+                <a href="${d.link}" class="p-10 border border-white/5 rounded-2xl bg-zinc-900/10 group hover:border-cyan-500 transition-all">
+                    <i data-lucide="${d.icon}" class="w-8 h-8 text-cyan-500 mb-6"></i>
+                    <h3 class="text-2xl font-black uppercase mb-4">${d.title}</h3>
+                    <p class="text-zinc-500 text-xs leading-relaxed font-light">${d.desc}</p>
                 </a>
             `).join('');
             lucide.createIcons();
@@ -302,40 +143,14 @@
             const text = document.getElementById('recommendationText');
             const link = document.getElementById('recommendationLink');
             const diag = MASTER_DATA.diagnosis[index];
-            
             text.innerHTML = diag.recommendation;
             result.classList.remove('hidden');
-            result.classList.add('active');
-            window.scrollTo({ top: result.offsetTop - 200, behavior: 'smooth' });
         }
-
-        function sendQuote() {
-            const types = document.getElementsByName('projType');
-            let selected = "General Strategy";
-            for(let t of types) if(t.checked) selected = t.value;
-            const message = `Hola Dan, me interesa orquestar una solución de ${selected}. Vengo de dantagle.cl y busco impacto real.`;
-            window.open(`https://wa.me/56930219665?text=${encodeURIComponent(message)}`, '_blank');
-        }
-
-        document.addEventListener('mousemove', (e) => {
-            const cursor = document.getElementById('cursor');
-            const follower = document.getElementById('follower');
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
-            follower.style.left = (e.clientX - 11) + 'px';
-            follower.style.top = (e.clientY - 11) + 'px';
-        });
-
-        document.querySelectorAll('a, button').forEach(el => {
-            el.addEventListener('mouseenter', () => document.getElementById('follower').style.transform = 'scale(2)');
-            el.addEventListener('mouseleave', () => document.getElementById('follower').style.transform = 'scale(1)');
-        });
 
         document.addEventListener('DOMContentLoaded', () => {
             lucide.createIcons();
             renderCases();
             renderDevelopments();
-            
             const observer = new IntersectionObserver(entries => {
                 entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
             }, { threshold: 0.1 });
