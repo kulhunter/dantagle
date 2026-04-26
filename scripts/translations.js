@@ -15,6 +15,10 @@ const TRANSLATIONS = {
         diag_2: "Nadie me encuentra en Google/IA",
         diag_3: "Mi web es lenta o confusa",
         diag_4: "Pierdo tiempo en tareas manuales",
+        rec_0: "Necesitas automatizar la conversión. Con **Tikk** puedes cerrar ventas directamente en WhatsApp.",
+        rec_1: "Tu sitio necesita arquitectura **AEO**. Mira el caso de **Oracle NetSuite** para ver cómo lo logramos.",
+        rec_2: "Usemos **Neural Eye** para ver qué están ignorando tus clientes en tiempo real.",
+        rec_3: "Podemos crear un **SaaS a medida** como lo hicimos con **CorreosChile** y su plataforma navideña.",
         section_cases: "Portafolio <br> <span class='text-cyan-500 italic'>Real.</span>",
         footer_desc: "Desarrollo de software y automatización con foco en resultados de negocio. Ssangyong, Bupa, Tenpo y más."
     },
@@ -34,6 +38,10 @@ const TRANSLATIONS = {
         diag_2: "Nobody finds me on Google/AI",
         diag_3: "My web is slow or confusing",
         diag_4: "I waste time on manual tasks",
+        rec_0: "You need to automate conversion. With **Tikk**, you can close sales directly on WhatsApp.",
+        rec_1: "Your site needs **AEO** architecture. Check the **Oracle NetSuite** case to see how we did it.",
+        rec_2: "Let's use **Neural Eye** to see what your customers are ignoring in real-time.",
+        rec_3: "We can create a **custom SaaS** just like we did with **CorreosChile** and their Christmas platform.",
         section_cases: "Real <br> <span class='text-cyan-500 italic'>Portfolio.</span>",
         footer_desc: "Software development and automation focused on business results. Ssangyong, Bupa, Tenpo and more."
     },
@@ -53,6 +61,10 @@ const TRANSLATIONS = {
         diag_2: "Ninguém me encontra no Google/IA",
         diag_3: "Meu site é lento ou confuso",
         diag_4: "Perco tempo com tarefas manuais",
+        rec_0: "Você precisa automatizar a conversão. Com o **Tikk**, você pode fechar vendas diretamente no WhatsApp.",
+        rec_1: "Seu site precisa de arquitetura **AEO**. Veja o caso da **Oracle NetSuite** para ver como fizemos.",
+        rec_2: "Vamos usar o **Neural Eye** para ver o que seus clientes estão ignorando em tempo real.",
+        rec_3: "Podemos criar um **SaaS sob medida**, como fizemos com a **CorreosChile** e sua plataforma de Natal.",
         section_cases: "Portfólio <br> <span class='text-cyan-500 italic'>Real.</span>",
         footer_desc: "Desenvolvimento de software e automação focados em resultados de negócios. Ssangyong, Bupa, Tenpo e mais."
     },
@@ -72,6 +84,10 @@ const TRANSLATIONS = {
         diag_2: "在 Google/AI 上找不到我",
         diag_3: "我的网站很慢或很混乱",
         diag_4: "我在手动任务上浪费时间",
+        rec_0: "您需要自动化转化。通过 **Tikk**，您可以直接在 WhatsApp 上完成销售。",
+        rec_1: "您的网站需要 **AEO** 架构。查看 **Oracle NetSuite** 案例，了解我们是如何做到的。",
+        rec_2: "让我们使用 **Neural Eye** 实时了解您的客户忽略了什么。",
+        rec_3: "我们可以创建一个 **定制 SaaS**，就像我们为 **CorreosChile** 及其圣诞平台所做的那样。",
         section_cases: "真实 <br> <span class='text-cyan-500 italic'>作品集。</span>",
         footer_desc: "专注于业务结果的软件开发和自动化。Ssangyong、Bupa、Tenpo 等。"
     }

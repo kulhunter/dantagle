@@ -208,8 +208,8 @@
         function showRecommendation(index) {
             const result = document.getElementById('diagnosisResult');
             const text = document.getElementById('recommendationText');
-            const diag = MASTER_DATA.diagnosis[index];
-            text.innerHTML = diag.recommendation;
+            const key = `rec_${index}`;
+            text.innerHTML = TRANSLATIONS[currentLang][key] || "Recommendation loading...";
             result.classList.remove('hidden');
         }
 
