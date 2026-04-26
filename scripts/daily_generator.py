@@ -1,130 +1,112 @@
 import os
-import json
 import requests
-import datetime
-import re
+import json
+from datetime import datetime
+from dotenv import load_dotenv
 
-# --- CONFIGURACIÓN ---
-GROQ_API_KEY = os.environ.get("GROQ_API_KEY")
-MODEL = "llama-3.3-70b-versatile"
+load_dotenv()
 
-# Rutas de archivos
-BLOG_DIR = "blog/"
-BLOG_INDEX = "blog.html"
+GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 
-# DATOS REALES DE DAN TAGLE (Rescatados)
-CASES = [
-    "Ssangyong: DOOH Reactivo y Pincel Robótico Gigante",
-    "CorreosChile: Tinder de cartas navideñas automatizado",
-    "Tenpo: Ruleta BTL conectada a Data en tiempo real",
-    "Bupa: App Maps with Memory para pacientes con Alzheimer",
-    "MIDEA: Lanzamiento 360 con Effie de Oro",
-    "Oracle NetSuite Partner: Dominación de SEO/AEO B2B",
-    "KidZania: GiftCard de Tiempo digital",
-    "Sexshop Chile: Publicidad creativa evadiendo censura (Oro WINA)"
-]
+def generate_seo_article():
+    if not GROQ_API_KEY:
+        print("❌ Error: GROQ_API_KEY no configurada.")
+        return
 
-DEVELOPMENTS = [
-    "Tikk: Vende por WhatsApp con una tienda completa en el chat",
-    "Neural Eye: IA que predice focos de atención en diseño y UX",
-    "Saben: Trivia IA para gamificación de marcas",
-    "LeyResponsable: Automatización de trámites legales",
-    "Criptobot: Señales de trading automáticas",
-    "Teve: Plataforma de video y streaming profesional"
-]
-
-STYLE_GUIDE = f"""
-Eres Dan Tagle, un consultor de software y automatización enfocado en RESULTADOS, no en palabras bonitas.
-Tu tono es directo, experto y utilitario.
-Cuentas con casos reales como: {", ".join(CASES[:4])}.
-Tus herramientas son: {", ".join(DEVELOPMENTS[:4])}.
-
-REGLAS DE ORO:
-1. NO USES conceptos rebuscados como 'orquestación holística'. Habla de ventas, tiempo y eficiencia.
-2. Cada artículo debe resolver un PROBLEMA REAL (ej: 'Cómo vender más en WhatsApp').
-3. Cita siempre uno de tus CASOS o APPS como la solución probada.
-4. El objetivo es que el lector diga: 'Esto me sirve, voy a contactar a Dan'.
-"""
-
-def get_topics():
-    topics = [
-        "Cómo vender en WhatsApp sin perder la cabeza: La guía de Tikk",
-        "IA Predictiva: Cómo saber dónde mirarán tus clientes antes de lanzar tu web",
-        "Matchmaking Digital: Lo que aprendimos automatizando CorreosChile",
-        "SEO vs AEO: Por qué aparecer en Google ya no es suficiente en 2026",
-        "Automatización B2B: Cómo hackear el alcance orgánico en nichos difíciles",
-        "Gamificación Real: Por qué una trivia IA vende más que un banner"
-    ]
-    day = datetime.datetime.now().day
-    return topics[day % len(topics)]
-
-def generate_content(topic):
-    prompt = f"""
-    {STYLE_GUIDE}
-    
-    ESCRIBE UN ARTÍCULO UTILITARIO SOBRE: "{topic}"
-    
-    REQUISITOS:
-    1. Título directo y con beneficio claro.
-    2. Contenido de +500 palabras con pasos accionables.
-    3. Cita un caso real de Dan Tagle para validar el punto.
-    4. DEVOLVER ÚNICAMENTE UN OBJETO JSON: 'title', 'date', 'slug', 'content_html', 'meta_description'.
-    """
-    
-    headers = {"Authorization": f"Bearer {GROQ_API_KEY}", "Content-Type": "application/json"}
-    data = {
-        "model": MODEL,
-        "messages": [
-            {"role": "system", "content": "Eres un experto en software que solo responde en JSON técnico."},
-            {"role": "user", "content": prompt}
-        ],
-        "temperature": 0.5
+    url = "https://api.groq.com/openai/v1/chat/completions"
+    headers = {
+        "Authorization": f"Bearer {GROQ_API_KEY}",
+        "Content-Type": "application/json"
     }
-    
-    try:
-        response = requests.post("https://api.groq.com/openai/v1/chat/completions", headers=headers, json=data)
-        result = response.json()
-        if 'choices' not in result:
-            print(f"Error de API: {result}")
-            return None
-        raw_content = result['choices'][0]['message']['content']
-        clean_json = re.sub(r'```json\s*|\s*```', '', raw_content).strip()
-        return json.loads(re.search(r'\{.*\}', clean_json, re.DOTALL).group())
-    except Exception as e:
-        print(f"Error: {e}")
-        return None
 
-def create_page(article):
-    if not article: return
-    html = f"""<!DOCTYPE html>
-<html lang="es-CL">
+    # PROMPT ESTRATÉGICO: Pensamiento Neil Patel + Innovación Tech
+    prompt = """
+    Actúa como un Global Creative Technologist de élite. 
+    Escribe un artículo de blog de ALTO VALOR ESTRATÉGICO (Neil Patel Style) sobre TENDENCIAS TECNOLÓGICAS, IA, RETAIL MEDIA o INNOVACIÓN DIGITAL.
+    
+    REGLAS CRÍTICAS:
+    1. NO hables de los casos de Dan Tagle como tema principal. Habla del FUTURO y de cómo las empresas deben adaptarse hoy.
+    2. Usa un tono provocador, profesional y visionario.
+    3. Enfócate en conceptos como: IA Generativa, Automatización B2B, El fin de las cookies, Retail Media, E-commerce conversacional.
+    4. Estructura SEO Perfecta: H1 potente, H2s estratégicos, párrafos cortos y directos.
+    5. Idioma: Español.
+    6. Formato: JSON con 'title', 'excerpt', 'category', 'content' (HTML) y 'slug'.
+    
+    El objetivo es que un CEO o Gerente de Marketing lo lea y piense: "Este tipo entiende hacia dónde va el mundo".
+    """
+
+    data = {
+        "model": "llama-3.3-70b-versatile",
+        "messages": [{"role": "user", "content": prompt}],
+        "response_format": {"type": "json_object"}
+    }
+
+    try:
+        response = requests.post(url, headers=headers, json=data)
+        result = response.json()
+        
+        if 'choices' not in result:
+            print(f"❌ Error de API: {result}")
+            return
+
+        article_data = json.loads(result['choices'][0]['message']['content'])
+        
+        # Validar campos
+        title = article_data.get('title', 'Tendencia Tecnológica 2026')
+        excerpt = article_data.get('excerpt', 'Descubre el futuro de la innovación.')
+        category = article_data.get('category', 'Tecnología')
+        content_html = article_data.get('content', '<p>Contenido en desarrollo.</p>')
+        slug = article_data.get('slug', f"tendencia-{datetime.now().strftime('%Y%m%d')}")
+
+        # Template HTML con diseño Prolam
+        template = f"""<!DOCTYPE html>
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{article['title']} | Dan Tagle</title>
+    <title>{title} | Dan Tagle Blog</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&display=swap" rel="stylesheet">
-    <style>body {{ font-family: 'Outfit', sans-serif; background: #050505; color: #f4f4f5; }}</style>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;900&display=swap" rel="stylesheet">
+    <style>
+        body {{ font-family: 'Outfit', sans-serif; background: #050505; color: #fff; }}
+        .article-content h2 {{ font-size: 2.5rem; font-weight: 900; margin-top: 3rem; margin-bottom: 1.5rem; color: #06b6d4; text-transform: uppercase; letter-spacing: -0.02em; }}
+        .article-content p {{ font-size: 1.25rem; line-height: 1.8; color: #a1a1aa; margin-bottom: 2rem; font-weight: 300; }}
+        .hero-glow {{ background: radial-gradient(circle at 50% 50%, rgba(6, 182, 212, 0.15) 0%, transparent 70%); }}
+    </style>
 </head>
-<body class="p-8 md:p-20">
-    <nav class="mb-20"><a href="../index.html" class="font-black uppercase tracking-tighter">DAN TAGLE .</a></nav>
-    <main class="max-w-3xl mx-auto">
-        <h1 class="text-4xl md:text-6xl font-black mb-10 uppercase leading-none">{article['title']}</h1>
-        <div class="prose prose-invert max-w-none text-zinc-400 leading-relaxed">
-            {article['content_html']}
+<body class="py-20 px-6">
+    <nav class="max-w-4xl mx-auto mb-20 flex justify-between items-center">
+        <a href="../index.html" class="font-black text-xl tracking-tighter">DAN TAGLE <span class="text-cyan-500">.</span></a>
+        <a href="../blog.html" class="text-xs font-black uppercase tracking-widest border-b border-white pb-1">Volver al Blog</a>
+    </nav>
+
+    <article class="max-w-4xl mx-auto hero-glow p-10 rounded-[3rem]">
+        <span class="text-cyan-500 font-mono text-sm tracking-[0.4em] uppercase mb-8 block">// {category}</span>
+        <h1 class="text-6xl md:text-8xl font-black uppercase tracking-tighter leading-none mb-12">{title}</h1>
+        <p class="text-2xl text-white font-light italic mb-16 leading-relaxed border-l-4 border-cyan-500 pl-8">{excerpt}</p>
+        
+        <div class="article-content">
+            {content_html}
         </div>
-        <footer class="mt-20 pt-10 border-t border-white/5">
-            <a href="../blog.html" class="text-xs font-black uppercase tracking-widest">← Volver al Blog</a>
+        
+        <footer class="mt-32 pt-20 border-t border-white/10">
+            <h3 class="text-4xl font-black uppercase mb-8">¿Listo para el futuro?</h3>
+            <p class="text-zinc-500 mb-12">Hablemos sobre cómo implementar estas tendencias en tu negocio hoy.</p>
+            <a href="https://wa.me/56930219665" class="inline-block bg-white text-black px-12 py-5 rounded-full font-black uppercase tracking-widest hover:bg-cyan-500 transition-all">Consultoría Táctica</a>
         </footer>
-    </main>
+    </article>
 </body>
 </html>"""
-    filename = f"{BLOG_DIR}{article['slug']}.html"
-    with open(filename, 'w') as f: f.write(html)
-    print(f"✅ Artículo creado: {filename}")
+
+        filename = f"blog/{slug}.html"
+        os.makedirs("blog", exist_ok=True)
+        with open(filename, "w", encoding="utf-8") as f:
+            f.write(template)
+        
+        print(f"✅ Artículo de VALOR creado: {filename}")
+
+    except Exception as e:
+        print(f"❌ Error crítico: {str(e)}")
 
 if __name__ == "__main__":
-    if GROQ_API_KEY:
-        topic = get_topics()
-        data = generate_content(topic)
-        create_page(data)
+    generate_seo_article()
