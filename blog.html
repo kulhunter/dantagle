@@ -1,105 +1,92 @@
 <!DOCTYPE html>
-<html lang="es-CL">
+<html lang="es-CL" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog | Dan Tagle</title>
-    <meta name="description" content="Pensamiento estratégico, SEO IA y automatización. Artículos sobre el futuro de los negocios.">
+    <title>Blog | Pensamiento Estratégico | Dan Tagle</title>
+    <meta name="description" content="Pensamiento estratégico, SEO IA y automatización. Artículos diarios sobre el futuro de los negocios.">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
     <style>
-        :root { --accent: #06b6d4; --accent-glow: rgba(6, 182, 212, 0.3); }
-        body { font-family: 'Inter', sans-serif; background-color: #050505; color: #f4f4f5; }
-        .glass-panel { background: rgba(255,255,255,0.02); backdrop-filter: blur(15px); border: 1px solid rgba(255,255,255,0.05); border-radius: 2rem; transition: all 0.3s; }
-        .glass-panel:hover { border-color: var(--accent); transform: translateY(-5px); }
-        .accent-glow { text-shadow: 0 0 20px var(--accent-glow); }
+        :root { --accent: #06b6d4; --accent-glow: rgba(6, 182, 212, 0.4); }
+        body { font-family: 'Outfit', sans-serif; background-color: #050505; color: #f4f4f5; overflow-x: hidden; }
+        
+        .bg-mesh { 
+            background: radial-gradient(circle at 50% -20%, rgba(6, 182, 212, 0.1) 0%, transparent 50%);
+        }
+        .noise-bg { background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"); }
+        
+        .glass-panel { background: rgba(255,255,255,0.03); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.08); border-radius: 2.5rem; transition: all 0.4s ease; overflow: hidden; }
+        .glass-panel:hover { border-color: var(--accent); transform: translateY(-8px); }
+        
+        .text-huge { font-size: clamp(3rem, 12vw, 8rem); line-height: 0.85; letter-spacing: -0.06em; font-weight: 900; }
+        .text-aeo { color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.4em; }
     </style>
 </head>
-<body class="relative min-h-screen">
-    <nav class="fixed top-0 w-full z-50 py-6 px-10 flex justify-between items-center bg-black/50 backdrop-blur-xl border-b border-white/5">
-        <a href="index.html" class="text-2xl font-black tracking-tighter">DAN TAGLE <span class="text-cyan-500">.</span></a>
-        <a href="index.html" class="text-[10px] font-black uppercase tracking-[0.3em] text-zinc-500 hover:text-white transition-colors">Volver al inicio</a>
+<body class="relative bg-mesh">
+    <div class="fixed inset-0 z-0 opacity-[0.2] pointer-events-none mix-blend-overlay noise-bg"></div>
+
+    <!-- Navigation (Global Consistent Menu) -->
+    <nav class="fixed top-0 w-full z-50 py-6 px-10 flex justify-between items-center transition-all bg-black/40 backdrop-blur-2xl border-b border-white/5">
+        <a href="index.html" class="text-2xl font-black tracking-tighter uppercase">DAN TAGLE <span class="text-cyan-500">.</span></a>
+        <div class="hidden lg:flex gap-14 text-[10px] font-black uppercase tracking-[0.4em] text-zinc-500">
+            <a href="casos.html" class="hover:text-white transition-all">Casos</a>
+            <a href="desarrollos.html" class="hover:text-white transition-all">Desarrollos</a>
+            <a href="blog.html" class="text-white transition-all">Blog</a>
+            <a href="index.html#contacto" class="hover:text-white transition-all">Contacto</a>
+        </div>
+        <a href="https://calendly.com/dan-tagle/30min" target="_blank" class="px-10 py-3 bg-white text-black font-black text-[10px] uppercase tracking-[0.2em] rounded-full hover:bg-cyan-500 transition-all">Agendar</a>
     </nav>
 
-    <main class="pt-32 pb-20 px-6 container mx-auto">
-        <header class="mb-20 text-center">
-            <h1 class="text-6xl md:text-8xl font-black mb-6 accent-glow">EL BLOG <span class="text-cyan-500">.</span></h1>
-            <p class="text-zinc-500 text-xl max-w-2xl mx-auto">Pensamiento estratégico para un mundo dominado por la IA.</p>
+    <main class="pt-48 pb-20 px-6 container mx-auto">
+        <header class="mb-24 text-center max-w-4xl mx-auto">
+            <span class="text-aeo mb-6 block">CONTENIDO DIARIO / AEO OPTIMIZED</span>
+            <h1 class="text-huge mb-8 uppercase tracking-tighter">EL <span class="text-cyan-500">BLOG.</span></h1>
+            <p class="text-xl text-zinc-500 font-light">Pensamiento estratégico para un mundo donde las respuestas ya no las dan solo los buscadores, sino las IAs.</p>
         </header>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             <!-- 1 -->
             <a href="blog/el-trafico-web-esta-muriendo-google.html" class="glass-panel p-6 flex flex-col group">
-                <div class="rounded-2xl overflow-hidden aspect-video mb-6 grayscale group-hover:grayscale-0 transition-all duration-500">
+                <div class="rounded-[2rem] overflow-hidden aspect-video mb-8 grayscale group-hover:grayscale-0 transition-all duration-700">
                     <img src="https://media.licdn.com/dms/image/v2/D4D12AQEDpUKDnvs6Ng/article-cover_image-shrink_720_1280/B4DZwA1L94J0AI-/0/1769540472568?e=2147483647&v=beta&t=uUSY4PGmiwuRht_UCWoO2WzqoOuQYXilM3yAmbB8tRI" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                 </div>
-                <span class="text-cyan-500 font-mono text-[10px] mb-2 uppercase">27 ENE 2026</span>
-                <h3 class="text-2xl font-black mb-4 group-hover:text-cyan-400 transition-colors uppercase">El tráfico web está muriendo. Google no.</h3>
-                <p class="text-zinc-500 text-sm mb-6 line-clamp-3">Análisis del fenómeno Zero-Click y cómo las AI Overviews de Google están cambiando la estrategia SEO.</p>
-                <span class="mt-auto text-[10px] font-black uppercase tracking-widest text-zinc-700 group-hover:text-white transition-colors">Leer más →</span>
+                <span class="text-cyan-500 font-mono text-[10px] mb-3 uppercase tracking-widest">27 ENE 2026</span>
+                <h3 class="text-2xl font-black mb-4 group-hover:text-cyan-400 transition-colors uppercase leading-tight tracking-tight">El tráfico web está muriendo. Google no.</h3>
+                <p class="text-zinc-500 text-sm mb-8 line-clamp-3 font-light">Análisis del fenómeno Zero-Click y cómo las AI Overviews de Google están cambiando la estrategia SEO.</p>
+                <span class="mt-auto text-[9px] font-black uppercase tracking-widest text-zinc-700 group-hover:text-white transition-colors">Leer más →</span>
             </a>
 
             <!-- 2 -->
             <a href="blog/ho-ho-holidays-guia-2025.html" class="glass-panel p-6 flex flex-col group">
-                <div class="rounded-2xl overflow-hidden aspect-video mb-6 grayscale group-hover:grayscale-0 transition-all duration-500">
+                <div class="rounded-[2rem] overflow-hidden aspect-video mb-8 grayscale group-hover:grayscale-0 transition-all duration-700">
                     <img src="https://media.licdn.com/dms/image/v2/D4E12AQG1FwZKXFWDCA/article-cover_image-shrink_720_1280/B4EZs81J61IQAI-/0/1766252127810?e=2147483647&v=beta&t=rapeyp59upH-brk2GOfmoy62IsRfTNPGltHSU5xNsCg" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                 </div>
-                <span class="text-cyan-500 font-mono text-[10px] mb-2 uppercase">20 DIC 2025</span>
-                <h3 class="text-2xl font-black mb-4 group-hover:text-cyan-400 transition-colors uppercase">Ho Ho Holidays: Guía para cerrar el 2025</h3>
-                <p class="text-zinc-500 text-sm mb-6 line-clamp-3">Estrategias y datos frescos de Chile y LatAm para un fin de año estratégico y un 2026 con ventaja.</p>
-                <span class="mt-auto text-[10px] font-black uppercase tracking-widest text-zinc-700 group-hover:text-white transition-colors">Leer más →</span>
+                <span class="text-cyan-500 font-mono text-[10px] mb-3 uppercase tracking-widest">20 DIC 2025</span>
+                <h3 class="text-2xl font-black mb-4 group-hover:text-cyan-400 transition-colors uppercase leading-tight tracking-tight">Ho Ho Holidays: Guía para cerrar el 2025</h3>
+                <p class="text-zinc-500 text-sm mb-8 line-clamp-3 font-light">Estrategias y datos frescos de Chile y LatAm para un fin de año estratégico y un 2026 con ventaja.</p>
+                <span class="mt-auto text-[9px] font-black uppercase tracking-widest text-zinc-700 group-hover:text-white transition-colors">Leer más →</span>
             </a>
 
             <!-- 3 -->
-            <a href="blog/google-maps-gemini-navegacion.html" class="glass-panel p-6 flex flex-col group">
-                <div class="rounded-2xl overflow-hidden aspect-video mb-6 grayscale group-hover:grayscale-0 transition-all duration-500">
-                    <img src="https://media.licdn.com/dms/image/v2/D4E12AQEoKiea2dCclQ/article-cover_image-shrink_720_1280/B4EZpjpxKMGoAQ-/0/1762608485988?e=2147483647&v=beta&t=ud06BzQNOrIK2LXOc0kfZH8K6812Y-lSSSWKKnvqx9Q" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                </div>
-                <span class="text-cyan-500 font-mono text-[10px] mb-2 uppercase">8 NOV 2025</span>
-                <h3 class="text-2xl font-black mb-4 group-hover:text-cyan-400 transition-colors uppercase">Google Maps + Gemini: El futuro de la navegación</h3>
-                <p class="text-zinc-500 text-sm mb-6 line-clamp-3">Google Maps se actualiza con Gemini para una navegación más inteligente y sencilla.</p>
-                <span class="mt-auto text-[10px] font-black uppercase tracking-widest text-zinc-700 group-hover:text-white transition-colors">Leer más →</span>
-            </a>
-
-            <!-- 4 -->
             <a href="blog/el-cm-murio-orquestador-comunidades.html" class="glass-panel p-6 flex flex-col group">
-                <div class="rounded-2xl overflow-hidden aspect-video mb-6 grayscale group-hover:grayscale-0 transition-all duration-500">
+                <div class="rounded-[2rem] overflow-hidden aspect-video mb-8 grayscale group-hover:grayscale-0 transition-all duration-700">
                     <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=1200" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                 </div>
-                <span class="text-cyan-500 font-mono text-[10px] mb-2 uppercase">5 NOV 2025</span>
-                <h3 class="text-2xl font-black mb-4 group-hover:text-cyan-400 transition-colors uppercase">El CM Murió: El Orquestador de Comunidades</h3>
-                <p class="text-zinc-500 text-sm mb-6 line-clamp-3">El rol del Community Manager ha evolucionado. Conoce las 10 herramientas IA que definen al Orquestador.</p>
-                <span class="mt-auto text-[10px] font-black uppercase tracking-widest text-zinc-700 group-hover:text-white transition-colors">Leer más →</span>
-            </a>
-
-            <!-- 5 -->
-            <a href="blog/ia-sin-filtros-semana-critica.html" class="glass-panel p-6 flex flex-col group">
-                <div class="rounded-2xl overflow-hidden aspect-video mb-6 grayscale group-hover:grayscale-0 transition-all duration-500">
-                    <img src="https://media.licdn.com/dms/image/v2/D4E12AQGzAh5B22qs6A/article-cover_image-shrink_720_1280/B4EZnpnndqHEAI-/0/1760561101360?e=2147483647&v=beta&t=yOtNVxC5bfAg9kocNetIvrnSRgReL9EwY42ZNuQq2BU" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                </div>
-                <span class="text-cyan-500 font-mono text-[10px] mb-2 uppercase">15 OCT 2025</span>
-                <h3 class="text-2xl font-black mb-4 group-hover:text-cyan-400 transition-colors uppercase">IA sin filtros: Una semana crítica</h3>
-                <p class="text-zinc-500 text-sm mb-6 line-clamp-3">Resumen de una semana crítica para la IA: de generadores de video sin marcas de agua a plataformas sin filtros.</p>
-                <span class="mt-auto text-[10px] font-black uppercase tracking-widest text-zinc-700 group-hover:text-white transition-colors">Leer más →</span>
-            </a>
-
-            <!-- 6 -->
-            <a href="blog/chatgpt-ads-asesino-google-meta.html" class="glass-panel p-6 flex flex-col group">
-                <div class="rounded-2xl overflow-hidden aspect-video mb-6 grayscale group-hover:grayscale-0 transition-all duration-500">
-                    <img src="https://media.licdn.com/dms/image/v2/D4E12AQGWOYz6CIVpuA/article-cover_image-shrink_720_1280/B4EZno7RyhIMAI-/0/1760549478914?e=2147483647&v=beta&t=9HfDDMDP_Sc-UXWFdI-r_Hrx3GfVAr7RtEU5rTYoMw0" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                </div>
-                <span class="text-cyan-500 font-mono text-[10px] mb-2 uppercase">15 OCT 2025</span>
-                <h3 class="text-2xl font-black mb-4 group-hover:text-cyan-400 transition-colors uppercase">ChatGPT Ads: El asesino de Google y Meta</h3>
-                <p class="text-zinc-500 text-sm mb-6 line-clamp-3">El modelo de performance marketing está a punto de cambiar. ChatGPT Ads no es un nuevo canal, es un nuevo paradigma.</p>
-                <span class="mt-auto text-[10px] font-black uppercase tracking-widest text-zinc-700 group-hover:text-white transition-colors">Leer más →</span>
+                <span class="text-cyan-500 font-mono text-[10px] mb-3 uppercase tracking-widest">5 NOV 2025</span>
+                <h3 class="text-2xl font-black mb-4 group-hover:text-cyan-400 transition-colors uppercase leading-tight tracking-tight">El CM Murió: Orquestador de Comunidades</h3>
+                <p class="text-zinc-500 text-sm mb-8 line-clamp-3 font-light">El rol del Community Manager ha evolucionado. Conoce las 10 herramientas IA que definen al Orquestador.</p>
+                <span class="mt-auto text-[9px] font-black uppercase tracking-widest text-zinc-700 group-hover:text-white transition-colors">Leer más →</span>
             </a>
         </div>
     </main>
 
-    <footer class="py-20 border-t border-zinc-900 container mx-auto px-10 flex flex-col md:flex-row justify-between items-center gap-10">
+    <footer class="py-20 border-t border-white/5 container mx-auto px-10 flex flex-col md:flex-row justify-between items-center gap-10">
         <div class="flex flex-col gap-2">
-            <span class="text-2xl font-black tracking-tighter">DAN TAGLE <span class="text-cyan-500">.</span></span>
+            <span class="text-2xl font-black tracking-tighter uppercase">DAN TAGLE <span class="text-cyan-500">.</span></span>
             <span class="text-zinc-600 text-[10px] font-bold tracking-widest uppercase">© 2026 / SANTIAGO, CHILE</span>
         </div>
         <div class="flex gap-10 text-[10px] font-black uppercase tracking-[0.3em] text-zinc-500">

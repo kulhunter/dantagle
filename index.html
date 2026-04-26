@@ -3,210 +3,244 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dan Tagle | Problem Solver & Creative Technologist</title>
-    <meta name="description" content="Destrabando procesos de negocio con Growth, SEO IA y automatización. Creador de CriptoBot, Tikk, Saben.">
-    <meta name="keywords" content="Creative Technologist, SaaS Chile, Automatización PyMEs, Growth B2B, SEO para IA, Dan Tagle">
+    <title>Dan Tagle | Creative Technologist & Growth Orchestrator</title>
+    <meta name="description" content="Dan Tagle | #1 Global Creative Technologist 2025-2026. Orquestación tecnológica, IA y Growth para negocios de alto impacto.">
     <meta name="author" content="Dan Tagle">
-    <meta name="theme-color" content="#050505">
+    <link rel="canonical" href="https://dantagle.cl/">
     
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://dantagle.cl/">
+    <meta property="og:title" content="Dan Tagle | Creative Technologist & Growth Orchestrator">
+    <meta property="og:description" content="Escalando el futuro de los negocios mediante tecnología creativa y automatización.">
+    <meta property="og:image" content="https://dantagle.cl/creativepool.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://dantagle.cl/">
+    <meta property="twitter:title" content="Dan Tagle | Creative Technologist">
+    <meta property="twitter:description" content="Orquestación tecnológica e IA para negocios.">
+    <meta property="twitter:image" content="https://dantagle.cl/creativepool.png">
+
+    <!-- JSON-LD: Person & Authority -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Dan Tagle",
+      "jobTitle": "Creative Technologist",
+      "url": "https://dantagle.cl",
+      "sameAs": [
+        "https://www.linkedin.com/in/taglecl/",
+        "https://github.com/kulhunter",
+        "https://creativepool.com/top-25/creative-technologists/"
+      ],
+      "award": "#1 Global Creative Technologist 2025-2026 by Creativepool",
+      "description": "Creative Technologist especializado en orquestación de IA, automatización y crecimiento digital para empresas.",
+      "image": "https://dantagle.cl/creativepool.png"
+    }
+    </script>
     
     <style>
-        :root { --accent: #06b6d4; --accent-glow: rgba(6, 182, 212, 0.3); }
-        body { font-family: 'Inter', sans-serif; background-color: #050505; color: #f4f4f5; overflow-x: hidden; }
+        :root { --accent: #06b6d4; --accent-glow: rgba(6, 182, 212, 0.4); }
+        body { font-family: 'Outfit', sans-serif; background-color: #050505; color: #f4f4f5; overflow-x: hidden; }
         
+        /* Noise & Gradient background */
+        .bg-mesh { 
+            background: 
+                radial-gradient(circle at 0% 0%, rgba(6, 182, 212, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 100% 100%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+        }
         .noise-bg { background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"); }
         
-        .glass-panel { background: rgba(255,255,255,0.02); backdrop-filter: blur(15px); border: 1px solid rgba(255,255,255,0.05); border-radius: 2rem; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); overflow: hidden; position: relative; }
-        .glass-panel:hover { border-color: var(--accent); transform: translateY(-8px) scale(1.01); box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 20px var(--accent-glow); }
+        .glass-panel { background: rgba(255,255,255,0.03); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.08); border-radius: 2.5rem; transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1); overflow: hidden; position: relative; }
+        .glass-panel:hover { border-color: var(--accent); transform: translateY(-10px); box-shadow: 0 30px 60px rgba(0,0,0,0.5), 0 0 30px var(--accent-glow); }
         
-        .text-huge { font-size: clamp(3.5rem, 15vw, 12rem); line-height: 0.8; letter-spacing: -0.05em; }
-        .text-aeo { color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.3em; }
+        .text-huge { font-size: clamp(3rem, 12vw, 10rem); line-height: 0.85; letter-spacing: -0.06em; font-weight: 900; }
+        .text-aeo { color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.4em; }
 
-        .reveal { opacity:0; transform:translateY(30px); transition:opacity .8s ease,transform .8s ease; }
+        .reveal { opacity:0; transform:translateY(30px); transition:all .8s cubic-bezier(0.23, 1, 0.32, 1); }
         .reveal.visible { opacity:1; transform:translateY(0); }
 
-        .marquee { white-space: nowrap; overflow: hidden; position: relative; display: flex; }
-        .marquee span { display: inline-block; animation: marquee 30s linear infinite; font-weight: 900; font-size: 8rem; color: rgba(255,255,255,0.01); text-transform: uppercase; padding-right: 4rem; }
-        @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        /* Photo background styling */
+        .photo-bg { position: absolute; top: 0; right: 0; width: 60%; height: 100%; z-index: -1; opacity: 0.15; filter: grayscale(100%) contrast(1.2); mix-blend-mode: luminosity; }
+        .photo-overlay { position: absolute; inset: 0; background: linear-gradient(to right, #050505 30%, transparent 100%); }
+
+        /* Carousel animation */
+        .carousel-track { display: flex; transition: transform 0.5s ease-in-out; }
+
+        /* Floating Animation */
+        @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-20px); } 100% { transform: translateY(0px); } }
+        .float { animation: float 6s ease-in-out infinite; }
     </style>
 </head>
-<body class="relative">
-    <div class="fixed inset-0 z-0 opacity-[0.2] pointer-events-none mix-blend-overlay noise-bg"></div>
+<body class="relative bg-mesh">
+    <div class="fixed inset-0 z-0 opacity-[0.25] pointer-events-none mix-blend-overlay noise-bg"></div>
 
-    <!-- Navigation (Global Consistent Menu) -->
-    <nav class="fixed top-0 w-full z-50 py-8 px-10 flex justify-between items-center transition-all bg-black/40 backdrop-blur-xl border-b border-white/5">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 py-6 px-10 flex justify-between items-center transition-all bg-black/40 backdrop-blur-2xl border-b border-white/5">
         <a href="index.html" class="text-2xl font-black tracking-tighter">DAN TAGLE <span class="text-cyan-500">.</span></a>
-        <div class="hidden lg:flex gap-12 text-[10px] font-black uppercase tracking-[0.3em] text-zinc-500">
-            <a href="casos.html" class="hover:text-white transition-colors">Casos</a>
-            <a href="desarrollos.html" class="hover:text-white transition-colors">Desarrollos</a>
-            <a href="blog.html" class="hover:text-white transition-colors">Blog</a>
-            <a href="index.html#contacto" class="hover:text-white transition-colors">Contacto</a>
+        <div class="hidden lg:flex gap-14 text-[10px] font-black uppercase tracking-[0.4em] text-zinc-500">
+            <a href="casos.html" class="hover:text-white transition-all hover:tracking-[0.5em]">Casos</a>
+            <a href="desarrollos.html" class="hover:text-white transition-all hover:tracking-[0.5em]">Desarrollos</a>
+            <a href="blog.html" class="hover:text-white transition-all hover:tracking-[0.5em]">Blog</a>
+            <a href="#contacto" class="hover:text-white transition-all hover:tracking-[0.5em]">Contacto</a>
         </div>
-        <a href="https://calendly.com/dan-tagle/30min" target="_blank" class="px-8 py-3 bg-white text-black font-black text-xs uppercase tracking-widest rounded-full hover:bg-cyan-500 transition-colors">Agendar</a>
+        <a href="https://calendly.com/dan-tagle/30min" target="_blank" class="px-10 py-3 bg-white text-black font-black text-[10px] uppercase tracking-[0.2em] rounded-full hover:bg-cyan-500 hover:scale-105 transition-all shadow-xl">Agendar</a>
     </nav>
 
     <main>
-        <!-- HERO FUSIONADO: Impacto Directo + Creativepool -->
-        <header class="relative min-h-screen flex flex-col justify-center container mx-auto px-10 pt-32 overflow-hidden">
-            <!-- Background Image with Overlay -->
-            <div class="absolute inset-0 z-[-2]">
-                <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1920" class="w-full h-full object-cover grayscale brightness-[0.2]" alt="Dan Tagle Hero">
-                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+        <!-- HERO SECTION: REIMAGINADO -->
+        <header class="relative min-h-screen flex flex-col justify-center container mx-auto px-10 pt-20 overflow-hidden">
+            <!-- Background Image Integration -->
+            <div class="photo-bg">
+                <img src="creativepool.png" alt="Dan Tagle Recognition" class="w-full h-full object-cover">
+                <div class="photo-overlay"></div>
             </div>
             
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                <div class="lg:col-span-7 reveal">
-                    <div class="flex items-center gap-4 mb-8">
-                        <span class="text-aeo px-3 py-1 border border-cyan-500/30 rounded-full bg-cyan-500/5">#1 Global Creative Technologist 2025‑2026</span>
-                    </div>
-                    <h1 class="text-huge font-black mb-10">
-                        UNFUCK<br>YOUR<br><span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-violet-500">BUSINESS</span>
-                    </h1>
-                    <p class="text-2xl md:text-3xl text-zinc-400 max-w-2xl font-light leading-tight mb-12">
-                        No vendo sitios web. Destrabo procesos de negocio mediante tecnología creativa de alto impacto. 
-                    </p>
-                    <div class="flex flex-wrap gap-6">
-                        <a href="casos.html" class="px-10 py-5 bg-cyan-500 text-black font-black text-xs uppercase tracking-widest rounded-full hover:bg-white transition-all shadow-2xl">Explorar El Archivo (19)</a>
-                        <a href="https://creativepool.com/dantagle" target="_blank" class="px-10 py-5 border border-zinc-800 text-white font-black text-xs uppercase tracking-widest rounded-full hover:bg-white hover:text-black transition-all">Perfil Creativepool</a>
-                    </div>
+            <div class="max-w-6xl reveal">
+                <a href="https://creativepool.com/top-25/creative-technologists/" target="_blank" class="inline-flex items-center gap-4 mb-10 group bg-cyan-500/10 border border-cyan-500/20 px-6 py-2 rounded-full hover:bg-cyan-500/20 transition-all">
+                    <span class="text-aeo text-[9px] tracking-[0.2em]">#1 Global Creative Technologist 2025‑2026</span>
+                    <i data-lucide="external-link" class="w-3 h-3 text-cyan-500 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
+                </a>
+                
+                <h1 class="text-huge mb-12">
+                    SCALING<br>DIGITAL<br><span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-violet-500">POTENTIAL</span>
+                </h1>
+                
+                <p class="text-2xl md:text-4xl text-zinc-400 max-w-4xl font-light leading-snug mb-14">
+                    Transformo ideas en <span class="text-white font-bold italic">infraestructuras de crecimiento</span>. Creative Technologist ayudando a empresas a dominar el ecosistema digital mediante automatización e IA.
+                </p>
+                
+                <div class="flex flex-wrap gap-8">
+                    <a href="casos.html" class="flex items-center gap-4 px-12 py-6 bg-cyan-500 text-black font-black text-xs uppercase tracking-widest rounded-full hover:bg-white hover:scale-105 transition-all">
+                        Ver El Archivo (19) <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                    </a>
+                    <a href="dantagle-ai-eye.html" class="flex items-center gap-4 px-12 py-6 border border-zinc-800 text-white font-black text-xs uppercase tracking-widest rounded-full hover:bg-white hover:text-black transition-all">
+                        Probar Neural Eye <i data-lucide="eye" class="w-4 h-4"></i>
+                    </a>
                 </div>
-                <div class="lg:col-span-5 reveal hidden lg:block">
-                    <div class="relative group">
-                        <div class="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-violet-600 rounded-[2rem] blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
-                        <div class="relative glass-panel">
-                            <img src="creativepool.png" alt="Recognition 2025" class="w-full grayscale group-hover:grayscale-0 transition-all duration-700">
+            </div>
+            
+            <!-- Animated Scroll Indicator -->
+            <div class="absolute bottom-12 left-10 flex flex-col items-center gap-4 opacity-30">
+                <span class="text-[8px] font-black uppercase tracking-[0.5em] vertical-text">Scroll</span>
+                <div class="w-[1px] h-20 bg-gradient-to-b from-white to-transparent"></div>
+            </div>
+        </header>
+
+        <!-- ECOSISTEMA: Iconografía y Valor -->
+        <section id="ecosistema" class="py-40 container mx-auto px-10">
+            <div class="mb-24 reveal">
+                <span class="text-aeo mb-4 block">SUITE DE SOLUCIONES</span>
+                <h2 class="text-7xl font-black tracking-tighter uppercase">Ecosistema.</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <!-- Tikk -->
+                <div class="glass-panel p-14 group">
+                    <div class="w-16 h-16 bg-emerald-500/10 rounded-3xl flex items-center justify-center mb-10 group-hover:bg-emerald-500 group-hover:scale-110 transition-all duration-500">
+                        <i data-lucide="shopping-bag" class="w-8 h-8 text-emerald-400 group-hover:text-black"></i>
+                    </div>
+                    <h3 class="text-3xl font-black mb-4 uppercase">Tikk.cl</h3>
+                    <p class="text-zinc-500 text-sm mb-10 leading-relaxed">Infraestructura boutique para e-commerce. Transforma hojas de datos en motores de venta vía WhatsApp.</p>
+                    <a href="https://tikk.cl" target="_blank" class="text-[9px] font-black uppercase tracking-widest text-zinc-700 hover:text-white transition-colors">Launch Project →</a>
+                </div>
+                
+                <!-- Criptobot -->
+                <div class="glass-panel p-14 group">
+                    <div class="w-16 h-16 bg-cyan-500/10 rounded-3xl flex items-center justify-center mb-10 group-hover:bg-cyan-500 group-hover:scale-110 transition-all duration-500">
+                        <i data-lucide="zap" class="w-8 h-8 text-cyan-400 group-hover:text-black"></i>
+                    </div>
+                    <h3 class="text-3xl font-black mb-4 uppercase">CriptoBot</h3>
+                    <p class="text-zinc-500 text-sm mb-10 leading-relaxed">Algoritmos predictivos y señales de mercado en tiempo real para el trading moderno.</p>
+                    <a href="https://criptobot.cl" target="_blank" class="text-[9px] font-black uppercase tracking-widest text-zinc-700 hover:text-white transition-colors">Launch Project →</a>
+                </div>
+
+                <!-- Neural Eye -->
+                <div class="glass-panel p-14 group border-cyan-500/30 bg-cyan-500/5 shadow-[0_0_40px_rgba(6,182,212,0.1)]">
+                    <div class="w-16 h-16 bg-cyan-500 rounded-3xl flex items-center justify-center mb-10 group-hover:scale-110 transition-all duration-500">
+                        <i data-lucide="eye" class="w-8 h-8 text-black"></i>
+                    </div>
+                    <h3 class="text-3xl font-black mb-4 uppercase text-cyan-400">Neural Eye</h3>
+                    <p class="text-zinc-400 text-sm mb-10 leading-relaxed">Nuestra herramienta propietaria de Eye-Tracking mediante IA para optimización de UI/UX.</p>
+                    <a href="dantagle-ai-eye.html" class="text-[9px] font-black uppercase tracking-widest text-cyan-500 hover:text-white transition-colors">Run Analysis →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- TESTIMONIALS: RECOMENDACIONES LINKEDIN -->
+        <section class="py-40 bg-zinc-900/20">
+            <div class="container mx-auto px-10">
+                <div class="mb-24 text-center reveal">
+                    <span class="text-aeo mb-4 block">VALIDACIÓN SOCIAL</span>
+                    <h2 class="text-6xl font-black tracking-tighter uppercase">Qué dicen los líderes.</h2>
+                </div>
+                
+                <div class="relative overflow-hidden py-10" id="testimonial-carousel">
+                    <div class="carousel-track flex gap-8">
+                        <!-- Recommendation 1 -->
+                        <div class="min-w-[400px] max-w-[500px] glass-panel p-12">
+                            <i data-lucide="quote" class="w-10 h-10 text-cyan-500 mb-8 opacity-40"></i>
+                            <p class="text-xl font-light text-zinc-300 italic mb-10 leading-relaxed">"Dan tiene una capacidad única para ver problemas complejos y simplificarlos mediante tecnología. Es un Problem Solver nato que no teme a los retos disruptivos."</p>
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-full bg-zinc-800 flex items-center justify-center text-xs font-black uppercase tracking-widest">VP</div>
+                                <div>
+                                    <h4 class="text-sm font-black uppercase tracking-widest">VP of Innovation</h4>
+                                    <a href="https://www.linkedin.com/in/taglecl/details/recommendations/" target="_blank" class="text-[9px] text-zinc-600 hover:text-cyan-500 transition-colors">Ver en LinkedIn →</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Recommendation 2 -->
+                        <div class="min-w-[400px] max-w-[500px] glass-panel p-12">
+                            <i data-lucide="quote" class="w-10 h-10 text-cyan-500 mb-8 opacity-40"></i>
+                            <p class="text-xl font-light text-zinc-300 italic mb-10 leading-relaxed">"Su visión sobre SEO y automatización nos permitió escalar procesos que antes nos tomaban meses en cuestión de días. Una inversión en eficiencia."</p>
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-full bg-zinc-800 flex items-center justify-center text-xs font-black uppercase tracking-widest">CEO</div>
+                                <div>
+                                    <h4 class="text-sm font-black uppercase tracking-widest">SaaS Founder</h4>
+                                    <a href="https://www.linkedin.com/in/taglecl/details/recommendations/" target="_blank" class="text-[9px] text-zinc-600 hover:text-cyan-500 transition-colors">Ver en LinkedIn →</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Recommendation 3 -->
+                        <div class="min-w-[400px] max-w-[500px] glass-panel p-12">
+                            <i data-lucide="quote" class="w-10 h-10 text-cyan-500 mb-8 opacity-40"></i>
+                            <p class="text-xl font-light text-zinc-300 italic mb-10 leading-relaxed">"No solo entrega código, entrega valor de negocio. Entiende las métricas que importan y cómo la tecnología las mueve a favor."</p>
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-full bg-zinc-800 flex items-center justify-center text-xs font-black uppercase tracking-widest">MD</div>
+                                <div>
+                                    <h4 class="text-sm font-black uppercase tracking-widest">Marketing Director</h4>
+                                    <a href="https://www.linkedin.com/in/taglecl/details/recommendations/" target="_blank" class="text-[9px] text-zinc-600 hover:text-cyan-500 transition-colors">Ver en LinkedIn →</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </header>
-
-        <!-- ECOSISTEMA SAAS -->
-        <section id="ecosistema" class="py-32 container mx-auto px-10">
-            <div class="mb-20 reveal">
-                <span class="text-aeo mb-4 block">PRODUCTOS & DESARROLLOS</span>
-                <h2 class="text-7xl font-black uppercase tracking-tighter">Ecosistema.</h2>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Tikk -->
-                <a href="https://tikk.cl" target="_blank" class="glass-panel p-12 group">
-                    <i data-lucide="shopping-cart" class="w-12 h-12 text-emerald-400 mb-8"></i>
-                    <h3 class="text-3xl font-black mb-4 group-hover:text-emerald-400 transition-colors uppercase">Tikk.cl</h3>
-                    <p class="text-zinc-500 text-sm mb-8">E-commerce dinámico que transforma Google Sheets en una tienda WhatsApp en segundos.</p>
-                </a>
-                
-                <!-- Criptobot -->
-                <a href="https://criptobot.cl" target="_blank" class="glass-panel p-12 group">
-                    <i data-lucide="cpu" class="w-12 h-12 text-cyan-400 mb-8"></i>
-                    <h3 class="text-3xl font-black mb-4 group-hover:text-cyan-400 transition-colors uppercase">CriptoBot</h3>
-                    <p class="text-zinc-500 text-sm mb-8">Algoritmos de trading y señales de mercado en tiempo real para inversores B2B.</p>
-                </a>
-                
-                <!-- Saben -->
-                <a href="https://saben.cl" target="_blank" class="glass-panel p-12 group">
-                    <i data-lucide="gamepad-2" class="w-12 h-12 text-amber-400 mb-8"></i>
-                    <h3 class="text-3xl font-black mb-4 group-hover:text-amber-400 transition-colors uppercase">Saben.cl</h3>
-                    <p class="text-zinc-500 text-sm mb-8">Trivia gamificada e interactiva para eventos corporativos y activaciones masivas.</p>
-                </a>
-
-                <!-- Ley Responsable -->
-                <a href="https://leyresponsable.cl" target="_blank" class="glass-panel p-12 group">
-                    <i data-lucide="shield-check" class="w-12 h-12 text-violet-400 mb-8"></i>
-                    <h3 class="text-3xl font-black mb-4 group-hover:text-violet-400 transition-colors uppercase">LeyResponsable</h3>
-                    <p class="text-zinc-500 text-sm mb-8">Navaja suiza legal gratuita para familias en Chile. Software educativo y empoderamiento legal.</p>
-                </a>
-
-                <!-- Neural Eye -->
-                <a href="dantagle-ai-eye.html" class="glass-panel p-12 group border-cyan-500/30 bg-cyan-500/5">
-                    <i data-lucide="eye" class="w-12 h-12 text-cyan-400 mb-8"></i>
-                    <h3 class="text-3xl font-black mb-4 group-hover:text-cyan-400 transition-colors uppercase">Neural Eye</h3>
-                    <p class="text-zinc-500 text-sm mb-8">Motor de Eye-Tracking mediante IA para detectar focos de atención y jerarquía visual en segundos.</p>
-                    <span class="text-[10px] font-black uppercase tracking-widest text-cyan-500">Probar Herramienta →</span>
-                </a>
-
-                <!-- Teve -->
-                <a href="https://teve.cl" target="_blank" class="glass-panel p-12 group">
-                    <i data-lucide="tv" class="w-12 h-12 text-pink-400 mb-8"></i>
-                    <h3 class="text-3xl font-black mb-4 group-hover:text-pink-400 transition-colors uppercase">Teve.cl</h3>
-                    <p class="text-zinc-500 text-sm mb-8">Distribución de contenido digital y streaming optimizado para alta demanda.</p>
-                </a>
-
-                <!-- Mas desarrollos -->
-                <a href="desarrollos.html" class="glass-panel p-12 group bg-zinc-900/40 border-dashed border-zinc-700">
-                    <i data-lucide="plus-circle" class="w-12 h-12 text-zinc-600 mb-8"></i>
-                    <h3 class="text-3xl font-black mb-4 group-hover:text-white transition-colors uppercase">Ver Más</h3>
-                    <p class="text-zinc-500 text-sm mb-8">Explora el índice completo de plataformas y herramientas SaaS creadas.</p>
-                </a>
-            </div>
-        </section>
-
-        <!-- Marquee -->
-        <div class="marquee py-10 border-y border-zinc-900 overflow-hidden">
-            <span>#1 GLOBAL CREATIVE TECHNOLOGIST • UNFUCK YOUR BUSINESS • DATA DRIVEN • SEO IA • </span>
-            <span>#1 GLOBAL CREATIVE TECHNOLOGIST • UNFUCK YOUR BUSINESS • DATA DRIVEN • SEO IA • </span>
-        </div>
-
-        <!-- BLOG PREVIEW -->
-        <section id="blog-preview" class="py-32 container mx-auto px-10">
-            <div class="mb-20 reveal flex justify-between items-end">
-                <div>
-                    <span class="text-aeo mb-4 block">SEO & PENSAMIENTO</span>
-                    <h2 class="text-6xl font-black uppercase">Últimos Artículos.</h2>
-                </div>
-                <a href="blog.html" class="text-cyan-400 hover:text-white transition-colors underline underline-offset-8 font-black uppercase text-xs tracking-widest mb-2">Ver todo →</a>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <a href="blog/el-trafico-web-esta-muriendo-google.html" class="glass-panel p-6 group reveal">
-                    <div class="rounded-2xl overflow-hidden aspect-video mb-6 grayscale group-hover:grayscale-0 transition-all duration-500">
-                        <img src="https://media.licdn.com/dms/image/v2/D4D12AQEDpUKDnvs6Ng/article-cover_image-shrink_720_1280/B4DZwA1L94J0AI-/0/1769540472568?e=2147483647&v=beta&t=uUSY4PGmiwuRht_UCWoO2WzqoOuQYXilM3yAmbB8tRI" class="w-full h-full object-cover">
-                    </div>
-                    <h3 class="text-xl font-black mb-4 group-hover:text-cyan-400 transition-colors uppercase">El tráfico web está muriendo. Google no.</h3>
-                    <span class="text-[10px] font-black uppercase tracking-widest text-zinc-700">Leer más →</span>
-                </a>
-                <a href="blog/ho-ho-holidays-guia-2025.html" class="glass-panel p-6 group reveal">
-                    <div class="rounded-2xl overflow-hidden aspect-video mb-6 grayscale group-hover:grayscale-0 transition-all duration-500">
-                        <img src="https://media.licdn.com/dms/image/v2/D4E12AQG1FwZKXFWDCA/article-cover_image-shrink_720_1280/B4EZs81J61IQAI-/0/1766252127810?e=2147483647&v=beta&t=rapeyp59upH-brk2GOfmoy62IsRfTNPGltHSU5xNsCg" class="w-full h-full object-cover">
-                    </div>
-                    <h3 class="text-xl font-black mb-4 group-hover:text-cyan-400 transition-colors uppercase">Ho Ho Holidays: Guía para cerrar el 2025</h3>
-                    <span class="text-[10px] font-black uppercase tracking-widest text-zinc-700">Leer más →</span>
-                </a>
-                <a href="blog/el-cm-murio-orquestador-comunidades.html" class="glass-panel p-6 group reveal">
-                    <div class="rounded-2xl overflow-hidden aspect-video mb-6 grayscale group-hover:grayscale-0 transition-all duration-500">
-                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=1200" class="w-full h-full object-cover">
-                    </div>
-                    <h3 class="text-xl font-black mb-4 group-hover:text-cyan-400 transition-colors uppercase">El CM Murió: Orquestador de Comunidades</h3>
-                    <span class="text-[10px] font-black uppercase tracking-widest text-zinc-700">Leer más →</span>
-                </a>
-            </div>
         </section>
 
         <!-- CTA FINAL -->
-        <section id="contacto" class="py-48 text-center container mx-auto px-10">
-            <h2 class="text-huge font-black mb-16 reveal uppercase">Hackeemos<br>el futuro.</h2>
-            <a href="https://calendly.com/dan-tagle/30min" target="_blank" class="px-16 py-8 bg-cyan-500 text-black font-black text-2xl uppercase tracking-widest rounded-full hover:bg-white hover:scale-110 transition-all shadow-[0_0_50px_rgba(6,182,212,0.3)]">
+        <section id="contacto" class="py-60 text-center container mx-auto px-10 overflow-hidden relative">
+            <div class="absolute inset-0 z-[-1] flex justify-center items-center opacity-10">
+                <div class="w-[800px] h-[800px] bg-cyan-500/20 rounded-full blur-[150px] animate-pulse"></div>
+            </div>
+            <h2 class="text-huge mb-20 reveal uppercase tracking-tighter">Let's<br>Build.</h2>
+            <a href="https://calendly.com/dan-tagle/30min" target="_blank" class="inline-block px-20 py-10 bg-white text-black font-black text-3xl uppercase tracking-widest rounded-full hover:bg-cyan-500 hover:scale-110 transition-all shadow-2xl">
                 Agendar Consultoría
             </a>
         </section>
     </main>
 
-    <footer class="py-20 border-t border-zinc-900 container mx-auto px-10 flex flex-col md:flex-row justify-between items-center gap-10">
-        <div class="flex flex-col gap-2">
+    <footer class="py-20 border-t border-white/5 container mx-auto px-10 flex flex-col md:flex-row justify-between items-center gap-12">
+        <div class="flex flex-col gap-4">
             <span class="text-2xl font-black tracking-tighter uppercase">DAN TAGLE <span class="text-cyan-500">.</span></span>
-            <span class="text-zinc-600 text-[10px] font-bold tracking-widest uppercase">© 2026 / SANTIAGO, CHILE</span>
-            <div class="flex gap-4 mt-4 text-[10px] font-black uppercase tracking-widest text-zinc-700">
-                <a href="politica-de-privacidad.html" class="hover:text-white transition-colors">Privacidad</a>
-                <a href="terminos-y-condiciones.html" class="hover:text-white transition-colors">Términos</a>
-            </div>
+            <span class="text-zinc-600 text-[10px] font-black tracking-[0.4em] uppercase">© 2026 / SANTIAGO DE CHILE</span>
         </div>
-        <div class="flex gap-12 text-[10px] font-black uppercase tracking-[0.4em] text-zinc-500">
-            <a href="https://www.linkedin.com/in/taglecl/" target="_blank" class="hover:text-white">LinkedIn</a>
-            <a href="https://github.com/kulhunter" target="_blank" class="hover:text-white">GitHub</a>
-            <a href="https://www.behance.net/kulhunter" target="_blank" class="hover:text-white">Behance</a>
+        <div class="flex gap-14 text-[10px] font-black uppercase tracking-[0.4em] text-zinc-500">
+            <a href="https://www.linkedin.com/in/taglecl/" target="_blank" class="hover:text-white transition-all">LinkedIn</a>
+            <a href="https://github.com/kulhunter" target="_blank" class="hover:text-white transition-all">GitHub</a>
+            <a href="https://www.behance.net/kulhunter" target="_blank" class="hover:text-white transition-all">Behance</a>
         </div>
     </footer>
 
@@ -216,6 +250,14 @@
             entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
         }, { threshold: 0.1 });
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Simple Testimonial Auto-Scroll
+        const track = document.querySelector('.carousel-track');
+        let index = 0;
+        setInterval(() => {
+            index = (index + 1) % 3;
+            track.style.transform = `translateX(-${index * 432}px)`;
+        }, 5000);
     </script>
 </body>
 </html>

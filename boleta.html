@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es-CL" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Boleta Honorarios 2026 | Chile | Dan Tagle</title>
+    <meta name="description" content="Calculadora de Boletas de Honorarios 2026 Chile. Calcula montos brutos, líquidos y retención del 15.25% de forma instantánea y actualizada.">
+    <link rel="canonical" href="https://dantagle.cl/boleta">
+    
+    <!-- JSON-LD: Software & FAQ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Calculadora Boleta Honorarios 2026 Chile",
+      "operatingSystem": "All",
+      "applicationCategory": "BusinessApplication",
+      "url": "https://dantagle.cl/boleta",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "CLP"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "¿Cuál es la retención de boletas de honorarios en 2026?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "La retención de boletas de honorarios en Chile para el año 2026 es del 15.25%, siguiendo el cronograma de aumento gradual del SII."
+        }
+      }, {
+        "@type": "Question",
+        "name": "¿Cómo calcular el bruto desde el líquido en una boleta de honorarios?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Para calcular el bruto a partir del monto líquido en 2026, debes dividir el valor líquido por 0.8475."
+        }
+      }]
+    }
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root { --accent: #06b6d4; }
+        body { font-family: 'Outfit', sans-serif; background-color: #000; color: #fff; overflow-x: hidden; }
+        
+        .main-input { 
+            background: #111; 
+            border: 1px solid #222; 
+            border-radius: 1rem; 
+            font-size: clamp(3rem, 8vw, 6rem); 
+            font-weight: 900; 
+            width: 100%; 
+            outline: none; 
+            text-align: center;
+            padding: 2rem;
+            color: #fff;
+            transition: all 0.3s;
+        }
+        .main-input:focus { border-color: var(--accent); box-shadow: 0 0 50px rgba(6, 182, 212, 0.1); }
+        
+        .radio-custom { display: none; }
+        .radio-label { 
+            padding: 0.5rem 1.5rem; 
+            border-radius: 99px; 
+            cursor: pointer; 
+            font-size: 0.8rem; 
+            font-weight: 700; 
+            border: 1px solid #222; 
+            transition: all 0.3s;
+            color: #555;
+        }
+        .radio-custom:checked + .radio-label { 
+            background: #fff; 
+            color: #000; 
+            border-color: #fff; 
+            box-shadow: 0 0 20px rgba(255,255,255,0.2);
+        }
+
+        /* Chrome, Safari, Edge, Opera */
+        input::-webkit-outer-spin-button, input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center p-6">
+    
+    <header class="text-center mb-12">
+        <a href="index.html" class="text-xl font-black tracking-tighter uppercase mb-4 block">DAN TAGLE <span class="text-cyan-500">.</span></a>
+        <h1 class="text-sm font-black uppercase tracking-[0.4em] text-zinc-500">Calcula tu boleta de honorarios</h1>
+    </header>
+
+    <div class="w-full max-w-4xl">
+        <!-- Input Principal -->
+        <div class="relative mb-12">
+            <span class="absolute left-8 top-1/2 -translate-y-1/2 text-4xl font-black text-zinc-800">$</span>
+            <input type="number" id="monto" placeholder="0" class="main-input" autofocus oninput="doMath()">
+        </div>
+
+        <!-- Selector de Retención -->
+        <div class="flex justify-center gap-6 mb-20">
+            <div>
+                <input type="radio" name="ret" id="ret2026" value="0.1525" class="radio-custom" checked onchange="doMath()">
+                <label for="ret2026" class="radio-label">15,25% (2026)</label>
+            </div>
+            <div>
+                <input type="radio" name="ret" id="ret2025" value="0.145" class="radio-custom" onchange="doMath()">
+                <label for="ret2025" class="radio-label">14,5% (2025)</label>
+            </div>
+        </div>
+
+        <!-- Resultados en Columnas -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-20">
+            <!-- Si pactaste LÍQUIDO -->
+            <div class="space-y-6">
+                <h2 class="text-xs font-black uppercase tracking-[0.3em] text-zinc-500 border-b border-zinc-900 pb-4">Si pactaste LÍQUIDO</h2>
+                <p class="text-sm text-zinc-400 leading-relaxed font-light">
+                    Si lo pactado fue en valores líquidos, deberás hacer la boleta por <span id="liq-bruto" class="text-white font-bold">$0</span> y recibirás:
+                </p>
+                <div class="pt-4">
+                    <span id="liq-final" class="text-5xl font-black text-cyan-500">$0</span>
+                    <p class="text-[10px] text-zinc-600 uppercase tracking-widest mt-2">en efectivo / transferencia</p>
+                </div>
+            </div>
+
+            <!-- SEO Content Section: THE SILOGISMO KILLER -->
+        <section class="max-w-4xl mt-32 border-t border-white/5 pt-20">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                <div>
+                    <h2 class="text-3xl font-black mb-8 uppercase tracking-tighter">Cronograma SII (2023 - 2028)</h2>
+                    <p class="text-zinc-500 text-sm mb-8 font-light">Según la Ley 21.133, la retención de boletas de honorarios en Chile aumenta gradualmente cada año para financiar la seguridad social.</p>
+                    
+                    <div class="space-y-3">
+                        <div class="flex justify-between p-4 bg-white/5 rounded-2xl border border-white/5">
+                            <span class="text-xs text-zinc-400">Año 2025</span>
+                            <span class="text-xs font-bold">14.50%</span>
+                        </div>
+                        <div class="flex justify-between p-4 bg-cyan-500/10 rounded-2xl border border-cyan-500/30">
+                            <span class="text-xs text-cyan-500 font-bold">Año 2026 (Actual)</span>
+                            <span class="text-xs text-cyan-500 font-bold">15.25%</span>
+                        </div>
+                        <div class="flex justify-between p-4 bg-white/5 rounded-2xl border border-white/5">
+                            <span class="text-xs text-zinc-400">Año 2027</span>
+                            <span class="text-xs font-bold">16.00%</span>
+                        </div>
+                        <div class="flex justify-between p-4 bg-white/5 rounded-2xl border border-white/5">
+                            <span class="text-xs text-zinc-400">Año 2028 en adelante</span>
+                            <span class="text-xs font-bold">17.00%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h2 class="text-3xl font-black mb-8 uppercase tracking-tighter">Preguntas Frecuentes (FAQ)</h2>
+                    <div class="space-y-8">
+                        <div>
+                            <h3 class="text-xs font-black uppercase tracking-widest text-white mb-3">¿Cómo calculo el líquido si tengo el bruto?</h3>
+                            <p class="text-sm text-zinc-500 font-light leading-relaxed">Multiplica tu valor bruto por 0.8475. El resultado es el monto que recibirás en tu cuenta bancaria después de impuestos.</p>
+                        </div>
+                        <div>
+                            <h3 class="text-xs font-black uppercase tracking-widest text-white mb-3">¿Por qué aumenta la retención cada año?</h3>
+                            <p class="text-sm text-zinc-500 font-light leading-relaxed">Este aumento progresivo permite que los trabajadores independientes tengan cobertura en salud, pensiones, ley de accidentes del trabajo y ley SANNA.</p>
+                        </div>
+                        <div>
+                            <h3 class="text-xs font-black uppercase tracking-widest text-white mb-3">¿Quién paga la retención de la boleta?</h3>
+                            <p class="text-sm text-zinc-500 font-light leading-relaxed">Si emites la boleta a una empresa, ellos retienen el monto y lo pagan al SII. Si la emites a una persona natural, tú eres responsable de pagar la retención mensualmente.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+     <!-- Si pactaste BRUTO -->
+            <div class="space-y-6">
+                <h2 class="text-xs font-black uppercase tracking-[0.3em] text-zinc-500 border-b border-zinc-900 pb-4">Si pactaste BRUTO</h2>
+                <p class="text-sm text-zinc-400 leading-relaxed font-light">
+                    Si lo pactado fue en valores brutos, deberás hacer la boleta por <span id="bru-bruto" class="text-white font-bold">$0</span> y recibirás:
+                </p>
+                <div class="pt-4">
+                    <span id="bru-final" class="text-5xl font-black text-white">$0</span>
+                    <p class="text-[10px] text-zinc-600 uppercase tracking-widest mt-2">en efectivo / transferencia</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="mt-32 text-center text-zinc-800 text-[10px] font-black uppercase tracking-[0.5em]">
+        <a href="index.html" class="hover:text-white transition-colors">By Dan Tagle . 2026</a>
+    </footer>
+
+    <script>
+        function doMath() {
+            const val = parseFloat(document.getElementById('monto').value) || 0;
+            const rate = parseFloat(document.querySelector('input[name="ret"]:checked').value);
+            const factor = 1 - rate;
+
+            // Escenario 1: Pactaste Líquido (El input es lo que quieres recibir)
+            const b1 = val / factor;
+            document.getElementById('liq-bruto').innerText = '$' + Math.round(b1).toLocaleString('es-CL');
+            document.getElementById('liq-final').innerText = '$' + Math.round(val).toLocaleString('es-CL');
+
+            // Escenario 2: Pactaste Bruto (El input es el valor de la boleta)
+            const l2 = val * factor;
+            document.getElementById('bru-bruto').innerText = '$' + Math.round(val).toLocaleString('es-CL');
+            document.getElementById('bru-final').innerText = '$' + Math.round(l2).toLocaleString('es-CL');
+        }
+    </script>
+</body>
+</html>
