@@ -55,8 +55,8 @@ def generate_content(topic):
     3. Contenido: Mínimo 400 palabras.
     4. Incluye una sección de "Datos Clave" o "Estrategia Táctica".
     5. Termina con una reflexión potente.
-    6. No uses muletillas de IA como "En el vasto mundo...", "En conclusión...".
-    7. Formato: Devuelve un JSON con 'title', 'date', 'slug', 'content_html', 'meta_description'.
+    6. No uses muletillas de IA.
+    7. DEVOLVER ÚNICAMENTE UN OBJETO JSON con las claves: 'title', 'date', 'slug', 'content_html', 'meta_description'.
     
     El 'content_html' debe usar etiquetas <h2>, <h3>, <p>, <strong>, y <ul>.
     """
@@ -69,46 +69,59 @@ def generate_content(topic):
     data = {
         "model": MODEL,
         "messages": [
-            {"role": "system", "content": "Eres un generador de contenido experto que devuelve JSON puro."},
+            {"role": "system", "content": "Eres un experto en marketing y tecnología que responde exclusivamente en formato JSON."},
             {"role": "user", "content": prompt}
         ],
-        "response_format": {"type": "json_object"}
+        "temperature": 0.7
     }
     
-    response = requests.post("https://api.groq.com/openai/v1/chat/completions", headers=headers, json=data)
-    result = response.json()
-    
+    print(f"DEBUG: Llamando a la API de Groq con el modelo {MODEL}...")
+    try:
+        response = requests.post("https://api.groq.com/openai/v1/chat/completions", headers=headers, json=data)
+        response.raise_for_status()
+        result = response.json()
+    except Exception as e:
+        print(f"ERROR CRÍTICO en la llamada a la API: {str(e)}")
+        if 'response' in locals():
+            print(f"Respuesta de la API: {response.text}")
+        exit(1)
+        
     if 'error' in result:
-        print(f"Error de API: {result['error']}")
+        print(f"Error devuelto por la API: {result['error']}")
         exit(1)
         
     raw_content = result['choices'][0]['message']['content']
+    print(f"DEBUG: Respuesta recibida (primeros 100 caracteres): {raw_content[:100]}...")
     
     # Limpiar posibles bloques de código markdown (```json ... ```)
     clean_json = re.sub(r'```json\s*|\s*```', '', raw_content).strip()
     
-    # Si hay texto antes o después del JSON, intentar extraer solo lo que está entre {}
+    # Extraer solo el contenido entre llaves
     try:
-        return json.loads(clean_json)
-    except json.JSONDecodeError:
         match = re.search(r'\{.*\}', clean_json, re.DOTALL)
         if match:
             return json.loads(match.group())
         else:
-            print(f"Error crítico: No se pudo encontrar JSON en la respuesta: {raw_content}")
-            exit(1)
+            return json.loads(clean_json)
+    except Exception as e:
+        print(f"ERROR de parseo JSON: {str(e)}")
+        print(f"Contenido crudo que falló: {raw_content}")
+        exit(1)
 
 def create_article_page(article):
+    print(f"DEBUG: Creando página para '{article['title']}'...")
+    if not os.path.exists(TEMPLATE_FILE):
+        print(f"ERROR: No se encuentra el template en {TEMPLATE_FILE}")
+        exit(1)
+        
     with open(TEMPLATE_FILE, 'r') as f:
         template = f.read()
     
-    # Reemplazar placeholders en el template
     page_content = template.replace("{{TITLE}}", article['title'])
     page_content = page_content.replace("{{DATE}}", article['date'])
     page_content = page_content.replace("{{DESCRIPTION}}", article['meta_description'])
     page_content = page_content.replace("{{CONTENT}}", article['content_html'])
     
-    # Imagen aleatoria de tecnología para el cover (o podrías generarla)
     cover_img = "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1200"
     page_content = page_content.replace("{{COVER_IMAGE}}", cover_img)
     
@@ -118,7 +131,9 @@ def create_article_page(article):
     return filename
 
 def update_indices(article, filename):
-    # Actualizar blog.html (añadir al principio de la lista)
+    print(f"DEBUG: Actualizando índices {BLOG_INDEX} e {INDEX_FILE}...")
+    
+    # Actualizar blog.html
     new_entry = f"""
             <!-- Auto-generated entry: {article['title']} -->
             <a href="{filename}" class="glass-panel p-6 flex flex-col group">
@@ -132,21 +147,16 @@ def update_indices(article, filename):
             </a>
     """
     
-    with open(BLOG_INDEX, 'r') as f:
-        content = f.read()
-    
-    updated_content = content.replace('<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">', f'<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">\n{new_entry}')
-    
-    with open(BLOG_INDEX, 'w') as f:
-        f.write(updated_content)
-    
-    # Actualizar index.html (sección preview)
-    # Buscamos el primer link del blog y lo reemplazamos por el nuevo
-    with open(INDEX_FILE, 'r') as f:
-        home_content = f.read()
-    
-    # Esta es una forma simple de rotar el preview: 
-    # insertamos el nuevo y quitamos el último de la lista de 3
+    if os.path.exists(BLOG_INDEX):
+        with open(BLOG_INDEX, 'r') as f:
+            content = f.read()
+        updated_content = content.replace('<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">', f'<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">\n{new_entry}')
+        with open(BLOG_INDEX, 'w') as f:
+            f.write(updated_content)
+    else:
+        print(f"WARNING: No se encontró {BLOG_INDEX}")
+
+    # Actualizar index.html
     new_home_entry = f"""
                 <a href="{filename}" class="glass-panel p-6 group reveal">
                     <div class="rounded-2xl overflow-hidden aspect-video mb-6 grayscale group-hover:grayscale-0 transition-all duration-500">
@@ -158,11 +168,14 @@ def update_indices(article, filename):
                 </a>
     """
     
-    # Insertar después del div de grid
-    home_updated = home_content.replace('<div class="grid grid-cols-1 md:grid-cols-3 gap-8">', f'<div class="grid grid-cols-1 md:grid-cols-3 gap-8">\n{new_home_entry}')
-    
-    with open(INDEX_FILE, 'w') as f:
-        f.write(home_updated)
+    if os.path.exists(INDEX_FILE):
+        with open(INDEX_FILE, 'r') as f:
+            home_content = f.read()
+        home_updated = home_content.replace('<div class="grid grid-cols-1 md:grid-cols-3 gap-8">', f'<div class="grid grid-cols-1 md:grid-cols-3 gap-8">\n{new_home_entry}')
+        with open(INDEX_FILE, 'w') as f:
+            f.write(home_updated)
+    else:
+        print(f"WARNING: No se encontró {INDEX_FILE}")
 
 if __name__ == "__main__":
     if not GROQ_API_KEY:
