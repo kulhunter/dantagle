@@ -8,188 +8,237 @@
     
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@0.473.0/dist/umd/lucide.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;300;400;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     
     <style>
-        :root { --accent: #06b6d4; }
-        body { font-family: 'Outfit', sans-serif; background-color: #050505; color: #f4f4f5; overflow-x: hidden; }
-        .bg-mesh { background-image: radial-gradient(circle at 50% -20%, rgba(6, 182, 212, 0.15) 0%, transparent 50%); }
-        .glass-nav { background: rgba(5, 5, 5, 0.6); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.05); }
-        .text-huge { font-size: clamp(3.5rem, 15vw, 12rem); line-height: 0.8; letter-spacing: -0.06em; font-weight: 900; }
-        .text-aeo { color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.4em; }
-        .reveal { opacity:1; transform:translateY(0); transition:all 0.8s cubic-bezier(0.19, 1, 0.22, 1); }
-        .bento-card { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 2.5rem; transition: all 0.5s; overflow: hidden; }
-        .bento-card:hover { border-color: var(--accent); background: rgba(255,255,255,0.04); }
+        :root { --accent: #06b6d4; --bg: #050505; }
+        body { font-family: 'Outfit', sans-serif; background-color: var(--bg); color: #f4f4f5; overflow-x: hidden; }
+        
+        /* Organic Texture */
+        .noise { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; opacity: 0.05; z-index: 9999; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"); }
+        
+        .bg-mesh { background-image: radial-gradient(circle at 80% 20%, rgba(6, 182, 212, 0.08) 0%, transparent 40%), radial-gradient(circle at 20% 80%, rgba(6, 182, 212, 0.05) 0%, transparent 40%); }
+        
+        .text-huge { font-size: clamp(4rem, 18vw, 16rem); line-height: 0.75; letter-spacing: -0.07em; font-weight: 900; }
+        .text-vertical { writing-mode: vertical-rl; transform: rotate(180deg); }
+        
+        .reveal { opacity: 0; transform: translateY(40px); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        
+        .bento-card { background: rgba(255,255,255,0.01); border: 1px solid rgba(255,255,255,0.03); border-radius: 0; transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1); position: relative; }
+        .bento-card:hover { background: rgba(255,255,255,0.03); border-color: var(--accent); }
+        
+        .btn-industrial { position: relative; overflow: hidden; padding: 1.5rem 3rem; background: transparent; border: 1px solid rgba(255,255,255,0.1); color: #fff; font-size: 0.7rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.3em; transition: all 0.4s; }
+        .btn-industrial:hover { border-color: var(--accent); color: var(--accent); padding-left: 4rem; }
+        
+        .ticker { white-space: nowrap; animation: ticker 30s linear infinite; font-family: 'JetBrains Mono', monospace; }
+        @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        
+        .line-accent { height: 1px; background: linear-gradient(90deg, transparent, var(--accent), transparent); width: 100%; }
+        
+        /* Customized Scrollbar */
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: #000; }
+        ::-webkit-scrollbar-thumb { background: #111; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
     </style>
 </head>
 <body class="bg-mesh">
-    <!-- Navbar -->
-    <nav class="fixed top-0 w-full z-50 glass-nav py-6 px-8 md:px-20 flex justify-between items-center">
-        <a href="index.html" class="text-xl font-black tracking-tighter uppercase">DAN TAGLE <span class="text-cyan-500">.</span></a>
-        <div class="hidden lg:flex gap-12 text-[10px] font-black uppercase tracking-[0.4em] text-zinc-500">
-            <a href="casos.html" class="hover:text-white transition-all">Casos</a>
-            <a href="desarrollos.html" class="hover:text-white transition-all">Desarrollos</a>
-            <a href="blog.html" class="hover:text-white transition-all">Pensamiento</a>
-            <a href="#contacto" class="hover:text-white transition-all">Contacto</a>
+    <div class="noise"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 py-10 px-8 md:px-20 flex justify-between items-center mix-blend-difference">
+        <a href="index.html" class="text-2xl font-black tracking-tighter uppercase leading-none">DT <span class="text-cyan-500 text-4xl leading-none">.</span></a>
+        <div class="hidden lg:flex gap-16 text-[9px] font-black uppercase tracking-[0.5em] text-zinc-500">
+            <a href="casos.html" class="hover:text-white transition-all">Archive</a>
+            <a href="desarrollos.html" class="hover:text-white transition-all">SaaS</a>
+            <a href="blog.html" class="hover:text-white transition-all">Thoughts</a>
         </div>
-        <a href="https://calendly.com/dan-tagle/30min" target="_blank" class="text-[10px] font-black uppercase tracking-widest border border-white/20 px-8 py-3 rounded-full hover:bg-white hover:text-black transition-all">Agendar</a>
+        <a href="https://calendly.com/dan-tagle/30min" target="_blank" class="text-[9px] font-black uppercase tracking-[0.3em] border-b border-white/20 pb-2 hover:border-cyan-500 transition-all">Agenda Strategy</a>
     </nav>
 
-    <!-- Hero Section: Global #1 Authority -->
-    <header class="pt-64 pb-32 px-8 md:px-20 container mx-auto">
-        <div class="flex flex-col md:flex-row justify-between items-end gap-10">
-            <div class="flex-1">
-                <span class="text-aeo mb-8 block">// #1 GLOBAL CREATIVE TECHNOLOGIST (CREATIVEPOOL)</span>
-                <h1 class="text-huge uppercase mb-12">Growth <br> <span class="text-cyan-500">Orchestrator.</span></h1>
-                <p class="text-xl md:text-2xl text-zinc-400 font-light max-w-2xl leading-relaxed">
-                    No vendo sitios web. Destrabo procesos de negocio mediante tecnología creativa y automatización estratégica. De un flyer a un SaaS completo.
+    <!-- Hero: The Brutalist Impact -->
+    <header class="min-h-screen flex flex-col justify-center px-8 md:px-20 relative overflow-hidden">
+        <div class="absolute top-1/4 right-0 opacity-5 pointer-events-none select-none hidden lg:block">
+            <span class="text-[30rem] font-black leading-none uppercase">ORCHESTRA</span>
+        </div>
+        
+        <div class="relative z-10">
+            <span class="text-cyan-500 font-mono text-[10px] tracking-[0.5em] mb-10 block reveal">// CREATIVE TECHNOLOGIST #1</span>
+            <h1 class="text-huge uppercase mb-16 reveal">
+                Orquestar <br> 
+                <span class="italic font-light">el</span> impacto <span class="text-cyan-500">.</span>
+            </h1>
+            <div class="flex flex-col md:flex-row gap-20 items-start reveal">
+                <p class="text-xl md:text-3xl text-zinc-500 font-extralight max-w-2xl leading-[1.1] tracking-tight">
+                    Desde un flyer estratégico hasta arquitecturas SaaS complejas. Destrabo negocios mediante <span class="text-white font-medium">ingeniería creativa</span> y automatización absoluta.
                 </p>
-            </div>
-            <div class="pb-4 opacity-30 text-[10px] font-black uppercase tracking-widest hidden lg:block">
-                SANTIAGO, CHILE <br> 2026 EDITION
+                <div class="flex flex-col gap-4">
+                    <span class="text-[10px] font-black text-zinc-700 uppercase tracking-widest">Rate</span>
+                    <span class="text-4xl font-black">1 UF <span class="text-xs opacity-30">/ HR</span></span>
+                </div>
             </div>
         </div>
     </header>
 
-    <!-- Diagnosis System: The Interaction -->
-    <section class="py-32 px-8 md:px-20 container mx-auto">
-        <div class="bento-card p-12 md:p-20 border-cyan-500/20">
-            <span class="text-aeo mb-8 block">MOTOR DE DIAGNÓSTICO IA</span>
-            <h2 class="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-12">¿Cuál es tu fricción <br> de negocio <span class="text-cyan-500">hoy?</span></h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12">
-                <button onclick="showRecommendation(0)" class="text-left p-6 bg-white/5 rounded-2xl border border-white/5 hover:border-cyan-500 transition-all text-sm font-bold uppercase tracking-widest">Mis ventas están estancadas</button>
-                <button onclick="showRecommendation(1)" class="text-left p-6 bg-white/5 rounded-2xl border border-white/5 hover:border-cyan-500 transition-all text-sm font-bold uppercase tracking-widest">No aparezco en las respuestas de IA</button>
-                <button onclick="showRecommendation(2)" class="text-left p-6 bg-white/5 rounded-2xl border border-white/5 hover:border-cyan-500 transition-all text-sm font-bold uppercase tracking-widest">Mi UX es confusa y pierdo usuarios</button>
-                <button onclick="showRecommendation(3)" class="text-left p-6 bg-white/5 rounded-2xl border border-white/5 hover:border-cyan-500 transition-all text-sm font-bold uppercase tracking-widest">Tengo procesos manuales lentos</button>
+    <!-- Ticker Section -->
+    <div class="py-10 border-y border-white/5 overflow-hidden">
+        <div class="ticker flex gap-20 text-[10px] font-black uppercase tracking-[0.6em] text-zinc-800">
+            <span>GLOBAL RANKING #1</span> <span>CREATIVE TECHNOLOGIST</span> <span>SEO AI DOMINATION</span> <span>SAAS ARCHITECTURE</span> <span>B2B AUTOMATION</span>
+            <span>GLOBAL RANKING #1</span> <span>CREATIVE TECHNOLOGIST</span> <span>SEO AI DOMINATION</span> <span>SAAS ARCHITECTURE</span> <span>B2B AUTOMATION</span>
+        </div>
+    </div>
+
+    <!-- Diagnosis: The Tactical Interface -->
+    <section class="py-48 px-8 md:px-20 container mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-20 items-start">
+            <div class="lg:col-span-4 reveal">
+                <span class="text-cyan-500 font-mono text-[10px] tracking-[0.5em] mb-8 block">// DIAGNÓSTICO</span>
+                <h2 class="text-6xl font-black uppercase tracking-tighter leading-none mb-12">¿Qué <br> te duele <br> hoy?</h2>
+                <p class="text-zinc-600 font-light text-lg">Selecciona tu fricción de negocio para orquestar una solución inmediata.</p>
             </div>
-            
-            <div id="diagnosisResult" class="hidden p-10 bg-cyan-500/10 border border-cyan-500/30 rounded-3xl animate-in fade-in slide-in-from-bottom-4">
-                <div class="flex items-center gap-4 mb-4">
-                    <i data-lucide="brain-circuit" class="w-6 h-6 text-cyan-500"></i>
-                    <span class="text-[10px] font-black uppercase tracking-widest text-cyan-500">RECOMENDACIÓN TÁCTICA</span>
-                </div>
-                <p id="recommendationText" class="text-lg text-zinc-300 font-light italic mb-8"></p>
-                <a id="recommendationLink" href="#" class="text-[10px] font-black uppercase tracking-widest border-b border-cyan-500 pb-1 text-white">Ver Solución Relacionada →</a>
+            <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-px bg-white/5 border border-white/5 reveal">
+                <button onclick="showRecommendation(0)" class="p-16 bg-bg text-left hover:bg-white/5 transition-all group">
+                    <span class="text-[10px] text-zinc-800 mb-4 block group-hover:text-cyan-500 transition-colors">01</span>
+                    <h3 class="text-2xl font-black uppercase tracking-tight">Ventas estancadas</h3>
+                </button>
+                <button onclick="showRecommendation(1)" class="p-16 bg-bg text-left hover:bg-white/5 transition-all group">
+                    <span class="text-[10px] text-zinc-800 mb-4 block group-hover:text-cyan-500 transition-colors">02</span>
+                    <h3 class="text-2xl font-black uppercase tracking-tight">Invisibilidad IA</h3>
+                </button>
+                <button onclick="showRecommendation(2)" class="p-16 bg-bg text-left hover:bg-white/5 transition-all group">
+                    <span class="text-[10px] text-zinc-800 mb-4 block group-hover:text-cyan-500 transition-colors">03</span>
+                    <h3 class="text-2xl font-black uppercase tracking-tight">UX / Conversión baja</h3>
+                </button>
+                <button onclick="showRecommendation(3)" class="p-16 bg-bg text-left hover:bg-white/5 transition-all group">
+                    <span class="text-[10px] text-zinc-800 mb-4 block group-hover:text-cyan-500 transition-colors">04</span>
+                    <h3 class="text-2xl font-black uppercase tracking-tight">Procesos manuales</h3>
+                </button>
             </div>
+        </div>
+        
+        <div id="diagnosisResult" class="hidden mt-12 p-20 border border-cyan-500/20 bg-cyan-500/5 reveal">
+            <p id="recommendationText" class="text-3xl md:text-5xl font-black uppercase tracking-tighter text-white leading-tight mb-12"></p>
+            <a id="recommendationLink" href="#" class="btn-industrial inline-block">Ver Caso de Éxito</a>
         </div>
     </section>
 
-    <!-- The Titan Suite: Core Developments -->
-    <section class="py-32 px-8 md:px-20 container mx-auto">
-        <div class="flex justify-between items-end mb-16">
-            <div>
-                <span class="text-aeo mb-4 block">INFRAESTRUCTURA TÁCTICA</span>
-                <h2 class="text-5xl font-black uppercase tracking-tighter">The Titan Suite.</h2>
+    <!-- The Titan Suite: Industrial Grid -->
+    <section class="py-48 px-8 md:px-20 container mx-auto">
+        <div class="flex justify-between items-end mb-32 reveal">
+            <h2 class="text-8xl font-black uppercase tracking-tighter leading-none italic">The Titan <br> Suite <span class="text-cyan-500">.</span></h2>
+            <div class="hidden lg:block text-right">
+                <span class="text-[10px] font-black text-zinc-700 uppercase tracking-widest block mb-4">Core Developments</span>
+                <a href="desarrollos.html" class="text-xs font-black uppercase tracking-widest border-b border-zinc-800 pb-2">Full Archive</a>
             </div>
-            <a href="desarrollos.html" class="text-[10px] font-black uppercase tracking-widest text-cyan-500 hover:text-white transition-all">Ver todos los desarrollos →</a>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="developmentsGrid">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12" id="developmentsGrid">
             <!-- Rendered via JS -->
         </div>
     </section>
 
-    <!-- Strategic Archive: Dynamic Cases -->
-    <section class="py-32 px-8 md:px-20 container mx-auto">
-        <div class="flex justify-between items-end mb-16">
-            <div>
-                <span class="text-aeo mb-4 block">ARCHIVO DE IMPACTO</span>
-                <h2 class="text-5xl font-black uppercase tracking-tighter italic">Casos de Éxito.</h2>
-            </div>
-            <button onclick="renderCases()" class="text-[10px] font-black uppercase tracking-widest text-zinc-500 hover:text-white transition-all">Rotar Selección ↻</button>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" id="casesGrid">
-            <!-- Rendered via JS -->
-        </div>
-    </section>
-
-    <!-- Digital Quoter: WhatsApp Tool -->
-    <section class="py-32 px-8 md:px-20 container mx-auto">
-        <div class="bento-card p-12 md:p-20">
-            <div class="max-w-2xl">
-                <span class="text-aeo mb-8 block">COTIZADOR DE ORQUESTACIÓN</span>
-                <h2 class="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-12">Presupuesta tu <span class="text-cyan-500">salto.</span></h2>
-                
-                <div class="space-y-8">
-                    <div>
-                        <label class="text-[10px] font-black uppercase tracking-widest text-zinc-500 mb-4 block">¿Qué necesitas orquestar?</label>
-                        <select id="quoteType" class="w-full bg-white/5 border border-white/10 rounded-2xl p-6 outline-none focus:border-cyan-500 text-sm">
-                            <option value="SaaS / App">SaaS / Desarrollo de Aplicación</option>
-                            <option value="E-commerce Automation">E-commerce & Automatización</option>
-                            <option value="AEO / SEO Strategy">Estrategia AEO / SEO IA</option>
-                            <option value="Branding & Design">Branding & Diseño Estratégico</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="text-[10px] font-black uppercase tracking-widest text-zinc-500 mb-4 block">Tarifa Plana de Ejecución</label>
-                        <div class="p-8 bg-cyan-500/5 border border-cyan-500/20 rounded-2xl flex justify-between items-center">
-                            <span class="text-2xl font-black text-white">1 UF <span class="text-xs opacity-50">/ HORA</span></span>
-                            <span class="text-[8px] font-bold uppercase tracking-widest text-cyan-500">BOLETA SII LÍQUIDO</span>
-                        </div>
-                    </div>
-                    <button onclick="sendQuote()" class="w-full py-6 bg-white text-black font-black uppercase tracking-widest rounded-2xl hover:bg-cyan-500 transition-all">Solicitar Cotización vía WhatsApp</button>
+    <!-- Strategic Archive: Dynamic & Brutalist -->
+    <section class="py-48 bg-zinc-900/10">
+        <div class="px-8 md:px-20 container mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-start gap-10 mb-32 reveal">
+                <h2 class="text-huge uppercase leading-none opacity-10">Archive</h2>
+                <div class="max-w-xl">
+                    <span class="text-cyan-500 font-mono text-[10px] tracking-[0.5em] mb-8 block">// 19 CASE STUDIES</span>
+                    <p class="text-4xl font-black uppercase tracking-tighter leading-none mb-12">Selección táctica de impacto orquestado.</p>
+                    <button onclick="renderCases()" class="btn-industrial">Rotar Selección ↻</button>
                 </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12" id="casesGrid">
+                <!-- Rendered via JS -->
             </div>
         </div>
     </section>
 
-    <!-- Blog: Thoughts -->
-    <section class="py-32 px-8 md:px-20 container mx-auto">
-        <div class="flex justify-between items-end mb-16">
-            <div>
-                <span class="text-aeo mb-4 block">PENSAMIENTO ESTRATÉGICO</span>
-                <h2 class="text-5xl font-black uppercase tracking-tighter italic text-cyan-500">El Blog.</h2>
-            </div>
-            <a href="blog.html" class="text-[10px] font-black uppercase tracking-widest text-zinc-500 hover:text-white transition-all">Ver todo →</a>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <!-- NEXT_POST_HERE -->
-             <a href="blog/el-trafico-web-esta-muriendo-google.html" class="group block bento-card p-4">
-                <div class="rounded-2xl overflow-hidden aspect-video mb-6 grayscale group-hover:grayscale-0 transition-all duration-700">
-                    <img src="https://media.licdn.com/dms/image/v2/D4D12AQEDpUKDnvs6Ng/article-cover_image-shrink_720_1280/B4DZwA1L94J0AI-/0/1769540472568?e=2147483647&v=beta&t=uUSY4PGmiwuRht_UCWoO2WzqoOuQYXilM3yAmbB8tRI" class="w-full h-full object-cover">
+    <!-- Cotizador: Professional Quoter -->
+    <section class="py-48 px-8 md:px-20 container mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-20 items-center">
+            <div class="lg:col-span-5 reveal">
+                <h2 class="text-7xl font-black uppercase tracking-tighter leading-none mb-12">Cotiza <br> tu <br> salto <span class="text-cyan-500">.</span></h2>
+                <p class="text-zinc-600 text-lg font-light mb-12">Define el alcance de tu orquestación y recibe una estimación directa.</p>
+                <div class="space-y-4">
+                    <div class="p-8 border border-white/5 flex justify-between items-center bg-white/20">
+                        <span class="text-xs font-black uppercase tracking-widest">Fee Ejecutivo</span>
+                        <span class="text-2xl font-black uppercase">1 UF / Hr</span>
+                    </div>
                 </div>
-                <h4 class="text-lg font-black uppercase tracking-tight group-hover:text-cyan-500 transition-colors">El tráfico web está muriendo. Google no.</h4>
-             </a>
+            </div>
+            <div class="lg:col-span-7 reveal">
+                <div class="p-12 md:p-20 border border-white/5 bg-zinc-900/20">
+                    <label class="text-[9px] font-black uppercase tracking-widest text-zinc-500 mb-6 block">Tipo de Proyecto</label>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12">
+                        <label class="p-6 border border-white/10 cursor-pointer hover:border-cyan-500 transition-all">
+                            <input type="radio" name="projType" value="SaaS" class="hidden" checked>
+                            <span class="text-[10px] font-black uppercase tracking-widest">SaaS / Arquitectura</span>
+                        </label>
+                        <label class="p-6 border border-white/10 cursor-pointer hover:border-cyan-500 transition-all">
+                            <input type="radio" name="projType" value="Automation" class="hidden">
+                            <span class="text-[10px] font-black uppercase tracking-widest">Automatización B2B</span>
+                        </label>
+                        <label class="p-6 border border-white/10 cursor-pointer hover:border-cyan-500 transition-all">
+                            <input type="radio" name="projType" value="AEO" class="hidden">
+                            <span class="text-[10px] font-black uppercase tracking-widest">Estrategia AEO / IA</span>
+                        </label>
+                        <label class="p-6 border border-white/10 cursor-pointer hover:border-cyan-500 transition-all">
+                            <input type="radio" name="projType" value="Flyer" class="hidden">
+                            <span class="text-[10px] font-black uppercase tracking-widest">Diseño Estratégico</span>
+                        </label>
+                    </div>
+                    <button onclick="sendQuote()" class="btn-industrial w-full py-8 text-lg">Solicitar vía WhatsApp</button>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Footer: Network of Trust -->
-    <footer class="py-48 px-8 md:px-20 border-t border-white/5 bg-zinc-900/40 mt-32">
-        <div class="container mx-auto">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-20 mb-32">
-                <div class="lg:col-span-4">
-                    <span class="text-2xl font-black tracking-tighter uppercase mb-8 block">DAN TAGLE <span class="text-cyan-500">.</span></span>
-                    <p class="text-zinc-500 font-light text-sm leading-relaxed mb-12">
-                        Growth Orchestrator & Creative Technologist. Destrabando el futuro de los negocios mediante ingeniería creativa.
-                    </p>
-                    <div class="flex gap-6">
-                        <a href="https://www.linkedin.com/in/taglecl/" class="hover:text-white transition-colors"><i data-lucide="linkedin" class="w-4 h-4 text-zinc-600"></i></a>
-                        <a href="https://github.com/kulhunter" class="hover:text-white transition-colors"><i data-lucide="github" class="w-4 h-4 text-zinc-600"></i></a>
-                    </div>
-                </div>
-                <div class="lg:col-span-8 grid grid-cols-2 md:grid-cols-4 gap-10">
-                    <div class="space-y-6">
-                        <span class="text-[10px] font-black uppercase tracking-widest text-white">RECURSOS</span>
-                        <ul class="space-y-4 text-[10px] font-black uppercase tracking-widest text-zinc-600">
-                            <li><a href="desarrollos.html" class="hover:text-cyan-500 transition-all">Sueldo Líquido</a></li>
-                            <li><a href="uf.html" class="hover:text-cyan-500 transition-all">Valor UF Hoy</a></li>
-                            <li><a href="calculadora-utm.html" class="hover:text-cyan-500 transition-all">UTM Alimentos</a></li>
-                        </ul>
-                    </div>
-                    <div class="space-y-6">
-                        <span class="text-[10px] font-black uppercase tracking-widest text-white">AUTORIDAD</span>
-                        <ul class="space-y-4 text-[10px] font-black uppercase tracking-widest text-zinc-600">
-                            <li><a href="https://creativepool.com/top-25/creative-technologists/" target="_blank" class="hover:text-cyan-500 transition-all">Creativepool #1</a></li>
-                            <li><a href="https://www.adlatina.com/campa%C3%B1as/maps-with-memory" target="_blank" class="hover:text-cyan-500 transition-all">Adlatina Insight</a></li>
-                            <li><a href="https://www.duoc.cl/eventos/el-viaje-del-consumidor-mitos-y-realidades-del-marketing-digital/" target="_blank" class="hover:text-cyan-500 transition-all">Duoc UC</a></li>
-                        </ul>
-                    </div>
+    <!-- Footer: The Wall of Fame -->
+    <footer class="py-48 px-8 md:px-20 border-t border-white/10 relative overflow-hidden">
+        <div class="absolute bottom-0 right-0 opacity-[0.02] text-[20rem] font-black tracking-tighter leading-none select-none pointer-events-none">TAGLE</div>
+        
+        <div class="container mx-auto grid grid-cols-1 lg:grid-cols-12 gap-20">
+            <div class="lg:col-span-4">
+                <span class="text-4xl font-black uppercase tracking-tighter mb-12 block">DAN TAGLE <span class="text-cyan-500">.</span></span>
+                <p class="text-zinc-600 text-sm leading-relaxed mb-12 uppercase tracking-tight font-light">
+                    #1 Global Creative Technologist (Creativepool). <br>
+                    Orquestando el crecimiento de PyMEs y Corporaciones <br>
+                    desde el diseño a la arquitectura SaaS.
+                </p>
+                <div class="flex gap-8">
+                    <a href="https://www.linkedin.com/in/taglecl/" class="hover:text-white transition-colors"><i data-lucide="linkedin" class="w-4 h-4"></i></a>
+                    <a href="https://github.com/kulhunter" class="hover:text-white transition-colors"><i data-lucide="github" class="w-4 h-4"></i></a>
                 </div>
             </div>
-            <div class="pt-10 border-t border-white/5 flex justify-between items-center opacity-30 text-[9px] font-black uppercase tracking-[0.4em]">
-                <span>© 2026 DAN TAGLE / ALL RIGHTS RESERVED</span>
-                <span>CHILE · LATAM · GLOBAL</span>
+            
+            <div class="lg:col-span-8 grid grid-cols-2 md:grid-cols-3 gap-12">
+                <div class="space-y-6">
+                    <span class="text-[9px] font-black uppercase tracking-[0.4em] text-cyan-500 block mb-8">Authority</span>
+                    <ul class="space-y-4 text-[10px] font-bold uppercase tracking-widest text-zinc-500">
+                        <li><a href="https://creativepool.com/top-25/creative-technologists/" target="_blank" class="hover:text-white">Creativepool #1</a></li>
+                        <li><a href="https://www.adlatina.com/campa%C3%B1as/maps-with-memory" target="_blank" class="hover:text-white">Adlatina Insight</a></li>
+                        <li><a href="https://www.duoc.cl/eventos/el-viaje-del-consumidor-mitos-y-realidades-del-marketing-digital/" target="_blank" class="hover:text-white">Duoc Masterclass</a></li>
+                        <li><a href="https://www.elojodeiberoamerica.com" target="_blank" class="hover:text-white">El Ojo Jury</a></li>
+                    </ul>
+                </div>
+                <div class="space-y-6">
+                    <span class="text-[9px] font-black uppercase tracking-[0.4em] text-cyan-500 block mb-8">Ecosystem</span>
+                    <ul class="space-y-4 text-[10px] font-bold uppercase tracking-widest text-zinc-500">
+                        <li><a href="blog.html" class="hover:text-white">Strategic Blog</a></li>
+                        <li><a href="desarrollos.html" class="hover:text-white">Utility Suite</a></li>
+                        <li><a href="casos.html" class="hover:text-white">Project Archive</a></li>
+                    </ul>
+                </div>
+                <div class="space-y-6">
+                    <span class="text-[9px] font-black uppercase tracking-[0.4em] text-cyan-500 block mb-8">Location</span>
+                    <span class="text-[10px] font-bold uppercase tracking-widest text-zinc-700 block">SANTIAGO, CHILE <br> REMOTE WORLDWIDE</span>
+                </div>
             </div>
+        </div>
+        <div class="mt-48 pt-10 border-t border-white/5 flex justify-between items-center text-[8px] font-black uppercase tracking-[0.6em] text-zinc-800">
+            <span>© 2026 ARCHITECTING GROWTH</span>
+            <span>TOP 1 GLOBAL CREATIVE TECHNOLOGIST</span>
         </div>
     </footer>
 
@@ -198,27 +247,31 @@
         function renderCases() {
             const grid = document.getElementById('casesGrid');
             const featured = getFeaturedCases(4);
-            grid.innerHTML = featured.map(c => `
-                <a href="${c.link}" class="tool-card p-8 group reveal animate-in fade-in duration-700">
-                    <span class="text-[8px] font-black uppercase tracking-widest text-cyan-500 mb-4 block">${c.category}</span>
-                    <h4 class="text-lg font-black uppercase mb-4 leading-tight group-hover:text-white">${c.title}</h4>
-                    <p class="text-zinc-500 text-[10px] font-light mb-6 line-clamp-2">${c.description}</p>
-                    <div class="flex gap-2">
-                        ${c.tags.map(t => `<span class="px-2 py-1 bg-white/5 rounded-md text-[6px] font-bold uppercase tracking-widest">${t}</span>`).join('')}
+            grid.innerHTML = featured.map((c, i) => `
+                <a href="${c.link}" class="p-16 border border-white/5 hover:border-cyan-500 transition-all group flex flex-col justify-between h-[400px]">
+                    <div>
+                        <span class="text-[10px] font-mono text-zinc-800 group-hover:text-cyan-500 block mb-8">CASE STUDY 0${i+1}</span>
+                        <h4 class="text-5xl font-black uppercase tracking-tighter leading-none mb-8 group-hover:text-white">${c.title}</h4>
+                        <p class="text-zinc-600 text-sm font-light uppercase tracking-tight">${c.description}</p>
+                    </div>
+                    <div class="flex gap-4">
+                        ${c.tags.map(t => `<span class="text-[8px] font-black uppercase tracking-widest border border-zinc-900 px-4 py-2">${t}</span>`).join('')}
                     </div>
                 </a>
             `).join('');
+            lucide.createIcons();
         }
 
         function renderDevelopments() {
             const grid = document.getElementById('developmentsGrid');
             grid.innerHTML = MASTER_DATA.developments.map(d => `
-                <a href="${d.link}" class="bento-card p-10 group">
-                    <i data-lucide="${d.icon}" class="w-8 h-8 text-cyan-500 mb-6"></i>
-                    <h3 class="text-2xl font-black uppercase mb-2 group-hover:text-white">${d.title}</h3>
-                    <p class="text-zinc-500 text-xs font-light">${d.desc}</p>
+                <a href="${d.link}" class="p-12 border border-white/5 hover:border-cyan-500 group transition-all">
+                    <i data-lucide="${d.icon}" class="w-10 h-10 text-cyan-500 mb-10 opacity-30 group-hover:opacity-100 transition-all"></i>
+                    <h3 class="text-3xl font-black uppercase tracking-tighter mb-4 group-hover:text-white">${d.title}</h3>
+                    <p class="text-zinc-600 text-[10px] font-bold uppercase tracking-widest">${d.desc}</p>
                 </a>
             `).join('');
+            lucide.createIcons();
         }
 
         function showRecommendation(index) {
@@ -229,12 +282,15 @@
             
             text.innerHTML = diag.recommendation;
             result.classList.remove('hidden');
-            lucide.createIcons();
+            result.classList.add('active');
+            window.scrollTo({ top: result.offsetTop - 200, behavior: 'smooth' });
         }
 
         function sendQuote() {
-            const type = document.getElementById('quoteType').value;
-            const message = `Hola Dan, me interesa orquestar una solución de ${type}. Vengo de tu sitio dantagle.cl y me gustaría agendar una llamada estratégica.`;
+            const types = document.getElementsByName('projType');
+            let selected = "General Strategy";
+            for(let t of types) if(t.checked) selected = t.value;
+            const message = `Hola Dan, me interesa orquestar una solución de ${selected}. Vengo de dantagle.cl y busco impacto real.`;
             window.open(`https://wa.me/56930219665?text=${encodeURIComponent(message)}`, '_blank');
         }
 
@@ -242,6 +298,11 @@
             lucide.createIcons();
             renderCases();
             renderDevelopments();
+            
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
         });
     </script>
 </body>
