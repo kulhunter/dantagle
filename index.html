@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dan Tagle | Soluciones Digitales & Desarrollo SaaS</title>
-    <meta name="description" content="Desarrollo de software, automatización B2B y estrategias de crecimiento real. Casos de éxito con Ssangyong, Bupa, Tenpo y más.">
+    <title>Dan Tagle | Digital Solutions & SaaS Development</title>
+    <meta name="description" content="Software development, B2B automation, and real growth strategies. Success stories with Ssangyong, Bupa, Tenpo, and more.">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@0.473.0/dist/umd/lucide.min.js"></script>
@@ -12,94 +12,134 @@
     
     <style>
         :root { --accent: #06b6d4; --bg: #050505; }
-        body { font-family: 'Outfit', sans-serif; background-color: var(--bg); color: #f4f4f5; overflow-x: hidden; }
+        body { font-family: 'Outfit', sans-serif; background-color: var(--bg); color: #f4f4f5; overflow-x: hidden; font-size: 16px; }
         .noise { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; opacity: 0.05; z-index: 9999; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"); }
-        .bg-mesh { background-image: radial-gradient(circle at 80% 20%, rgba(6, 182, 212, 0.05) 0%, transparent 40%); }
-        .text-huge { font-size: clamp(3rem, 15vw, 12rem); line-height: 0.85; letter-spacing: -0.05em; font-weight: 900; }
+        .bg-mesh { background-image: radial-gradient(circle at 80% 20%, rgba(6, 182, 212, 0.08) 0%, transparent 40%); }
+        .text-huge { font-size: clamp(3.5rem, 15vw, 12rem); line-height: 0.85; letter-spacing: -0.05em; font-weight: 900; }
         .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
         .reveal.active { opacity: 1; transform: translateY(0); }
+        
+        /* Mobile Nav */
+        #mobile-menu { transform: translateX(100%); transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1); }
+        #mobile-menu.open { transform: translateX(0); }
+        
+        .glass-nav { background: rgba(5, 5, 5, 0.85); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.08); }
         .btn-direct { padding: 1.2rem 2.5rem; background: #fff; color: #000; font-weight: 900; text-transform: uppercase; letter-spacing: 0.1em; border-radius: 0.5rem; transition: all 0.3s; }
         .btn-direct:hover { background: var(--accent); transform: scale(1.05); }
+        
+        /* Readability fixes */
+        .text-readable { color: #d4d4d8; line-height: 1.6; font-size: 1.1rem; }
+        .text-accent-soft { color: #a1a1aa; font-size: 0.875rem; letter-spacing: 0.05em; }
+        .creativepool-badge { filter: drop-shadow(0 0 20px rgba(6, 182, 212, 0.2)); }
     </style>
 </head>
 <body class="bg-mesh">
     <div class="noise"></div>
 
-    <nav class="fixed top-0 w-full z-50 py-8 px-8 md:px-20 flex justify-between items-center bg-black/50 backdrop-blur-md border-b border-white/5">
-        <a href="index.html" class="text-xl font-black tracking-tighter uppercase">DAN TAGLE <span class="text-cyan-500">.</span></a>
-        <div class="hidden lg:flex gap-12 text-[10px] font-black uppercase tracking-[0.3em] text-zinc-500">
-            <a href="casos.html" class="hover:text-white transition-all">Casos Reales</a>
-            <a href="desarrollos.html" class="hover:text-white transition-all">Apps & Software</a>
-            <a href="blog.html" class="hover:text-white transition-all">Blog</a>
+    <!-- Sticky Navigation -->
+    <nav class="fixed top-0 w-full z-[100] glass-nav py-5 px-6 md:px-12 flex justify-between items-center">
+        <div class="flex items-center gap-10">
+            <a href="index.html" class="text-2xl font-black tracking-tighter uppercase">DAN TAGLE <span class="text-cyan-500">.</span></a>
+            <div class="hidden lg:flex gap-8 text-xs font-black uppercase tracking-[0.2em] text-zinc-400">
+                <a href="casos.html" data-i18n="nav_cases" class="hover:text-white transition-all">Casos Reales</a>
+                <a href="desarrollos.html" data-i18n="nav_apps" class="hover:text-white transition-all">Apps & Software</a>
+                <a href="blog.html" data-i18n="nav_blog" class="hover:text-white transition-all">Blog</a>
+            </div>
         </div>
-        <a href="https://wa.me/56930219665" class="text-[10px] font-black uppercase tracking-widest bg-white/10 px-6 py-3 rounded-md hover:bg-white hover:text-black transition-all">Contacto Directo</a>
+        
+        <div class="flex items-center gap-6">
+            <div class="flex gap-3 items-center bg-white/5 px-3 py-1.5 rounded-full border border-white/10">
+                <span onclick="setLanguage('es')" class="cursor-pointer hover:scale-125 transition-transform" id="btn-es">🇪🇸</span>
+                <span onclick="setLanguage('en')" class="cursor-pointer hover:scale-125 transition-transform" id="btn-en">🇺🇸</span>
+                <span onclick="setLanguage('pt')" class="cursor-pointer hover:scale-125 transition-transform" id="btn-pt">🇧🇷</span>
+                <span onclick="setLanguage('zh')" class="cursor-pointer hover:scale-125 transition-transform" id="btn-zh">🇨🇳</span>
+            </div>
+            <!-- Hamburger Button -->
+            <button onclick="toggleMenu()" class="lg:hidden p-2 text-white">
+                <i data-lucide="menu" id="menu-icon" class="w-8 h-8"></i>
+            </button>
+            <a href="https://wa.me/56930219665" id="nav-contact-btn" data-i18n="nav_contact" class="hidden lg:block text-xs font-black uppercase tracking-widest bg-white text-black px-8 py-3 rounded-md hover:bg-cyan-500 transition-all">Contacto</a>
+        </div>
     </nav>
 
-    <header class="min-h-screen flex flex-col justify-center px-8 md:px-20 pt-20">
-        <span class="text-cyan-500 font-mono text-[10px] tracking-[0.5em] mb-8 block reveal">// #1 GLOBAL CREATIVE TECHNOLOGIST</span>
-        <h1 class="text-huge uppercase mb-12 reveal">Software <br> con <span class="text-cyan-500 text-huge">Impacto.</span></h1>
-        <p class="text-xl md:text-3xl text-zinc-400 font-light max-w-3xl leading-tight reveal">
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 bg-black z-[90] flex flex-col justify-center items-center gap-10 lg:hidden">
+        <a href="casos.html" class="text-4xl font-black uppercase tracking-tighter hover:text-cyan-500">Casos Reales</a>
+        <a href="desarrollos.html" class="text-4xl font-black uppercase tracking-tighter hover:text-cyan-500">Apps & Software</a>
+        <a href="blog.html" class="text-4xl font-black uppercase tracking-tighter hover:text-cyan-500">Blog</a>
+        <a href="https://wa.me/56930219665" class="px-10 py-4 bg-white text-black font-black uppercase rounded-md">Contacto Directo</a>
+    </div>
+
+    <!-- Hero Section -->
+    <header class="min-h-screen flex flex-col justify-center px-6 md:px-20 pt-32">
+        <div class="flex flex-col lg:flex-row lg:items-end gap-10 mb-12">
+            <div class="flex-1">
+                <a href="https://creativepool.com/top-25/creative-technologists/" target="_blank" data-i18n="hero_tag" class="text-cyan-500 font-mono text-sm md:text-base tracking-[0.3em] mb-6 block reveal hover:text-white transition-colors">// #1 Global Creative Technologist by CreativePool</a>
+                <h1 class="text-huge uppercase reveal" data-i18n="hero_title">Software <br> con <span class="text-cyan-500">Impacto.</span></h1>
+            </div>
+            <div class="lg:w-1/3 reveal">
+                <img src="creativepool.png" alt="CreativePool Award" class="w-full max-w-[400px] creativepool-badge rounded-2xl border border-white/5">
+            </div>
+        </div>
+        <p class="text-xl md:text-3xl text-zinc-300 font-light max-w-4xl leading-snug reveal" data-i18n="hero_desc">
             Ayudo a empresas a vender más y operar mejor mediante <span class="text-white font-medium">automatización real</span> y desarrollo de software a medida. Sin humo, solo resultados.
         </p>
         <div class="mt-16 flex flex-wrap gap-6 reveal">
-            <a href="casos.html" class="btn-direct text-sm">Ver Casos de Éxito</a>
-            <a href="desarrollos.html" class="p-5 border border-white/20 rounded-md text-[10px] font-black uppercase tracking-widest hover:border-white transition-all">Explorar Apps</a>
+            <a href="casos.html" data-i18n="hero_btn_cases" class="btn-direct text-base">Ver Casos de Éxito</a>
+            <a href="desarrollos.html" data-i18n="hero_btn_apps" class="p-6 border border-white/30 rounded-md text-sm font-black uppercase tracking-widest hover:bg-white hover:text-black transition-all">Explorar Apps</a>
         </div>
     </header>
 
-    <!-- Apps: Clarity first -->
-    <section class="py-32 px-8 md:px-20 container mx-auto">
-        <h2 class="text-4xl font-black uppercase tracking-tighter mb-20 reveal">Herramientas que <span class="text-cyan-500">Funcionan.</span></h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="developmentsGrid">
-            <!-- Rendered via JS -->
-        </div>
+    <!-- Apps Section -->
+    <section class="py-40 px-6 md:px-20 container mx-auto">
+        <h2 class="text-5xl font-black uppercase tracking-tighter mb-20 reveal" data-i18n="section_apps">Herramientas que <span class="text-cyan-500">Funcionan.</span></h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10" id="developmentsGrid"></div>
     </section>
 
-    <!-- Diagnosis: Simple & Useful -->
-    <section class="py-32 px-8 md:px-20 container mx-auto bg-zinc-900/20 rounded-[3rem] border border-white/5">
-        <div class="max-w-4xl">
-            <h2 class="text-5xl font-black uppercase tracking-tighter mb-12 reveal">¿Qué problema <br> resolvemos hoy?</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12 reveal">
-                <button onclick="showRecommendation(0)" class="p-8 border border-white/10 rounded-xl text-left hover:border-cyan-500 transition-all font-bold uppercase tracking-tight">Tengo pocas ventas</button>
-                <button onclick="showRecommendation(1)" class="p-8 border border-white/10 rounded-xl text-left hover:border-cyan-500 transition-all font-bold uppercase tracking-tight">Nadie me encuentra en Google/IA</button>
-                <button onclick="showRecommendation(2)" class="p-8 border border-white/10 rounded-xl text-left hover:border-cyan-500 transition-all font-bold uppercase tracking-tight">Mi web es lenta o confusa</button>
-                <button onclick="showRecommendation(3)" class="p-8 border border-white/10 rounded-xl text-left hover:border-cyan-500 transition-all font-bold uppercase tracking-tight">Pierdo tiempo en tareas manuales</button>
+    <!-- Diagnosis Section -->
+    <section class="py-40 px-6 md:px-20 container mx-auto bg-zinc-900/40 rounded-[4rem] border border-white/10 shadow-2xl">
+        <div class="max-w-5xl">
+            <h2 class="text-5xl md:text-7xl font-black uppercase tracking-tighter mb-16 reveal" data-i18n="section_diag">¿Qué problema <br> resolvemos hoy?</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16 reveal">
+                <button onclick="showRecommendation(0)" data-i18n="diag_1" class="p-10 border border-white/20 rounded-2xl text-left hover:border-cyan-500 hover:bg-white/5 transition-all text-xl font-bold uppercase">Tengo pocas ventas</button>
+                <button onclick="showRecommendation(1)" data-i18n="diag_2" class="p-10 border border-white/20 rounded-2xl text-left hover:border-cyan-500 hover:bg-white/5 transition-all text-xl font-bold uppercase">Nadie me encuentra en Google/IA</button>
+                <button onclick="showRecommendation(2)" data-i18n="diag_3" class="p-10 border border-white/20 rounded-2xl text-left hover:border-cyan-500 hover:bg-white/5 transition-all text-xl font-bold uppercase">Mi web es lenta o confusa</button>
+                <button onclick="showRecommendation(3)" data-i18n="diag_4" class="p-10 border border-white/20 rounded-2xl text-left hover:border-cyan-500 hover:bg-white/5 transition-all text-xl font-bold uppercase">Pierdo tiempo en tareas manuales</button>
             </div>
-            <div id="diagnosisResult" class="hidden p-12 bg-cyan-500/10 border border-cyan-500/30 rounded-2xl reveal active">
-                <p id="recommendationText" class="text-2xl font-black uppercase text-white mb-8"></p>
-                <a id="recommendationLink" href="#" class="text-xs font-black uppercase tracking-widest border-b border-white pb-1">Ver solución detallada →</a>
+            <div id="diagnosisResult" class="hidden p-12 bg-cyan-500/10 border border-cyan-500/30 rounded-3xl reveal active">
+                <p id="recommendationText" class="text-3xl font-black uppercase text-white mb-10 leading-tight"></p>
+                <a id="recommendationLink" href="#" class="text-sm font-black uppercase tracking-widest bg-cyan-500 text-black px-10 py-4 rounded-full inline-block">Resolver ahora</a>
             </div>
         </div>
     </section>
 
-    <!-- Cases: Real Value -->
-    <section class="py-32 px-8 md:px-20 container mx-auto">
-        <div class="flex justify-between items-end mb-20 reveal">
-            <h2 class="text-6xl font-black uppercase tracking-tighter">Portafolio <br> <span class="text-cyan-500 italic">Real.</span></h2>
-            <a href="casos.html" class="text-[10px] font-black uppercase tracking-widest border-b border-zinc-800 pb-2">Ver los 19 casos</a>
+    <!-- Cases Section -->
+    <section class="py-40 px-6 md:px-20 container mx-auto">
+        <div class="flex justify-between items-end mb-24 reveal">
+            <h2 class="text-7xl font-black uppercase tracking-tighter" data-i18n="section_cases">Portafolio <br> <span class="text-cyan-500 italic">Real.</span></h2>
+            <a href="casos.html" class="text-sm font-black uppercase tracking-widest border-b-2 border-cyan-500 pb-2">Ver los 19 casos</a>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8" id="casesGrid">
-            <!-- Rendered via JS -->
-        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12" id="casesGrid"></div>
     </section>
 
-    <footer class="py-32 px-8 md:px-20 border-t border-white/5 mt-32">
+    <!-- Footer -->
+    <footer class="py-40 px-6 md:px-20 border-t border-white/10 bg-black/50">
         <div class="container mx-auto grid grid-cols-1 lg:grid-cols-12 gap-20">
-            <div class="lg:col-span-4">
-                <span class="text-3xl font-black uppercase tracking-tighter block mb-8">DAN TAGLE <span class="text-cyan-500">.</span></span>
-                <p class="text-zinc-500 text-sm leading-relaxed mb-10">Desarrollo de software y automatización con foco en resultados de negocio. Ssangyong, Bupa, Tenpo y más.</p>
-                <div class="flex gap-6">
-                    <a href="https://www.linkedin.com/in/taglecl/" class="hover:text-white"><i data-lucide="linkedin" class="w-5 h-5 text-zinc-600"></i></a>
-                    <a href="https://github.com/kulhunter" class="hover:text-white"><i data-lucide="github" class="w-5 h-5 text-zinc-600"></i></a>
+            <div class="lg:col-span-5">
+                <span class="text-4xl font-black uppercase tracking-tighter block mb-10">DAN TAGLE <span class="text-cyan-500">.</span></span>
+                <p class="text-zinc-400 text-lg leading-relaxed mb-12" data-i18n="footer_desc">Desarrollo de software y automatización con foco en resultados de negocio. Ssangyong, Bupa, Tenpo y más.</p>
+                <div class="flex gap-10">
+                    <a href="https://www.linkedin.com/in/taglecl/" class="text-zinc-500 hover:text-white transition-colors"><i data-lucide="linkedin" class="w-8 h-8"></i></a>
+                    <a href="https://github.com/kulhunter" class="text-zinc-500 hover:text-white transition-colors"><i data-lucide="github" class="w-8 h-8"></i></a>
                 </div>
             </div>
-            <div class="lg:col-span-8 grid grid-cols-2 md:grid-cols-3 gap-10">
-                <div class="space-y-4">
-                    <span class="text-[10px] font-black uppercase tracking-widest text-white">Backlinks</span>
-                    <ul class="space-y-3 text-[10px] font-bold uppercase tracking-widest text-zinc-600">
-                        <li><a href="https://www.duoc.cl/eventos/el-viaje-del-consumidor-mitos-y-realidades-del-marketing-digital/" target="_blank" class="hover:text-cyan-500">Duoc UC</a></li>
-                        <li><a href="https://es.linkedin.com/pulse/la-obsolescencia-programada-del-cm-daniel-tagle-dennis" target="_blank" class="hover:text-cyan-500">LinkedIn Article</a></li>
-                        <li><a href="http://agenciathefactory.blogspot.com/" target="_blank" class="hover:text-cyan-500">The Factory</a></li>
+            <div class="lg:col-span-7 grid grid-cols-2 gap-10">
+                <div class="space-y-6">
+                    <span class="text-xs font-black uppercase tracking-[0.3em] text-white block mb-6">Autoridad</span>
+                    <ul class="space-y-4 text-sm font-bold uppercase tracking-widest text-zinc-500">
+                        <li><a href="https://www.duoc.cl/eventos/el-viaje-del-consumidor-mitos-y-realidades-del-marketing-digital/" target="_blank" class="hover:text-cyan-500">Duoc UC Masterclass</a></li>
+                        <li><a href="https://es.linkedin.com/pulse/la-obsolescencia-programada-del-cm-daniel-tagle-dennis" target="_blank" class="hover:text-cyan-500">Obsolescencia del CM</a></li>
+                        <li><a href="http://agenciathefactory.blogspot.com/" target="_blank" class="hover:text-cyan-500">The Factory Agency</a></li>
                     </ul>
                 </div>
             </div>
@@ -107,20 +147,47 @@
     </footer>
 
     <script src="scripts/orchestrator_data.js"></script>
+    <script src="scripts/translations.js"></script>
     <script>
+        let currentLang = 'es';
+        let isMenuOpen = false;
+
+        function toggleMenu() {
+            isMenuOpen = !isMenuOpen;
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menu-icon');
+            if (isMenuOpen) {
+                menu.classList.add('open');
+                lucide.createIcons({ icons: { menu: 'x' } });
+            } else {
+                menu.classList.remove('open');
+                lucide.createIcons({ icons: { x: 'menu' } });
+            }
+        }
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (TRANSLATIONS[lang][key]) el.innerHTML = TRANSLATIONS[lang][key];
+            });
+            renderCases();
+            renderDevelopments();
+        }
+
         function renderCases() {
             const grid = document.getElementById('casesGrid');
             const featured = getFeaturedCases(4);
             grid.innerHTML = featured.map(c => `
-                <div class="p-10 border border-white/5 rounded-3xl bg-zinc-900/10 group hover:border-cyan-500 transition-all">
-                    <span class="text-[8px] font-black uppercase tracking-widest text-zinc-600 mb-4 block">${c.client}</span>
-                    <h4 class="text-3xl font-black uppercase mb-6 group-hover:text-white transition-colors">${c.title}</h4>
-                    <div class="space-y-4 text-xs text-zinc-500">
-                        <p><strong>PROBLEMA:</strong> ${c.prob}</p>
-                        <p><strong>SOLUCIÓN:</strong> ${c.sol}</p>
-                        <p class="text-white"><strong>RESULTADO:</strong> ${c.res}</p>
+                <div class="p-12 border border-white/10 rounded-[3rem] bg-zinc-900/20 group hover:border-cyan-500 transition-all">
+                    <span class="text-xs font-black uppercase tracking-widest text-zinc-500 mb-6 block">${c.client}</span>
+                    <h4 class="text-4xl font-black uppercase mb-8 group-hover:text-white transition-colors leading-tight">${c.title}</h4>
+                    <div class="space-y-6 text-base text-zinc-400">
+                        <p><strong class="text-white">PROBLEMA:</strong> ${c.prob}</p>
+                        <p><strong class="text-white">SOLUCIÓN:</strong> ${c.sol}</p>
+                        <p class="text-white font-bold text-lg"><strong class="text-cyan-500 uppercase">RESULTADO:</strong> ${c.res}</p>
                     </div>
-                    <a href="${c.link}" target="_blank" class="mt-8 inline-block text-[9px] font-black uppercase tracking-widest border-b border-white pb-1">Ver Case Study →</a>
+                    <a href="${c.link}" target="_blank" class="mt-10 inline-block text-xs font-black uppercase tracking-widest border-b-2 border-white pb-2 hover:border-cyan-500 transition-all">View Case Study →</a>
                 </div>
             `).join('');
             lucide.createIcons();
@@ -129,10 +196,10 @@
         function renderDevelopments() {
             const grid = document.getElementById('developmentsGrid');
             grid.innerHTML = MASTER_DATA.developments.map(d => `
-                <a href="${d.link}" class="p-10 border border-white/5 rounded-2xl bg-zinc-900/10 group hover:border-cyan-500 transition-all">
-                    <i data-lucide="${d.icon}" class="w-8 h-8 text-cyan-500 mb-6"></i>
-                    <h3 class="text-2xl font-black uppercase mb-4">${d.title}</h3>
-                    <p class="text-zinc-500 text-xs leading-relaxed font-light">${d.desc}</p>
+                <a href="${d.link}" class="p-12 border border-white/10 rounded-3xl bg-zinc-900/20 group hover:border-cyan-500 transition-all">
+                    <i data-lucide="${d.icon}" class="w-10 h-10 text-cyan-500 mb-8"></i>
+                    <h3 class="text-3xl font-black uppercase mb-6">${d.title}</h3>
+                    <p class="text-zinc-400 text-base leading-relaxed font-light">${d.desc}</p>
                 </a>
             `).join('');
             lucide.createIcons();
@@ -141,7 +208,6 @@
         function showRecommendation(index) {
             const result = document.getElementById('diagnosisResult');
             const text = document.getElementById('recommendationText');
-            const link = document.getElementById('recommendationLink');
             const diag = MASTER_DATA.diagnosis[index];
             text.innerHTML = diag.recommendation;
             result.classList.remove('hidden');
@@ -149,8 +215,7 @@
 
         document.addEventListener('DOMContentLoaded', () => {
             lucide.createIcons();
-            renderCases();
-            renderDevelopments();
+            setLanguage('es');
             const observer = new IntersectionObserver(entries => {
                 entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
             }, { threshold: 0.1 });
