@@ -127,45 +127,121 @@ def create_article_page(article):
     cover_img = f"https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1200&sig={article['slug']}"
     # Si queremos algo más dinámico basado en el keyword:
     cover_img = f"https://source.unsplash.com/featured/1200x675?{keyword.replace(' ', ',')}"
-    # Nota: source.unsplash.com está deprecado, usamos la nueva estructura:
-    cover_img = f"https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=1200" # Fallback tech
+    title = article['title']
+    description = article['meta_description']
+    content = article['content_html']
+    image_url = "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1200"
+
+    html_content = f"""<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{title} | Dan Tagle Blog</title>
+    <meta name="description" content="{description}">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&display=swap" rel="stylesheet">
     
-    # Intentar construir una URL de Unsplash semi-real basada en el keyword
-    cover_img = f"https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1200" # Tech default
-    
-    page_content = page_content.replace("{{COVER_IMAGE}}", cover_img)
+    <!-- AEO: Article Schema -->
+    <script type="application/ld+json">
+    {{
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "{title}",
+      "description": "{description}",
+      "image": "{image_url}",
+      "author": {{
+        "@type": "Person",
+        "name": "Dan Tagle",
+        "url": "https://dantagle.cl"
+      }},
+      "publisher": {{
+        "@type": "Organization",
+        "name": "Dan Tagle",
+        "logo": {{
+          "@type": "ImageObject",
+          "url": "https://dantagle.cl/creativepool.png"
+        }}
+      }},
+      "datePublished": "{datetime.datetime.now().strftime('%Y-%m-%d')}"
+    }}
+    </script>
+
+    <style>
+        :root {{ --accent: #06b6d4; }}
+        body {{ font-family: 'Outfit', sans-serif; background-color: #050505; color: #f4f4f5; }}
+        .bg-mesh {{ background: radial-gradient(circle at 50% 0%, rgba(6, 182, 212, 0.05) 0%, transparent 50%); }}
+        .glass-panel {{ background: rgba(255,255,255,0.03); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.08); border-radius: 2.5rem; }}
+        article p {{ margin-bottom: 1.5rem; line-height: 1.8; color: #a1a1aa; font-weight: 300; }}
+        article h2 {{ font-size: 2rem; font-weight: 900; color: #fff; margin-top: 3rem; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: -0.02em; }}
+    </style>
+</head>
+<body class="bg-mesh">
+    <nav class="fixed top-0 w-full z-50 py-6 px-10 flex justify-between items-center bg-black/40 backdrop-blur-2xl border-b border-white/5">
+        <a href="../index.html" class="text-2xl font-black tracking-tighter uppercase">DAN TAGLE <span class="text-cyan-500">.</span></a>
+        <div class="hidden lg:flex gap-14 text-[10px] font-black uppercase tracking-[0.4em] text-zinc-500">
+            <a href="../casos.html" class="hover:text-white transition-colors">Casos</a>
+            <a href="../desarrollos.html" class="hover:text-white transition-colors">Desarrollos</a>
+            <a href="../blog.html" class="text-white transition-colors">Blog</a>
+        </div>
+        <a href="https://calendly.com/dan-tagle/30min" target="_blank" class="px-10 py-3 bg-white text-black font-black text-[10px] uppercase tracking-[0.2em] rounded-full">Agendar</a>
+    </nav>
+
+    <main class="pt-48 pb-20 px-6 container mx-auto max-w-3xl">
+        <header class="mb-16">
+            <span class="text-[10px] font-mono text-cyan-500 tracking-[0.4em] uppercase mb-4 block">PENSAMIENTO ESTRATÉGICO / {datetime.datetime.now().strftime('%d %b %Y')}</span>
+            <h1 class="text-4xl md:text-6xl font-black mb-8 leading-tight text-white uppercase tracking-tighter">{title}</h1>
+            <div class="rounded-[2.5rem] overflow-hidden aspect-video mb-12 grayscale hover:grayscale-0 transition-all duration-700 border border-white/10">
+                <img src="{image_url}" class="w-full h-full object-cover">
+            </div>
+        </header>
+
+        <article class="prose prose-invert prose-cyan max-w-none">
+            {content}
+        </article>
+
+        <footer class="mt-20 pt-10 border-t border-white/5 flex justify-between items-center">
+            <a href="../blog.html" class="text-xs font-black uppercase tracking-widest text-zinc-500 hover:text-white transition-colors">← Volver al Blog</a>
+            <span class="text-[10px] text-zinc-700 font-bold uppercase tracking-widest">© 2026 Dan Tagle</span>
+        </footer>
+    </main>
+</body>
+</html>"""
     
     filename = f"{BLOG_DIR}{article['slug']}.html"
     with open(filename, 'w') as f:
-        f.write(page_content)
+        f.write(html_content)
     return filename
 
 def update_indices(article, filename):
     print(f"DEBUG: Actualizando índices {BLOG_INDEX} e {INDEX_FILE}...")
     
     # Actualizar blog.html
-    keyword = article.get('image_keyword', 'tech')
     img_url = f"https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1200"
     
     new_entry = f"""
-            <!-- Auto-generated entry: {article['title']} -->
-            <a href="{filename}" class="glass-panel p-6 flex flex-col group">
-                <div class="rounded-2xl overflow-hidden aspect-video mb-6 grayscale group-hover:grayscale-0 transition-all duration-500">
+            <a href="blog/{article['slug']}.html" class="glass-panel p-6 flex flex-col group">
+                <div class="rounded-[2rem] overflow-hidden aspect-video mb-8 grayscale group-hover:grayscale-0 transition-all duration-700">
                     <img src="{img_url}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                 </div>
-                <span class="text-cyan-500 font-mono text-[10px] mb-2 uppercase">{article['date']}</span>
-                <h3 class="text-2xl font-black mb-4 group-hover:text-cyan-400 transition-colors uppercase">{article['title']}</h3>
-                <p class="text-zinc-500 text-sm mb-6 line-clamp-3">{article['meta_description']}</p>
-                <span class="mt-auto text-[10px] font-black uppercase tracking-widest text-zinc-700 group-hover:text-white transition-colors">Leer más →</span>
+                <span class="text-cyan-500 font-mono text-[10px] mb-3 uppercase tracking-widest">{datetime.datetime.now().strftime('%d %b %Y')}</span>
+                <h3 class="text-2xl font-black mb-4 group-hover:text-cyan-400 transition-colors uppercase leading-tight tracking-tight">{article['title']}</h3>
+                <p class="text-zinc-500 text-sm mb-8 line-clamp-3 font-light">{article['meta_description']}</p>
+                <span class="mt-auto text-[9px] font-black uppercase tracking-widest text-zinc-700 group-hover:text-white transition-colors">Leer más →</span>
             </a>
-    """
+            <!-- NEXT_POST_HERE -->
+"""
     
     if os.path.exists(BLOG_INDEX):
         with open(BLOG_INDEX, 'r') as f:
             content = f.read()
-        updated_content = content.replace('<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">', f'<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">\n{new_entry}')
-        with open(BLOG_INDEX, 'w') as f:
-            f.write(updated_content)
+        if '<!-- NEXT_POST_HERE -->' in content:
+            updated_content = content.replace('<!-- NEXT_POST_HERE -->', new_entry)
+            with open(BLOG_INDEX, 'w') as f:
+                f.write(updated_content)
+        else:
+            print(f"WARNING: No se encontró el marcador <!-- NEXT_POST_HERE --> en {BLOG_INDEX}")
     else:
         print(f"WARNING: No se encontró {BLOG_INDEX}")
 
@@ -184,9 +260,15 @@ def update_indices(article, filename):
     if os.path.exists(INDEX_FILE):
         with open(INDEX_FILE, 'r') as f:
             home_content = f.read()
-        home_updated = home_content.replace('<div class="grid grid-cols-1 md:grid-cols-3 gap-8">', f'<div class="grid grid-cols-1 md:grid-cols-3 gap-8">\n{new_home_entry}')
-        with open(INDEX_FILE, 'w') as f:
-            f.write(home_updated)
+        if '<!-- NEXT_POST_HERE -->' in home_content:
+            home_updated = home_content.replace('<!-- NEXT_POST_HERE -->', new_home_entry)
+            with open(INDEX_FILE, 'w') as f:
+                f.write(home_updated)
+        else:
+            # Fallback a la grid si no hay marcador
+            home_updated = home_content.replace('<div class="grid grid-cols-1 md:grid-cols-3 gap-8">', f'<div class="grid grid-cols-1 md:grid-cols-3 gap-8">\n{new_home_entry}')
+            with open(INDEX_FILE, 'w') as f:
+                f.write(home_updated)
     else:
         print(f"WARNING: No se encontró {INDEX_FILE}")
 

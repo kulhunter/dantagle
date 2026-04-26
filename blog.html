@@ -7,7 +7,7 @@
     <meta name="description" content="Pensamiento estratégico, SEO IA y automatización. Artículos diarios sobre el futuro de los negocios.">
     
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/lucide@0.473.0/dist/umd/lucide.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     
     <style>
@@ -49,6 +49,7 @@
         </header>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            <!-- NEXT_POST_HERE -->
             <!-- 1 -->
             <a href="blog/el-trafico-web-esta-muriendo-google.html" class="glass-panel p-6 flex flex-col group">
                 <div class="rounded-[2rem] overflow-hidden aspect-video mb-8 grayscale group-hover:grayscale-0 transition-all duration-700">
@@ -97,7 +98,11 @@
     </footer>
 
     <script>
-        lucide.createIcons();
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+        });
     </script>
 </body>
 </html>
