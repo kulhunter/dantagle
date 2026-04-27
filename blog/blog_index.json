@@ -1,0 +1,44 @@
+[
+    {
+        "title": "El CM murió: Bienvenido el Orquestador.",
+        "excerpt": "Por qué el modelo tradicional de redes sociales ya no sirve en la era de la IA.",
+        "slug": "el-cm-murio-orquestador-comunidades",
+        "date": "2026-04-26",
+        "category": "Estrategia"
+    },
+    {
+        "title": "El tráfico web está muriendo.",
+        "excerpt": "Cómo sobrevivir al fin de las visitas orgánicas y dominar las respuestas IA.",
+        "slug": "el-trafico-web-esta-muriendo-google",
+        "date": "2026-04-26",
+        "category": "SEO / AEO"
+    },
+    {
+        "title": "SEO Invisible y la nueva era.",
+        "excerpt": "La batalla por ser la respuesta única en ChatGPT y Perplexity.",
+        "slug": "alerta-seo-invisible-ia",
+        "date": "2026-04-26",
+        "category": "IA"
+    },
+    {
+        "title": "ChatGPT Ads: ¿Asesino de Google?",
+        "excerpt": "Análisis táctico sobre el nuevo ecosistema publicitario en LLMs.",
+        "slug": "chatgpt-ads-asesino-google-meta",
+        "date": "2026-04-26",
+        "category": "Ads"
+    },
+    {
+        "title": "Google Maps + Gemini.",
+        "excerpt": "Cómo la IA está transformando la búsqueda local y el retail.",
+        "slug": "google-maps-gemini-navegacion",
+        "date": "2026-04-26",
+        "category": "Tech"
+    },
+    {
+        "title": "Guía de Crecimiento 2025.",
+        "excerpt": "Estrategias de conversión para las temporadas de mayor consumo.",
+        "slug": "ho-ho-holidays-guia-2025",
+        "date": "2026-04-26",
+        "category": "Holidays"
+    }
+]

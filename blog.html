@@ -53,46 +53,28 @@
             <p class="text-xl text-zinc-400 font-light max-w-3xl leading-relaxed">Ideas tácticas sobre SEO, IA y automatización para negocios de alto impacto.</p>
         </header>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-            <!-- Artículos Reales -->
-            <a href="blog/el-cm-murio-orquestador-comunidades.html" class="blog-card p-12 group">
-                <span class="text-xs font-black uppercase tracking-widest text-cyan-500 mb-6 block">Estrategia</span>
-                <h3 class="text-3xl font-black uppercase mb-8 group-hover:text-white transition-colors">El CM murió: Bienvenido el Orquestador.</h3>
-                <p class="text-zinc-400 text-base leading-relaxed mb-10">Por qué el modelo tradicional de redes sociales ya no sirve en la era de la IA.</p>
-                <span class="text-xs font-black uppercase tracking-widest border-b-2 border-white pb-1">Leer artículo →</span>
-            </a>
-            <a href="blog/el-trafico-web-esta-muriendo-google.html" class="blog-card p-12 group">
-                <span class="text-xs font-black uppercase tracking-widest text-cyan-500 mb-4 block">SEO / AEO</span>
-                <h3 class="text-3xl font-black uppercase mb-8 group-hover:text-white transition-colors">El tráfico web está muriendo.</h3>
-                <p class="text-zinc-400 text-base leading-relaxed mb-10">Cómo sobrevivir al fin de las visitas orgánicas y dominar las respuestas IA.</p>
-                <span class="text-xs font-black uppercase tracking-widest border-b-2 border-white pb-1">Leer artículo →</span>
-            </a>
-            <a href="blog/alerta-seo-invisible-ia.html" class="blog-card p-12 group">
-                <span class="text-xs font-black uppercase tracking-widest text-cyan-500 mb-4 block">IA</span>
-                <h3 class="text-3xl font-black uppercase mb-8 group-hover:text-white transition-colors">SEO Invisible y la nueva era.</h3>
-                <p class="text-zinc-400 text-base leading-relaxed mb-10">La batalla por ser la respuesta única en ChatGPT y Perplexity.</p>
-                <span class="text-xs font-black uppercase tracking-widest border-b-2 border-white pb-1">Leer artículo →</span>
-            </a>
-            <a href="blog/chatgpt-ads-asesino-google-meta.html" class="blog-card p-12 group">
-                <span class="text-xs font-black uppercase tracking-widest text-cyan-500 mb-4 block">Ads</span>
-                <h3 class="text-3xl font-black uppercase mb-8 group-hover:text-white transition-colors">ChatGPT Ads: ¿Asesino de Google?</h3>
-                <p class="text-zinc-400 text-base leading-relaxed mb-10">Análisis táctico sobre el nuevo ecosistema publicitario en LLMs.</p>
-                <span class="text-xs font-black uppercase tracking-widest border-b-2 border-white pb-1">Leer artículo →</span>
-            </a>
-            <a href="blog/google-maps-gemini-navegacion.html" class="blog-card p-12 group">
-                <span class="text-xs font-black uppercase tracking-widest text-cyan-500 mb-4 block">Tech</span>
-                <h3 class="text-3xl font-black uppercase mb-8 group-hover:text-white transition-colors">Google Maps + Gemini.</h3>
-                <p class="text-zinc-400 text-base leading-relaxed mb-10">Cómo la IA está transformando la búsqueda local y el retail.</p>
-                <span class="text-xs font-black uppercase tracking-widest border-b-2 border-white pb-1">Leer artículo →</span>
-            </a>
-            <a href="blog/ho-ho-holidays-guia-2025.html" class="blog-card p-12 group">
-                <span class="text-xs font-black uppercase tracking-widest text-cyan-500 mb-4 block">Holidays</span>
-                <h3 class="text-3xl font-black uppercase mb-8 group-hover:text-white transition-colors">Guía de Crecimiento 2025.</h3>
-                <p class="text-zinc-400 text-base leading-relaxed mb-10">Estrategias de conversión para las temporadas de mayor consumo.</p>
-                <span class="text-xs font-black uppercase tracking-widest border-b-2 border-white pb-1">Leer artículo →</span>
-            </a>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10" id="blogGrid">
+            <!-- Rendered via JS -->
         </div>
     </main>
+
+    <!-- Footer -->
+    <footer class="py-40 px-6 md:px-20 border-t border-white/10 mt-32">
+        <div class="container mx-auto grid grid-cols-1 lg:grid-cols-12 gap-24">
+            <div class="lg:col-span-5">
+                <span class="text-4xl font-black uppercase tracking-tighter block mb-10">DAN TAGLE <span class="text-cyan-500">.</span></span>
+                <p class="text-zinc-500 text-lg leading-relaxed mb-12">Consultoría en tecnología creativa y desarrollo de software de alto impacto centrado en resultados de negocio.</p>
+                <div class="flex gap-10">
+                    <a href="https://www.linkedin.com/in/taglecl/" class="text-zinc-600 hover:text-white transition-colors"><i data-lucide="linkedin" class="w-8 h-8"></i></a>
+                    <a href="https://github.com/kulhunter" class="text-zinc-600 hover:text-white transition-colors"><i data-lucide="github" class="w-8 h-8"></i></a>
+                </div>
+            </div>
+            <div class="lg:col-span-7"></div>
+        </div>
+        <div class="mt-40 pt-10 border-t border-white/5 text-center">
+            <span class="text-[10px] font-black uppercase tracking-[1em] text-zinc-800">© 2026 / STRATEGIC ENGINEERING</span>
+        </div>
+    </footer>
 
     <script>
         let isMenuOpen = false;
@@ -102,7 +84,27 @@
             if (isMenuOpen) menu.classList.add('open');
             else menu.classList.remove('open');
         }
-        document.addEventListener('DOMContentLoaded', () => { lucide.createIcons(); });
+
+        async function renderBlog() {
+            try {
+                const response = await fetch('blog/blog_index.json');
+                const posts = await response.json();
+                const grid = document.getElementById('blogGrid');
+                grid.innerHTML = posts.map(p => `
+                    <a href="blog/${p.slug}.html" class="blog-card p-12 group">
+                        <span class="text-xs font-black uppercase tracking-widest text-cyan-500 mb-6 block">${p.category}</span>
+                        <h3 class="text-3xl font-black uppercase mb-8 group-hover:text-white transition-colors leading-tight">${p.title}</h3>
+                        <p class="text-zinc-400 text-base leading-relaxed mb-10">${p.excerpt}</p>
+                        <span class="text-xs font-black uppercase tracking-widest border-b-2 border-white pb-1">Leer artículo →</span>
+                    </a>
+                `).join('');
+                lucide.createIcons();
+            } catch (e) { console.error("Error loading blog:", e); }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => { 
+            renderBlog();
+        });
     </script>
 </body>
 </html>
