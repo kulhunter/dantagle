@@ -1,5 +1,12 @@
 [
     {
+        "title": "La Revolución Silenciosa: Cómo la IA y el Retail Media están Redefiniendo el E-commerce",
+        "excerpt": "Descubre cómo las tendencias tecnológicas están cambiando el juego del comercio electrónico y qué significa esto para tu negocio.",
+        "slug": "la-revolucion-silenciosa-en-el-e-commerce",
+        "date": "2026-06-10",
+        "category": "Tecnología y Negocios"
+    },
+    {
         "title": "La Revolución del Comercio: Cómo la Inteligencia Artificial y el Retail Media están Redefiniendo el E-commerce",
         "excerpt": "Descubre cómo la automatización y la inteligencia artificial están cambiando el juego del comercio electrónico y cómo puedes aprovechar estas tendencias para impulsar tu negocio",
         "slug": "la-revolucion-del-comercio",
@@ -341,12 +348,5 @@
         "slug": "google-maps-gemini-navegacion",
         "date": "2026-04-26",
         "category": "Tech"
-    },
-    {
-        "title": "Guía de Crecimiento 2025.",
-        "excerpt": "Estrategias de conversión para las temporadas de mayor consumo.",
-        "slug": "ho-ho-holidays-guia-2025",
-        "date": "2026-04-26",
-        "category": "Holidays"
     }
 ]
