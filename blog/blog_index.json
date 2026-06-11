@@ -1,5 +1,12 @@
 [
     {
+        "title": "¿Estás listo para la revolución tecnológica? 5 tendencias que cambiarán tu negocio",
+        "excerpt": "La tecnología avanza a pasos agigantados. ¿Sabes qué tendencias te permitirán mantener la ventaja competitiva en un mercado cada vez más exigente?",
+        "slug": "tendencias-tecnologicas-revolucion-negocios",
+        "date": "2026-06-11",
+        "category": "Tecnología y Negocios"
+    },
+    {
         "title": "La Revolución Silenciosa: Cómo la IA y el Retail Media están Redefiniendo el E-commerce",
         "excerpt": "Descubre cómo las tendencias tecnológicas están cambiando el juego del comercio electrónico y qué significa esto para tu negocio.",
         "slug": "la-revolucion-silenciosa-en-el-e-commerce",
@@ -341,12 +348,5 @@
         "slug": "chatgpt-ads-asesino-google-meta",
         "date": "2026-04-26",
         "category": "Ads"
-    },
-    {
-        "title": "Google Maps + Gemini.",
-        "excerpt": "Cómo la IA está transformando la búsqueda local y el retail.",
-        "slug": "google-maps-gemini-navegacion",
-        "date": "2026-04-26",
-        "category": "Tech"
     }
 ]
