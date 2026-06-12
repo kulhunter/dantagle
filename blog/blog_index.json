@@ -1,5 +1,12 @@
 [
     {
+        "title": "La Revolución Silenciosa: Cómo la Inteligencia Artificial y el Retail Media están Redefiniendo el Comercio Electrónico",
+        "excerpt": "Descubre cómo la automatización y la inteligencia artificial están transformando la forma en que interactúas con tus clientes y creas experiencias de compras únicas.",
+        "slug": "la-revolucion-silenciosa",
+        "date": "2026-06-12",
+        "category": "Tendencias Tecnológicas"
+    },
+    {
         "title": "¿Estás listo para la revolución tecnológica? 5 tendencias que cambiarán tu negocio",
         "excerpt": "La tecnología avanza a pasos agigantados. ¿Sabes qué tendencias te permitirán mantener la ventaja competitiva en un mercado cada vez más exigente?",
         "slug": "tendencias-tecnologicas-revolucion-negocios",
@@ -341,12 +348,5 @@
         "slug": "alerta-seo-invisible-ia",
         "date": "2026-04-26",
         "category": "IA"
-    },
-    {
-        "title": "ChatGPT Ads: ¿Asesino de Google?",
-        "excerpt": "Análisis táctico sobre el nuevo ecosistema publicitario en LLMs.",
-        "slug": "chatgpt-ads-asesino-google-meta",
-        "date": "2026-04-26",
-        "category": "Ads"
     }
 ]
