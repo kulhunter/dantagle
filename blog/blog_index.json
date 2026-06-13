@@ -1,5 +1,12 @@
 [
     {
+        "title": "La Revolución Digital: Cómo la IA y el Retail Media Están Cambiando el Juego",
+        "excerpt": "Descubre cómo la inteligencia artificial, el retail media y el e-commerce están redefiniendo la forma en que las empresas interactúan con sus clientes y cómo puedes aprovechar estas tendencias para impulsar tu negocio.",
+        "slug": "la-revolucion-digital",
+        "date": "2026-06-13",
+        "category": "Tendencias Tecnológicas"
+    },
+    {
         "title": "La Revolución Silenciosa: Cómo la Inteligencia Artificial y el Retail Media están Redefiniendo el Comercio Electrónico",
         "excerpt": "Descubre cómo la automatización y la inteligencia artificial están transformando la forma en que interactúas con tus clientes y creas experiencias de compras únicas.",
         "slug": "la-revolucion-silenciosa",
@@ -341,12 +348,5 @@
         "slug": "el-trafico-web-esta-muriendo-google",
         "date": "2026-04-26",
         "category": "SEO / AEO"
-    },
-    {
-        "title": "SEO Invisible y la nueva era.",
-        "excerpt": "La batalla por ser la respuesta única en ChatGPT y Perplexity.",
-        "slug": "alerta-seo-invisible-ia",
-        "date": "2026-04-26",
-        "category": "IA"
     }
 ]
