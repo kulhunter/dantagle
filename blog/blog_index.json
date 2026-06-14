@@ -1,5 +1,12 @@
 [
     {
+        "title": "La Revolución Silenciosa: Cómo la Inteligencia Artificial y el Retail Media están Redefiniendo el E-commerce",
+        "excerpt": "Descubre cómo la automatización y la inteligencia artificial están transformando la forma en que interactúas con tus clientes y cómo puedes aprovechar estas tendencias para impulsar tu negocio",
+        "slug": "la-revolucion-silenciosa-del-e-commerce",
+        "date": "2026-06-14",
+        "category": "Tecnología y Negocios"
+    },
+    {
         "title": "La Revolución Digital: Cómo la IA y el Retail Media Están Cambiando el Juego",
         "excerpt": "Descubre cómo la inteligencia artificial, el retail media y el e-commerce están redefiniendo la forma en que las empresas interactúan con sus clientes y cómo puedes aprovechar estas tendencias para impulsar tu negocio.",
         "slug": "la-revolucion-digital",
@@ -341,12 +348,5 @@
         "slug": "el-cm-murio-orquestador-comunidades",
         "date": "2026-04-26",
         "category": "Estrategia"
-    },
-    {
-        "title": "El tráfico web está muriendo.",
-        "excerpt": "Cómo sobrevivir al fin de las visitas orgánicas y dominar las respuestas IA.",
-        "slug": "el-trafico-web-esta-muriendo-google",
-        "date": "2026-04-26",
-        "category": "SEO / AEO"
     }
 ]
