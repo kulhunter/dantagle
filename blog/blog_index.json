@@ -1,5 +1,12 @@
 [
     {
+        "title": "La Disrupción Tecnológica: Cómo la IA y el Retail Media Están Revolucionando el E-commerce",
+        "excerpt": "Descubre cómo las tendencias tecnológicas están cambiando el juego en el sector del comercio electrónico y cómo puedes aprovechar estas oportunidades para impulsar tu negocio.",
+        "slug": "disrupcion-tecnologica-ia-retail-media-e-commerce",
+        "date": "2026-06-15",
+        "category": "Tecnología y Negocios"
+    },
+    {
         "title": "La Revolución Silenciosa: Cómo la Inteligencia Artificial y el Retail Media están Redefiniendo el E-commerce",
         "excerpt": "Descubre cómo la automatización y la inteligencia artificial están transformando la forma en que interactúas con tus clientes y cómo puedes aprovechar estas tendencias para impulsar tu negocio",
         "slug": "la-revolucion-silenciosa-del-e-commerce",
@@ -341,12 +348,5 @@
         "slug": "la-revolucion-de-la-inteligencia-artificial-en-el-sector-retail",
         "date": "2026-04-27",
         "category": "Tecnología y Innovación"
-    },
-    {
-        "title": "El CM murió: Bienvenido el Orquestador.",
-        "excerpt": "Por qué el modelo tradicional de redes sociales ya no sirve en la era de la IA.",
-        "slug": "el-cm-murio-orquestador-comunidades",
-        "date": "2026-04-26",
-        "category": "Estrategia"
     }
 ]
