@@ -1,5 +1,12 @@
 [
     {
+        "title": "Rompiendo el Moldido: Cómo las Tendencias Tecnológicas Revolucionan el Negocio",
+        "excerpt": "Descubre cómo la inteligencia artificial, retail media, e-commerce y automatización están cambiando el juego empresarial",
+        "slug": "tendencias-tecnologicas-que-revolucionan-el-negocio",
+        "date": "2026-06-16",
+        "category": "Tecnología y Negocios"
+    },
+    {
         "title": "La Disrupción Tecnológica: Cómo la IA y el Retail Media Están Revolucionando el E-commerce",
         "excerpt": "Descubre cómo las tendencias tecnológicas están cambiando el juego en el sector del comercio electrónico y cómo puedes aprovechar estas oportunidades para impulsar tu negocio.",
         "slug": "disrupcion-tecnologica-ia-retail-media-e-commerce",
@@ -341,12 +348,5 @@
         "slug": "la-revolucion-tecnologica",
         "date": "2026-04-27",
         "category": "Tecnología y Negocios"
-    },
-    {
-        "title": "La Revolución de la Inteligencia Artificial en el Sector Retail",
-        "excerpt": "Descubre cómo la IA puede transformar la eficiencia operativa y la visibilidad en la era digital",
-        "slug": "la-revolucion-de-la-inteligencia-artificial-en-el-sector-retail",
-        "date": "2026-04-27",
-        "category": "Tecnología y Innovación"
     }
 ]
