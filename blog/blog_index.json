@@ -1,5 +1,12 @@
 [
     {
+        "title": "Rompiendo el Molde: Cómo la Tecnología Revoluciona el Futuro del Comercio",
+        "excerpt": "Descubre las tendencias tecnológicas que están cambiando el juego en el mundo del comercio y cómo puedes aprovecharlas para impulsar tu negocio.",
+        "slug": "tendencias-tecnologicas-revolucionarias",
+        "date": "2026-06-29",
+        "category": "Tendencias Tecnológicas"
+    },
+    {
         "title": "La Revolución Silenciosa: Cómo la Inteligencia Artificial y el Retail Media Están Redefiniendo el E-commerce",
         "excerpt": "Descubre cómo la automatización y la inteligencia artificial están cambiando la forma en que los consumidores interactúan con las marcas en línea y en tiendas físicas.",
         "slug": "la-revolucion-silenciosa-en-el-e-commerce",
@@ -340,13 +347,6 @@
         "excerpt": "Descubre cómo las tendencias tecnológicas están cambiando el juego en el mundo del comercio electrónico y la automatización.",
         "slug": "la-revolucion-silenciosa",
         "date": "2026-05-11",
-        "category": "Tecnología y Negocios"
-    },
-    {
-        "title": "La Revolución Tecnológica: Cómo La IA, Retail Media y E-commerce Están Redefiniendo El Futuro",
-        "excerpt": "Descubre cómo las tendencias tecnológicas actuales están forzando a los líderes empresariales a replantear sus estrategias.",
-        "slug": "la-revolucion-tecnologica",
-        "date": "2026-05-10",
         "category": "Tecnología y Negocios"
     }
 ]
