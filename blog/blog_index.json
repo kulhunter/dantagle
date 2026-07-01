@@ -1,5 +1,12 @@
 [
     {
+        "title": "La Revolución Digital: Cómo las Tendencias Tecnológicas Están Redefiniendo el Negocio",
+        "excerpt": "Descubre cómo la IA, Retail Media, E-commerce y la Automatización están cambiando el panorama empresarial y qué puedes hacer para mantener la ventaja competitiva.",
+        "slug": "la-revolucion-digital",
+        "date": "2026-07-01",
+        "category": "Tecnología y Negocios"
+    },
+    {
         "title": "Rompiendo el Molde: Cómo la Inteligencia Artificial y el Retail Media Revolucionan el E-commerce",
         "excerpt": "Descubre cómo las tendencias tecnológicas están cambiando el panorama del comercio electrónico y cómo puedes aprovecharlas para impulsar tu negocio.",
         "slug": "tendencias-tecnologicas-e-commerce",
@@ -341,12 +348,5 @@
         "slug": "la-revolucion-silenciosa",
         "date": "2026-05-13",
         "category": "Tendencias Tecnológicas"
-    },
-    {
-        "title": "La Revolución Tecnológica: ¿Estás Preparado para el Futuro del Negocio?",
-        "excerpt": "Descubre cómo la Inteligencia Artificial, Retail Media, E-commerce y la Automatización están cambiando el juego para los CEOs y empresas líderes.",
-        "slug": "la-revolucion-tecnologica",
-        "date": "2026-05-12",
-        "category": "Tecnología y Negocios"
     }
 ]
