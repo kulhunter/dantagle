@@ -1,5 +1,12 @@
 [
     {
+        "title": "La Revolución del Comercio: Cómo la IA y la Automatización están Cambiando el Juego",
+        "excerpt": "Descubre cómo las últimas tendencias tecnológicas están transformando la forma en que los consumidores interactúan con las marcas y cómo puedes aprovechar esto para impulsar tu negocio.",
+        "slug": "la-revolucion-del-comercio",
+        "date": "2026-07-17",
+        "category": "Tecnología y Negocios"
+    },
+    {
         "title": "La Revolución Silenciosa: Cómo la IA y el Retail Media Redefinen el E-commerce",
         "excerpt": "Descubre cómo las tendencias tecnológicas están cambiando el juego del comercio electrónico y cómo puedes aprovecharlas para impulsar tu negocio",
         "slug": "la-revolucion-silenciosa",
@@ -341,12 +348,5 @@
         "slug": "tendencias-tecnologicas-ia-retail-media-e-commerce-automatizacion",
         "date": "2026-05-28",
         "category": "Tecnología y negocios"
-    },
-    {
-        "title": "La Revolución Silenciosa: Cómo la IA y el Retail Media Están Redefiniendo el E-commerce",
-        "excerpt": "La fusión de la inteligencia artificial, el retail media y el e-commerce está cambiando el juego. ¿Estás listo para aprovechar esta tendencia?",
-        "slug": "la-revolucion-silenciosa",
-        "date": "2026-05-27",
-        "category": "Tecnología y Negocios"
     }
 ]
