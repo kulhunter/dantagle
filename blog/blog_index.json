@@ -1,5 +1,12 @@
 [
     {
+        "title": "Disruptando el Futuro: Cómo la IA y el Retail Media Revolucionan el E-commerce",
+        "excerpt": "La integración de la IA y el Retail Media está cambiando el juego en el e-commerce. Descubre cómo estos avances tecnológicos están obligando a los CEOs a replantear sus estrategias",
+        "slug": "disruptando-el-futuro",
+        "date": "2026-07-20",
+        "category": "Tendencias Tecnológicas"
+    },
+    {
         "title": "La Revolución Silenciosa: Cómo la IA y el Retail Media están Redefiniendo el E-commerce",
         "excerpt": "Descubre cómo las tendencias tecnológicas están cambiando el juego del comercio electrónico y cómo puedes aprovecharlas para impulsar tu negocio.",
         "slug": "la-revolucion-silenciosa-del-e-commerce",
@@ -341,12 +348,5 @@
         "slug": "la-revolucion-silenciosa-en-el-e-commerce",
         "date": "2026-05-31",
         "category": "Tecnología y Negocios"
-    },
-    {
-        "title": "La Revolución Tecnológica Imperativa: Cómo la IA y el Retail Media Están Redefiniendo el E-commerce",
-        "excerpt": "Descubre cómo la integración de la inteligencia artificial y el retail media está revolucionando la experiencia de compra online y transformando las estrategias de los CEOs",
-        "slug": "revolucion-tecnologica-imperativa",
-        "date": "2026-05-30",
-        "category": "Tendencias Tecnológicas"
     }
 ]
