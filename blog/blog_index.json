@@ -1,5 +1,12 @@
 [
     {
+        "title": "Revoluciona Tu Empresa: 4 Tendencias Tecnológicas que Debes Conocer",
+        "excerpt": "Descubre cómo la IA, Retail Media, E-commerce y Automatización pueden transformar tu negocio.",
+        "slug": "tendencias-tecnologicas-para-empresas",
+        "date": "2026-07-21",
+        "category": "Tecnología y Negocios"
+    },
+    {
         "title": "Disruptando el Futuro: Cómo la IA y el Retail Media Revolucionan el E-commerce",
         "excerpt": "La integración de la IA y el Retail Media está cambiando el juego en el e-commerce. Descubre cómo estos avances tecnológicos están obligando a los CEOs a replantear sus estrategias",
         "slug": "disruptando-el-futuro",
@@ -340,13 +347,6 @@
         "excerpt": "Descubre cómo la tecnología está cambiando el juego del retail y cómo puedes aprovecharla para tu negocio",
         "slug": "la-revolucion-silenciosa",
         "date": "2026-06-01",
-        "category": "Tecnología y Negocios"
-    },
-    {
-        "title": "La Revolución Silenciosa: Cómo la Inteligencia Artificial y el Retail Media están Redefiniendo el E-commerce",
-        "excerpt": "Descubre cómo las tendencias tecnológicas actuales pueden impulsar tu negocio hacia el futuro",
-        "slug": "la-revolucion-silenciosa-en-el-e-commerce",
-        "date": "2026-05-31",
         "category": "Tecnología y Negocios"
     }
 ]
