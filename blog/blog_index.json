@@ -1,5 +1,12 @@
 [
     {
+        "title": "La Revolución Silenciosa: Cómo la IA y el Retail Media Están Redefiniendo el E-commerce",
+        "excerpt": "Descubre cómo las tendencias tecnológicas actuales están cambiando el juego para los CEOs y cómo puedes aprovecharlas para impulsar tu negocio.",
+        "slug": "la-revolucion-silenciosa-de-la-ia-y-el-retail-media",
+        "date": "2026-07-27",
+        "category": "Tecnología y Negocios"
+    },
+    {
         "title": "La Revolución Digital: Cómo la IA y el Retail Media Están Redefiniendo el E-commerce",
         "excerpt": "Descubre cómo la inteligencia artificial y el retail media están cambiando el juego en el e-commerce y qué significa esto para tu negocio.",
         "slug": "la-revolucion-digital-ia-retail-media-e-commerce",
@@ -340,13 +347,6 @@
         "excerpt": "Descubre cómo la tecnología está cambiando el juego para los CEOs y empresarios en el sector del comercio electrónico y la automatización.",
         "slug": "la-revolucion-silenciosa",
         "date": "2026-06-07",
-        "category": "Tecnología y Negocios"
-    },
-    {
-        "title": "La Revolución Silenciosa: Cómo la IA y el Retail Media Están Redefiniendo el E-commerce",
-        "excerpt": "Descubre cómo la inteligencia artificial y el retail media están cambiando el juego del e-commerce y por qué los CEOs deben prestar atención.",
-        "slug": "la-revolucion-silenciosa",
-        "date": "2026-06-06",
         "category": "Tecnología y Negocios"
     }
 ]
