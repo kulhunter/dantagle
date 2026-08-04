@@ -1,5 +1,30 @@
 User-agent: *
 Allow: /
+Disallow: /.git/
+Disallow: /scripts/
 
-# Sitemaps
+# Allow AI crawlers for AEO (Answer Engine Optimization)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Anthropic-AI
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+# Sitemap
 Sitemap: https://dantagle.cl/sitemap.xml
+Sitemap: https://dantagle.cl/sitemap-blog.xml

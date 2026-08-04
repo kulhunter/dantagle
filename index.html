@@ -3,9 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <title>Dan Tagle | Unfuck Your Business | #1 Global Creative Technologist</title>
-    <meta name="description" content="No vendo sitios web estáticos. Destrabo procesos corporativos con Software, IA, AEO y Automatización. #1 Global Creative Technologist por CreativePool. 19+ Casos de Éxito.">
-    <meta name="keywords" content="Dan Tagle, Creative Technologist, Unfuck Your Business, SaaS Chile, AEO, SEO IA, Criptobot, Tikk, Saben, Behance kulhunter">
+    <!-- Hreflang tags for multilingual support -->
+    <link rel="alternate" hreflang="es" href="https://dantagle.cl/" />
+    <link rel="alternate" hreflang="en" href="https://dantagle.cl/en/" />
+    <link rel="alternate" hreflang="pt" href="https://dantagle.cl/pt/" />
+    <link rel="alternate" hreflang="zh" href="https://dantagle.cl/zh/" />
+    <title>Dan Tagle – Consultor IA & Automatización | #1 Global Creative Technologist</title>
+    <meta name="description" content="Consultor IA y automatización de procesos empresariales en Chile. #1 Global Creative Technologist por CreativePool. Mejora tu negocio con IA, SaaS y estrategia tecnológica.">
+    <meta name="keywords" content="consultor IA Chile, automatización procesos, AI automation, SaaS Chile, Creative Technologist, Dan Tagle">
     <meta name="author" content="Dan Tagle">
     <meta name="theme-color" content="#0d0b09">
 
@@ -25,6 +30,23 @@
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@300;400;600;700;900&family=Caveat:wght@600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 
     <style>
+        /* Preload hero image */
+        </style>
+        <link rel="preload" as="image" href="img_hero_workspace.jpg">
+        <!-- Google Search Console verification token to be added manually -->
+        <!-- Google Analytics (placeholder) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZWS146BM3E"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-ZWS146BM3E');
+        </script>
+        <!-- Twitter Card Meta -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Dan Tagle | Unfuck Your Business" />
+        <meta name="twitter:description" content="Creative Technologist, AI Automation, #1 Global Creative Technologist by CreativePool" />
+        <meta name="twitter:image" content="https://dantagle.cl/hero_impact.png" />
         :root { --accent: #f59e0b; --accent-glow: rgba(245, 158, 11, 0.25); --bg: #0d0b09; }
         body { font-family: 'Outfit', sans-serif; background-color: var(--bg); color: #fcfaf6; overflow-x: hidden; font-size: 16px; -webkit-tap-highlight-color: transparent; }
         ::selection { background-color: var(--accent); color: #0d0b09; }
@@ -91,26 +113,27 @@
         "https://www.linkedin.com/in/taglecl/",
         "https://github.com/kulhunter"
       ],
+      "award": "#1 Global Creative Technologist by CreativePool",
       "knowsAbout": ["Creative Technology", "SaaS Development", "AEO", "Growth SEO", "AI Automation"]
     }
     </script>
 </head>
-<body class="bg-warm-mesh relative">
+<body class="relative">
     <div class="noise"></div>
 
     <!-- Navigation Bar -->
-    <nav class="fixed top-0 w-full z-[100] glass-nav py-4 px-5 md:px-12 flex justify-between items-center">
-        <a href="index.html" class="text-xl md:text-2xl font-bold tracking-tighter uppercase flex items-center gap-2 font-serif-title italic">
+    <nav class="fixed top-0 w-full z-[100] glass-nav py-4 px-5 md:px-12 flex justify-between items-center" aria-label="Main navigation">
+        <a href="index.html" class="text-xl md:text-2xl font-bold tracking-tighter uppercase flex items-center gap-2 font-serif-title italic" aria-label="Home">
             DAN TAGLE <span class="w-2.5 h-2.5 rounded-full bg-amber-500 animate-pulse"></span>
         </a>
 
         <!-- Desktop Menu -->
         <div class="hidden lg:flex gap-8 text-[11px] font-black uppercase tracking-[0.25em] text-stone-400">
-            <a href="#casos" data-i18n="nav_cases" class="hover:text-amber-400 transition-all">19 Casos Reales</a>
-            <a href="#ecosistema" data-i18n="nav_apps" class="hover:text-amber-400 transition-all">Suite & Dominios</a>
-            <a href="#diagnostico" class="hover:text-amber-400 transition-all">Diagnóstico IA</a>
-            <a href="#utilidades" class="hover:text-amber-400 transition-all">Herramientas</a>
-            <a href="blog.html" data-i18n="nav_blog" class="hover:text-amber-400 transition-all">Blog & AEO</a>
+            <a href="#casos" data-i18n="nav_cases" class="hover:text-amber-400 transition-all" aria-label="Casos Reales">19 Casos Reales</a>
+            <a href="#ecosistema" data-i18n="nav_apps" class="hover:text-amber-400 transition-all" aria-label="Ecosistema SaaS">Suite & Dominios</a>
+            <a href="#diagnostico" class="hover:text-amber-400 transition-all" aria-label="Diagnóstico IA">Diagnóstico IA</a>
+            <a href="#utilidades" class="hover:text-amber-400 transition-all" aria-label="Herramientas">Herramientas</a>
+            <a href="blog.html" data-i18n="nav_blog" class="hover:text-amber-400 transition-all" aria-label="Blog y AEO">Blog & AEO</a>
         </div>
 
         <div class="flex items-center gap-3 md:gap-6">
@@ -236,7 +259,8 @@
                         <img src="img_hero_workspace.jpg"
                              alt="Dan Tagle — Creative Technologist workspace with code, polaroids and sticky notes"
                              class="w-full rounded-2xl object-cover h-72 md:h-96 analog-img border-2 border-stone-800"
-                             style="filter: contrast(108%) brightness(90%) saturate(85%) sepia(15%)">
+                             style="filter: contrast(108%) brightness(90%) saturate(85%) sepia(15%)"
+                             loading="lazy">
                         <!-- Tape overlay annotation -->
                         <div class="absolute -top-4 left-6 bg-amber-300 text-stone-950 font-handwriting font-bold text-sm px-3 py-1 shadow-md" style="transform: rotate(-3deg)">
                             mi studio, 3am →
@@ -248,7 +272,8 @@
                         <img src="img_collage_process.jpg"
                              alt="Creative collage process board with code snippets and data charts"
                              class="w-full rounded-xl object-cover h-48 analog-img border border-stone-700"
-                             style="filter: contrast(115%) brightness(85%) saturate(70%) sepia(25%)">
+                             style="filter: contrast(115%) brightness(85%) saturate(70%) sepia(25%)"
+                             loading="lazy">
                         <!-- Corner stamp -->
                         <div class="absolute -bottom-3 -right-3 bg-[#0d0b09] border border-amber-500/50 text-amber-400 font-mono text-[10px] px-2 py-1 rounded">
                             PROCESS_v4.2
@@ -262,7 +287,7 @@
         <section class="py-16 px-5 md:px-12 lg:px-20 bg-stone-950/90 border-y border-stone-800 relative">
             <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
                 <div class="flex items-center gap-6">
-                    <img src="creativepool.png" alt="CreativePool Award Winner #1 Global Creative Technologist" class="w-24 h-24 rounded-2xl object-cover border-2 border-amber-500/50 shrink-0 shadow-[0_0_25px_rgba(245,158,11,0.3)]">
+                    <img src="creativepool.png" alt="CreativePool Award Winner #1 Global Creative Technologist" class="w-24 h-24 rounded-2xl object-cover border-2 border-amber-500/50 shrink-0 shadow-[0_0_25px_rgba(245,158,11,0.3)]" loading="lazy">
                     <div>
                         <span class="text-xs font-mono text-amber-400 uppercase tracking-widest block mb-1">// RECONOCIMIENTO INTERNACIONAL</span>
                         <h2 class="text-2xl md:text-4xl font-serif-title uppercase text-white tracking-tight" data-i18n="section_award_title">#1 Global Creative Technologist</h2>
@@ -383,7 +408,7 @@
         <section id="ecosistema" class="py-24 px-5 md:px-12 lg:px-20 container mx-auto">
             <!-- Editorial Zine-style image strip -->
             <div class="relative mb-12 overflow-hidden rounded-3xl reveal" style="transform: rotate(-0.5deg)">
-                <img src="img_tech_collage.jpg" alt="SaaS & Digital Technology Collage editorial" class="w-full h-48 md:h-72 object-cover" style="filter: contrast(120%) brightness(80%) saturate(60%) sepia(20%)">
+                <img src="img_tech_collage.jpg" alt="SaaS & Digital Technology Collage editorial" class="w-full h-48 md:h-72 object-cover" style="filter: contrast(120%) brightness(80%) saturate(60%) sepia(20%)" loading="lazy">
                 <div class="absolute inset-0 bg-gradient-to-r from-[#0d0b09] via-transparent to-[#0d0b09]"></div>
                 <div class="absolute inset-0 flex items-center px-8 md:px-16">
                     <div>
@@ -434,7 +459,7 @@
                     <p class="text-stone-400 text-sm font-light mt-4 max-w-md">Artículos tácticos sobre cómo posicionarte en la IA de Google antes de que lo haga tu competencia.</p>
                 </div>
                 <div class="md:col-span-5 relative reveal" style="transform: rotate(1.5deg)">
-                    <img src="img_blog_notes.jpg" alt="Handwritten strategy notes and AEO planning" class="w-full h-48 md:h-52 object-cover rounded-2xl border border-stone-800" style="filter: contrast(108%) brightness(90%) sepia(15%)">
+                    <img src="img_blog_notes.jpg" alt="Handwritten strategy notes and AEO planning" class="w-full h-48 md:h-52 object-cover rounded-2xl border border-stone-800" style="filter: contrast(108%) brightness(90%) sepia(15%)" loading="lazy">
                     <a href="blog.html" class="absolute -bottom-4 right-4 bg-amber-500 text-stone-950 font-handwriting font-bold text-sm px-4 py-2 shadow-lg hover:bg-white transition-all" style="transform: rotate(-2deg)">
                         ver todo el blog →
                     </a>
@@ -456,6 +481,18 @@
                 <p class="text-lg md:text-2xl text-stone-300 font-light max-w-3xl mx-auto mb-12 leading-relaxed">
                     Desarrollemos la solución táctica que tu empresa necesita en tiempo récord.
                 </p>
+                
+                <!-- Contact Form -->
+                <form action="https://formspree.io/f/your-form-id" method="POST" class="mt-8 text-left max-w-lg mx-auto mb-12" aria-label="Contact form">
+                  <label class="block mb-2 text-stone-200" for="name">Nombre</label>
+                  <input type="text" id="name" name="name" required class="w-full p-2 mb-4 rounded bg-white/5 border border-white/20 text-stone-200" placeholder="Tu nombre">
+                  <label class="block mb-2 text-stone-200" for="email">Email</label>
+                  <input type="email" id="email" name="email" required class="w-full p-2 mb-4 rounded bg-white/5 border border-white/20 text-stone-200" placeholder="tu@email.com">
+                  <label class="block mb-2 text-stone-200" for="message">Mensaje</label>
+                  <textarea id="message" name="message" rows="4" required class="w-full p-2 mb-4 rounded bg-white/5 border border-white/20 text-stone-200" placeholder="¿En qué podemos ayudar?"></textarea>
+                  <button type="submit" class="btn-primary w-full">Enviar Mensaje</button>
+                </form>
+
                 <a href="https://wa.me/56930219665?text=Hola%20Dan,%20quiero%20destrabar%20un%20proyecto." target="_blank" class="btn-primary text-base py-5 px-10">
                     <i data-lucide="message-square" class="w-5 h-5"></i> Agendar por WhatsApp
                 </a>
@@ -513,7 +550,9 @@
             <span>© 2026 DAN TAGLE — #1 GLOBAL CREATIVE TECHNOLOGIST</span>
             <span>GOOGLE ADSENSE APPROVED NETWORK</span>
         </div>
-    </footer>
+    <!-- Sticky CTA Button -->
+<button id="sticky-cta" class="fixed bottom-6 right-6 bg-amber-500 text-stone-950 rounded-full px-6 py-3 shadow-lg hover:bg-amber-400 transition-colors" onclick="document.querySelector('.btn-primary').scrollIntoView({behavior:'smooth'});">¡Hablemos!</button>
+</footer>
 
     <!-- SCRIPTS -->
     <script src="scripts/orchestrator_data.js"></script>
@@ -705,5 +744,30 @@
             document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
         });
     </script>
+<!-- Structured Data for Cases -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Casos Reales de Dan Tagle",
+  "itemListElement": [
+    {
+      "@type": "CreativeWork",
+      "name": "Caso 1",
+      "url": "https://dantagle.cl/casos.html#case1"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "Caso 2",
+      "url": "https://dantagle.cl/casos.html#case2"
+    }
+    // Additional cases can be added similarly
+  ]
+}
+</script>
+<!-- Sticky CTA -->
+<div class="fixed bottom-5 right-5">
+  <a href="https://wa.me/56930219665" target="_blank" class="bg-amber-500 text-stone-950 rounded-full px-4 py-2 font-bold shadow-lg hover:bg-amber-600 transition">Contactar</a>
+</div>
 </body>
 </html>
