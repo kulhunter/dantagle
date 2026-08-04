@@ -2,83 +2,135 @@
 <html lang="es-CL" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Desarrollos & Suite | Dan Tagle</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Desarrollos, SaaS & Dominios Aprobados | Dan Tagle</title>
+    <meta name="description" content="Suite de software, aplicaciones SaaS en producción y dominios aprobados por AdSense. Creados por Dan Tagle.">
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7868880098336635" crossorigin="anonymous"></script>
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@0.473.0/dist/umd/lucide.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+
     <style>
-        :root { --accent: #06b6d4; --bg: #050505; }
-        body { font-family: 'Outfit', sans-serif; background-color: var(--bg); color: #f4f4f5; overflow-x: hidden; }
-        .bg-mesh { background-image: radial-gradient(circle at 50% -20%, rgba(6, 182, 212, 0.1) 0%, transparent 50%); }
-        .glass-nav { background: rgba(5, 5, 5, 0.85); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.08); }
-        .title-huge { font-size: clamp(3.5rem, 10vw, 8rem); font-weight: 900; letter-spacing: -0.05em; line-height: 0.85; }
-        #mobile-menu { transform: translateX(100%); transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1); }
+        :root { --accent: #06b6d4; --accent-glow: rgba(6, 182, 212, 0.35); --bg: #050505; }
+        body { font-family: 'Outfit', sans-serif; background-color: var(--bg); color: #f4f4f5; overflow-x: hidden; font-size: 16px; }
+        ::selection { background-color: var(--accent); color: #050505; }
+
+        .noise { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; opacity: 0.04; z-index: 9999; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"); }
+        .bg-mesh { background-image: radial-gradient(circle at 50% -10%, rgba(6, 182, 212, 0.12) 0%, transparent 60%); }
+
+        .title-huge { font-size: clamp(3rem, 11vw, 7.5rem); font-weight: 900; letter-spacing: -0.05em; line-height: 0.88; }
+        .glass-nav { background: rgba(5, 5, 5, 0.85); backdrop-filter: blur(25px); border-bottom: 1px solid rgba(255,255,255,0.08); }
+        .glass-panel { background: rgba(255,255,255,0.02); backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.08); border-radius: 2rem; transition: all 0.4s ease; }
+        .glass-panel:hover { border-color: var(--accent); transform: translateY(-4px); box-shadow: 0 15px 35px rgba(0,0,0,0.5), 0 0 20px var(--accent-glow); }
+
+        #mobile-menu { transform: translateX(100%); transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
         #mobile-menu.open { transform: translateX(0); }
-        .tool-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 2.5rem; transition: all 0.5s; }
-        .tool-card:hover { border-color: var(--accent); transform: translateY(-5px); background: rgba(255,255,255,0.05); }
     </style>
 </head>
-<body class="bg-mesh">
-    <!-- Sticky Navigation -->
-    <nav class="fixed top-0 w-full z-[100] glass-nav py-5 px-6 md:px-12 flex justify-between items-center">
-        <div class="flex items-center gap-10">
-            <a href="index.html" class="text-2xl font-black tracking-tighter uppercase">DAN TAGLE <span class="text-cyan-500">.</span></a>
-            <div class="hidden lg:flex gap-8 text-xs font-black uppercase tracking-[0.2em] text-zinc-400">
-                <a href="casos.html" class="hover:text-white transition-all">Casos Reales</a>
-                <a href="desarrollos.html" class="text-white">Apps & Software</a>
-                <a href="blog.html" class="hover:text-white transition-all">Blog</a>
-            </div>
+<body class="bg-mesh relative">
+    <div class="noise"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-[100] glass-nav py-4 px-5 md:px-12 flex justify-between items-center">
+        <a href="index.html" class="text-xl md:text-2xl font-black tracking-tighter uppercase flex items-center gap-2">
+            DAN TAGLE <span class="w-2.5 h-2.5 rounded-full bg-cyan-500 animate-pulse"></span>
+        </a>
+
+        <div class="hidden lg:flex gap-8 text-[11px] font-black uppercase tracking-[0.25em] text-zinc-400">
+            <a href="casos.html" class="hover:text-white transition-all">19 Casos Reales</a>
+            <a href="desarrollos.html" class="text-cyan-400">Suite & Dominios</a>
+            <a href="index.html#diagnostico" class="hover:text-white transition-all">Diagnóstico IA</a>
+            <a href="blog.html" class="hover:text-white transition-all">Blog & AEO</a>
         </div>
-        <div class="flex items-center gap-6">
-            <button onclick="toggleMenu()" class="lg:hidden p-2 text-white">
-                <i data-lucide="menu" id="menu-icon" class="w-8 h-8"></i>
+
+        <div class="flex items-center gap-4">
+            <button onclick="toggleMenu()" class="lg:hidden p-2 text-white" aria-label="Abrir menú">
+                <i data-lucide="menu" id="menu-icon" class="w-7 h-7 text-cyan-400"></i>
             </button>
-            <a href="https://wa.me/56930219665" class="hidden lg:block text-xs font-black uppercase tracking-widest bg-white text-black px-8 py-3 rounded-md hover:bg-cyan-500 transition-all">Contacto</a>
+            <a href="https://wa.me/56930219665" target="_blank" class="hidden lg:inline-flex text-[11px] font-black uppercase tracking-widest bg-cyan-500 text-black px-6 py-2.5 rounded-full hover:bg-white transition-all">
+                Contacto Directo
+            </a>
         </div>
     </nav>
 
-    <!-- Mobile Menu Overlay -->
-    <div id="mobile-menu" class="fixed inset-0 bg-black z-[90] flex flex-col justify-center items-center gap-10 lg:hidden">
-        <a href="index.html" class="text-4xl font-black uppercase tracking-tighter">Inicio</a>
-        <a href="casos.html" class="text-4xl font-black uppercase tracking-tighter">Casos Reales</a>
-        <a href="desarrollos.html" class="text-4xl font-black uppercase tracking-tighter text-cyan-500">Apps & Software</a>
-        <a href="blog.html" class="text-4xl font-black uppercase tracking-tighter">Blog</a>
+    <!-- Mobile Drawer -->
+    <div id="mobile-menu" class="fixed inset-0 bg-black/95 backdrop-blur-2xl z-[90] flex flex-col justify-between p-8 pt-28 lg:hidden">
+        <div class="flex flex-col gap-6 text-left">
+            <a href="index.html" class="text-3xl font-black uppercase tracking-tighter text-white">Inicio</a>
+            <a href="casos.html" class="text-3xl font-black uppercase tracking-tighter text-white">19 Casos Reales</a>
+            <a href="desarrollos.html" class="text-3xl font-black uppercase tracking-tighter text-cyan-400">Suite Pro</a>
+            <a href="blog.html" class="text-3xl font-black uppercase tracking-tighter text-white">Blog & AEO</a>
+        </div>
+
+        <div class="space-y-4 pt-6">
+            <a href="https://wa.me/56930219665" target="_blank" class="w-full text-center py-4 bg-cyan-500 text-black font-black uppercase tracking-widest text-xs rounded-full block">
+                Contactar por WhatsApp
+            </a>
+        </div>
     </div>
 
-    <main class="pt-48 pb-20 px-6 md:px-20 container mx-auto">
-        <header class="mb-32">
-            <span class="text-sm font-mono text-cyan-500 tracking-[0.4em] uppercase mb-6 block">// INFRAESTRUCTURA TÁCTICA</span>
-            <h1 class="title-huge uppercase mb-8">Suite <span class="text-cyan-500">Útil.</span></h1>
-            <p class="text-xl text-zinc-400 font-light max-w-3xl leading-relaxed">Herramientas de autoridad diseñadas para optimizar procesos y automatización.</p>
+    <main class="pt-36 pb-20 px-5 md:px-12 lg:px-20 container mx-auto">
+        <header class="mb-16">
+            <span class="text-xs font-mono text-cyan-400 tracking-[0.4em] uppercase mb-4 block">// INFRAESTRUCTURA DE SOFTWARE PROPIA</span>
+            <h1 class="title-huge uppercase mb-6">Suite & <span class="text-cyan-500">Dominios.</span></h1>
+            <p class="text-lg text-zinc-300 font-light max-w-3xl leading-relaxed">
+                Productos SaaS en producción, plataformas activas y red de dominios aprobados por Google AdSense.
+            </p>
         </header>
 
-        <section class="mb-32">
-            <h2 class="text-xs font-black uppercase tracking-[0.4em] text-zinc-600 mb-12 border-b border-white/5 pb-6">Proyectos Core & SaaS</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="coreApps"></div>
+        <!-- AdSense Header Slot -->
+        <div class="my-8 text-center">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-7868880098336635"
+                 data-ad-slot="auto"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <!-- Section 1: Core SaaS Apps -->
+        <section class="mb-20">
+            <h2 class="text-xs font-mono font-bold uppercase tracking-[0.4em] text-cyan-400 mb-8 border-b border-white/10 pb-4">
+                // ECOSISTEMA SAAS & APPS CORE (DOMINIOS APROBADOS)
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" id="coreApps"></div>
         </section>
 
-        <section>
-            <h2 class="text-xs font-black uppercase tracking-[0.4em] text-zinc-600 mb-12 border-b border-white/5 pb-6">Armada Financiera & Utilidad</h2>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6" id="utilityTools"></div>
+        <!-- Section 2: Utilities -->
+        <section class="mb-20">
+            <h2 class="text-xs font-mono font-bold uppercase tracking-[0.4em] text-cyan-400 mb-8 border-b border-white/10 pb-4">
+                // ARMADA DE HERRAMIENTAS GRATUITAS Y FINANCIERAS
+            </h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" id="utilityTools"></div>
         </section>
+
+        <!-- AdSense Bottom Slot -->
+        <div class="my-16 text-center">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-7868880098336635"
+                 data-ad-slot="auto"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
     </main>
 
     <!-- Footer -->
-    <footer class="py-40 px-6 md:px-20 border-t border-white/10 mt-32">
-        <div class="container mx-auto grid grid-cols-1 lg:grid-cols-12 gap-24">
-            <div class="lg:col-span-5">
-                <span class="text-4xl font-black uppercase tracking-tighter block mb-10">DAN TAGLE <span class="text-cyan-500">.</span></span>
-                <p class="text-zinc-500 text-lg leading-relaxed mb-12">Consultoría en tecnología creativa y desarrollo de software de alto impacto centrado en resultados de negocio.</p>
-                <div class="flex gap-10">
-                    <a href="https://www.linkedin.com/in/taglecl/" class="text-zinc-600 hover:text-white transition-colors"><i data-lucide="linkedin" class="w-8 h-8"></i></a>
-                    <a href="https://github.com/kulhunter" class="text-zinc-600 hover:text-white transition-colors"><i data-lucide="github" class="w-8 h-8"></i></a>
-                </div>
+    <footer class="py-20 px-5 md:px-12 lg:px-20 border-t border-white/10 bg-black">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+            <div>
+                <a href="index.html" class="text-2xl font-black uppercase tracking-tighter block mb-2">DAN TAGLE <span class="text-cyan-500">.</span></a>
+                <p class="text-zinc-500 text-xs font-mono">GOOGLE ADSENSE APPROVED NETWORK</p>
             </div>
-            <div class="lg:col-span-7"></div>
-        </div>
-        <div class="mt-40 pt-10 border-t border-white/5 text-center">
-            <span class="text-[10px] font-black uppercase tracking-[1em] text-zinc-800">© 2026 / STRATEGIC ENGINEERING</span>
+            <div class="flex gap-6 text-xs text-zinc-400 uppercase font-mono tracking-widest">
+                <a href="https://www.behance.net/kulhunter" target="_blank" class="hover:text-cyan-400">Behance Portfolio ↗</a>
+                <a href="https://creativepool.com/Dondt" target="_blank" class="hover:text-cyan-400">CreativePool ↗</a>
+            </div>
         </div>
     </footer>
 
@@ -95,32 +147,30 @@
         document.addEventListener('DOMContentLoaded', () => {
             const coreContainer = document.getElementById('coreApps');
             coreContainer.innerHTML = MASTER_DATA.developments.map(d => `
-                <a href="${d.link}" class="tool-card p-12 group flex flex-col justify-between">
+                <a href="${d.link}" target="${d.link.startsWith('http') ? '_blank' : '_self'}" class="glass-panel p-6 group flex flex-col justify-between">
                     <div>
-                        <i data-lucide="${d.icon}" class="w-10 h-10 text-cyan-500 mb-8"></i>
-                        <h3 class="text-3xl font-black uppercase mb-6 break-all">${d.title}</h3>
-                        <p class="text-zinc-400 text-base leading-relaxed">${d.desc}</p>
+                        <div class="flex justify-between items-center mb-6">
+                            <i data-lucide="${d.icon}" class="w-8 h-8 text-cyan-400"></i>
+                            <span class="text-[10px] font-mono font-bold bg-green-500/20 text-green-400 px-2 py-0.5 rounded border border-green-500/30 animate-pulse">${d.status}</span>
+                        </div>
+                        <h3 class="text-2xl font-black uppercase text-white mb-2 group-hover:text-cyan-400 transition-colors">${d.title}</h3>
+                        <span class="text-[10px] font-mono text-zinc-500 uppercase tracking-widest block mb-4">${d.tag}</span>
+                        <p class="text-xs text-zinc-400 font-light leading-relaxed mb-6">${d.desc}</p>
                     </div>
+                    <span class="text-xs font-black uppercase tracking-widest text-cyan-400 group-hover:translate-x-1 transition-transform flex items-center gap-1">
+                        Acceder ↗
+                    </span>
                 </a>
             `).join('');
 
             const utilContainer = document.getElementById('utilityTools');
-            const tools = [
-                { name: "Boleta SII", link: "boleta.html" },
-                { name: "Sueldo Líquido", link: "sueldo.html" },
-                { name: "UF a CLP", link: "uf.html" },
-                { name: "UTM", link: "calculadora-utm.html" },
-                { name: "IVA 19%", link: "iva.html" },
-                { name: "IPC", link: "ipc.html" },
-                { name: "RUT", link: "rut.html" },
-                { name: "UTM Builder", link: "utm-builder.html" }
-            ];
-            utilContainer.innerHTML = tools.map(t => `
-                <a href="${t.link}" class="p-8 border border-white/10 rounded-2xl bg-zinc-900/20 hover:border-cyan-500 transition-all text-center">
-                    <h4 class="text-base font-black uppercase">${t.name}</h4>
+            utilContainer.innerHTML = MASTER_DATA.utilities.map(u => `
+                <a href="${u.link}" class="p-5 rounded-2xl bg-white/5 border border-white/10 hover:border-cyan-500 hover:bg-white/10 transition-all block group">
+                    <h4 class="text-sm font-black uppercase text-white group-hover:text-cyan-400 transition-colors mb-1">${u.name}</h4>
+                    <p class="text-[11px] text-zinc-400 font-light leading-tight">${u.desc}</p>
                 </a>
             `).join('');
-            
+
             lucide.createIcons();
         });
     </script>
