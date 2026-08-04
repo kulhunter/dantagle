@@ -11,62 +11,65 @@
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@0.473.0/dist/umd/lucide.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@300;400;600;700;900&family=Caveat:wght@600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 
     <style>
-        :root { --accent: #06b6d4; --accent-glow: rgba(6, 182, 212, 0.35); --bg: #050505; }
-        body { font-family: 'Outfit', sans-serif; background-color: var(--bg); color: #f4f4f5; overflow-x: hidden; font-size: 16px; }
-        ::selection { background-color: var(--accent); color: #050505; }
+        :root { --accent: #f59e0b; --accent-glow: rgba(245, 158, 11, 0.25); --bg: #0d0b09; }
+        body { font-family: 'Outfit', sans-serif; background-color: var(--bg); color: #fcfaf6; overflow-x: hidden; font-size: 16px; }
+        ::selection { background-color: var(--accent); color: #0d0b09; }
 
-        .noise { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; opacity: 0.04; z-index: 9999; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"); }
-        .bg-mesh { background-image: radial-gradient(circle at 50% -10%, rgba(6, 182, 212, 0.12) 0%, transparent 60%); }
+        .font-serif-title { font-family: 'Instrument Serif', serif; }
+        .font-handwriting { font-family: 'Caveat', cursive; }
 
-        .title-huge { font-size: clamp(3rem, 11vw, 7.5rem); font-weight: 900; letter-spacing: -0.05em; line-height: 0.88; }
-        .glass-nav { background: rgba(5, 5, 5, 0.85); backdrop-filter: blur(25px); border-bottom: 1px solid rgba(255,255,255,0.08); }
-        .glass-panel { background: rgba(255,255,255,0.02); backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.08); border-radius: 2rem; transition: all 0.4s ease; }
-        .glass-panel:hover { border-color: var(--accent); transform: translateY(-4px); box-shadow: 0 15px 35px rgba(0,0,0,0.5), 0 0 20px var(--accent-glow); }
+        .noise { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; opacity: 0.055; z-index: 9999; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"); }
+        .bg-warm-mesh { background-image: radial-gradient(circle at 50% -10%, rgba(217, 119, 6, 0.12) 0%, transparent 60%); }
+
+        .title-huge { font-size: clamp(3rem, 11vw, 7.5rem); font-weight: 400; letter-spacing: -0.04em; line-height: 0.88; }
+        .glass-nav { background: rgba(13, 11, 9, 0.88); backdrop-filter: blur(25px); border-bottom: 1px solid rgba(255,255,255,0.08); }
+        .analog-card { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.09); border-radius: 1.5rem; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); overflow: hidden; }
+        .analog-card:hover { border-color: var(--accent); transform: translateY(-5px); box-shadow: 0 20px 45px rgba(0,0,0,0.7), 0 0 25px var(--accent-glow); }
 
         #mobile-menu { transform: translateX(100%); transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
         #mobile-menu.open { transform: translateX(0); }
     </style>
 </head>
-<body class="bg-mesh relative">
+<body class="bg-warm-mesh relative">
     <div class="noise"></div>
 
     <!-- Navigation -->
     <nav class="fixed top-0 w-full z-[100] glass-nav py-4 px-5 md:px-12 flex justify-between items-center">
-        <a href="index.html" class="text-xl md:text-2xl font-black tracking-tighter uppercase flex items-center gap-2">
-            DAN TAGLE <span class="w-2.5 h-2.5 rounded-full bg-cyan-500 animate-pulse"></span>
+        <a href="index.html" class="text-xl md:text-2xl font-bold tracking-tighter uppercase flex items-center gap-2 font-serif-title italic">
+            DAN TAGLE <span class="w-2.5 h-2.5 rounded-full bg-amber-500 animate-pulse"></span>
         </a>
 
-        <div class="hidden lg:flex gap-8 text-[11px] font-black uppercase tracking-[0.25em] text-zinc-400">
+        <div class="hidden lg:flex gap-8 text-[11px] font-black uppercase tracking-[0.25em] text-stone-400">
             <a href="casos.html" class="hover:text-white transition-all">19 Casos Reales</a>
             <a href="desarrollos.html" class="hover:text-white transition-all">Suite & Dominios</a>
             <a href="index.html#diagnostico" class="hover:text-white transition-all">Diagnóstico IA</a>
-            <a href="blog.html" class="text-cyan-400">Blog & AEO</a>
+            <a href="blog.html" class="text-amber-400">Blog & AEO</a>
         </div>
 
         <div class="flex items-center gap-4">
             <button onclick="toggleMenu()" class="lg:hidden p-2 text-white" aria-label="Abrir menú">
-                <i data-lucide="menu" id="menu-icon" class="w-7 h-7 text-cyan-400"></i>
+                <i data-lucide="menu" id="menu-icon" class="w-7 h-7 text-amber-400"></i>
             </button>
-            <a href="https://wa.me/56930219665" target="_blank" class="hidden lg:inline-flex text-[11px] font-black uppercase tracking-widest bg-cyan-500 text-black px-6 py-2.5 rounded-full hover:bg-white transition-all">
+            <a href="https://wa.me/56930219665" target="_blank" class="hidden lg:inline-flex text-[11px] font-black uppercase tracking-widest bg-amber-500 text-stone-950 px-6 py-2.5 rounded-full hover:bg-white transition-all">
                 Contacto Directo
             </a>
         </div>
     </nav>
 
     <!-- Mobile Drawer -->
-    <div id="mobile-menu" class="fixed inset-0 bg-black/95 backdrop-blur-2xl z-[90] flex flex-col justify-between p-8 pt-28 lg:hidden">
+    <div id="mobile-menu" class="fixed inset-0 bg-[#0d0b09]/98 backdrop-blur-2xl z-[90] flex flex-col justify-between p-8 pt-28 lg:hidden">
         <div class="flex flex-col gap-6 text-left">
-            <a href="index.html" class="text-3xl font-black uppercase tracking-tighter text-white">Inicio</a>
-            <a href="casos.html" class="text-3xl font-black uppercase tracking-tighter text-white">19 Casos Reales</a>
-            <a href="desarrollos.html" class="text-3xl font-black uppercase tracking-tighter text-white">Suite Pro</a>
-            <a href="blog.html" class="text-3xl font-black uppercase tracking-tighter text-cyan-400">Blog & AEO</a>
+            <a href="index.html" class="text-3xl font-serif-title italic text-white">Inicio</a>
+            <a href="casos.html" class="text-3xl font-serif-title italic text-white">19 Casos Reales</a>
+            <a href="desarrollos.html" class="text-3xl font-serif-title italic text-white">Suite Pro</a>
+            <a href="blog.html" class="text-3xl font-serif-title italic text-amber-400">Blog & AEO</a>
         </div>
 
         <div class="space-y-4 pt-6">
-            <a href="https://wa.me/56930219665" target="_blank" class="w-full text-center py-4 bg-cyan-500 text-black font-black uppercase tracking-widest text-xs rounded-full block">
+            <a href="https://wa.me/56930219665" target="_blank" class="w-full text-center py-4 bg-amber-500 text-stone-950 font-black uppercase tracking-widest text-xs rounded-full block">
                 Contactar por WhatsApp
             </a>
         </div>
@@ -74,9 +77,10 @@
 
     <main class="pt-36 pb-20 px-5 md:px-12 lg:px-20 container mx-auto">
         <header class="mb-16">
-            <span class="text-xs font-mono text-cyan-400 tracking-[0.4em] uppercase mb-4 block">// ARQUITECTURA AEO & STRATEGIC CONTENT</span>
-            <h1 class="title-huge uppercase mb-6">El <span class="text-cyan-500">Blog.</span></h1>
-            <p class="text-lg text-zinc-300 font-light max-w-3xl leading-relaxed">
+            <span class="font-handwriting text-amber-300 text-2xl mb-2 block">~ Strategic Thinking & Human Voice</span>
+            <span class="text-xs font-mono text-amber-400 tracking-[0.4em] uppercase mb-4 block">// ARQUITECTURA AEO & STRATEGIC CONTENT</span>
+            <h1 class="title-huge font-serif-title uppercase mb-6">El <span class="font-serif-title italic text-amber-400">Blog.</span></h1>
+            <p class="text-lg text-stone-300 font-light max-w-3xl leading-relaxed">
                 Artículos tácticos sobre SEO para IA (AEO), automatización corporativa y tecnología de alta conversión.
             </p>
         </header>
@@ -109,15 +113,15 @@
     </main>
 
     <!-- Footer -->
-    <footer class="py-20 px-5 md:px-12 lg:px-20 border-t border-white/10 bg-black">
+    <footer class="py-20 px-5 md:px-12 lg:px-20 border-t border-stone-800 bg-[#080706]">
         <div class="container mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
             <div>
-                <a href="index.html" class="text-2xl font-black uppercase tracking-tighter block mb-2">DAN TAGLE <span class="text-cyan-500">.</span></a>
-                <p class="text-zinc-500 text-xs font-mono">GOOGLE ADSENSE APPROVED NETWORK</p>
+                <a href="index.html" class="text-2xl font-serif-title italic tracking-tight uppercase block">DAN TAGLE <span class="text-amber-500">.</span></a>
+                <p class="text-stone-500 text-xs font-mono">GOOGLE ADSENSE APPROVED NETWORK</p>
             </div>
-            <div class="flex gap-6 text-xs text-zinc-400 uppercase font-mono tracking-widest">
-                <a href="https://www.behance.net/kulhunter" target="_blank" class="hover:text-cyan-400">Behance Portfolio ↗</a>
-                <a href="https://creativepool.com/Dondt" target="_blank" class="hover:text-cyan-400">CreativePool ↗</a>
+            <div class="flex gap-6 text-xs text-stone-400 uppercase font-mono tracking-widest">
+                <a href="https://www.behance.net/kulhunter" target="_blank" class="hover:text-amber-400">Behance Portfolio ↗</a>
+                <a href="https://creativepool.com/Dondt" target="_blank" class="hover:text-amber-400">CreativePool ↗</a>
             </div>
         </div>
     </footer>
@@ -137,13 +141,13 @@
                 const posts = await response.json();
                 const grid = document.getElementById('blogGrid');
                 grid.innerHTML = posts.map(p => `
-                    <a href="blog/${p.slug}.html" class="glass-panel p-8 group flex flex-col justify-between">
+                    <a href="blog/${p.slug}.html" class="analog-card p-8 group flex flex-col justify-between">
                         <div>
-                            <span class="text-xs font-mono text-cyan-400 uppercase tracking-widest block mb-4">${p.category}</span>
-                            <h3 class="text-2xl font-black uppercase text-white mb-4 group-hover:text-cyan-400 transition-colors leading-tight">${p.title}</h3>
-                            <p class="text-xs text-zinc-400 leading-relaxed font-light mb-6">${p.excerpt}</p>
+                            <span class="text-xs font-mono text-amber-400 uppercase tracking-widest block mb-4">${p.category}</span>
+                            <h3 class="text-2xl font-serif-title uppercase text-white mb-4 group-hover:text-amber-400 transition-colors leading-tight">${p.title}</h3>
+                            <p class="text-xs text-stone-400 leading-relaxed font-light mb-6">${p.excerpt}</p>
                         </div>
-                        <span class="text-xs font-black uppercase tracking-widest text-white group-hover:text-cyan-400 border-b border-white/20 pb-1 w-fit">
+                        <span class="text-xs font-black uppercase tracking-widest text-white group-hover:text-amber-400 border-b border-white/20 pb-1 w-fit">
                             Leer Artículo →
                         </span>
                     </a>

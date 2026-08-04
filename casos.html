@@ -11,36 +11,42 @@
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@0.473.0/dist/umd/lucide.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@300;400;600;700;900&family=Caveat:wght@600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 
     <style>
-        :root { --accent: #06b6d4; --accent-glow: rgba(6, 182, 212, 0.4); --bg: #030712; }
-        body { font-family: 'Outfit', sans-serif; background-color: var(--bg); color: #f4f4f5; overflow-x: hidden; font-size: 16px; }
-        ::selection { background-color: var(--accent); color: #030712; }
+        :root { --accent: #f59e0b; --accent-glow: rgba(245, 158, 11, 0.25); --bg: #0d0b09; }
+        body { font-family: 'Outfit', sans-serif; background-color: var(--bg); color: #fcfaf6; overflow-x: hidden; font-size: 16px; }
+        ::selection { background-color: var(--accent); color: #0d0b09; }
 
-        .noise { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; opacity: 0.035; z-index: 9999; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"); }
-        .bg-mesh { background-image: radial-gradient(circle at 50% -10%, rgba(6, 182, 212, 0.12) 0%, transparent 60%); }
+        .font-serif-title { font-family: 'Instrument Serif', serif; }
+        .font-handwriting { font-family: 'Caveat', cursive; }
 
-        .title-huge { font-size: clamp(3rem, 11vw, 7.5rem); font-weight: 900; letter-spacing: -0.05em; line-height: 0.88; }
-        .glass-nav { background: rgba(3, 7, 18, 0.85); backdrop-filter: blur(25px); border-bottom: 1px solid rgba(255,255,255,0.08); }
-        .glass-panel { background: rgba(255,255,255,0.025); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.08); border-radius: 2rem; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); overflow: hidden; }
-        .glass-panel:hover { border-color: var(--accent); transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0,0,0,0.6), 0 0 30px var(--accent-glow); }
+        .noise { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; opacity: 0.055; z-index: 9999; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"); }
+        .bg-warm-mesh { background-image: radial-gradient(circle at 50% -10%, rgba(217, 119, 6, 0.12) 0%, transparent 60%); }
+
+        .title-huge { font-size: clamp(3rem, 11vw, 7.5rem); font-weight: 400; letter-spacing: -0.04em; line-height: 0.88; }
+        .glass-nav { background: rgba(13, 11, 9, 0.88); backdrop-filter: blur(25px); border-bottom: 1px solid rgba(255,255,255,0.08); }
+        .analog-card { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.09); border-radius: 1.5rem; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); overflow: hidden; }
+        .analog-card:hover { border-color: var(--accent); transform: translateY(-5px) rotate(-0.5deg); box-shadow: 0 20px 45px rgba(0,0,0,0.7), 0 0 25px var(--accent-glow); }
 
         #mobile-menu { transform: translateX(100%); transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
         #mobile-menu.open { transform: translateX(0); }
+
+        .analog-img { filter: contrast(105%) brightness(95%) saturate(90%); transition: all 0.5s; }
+        .analog-card:hover .analog-img { filter: contrast(110%) brightness(100%) saturate(105%); }
     </style>
 </head>
-<body class="bg-mesh relative">
+<body class="bg-warm-mesh relative">
     <div class="noise"></div>
 
     <!-- Navigation -->
     <nav class="fixed top-0 w-full z-[100] glass-nav py-4 px-5 md:px-12 flex justify-between items-center">
-        <a href="index.html" class="text-xl md:text-2xl font-black tracking-tighter uppercase flex items-center gap-2">
-            DAN TAGLE <span class="w-2.5 h-2.5 rounded-full bg-cyan-500 animate-pulse"></span>
+        <a href="index.html" class="text-xl md:text-2xl font-bold tracking-tighter uppercase flex items-center gap-2 font-serif-title italic">
+            DAN TAGLE <span class="w-2.5 h-2.5 rounded-full bg-amber-500 animate-pulse"></span>
         </a>
 
-        <div class="hidden lg:flex gap-8 text-[11px] font-black uppercase tracking-[0.25em] text-zinc-400">
-            <a href="casos.html" class="text-cyan-400">19 Casos Reales</a>
+        <div class="hidden lg:flex gap-8 text-[11px] font-black uppercase tracking-[0.25em] text-stone-400">
+            <a href="casos.html" class="text-amber-400">19 Casos Reales</a>
             <a href="desarrollos.html" class="hover:text-white transition-all">Suite & Dominios</a>
             <a href="index.html#diagnostico" class="hover:text-white transition-all">Diagnóstico IA</a>
             <a href="blog.html" class="hover:text-white transition-all">Blog & AEO</a>
@@ -48,25 +54,25 @@
 
         <div class="flex items-center gap-4">
             <button onclick="toggleMenu()" class="lg:hidden p-2 text-white" aria-label="Abrir menú">
-                <i data-lucide="menu" id="menu-icon" class="w-7 h-7 text-cyan-400"></i>
+                <i data-lucide="menu" id="menu-icon" class="w-7 h-7 text-amber-400"></i>
             </button>
-            <a href="https://wa.me/56930219665?text=Hola%20Dan,%20vi%20tus%20casos%20reales." target="_blank" class="hidden lg:inline-flex text-[11px] font-black uppercase tracking-widest bg-cyan-500 text-black px-6 py-2.5 rounded-full hover:bg-white transition-all">
+            <a href="https://wa.me/56930219665?text=Hola%20Dan,%20vi%20tus%20casos%20reales." target="_blank" class="hidden lg:inline-flex text-[11px] font-black uppercase tracking-widest bg-amber-500 text-stone-950 px-6 py-2.5 rounded-full hover:bg-white transition-all">
                 Contacto Directo
             </a>
         </div>
     </nav>
 
     <!-- Mobile Drawer -->
-    <div id="mobile-menu" class="fixed inset-0 bg-black/95 backdrop-blur-2xl z-[90] flex flex-col justify-between p-8 pt-28 lg:hidden">
+    <div id="mobile-menu" class="fixed inset-0 bg-[#0d0b09]/98 backdrop-blur-2xl z-[90] flex flex-col justify-between p-8 pt-28 lg:hidden">
         <div class="flex flex-col gap-6 text-left">
-            <a href="index.html" class="text-3xl font-black uppercase tracking-tighter text-white">Inicio</a>
-            <a href="casos.html" class="text-3xl font-black uppercase tracking-tighter text-cyan-400">19 Casos Reales</a>
-            <a href="desarrollos.html" class="text-3xl font-black uppercase tracking-tighter text-white">Suite Pro</a>
-            <a href="blog.html" class="text-3xl font-black uppercase tracking-tighter text-white">Blog & AEO</a>
+            <a href="index.html" class="text-3xl font-serif-title italic text-white">Inicio</a>
+            <a href="casos.html" class="text-3xl font-serif-title italic text-amber-400">19 Casos Reales</a>
+            <a href="desarrollos.html" class="text-3xl font-serif-title italic text-white">Suite Pro</a>
+            <a href="blog.html" class="text-3xl font-serif-title italic text-white">Blog & AEO</a>
         </div>
 
         <div class="space-y-4 pt-6">
-            <a href="https://wa.me/56930219665" target="_blank" class="w-full text-center py-4 bg-cyan-500 text-black font-black uppercase tracking-widest text-xs rounded-full block">
+            <a href="https://wa.me/56930219665" target="_blank" class="w-full text-center py-4 bg-amber-500 text-stone-950 font-black uppercase tracking-widest text-xs rounded-full block">
                 Contactar por WhatsApp
             </a>
         </div>
@@ -74,9 +80,10 @@
 
     <main class="pt-36 pb-20 px-5 md:px-12 lg:px-20 container mx-auto">
         <header class="mb-16">
-            <span class="text-xs font-mono text-cyan-400 tracking-[0.4em] uppercase mb-4 block">// BEHANCE PORTFOLIO ARCHIVE (kulhunter)</span>
-            <h1 class="title-huge uppercase mb-6">19 Casos <br> <span class="text-cyan-500">Reales.</span></h1>
-            <p class="text-lg text-zinc-300 font-light max-w-3xl leading-relaxed">
+            <span class="font-handwriting text-amber-300 text-2xl mb-2 block">~ Imperfection & Analog Process</span>
+            <span class="text-xs font-mono text-amber-400 tracking-[0.4em] uppercase mb-4 block">// BEHANCE PORTFOLIO ARCHIVE (kulhunter)</span>
+            <h1 class="title-huge font-serif-title uppercase mb-6">19 Casos <br> <span class="font-serif-title italic text-amber-400">Reales.</span></h1>
+            <p class="text-lg text-stone-300 font-light max-w-3xl leading-relaxed">
                 Ingeniería táctica, AEO, interfaces reactivas y activaciones data-driven para grandes marcas corporativas y startups de escala.
             </p>
         </header>
@@ -94,11 +101,11 @@
 
         <!-- Filter Tags -->
         <div class="flex flex-wrap gap-2 mb-12" id="caseFilters">
-            <button onclick="filterCases('ALL')" class="case-filter-btn px-4 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-cyan-500 text-black shadow-lg" data-filter="ALL">Todos (19)</button>
-            <button onclick="filterCases('AEO')" class="case-filter-btn px-4 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-white/5 border border-white/10 text-zinc-400 hover:text-white" data-filter="AEO">AEO & SEO</button>
-            <button onclick="filterCases('Creative Tech')" class="case-filter-btn px-4 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-white/5 border border-white/10 text-zinc-400 hover:text-white" data-filter="Creative Tech">Creative Tech</button>
-            <button onclick="filterCases('BTL')" class="case-filter-btn px-4 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-white/5 border border-white/10 text-zinc-400 hover:text-white" data-filter="BTL">BTL & Hardware</button>
-            <button onclick="filterCases('Gold')" class="case-filter-btn px-4 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-white/5 border border-white/10 text-zinc-400 hover:text-white" data-filter="Gold">Premios (Effie & WINA)</button>
+            <button onclick="filterCases('ALL')" class="case-filter-btn px-4 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-amber-500 text-stone-950 shadow-lg" data-filter="ALL">Todos (19)</button>
+            <button onclick="filterCases('AEO')" class="case-filter-btn px-4 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-white/5 border border-white/10 text-stone-400 hover:text-white" data-filter="AEO">AEO & SEO</button>
+            <button onclick="filterCases('Creative Tech')" class="case-filter-btn px-4 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-white/5 border border-white/10 text-stone-400 hover:text-white" data-filter="Creative Tech">Creative Tech</button>
+            <button onclick="filterCases('BTL')" class="case-filter-btn px-4 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-white/5 border border-white/10 text-stone-400 hover:text-white" data-filter="BTL">BTL & Hardware</button>
+            <button onclick="filterCases('Gold')" class="case-filter-btn px-4 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-white/5 border border-white/10 text-stone-400 hover:text-white" data-filter="Gold">Premios (Effie & WINA)</button>
         </div>
 
         <!-- Grid of 19 Cases -->
@@ -117,15 +124,15 @@
     </main>
 
     <!-- Footer -->
-    <footer class="py-20 px-5 md:px-12 lg:px-20 border-t border-white/10 bg-black">
+    <footer class="py-20 px-5 md:px-12 lg:px-20 border-t border-stone-800 bg-[#080706]">
         <div class="container mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
             <div>
-                <a href="index.html" class="text-2xl font-black uppercase tracking-tighter block mb-2">DAN TAGLE <span class="text-cyan-500">.</span></a>
-                <p class="text-zinc-500 text-xs font-mono">#1 GLOBAL CREATIVE TECHNOLOGIST BY CREATIVEPOOL</p>
+                <a href="index.html" class="text-2xl font-serif-title italic tracking-tight uppercase block">DAN TAGLE <span class="text-amber-500">.</span></a>
+                <p class="text-stone-500 text-xs font-mono">#1 GLOBAL CREATIVE TECHNOLOGIST BY CREATIVEPOOL</p>
             </div>
-            <div class="flex gap-6 text-xs text-zinc-400 uppercase font-mono tracking-widest">
-                <a href="https://www.behance.net/kulhunter" target="_blank" class="hover:text-cyan-400">Behance Portfolio ↗</a>
-                <a href="https://creativepool.com/Dondt" target="_blank" class="hover:text-cyan-400">CreativePool ↗</a>
+            <div class="flex gap-6 text-xs text-stone-400 uppercase font-mono tracking-widest">
+                <a href="https://www.behance.net/kulhunter" target="_blank" class="hover:text-amber-400">Behance Portfolio ↗</a>
+                <a href="https://creativepool.com/Dondt" target="_blank" class="hover:text-amber-400">CreativePool ↗</a>
             </div>
         </div>
     </footer>
@@ -173,28 +180,28 @@
             container.innerHTML = list.map(c => {
                 const imgUrl = caseImages[c.id] || "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=800";
                 return `
-                <div class="glass-panel group flex flex-col justify-between overflow-hidden">
-                    <div class="relative h-48 overflow-hidden">
-                        <img src="${imgUrl}" alt="${c.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-60 group-hover:opacity-90">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent p-6 flex flex-col justify-between">
+                <div class="analog-card group flex flex-col justify-between overflow-hidden">
+                    <div class="relative h-52 overflow-hidden bg-stone-900">
+                        <img src="${imgUrl}" alt="${c.title}" class="analog-img w-full h-full object-cover opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#0d0b09] via-[#0d0b09]/30 to-transparent p-6 flex flex-col justify-between">
                             <div class="flex justify-between items-start">
-                                <span class="text-[10px] font-mono font-bold bg-cyan-500 text-black px-2.5 py-1 rounded uppercase tracking-wider">${c.client}</span>
-                                <span class="text-[10px] font-mono bg-black/60 backdrop-blur-md px-2.5 py-1 rounded text-cyan-400 border border-cyan-500/30">CASE #0${c.id}</span>
+                                <span class="text-[10px] font-mono font-bold bg-amber-500 text-stone-950 px-2.5 py-1 rounded uppercase tracking-wider">${c.client}</span>
+                                <span class="text-[10px] font-mono bg-black/70 backdrop-blur-md px-2.5 py-1 rounded text-amber-300 border border-amber-500/30">CASE #0${c.id}</span>
                             </div>
                         </div>
                     </div>
                     <div class="p-6 md:p-8 flex-1 flex flex-col justify-between">
                         <div>
-                            <h3 class="text-2xl font-black uppercase text-white mb-6 group-hover:text-cyan-400 transition-colors leading-tight">${c.title}</h3>
+                            <h3 class="text-3xl font-serif-title uppercase text-white mb-6 group-hover:text-amber-400 transition-colors leading-tight">${c.title}</h3>
 
-                            <div class="space-y-4 text-xs text-zinc-300 border-t border-white/10 pt-4 mb-6">
-                                <p><strong class="text-zinc-500 uppercase block tracking-widest text-[10px]">Problema:</strong> ${c.prob}</p>
-                                <p><strong class="text-zinc-500 uppercase block tracking-widest text-[10px]">Solución:</strong> ${c.sol}</p>
-                                <p><strong class="text-cyan-400 uppercase block tracking-widest text-[10px]">Resultado:</strong> ${c.res}</p>
+                            <div class="space-y-4 text-xs text-stone-300 border-t border-stone-800 pt-4 mb-6">
+                                <p><strong class="text-stone-500 uppercase block tracking-widest text-[10px]">Problema:</strong> ${c.prob}</p>
+                                <p><strong class="text-stone-500 uppercase block tracking-widest text-[10px]">Solución:</strong> ${c.sol}</p>
+                                <p><strong class="text-amber-400 uppercase block tracking-widest text-[10px]">Resultado:</strong> ${c.res}</p>
                             </div>
                         </div>
 
-                        <a href="${c.link}" target="_blank" class="inline-flex items-center gap-2 text-xs font-black uppercase tracking-widest text-white hover:text-cyan-400 border-b border-white/20 pb-1 w-fit transition-colors">
+                        <a href="${c.link}" target="_blank" class="inline-flex items-center gap-2 text-xs font-black uppercase tracking-widest text-white hover:text-amber-400 border-b border-white/20 pb-1 w-fit transition-colors">
                             Ver Case Study en Behance <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
                         </a>
                     </div>
@@ -206,9 +213,9 @@
         function filterCases(tag) {
             document.querySelectorAll('.case-filter-btn').forEach(btn => {
                 if (btn.getAttribute('data-filter') === tag) {
-                    btn.className = 'case-filter-btn px-4 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-cyan-500 text-black shadow-lg';
+                    btn.className = 'case-filter-btn px-4 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-amber-500 text-stone-950 shadow-lg';
                 } else {
-                    btn.className = 'case-filter-btn px-4 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-white/5 border border-white/10 text-zinc-400 hover:text-white';
+                    btn.className = 'case-filter-btn px-4 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-white/5 border border-white/10 text-stone-400 hover:text-white';
                 }
             });
             renderCases(tag);
