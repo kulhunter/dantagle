@@ -116,475 +116,108 @@
     }
     </script>
 </head>
-<body class="relative">
+<body class="min-h-screen flex flex-col justify-between relative bg-warm-mesh">
     <div class="noise"></div>
 
-    <!-- Navigation Bar -->
-    <nav class="fixed top-0 w-full z-[100] glass-nav py-4 px-5 md:px-12 flex justify-between items-center" aria-label="Main navigation">
-        <a href="index.html" class="text-xl md:text-2xl font-bold tracking-tighter uppercase flex items-center gap-2 font-serif-title italic" aria-label="Home">
-            DAN TAGLE <span class="w-2.5 h-2.5 rounded-full bg-amber-500 animate-pulse"></span>
-        </a>
-
-        <!-- Desktop Menu -->
-        <div class="hidden lg:flex gap-8 text-[11px] font-black uppercase tracking-[0.25em] text-stone-400">
-            <a href="#casos" data-i18n="nav_cases" class="hover:text-amber-400 transition-all" aria-label="Casos Reales">19 Casos Reales</a>
-            <a href="#ecosistema" data-i18n="nav_apps" class="hover:text-amber-400 transition-all" aria-label="Ecosistema SaaS">Suite & Dominios</a>
-            <a href="#diagnostico" class="hover:text-amber-400 transition-all" aria-label="Diagnóstico IA">Diagnóstico IA</a>
-            <a href="#utilidades" class="hover:text-amber-400 transition-all" aria-label="Herramientas">Herramientas</a>
-            <a href="blog.html" data-i18n="nav_blog" class="hover:text-amber-400 transition-all" aria-label="Blog y AEO">Blog & AEO</a>
+    <!-- Minimal Google-Style Header -->
+    <header class="w-full py-4 px-6 md:px-12 flex justify-between items-center z-50">
+        <div class="flex items-center gap-3">
+            <span class="text-[11px] font-mono font-bold tracking-widest text-amber-400 bg-amber-500/10 px-3 py-1 rounded-full border border-amber-500/30">
+                DAN TAGLE · SOLUCIONES
+            </span>
         </div>
-
-        <div class="flex items-center gap-3 md:gap-6">
-            <!-- Language Selector -->
-            <div class="flex gap-2 items-center bg-white/5 px-3 py-1.5 rounded-full border border-white/10 text-xs">
-                <button onclick="setLanguage('es')" title="Español" class="hover:scale-125 transition-transform" id="btn-es">🇪🇸</button>
-                <button onclick="setLanguage('en')" title="English" class="hover:scale-125 transition-transform opacity-60" id="btn-en">🇺🇸</button>
-                <button onclick="setLanguage('pt')" title="Português" class="hover:scale-125 transition-transform opacity-60" id="btn-pt">🇧🇷</button>
-                <button onclick="setLanguage('zh')" title="中文" class="hover:scale-125 transition-transform opacity-60" id="btn-zh">🇨🇳</button>
-            </div>
-
-            <!-- WhatsApp Direct CTA Desktop -->
-            <a href="https://wa.me/56928623092?text=Hola%20Dan,%20quiero%20destrabar%20un%20proyecto." target="_blank" data-i18n="nav_contact" class="hidden lg:inline-flex text-[11px] font-black uppercase tracking-widest bg-amber-500 text-stone-950 px-6 py-2.5 rounded-full hover:bg-white transition-all shadow-md">
-                Hablemos
-            </a>
-
-            <!-- Mobile Hamburger Button -->
-            <button onclick="toggleMenu()" class="lg:hidden p-2 text-white focus:outline-none" aria-label="Abrir menú">
-                <i data-lucide="menu" id="menu-icon" class="w-7 h-7 text-amber-400"></i>
-            </button>
-        </div>
-    </nav>
-
-    <!-- Mobile Drawer Overlay -->
-    <div id="mobile-menu" class="fixed inset-0 bg-[#0d0b09]/98 backdrop-blur-2xl z-[90] flex flex-col justify-between p-8 pt-28 lg:hidden">
-        <div class="flex flex-col gap-6 text-left">
-            <a href="#casos" onclick="toggleMenu()" class="text-3xl font-serif-title italic text-white hover:text-amber-400 flex items-center justify-between border-b border-white/10 pb-4">
-                <span>19 Casos Reales</span> <span class="text-xs text-amber-400 font-mono">19</span>
-            </a>
-            <a href="#ecosistema" onclick="toggleMenu()" class="text-3xl font-serif-title italic text-white hover:text-amber-400 flex items-center justify-between border-b border-white/10 pb-4">
-                <span>Suite & SaaS</span> <span class="text-xs text-amber-400 font-mono">8 LIVE</span>
-            </a>
-            <a href="#diagnostico" onclick="toggleMenu()" class="text-3xl font-serif-title italic text-white hover:text-amber-400 flex items-center justify-between border-b border-white/10 pb-4">
-                <span>Diagnóstico IA</span> <span class="text-xs text-amber-400 font-mono">HUD</span>
-            </a>
-            <a href="#utilidades" onclick="toggleMenu()" class="text-3xl font-serif-title italic text-white hover:text-amber-400 flex items-center justify-between border-b border-white/10 pb-4">
-                <span>Herramientas</span> <span class="text-xs text-amber-400 font-mono">13</span>
-            </a>
-            <a href="blog.html" onclick="toggleMenu()" class="text-3xl font-serif-title italic text-white hover:text-amber-400 flex items-center justify-between border-b border-white/10 pb-4">
-                <span>Blog & AEO</span> <span class="text-xs text-amber-400 font-mono">8 POSTS</span>
+        <div class="flex items-center gap-5 text-xs font-mono">
+            <a href="casos.html" class="text-stone-400 hover:text-white transition-colors">19 Casos</a>
+            <a href="desarrollos.html" class="text-stone-400 hover:text-white transition-colors">SaaS & Apps</a>
+            <a href="blog.html" class="text-stone-400 hover:text-white transition-colors">Blog</a>
+            <a href="https://wa.me/56928623092?text=Hola%20Dan,%20te%20contacto%20desde%20dantagle.cl" target="_blank" class="px-4 py-2 bg-amber-500 text-stone-950 font-bold rounded-full hover:bg-white transition-all">
+                WhatsApp Directo
             </a>
         </div>
+    </header>
 
-        <div class="space-y-4 pt-6">
-            <a href="https://wa.me/56928623092?text=Hola%20Dan,%20quiero%20destrabar%20un%20proyecto." target="_blank" class="btn-primary w-full text-center py-4">
-                <i data-lucide="message-square" class="w-5 h-5"></i> Contactar por WhatsApp
-            </a>
-            <div class="flex justify-center gap-6 text-xs text-stone-400 uppercase font-mono tracking-widest pt-2">
-                <a href="https://www.behance.net/kulhunter" target="_blank" class="hover:text-amber-400">Behance</a>
-                <a href="https://creativepool.com/Dondt" target="_blank" class="hover:text-amber-400">CreativePool</a>
-                <a href="https://github.com/kulhunter" target="_blank" class="hover:text-amber-400">GitHub</a>
-            </div>
-        </div>
-    </div>
-
-    <main class="relative z-10">
-        <!-- HERO SECTION: Analog Editorial & Craft -->
-        <section class="min-h-screen px-5 md:px-12 lg:px-20 pt-28 pb-16 relative overflow-hidden">
-            <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90vw] md:w-[60vw] h-[60vw] bg-amber-500/10 blur-[150px] rounded-full pointer-events-none -z-10 animate-pulse"></div>
-
-            <!-- EDITORIAL SPLIT: Copy Left / Image Right -->
-            <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-16">
-
-                <!-- LEFT: Minimalist Headline block -->
-                <div class="lg:col-span-7">
-                    <!-- Simple Trust Badge -->
-                    <div class="mb-4 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs font-mono">
-                        <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span> Dan Tagle · Solucionador de Problemas
-                    </div>
-
-                    <!-- Clear, Human Headline (No humareda corporativa) -->
-                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif-title uppercase mb-4 leading-tight">
-                        ¿Qué necesitas solucionar en tu <span class="font-serif-title italic text-amber-400">negocio?</span>
-                    </h1>
-
-                    <!-- Honest, boomer-friendly subtitle -->
-                    <p class="text-base sm:text-lg text-stone-300 font-light leading-relaxed mb-8 max-w-xl">
-                        Escribe tu problema en lenguaje normal (sin palabras raras). Mi sistema analiza si te puedo ayudar, cómo lo resolvería y qué casos de éxito reales respaldan mi experiencia.
-                    </p>
-
-                    <!-- SEARCH ORACLE BOX: Google-style input -->
-                    <div class="p-4 sm:p-6 rounded-3xl bg-stone-900/90 border-2 border-amber-500/40 shadow-[0_10px_40px_rgba(0,0,0,0.6)] mb-6 backdrop-blur-xl">
-                        <form id="problemSearchForm" onsubmit="handleProblemSearch(event)" class="space-y-4">
-                            <div class="relative">
-                                <label for="problemInput" class="sr-only">Cuéntame tu problema</label>
-                                <textarea id="problemInput" rows="3" required
-                                    class="w-full p-4 pr-12 rounded-2xl bg-black/60 border border-stone-700 text-white placeholder-stone-400 text-base sm:text-lg focus:outline-none focus:border-amber-400 leading-relaxed resize-none font-sans"
-                                    placeholder="Ej: Tengo una tienda y todo lo coordinamos a mano por WhatsApp..."></textarea>
-                                <button type="submit" id="searchSubmitBtn" class="absolute bottom-4 right-4 p-2.5 rounded-xl bg-amber-500 text-stone-950 hover:bg-white transition-all shadow-md" title="Consultar">
-                                    <i data-lucide="arrow-right" class="w-5 h-5"></i>
-                                </button>
-                            </div>
-
-                            <div class="flex flex-col sm:flex-row items-center justify-between gap-3 pt-1">
-                                <div class="text-xs text-stone-400 flex items-center gap-1.5 self-start sm:self-center">
-                                    <span id="searchStepBadge" class="font-mono text-amber-400 font-bold">1ª CONSULTA GRATIS</span>
-                                    <span class="text-stone-600">·</span>
-                                    <span class="text-stone-400 text-[11px]">Respuesta táctica inmediata con IA</span>
-                                </div>
-                                <button type="submit" id="searchSubmitBtnText" class="w-full sm:w-auto px-6 py-3 bg-amber-500 hover:bg-amber-400 text-stone-950 font-bold text-xs uppercase tracking-wider rounded-xl transition-all flex items-center justify-center gap-2">
-                                    <span>Ver cómo lo soluciono</span> <i data-lucide="sparkles" class="w-4 h-4"></i>
-                                </button>
-                            </div>
-                        </form>
-
-                        <!-- Fast Real Examples (De la vida real, cero humo) -->
-                        <div class="mt-4 pt-4 border-t border-stone-800">
-                            <span class="text-[11px] font-mono text-stone-400 uppercase tracking-wider block mb-2 font-bold">O toca un ejemplo común:</span>
-                            <div class="flex flex-wrap gap-2" id="quickExamples">
-                                <button type="button" onclick="setQuickPrompt('En Google no me encuentra nadie y la gente busca lo que yo vendo')" class="text-xs px-3 py-2 rounded-xl bg-white/5 hover:bg-white/15 border border-white/10 text-stone-300 hover:text-white text-left transition-all">
-                                    🔍 "En Google no aparezco"
-                                </button>
-                                <button type="button" onclick="setQuickPrompt('Hacemos todo a mano con planillas Excel y WhatsApp y se nos pasa la vida')" class="text-xs px-3 py-2 rounded-xl bg-white/5 hover:bg-white/15 border border-white/10 text-stone-300 hover:text-white text-left transition-all">
-                                    ⚙️ "Hacemos todo a mano"
-                                </button>
-                                <button type="button" onclick="setQuickPrompt('Tengo un producto excelente pero no logro que la gente entienda por qué comprarme')" class="text-xs px-3 py-2 rounded-xl bg-white/5 hover:bg-white/15 border border-white/10 text-stone-300 hover:text-white text-left transition-all">
-                                    💡 "Me cuesta explicar lo que vendo"
-                                </button>
-                                <button type="button" onclick="setQuickPrompt('Quiero una idea diferente que llame la atención de verdad y dé que hablar')" class="text-xs px-3 py-2 rounded-xl bg-white/5 hover:bg-white/15 border border-white/10 text-stone-300 hover:text-white text-left transition-all">
-                                    🚀 "Quiero una campaña viral"
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- RESULTS DISPLAY CONTAINER -->
-                        <div id="oracleResultsContainer" class="hidden mt-6 pt-6 border-t border-amber-500/30">
-                            <div id="oracleLoading" class="py-8 text-center space-y-3">
-                                <div class="w-8 h-8 border-2 border-amber-400 border-t-transparent rounded-full animate-spin mx-auto"></div>
-                                <p class="text-sm font-mono text-amber-300 animate-pulse">Analizando tu problema con los 15 años de casos y experiencia de Dan...</p>
-                            </div>
-                            <div id="oracleResponse" class="hidden space-y-4 text-left">
-                                <!-- Dynamic response rendered here -->
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Simple, transparent mini credentials -->
-                    <div class="flex flex-wrap items-center gap-4 text-xs text-stone-400 pt-2">
-                        <span class="flex items-center gap-1.5"><i data-lucide="check" class="w-4 h-4 text-amber-400"></i> 15+ años resolviendo problemas</span>
-                        <span class="flex items-center gap-1.5"><i data-lucide="check" class="w-4 h-4 text-amber-400"></i> Premios Effie Gold & WINA</span>
-                        <span class="flex items-center gap-1.5"><i data-lucide="check" class="w-4 h-4 text-amber-400"></i> Atención personal por Dan Tagle</span>
-                    </div>
-                </div>
-
-                <!-- RIGHT: Analog Photography Stack (imperfect layout) -->
-                <div class="lg:col-span-5 relative flex flex-col gap-4 pt-0 lg:pt-8">
-                    <!-- Main workspace photo: slightly rotated -->
-                    <div class="relative reveal" style="transform: rotate(1.5deg)">
-                        <img src="img_hero_workspace.jpg"
-                             alt="Dan Tagle — Creative Technologist workspace with code, polaroids and sticky notes"
-                             class="w-full rounded-2xl object-cover h-72 md:h-96 analog-img border-2 border-stone-800"
-                             style="filter: contrast(108%) brightness(90%) saturate(85%) sepia(15%)"
-                             loading="lazy">
-                        <!-- Tape overlay annotation -->
-                        <div class="absolute -top-4 left-6 bg-amber-300 text-stone-950 font-handwriting font-bold text-sm px-3 py-1 shadow-md" style="transform: rotate(-3deg)">
-                            mi studio, 3am →
-                        </div>
-                    </div>
-
-                    <!-- Secondary collage photo: opposite tilt -->
-                    <div class="relative self-end w-4/5 reveal" style="transform: rotate(-2deg)">
-                        <img src="img_collage_process.jpg"
-                             alt="Creative collage process board with code snippets and data charts"
-                             class="w-full rounded-xl object-cover h-48 analog-img border border-stone-700"
-                             style="filter: contrast(115%) brightness(85%) saturate(70%) sepia(25%)"
-                             loading="lazy">
-                        <!-- Corner stamp -->
-                        <div class="absolute -bottom-3 -right-3 bg-[#0d0b09] border border-amber-500/50 text-amber-400 font-mono text-[10px] px-2 py-1 rounded">
-                            PROCESS_v4.2
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- CREATIVEPOOL AWARD SHOWCASE BANNER -->
-        <section class="py-16 px-5 md:px-12 lg:px-20 bg-stone-950/90 border-y border-stone-800 relative">
-            <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
-                <div class="flex items-center gap-6">
-                    <img src="creativepool.png" alt="CreativePool Award Winner #1 Global Creative Technologist" class="w-24 h-24 rounded-2xl object-cover border-2 border-amber-500/50 shrink-0 shadow-[0_0_25px_rgba(245,158,11,0.3)]" loading="lazy">
-                    <div>
-                        <span class="text-xs font-mono text-amber-400 uppercase tracking-widest block mb-1">// RECONOCIMIENTO INTERNACIONAL</span>
-                        <h2 class="text-2xl md:text-4xl font-serif-title uppercase text-white tracking-tight" data-i18n="section_award_title">#1 Global Creative Technologist</h2>
-                        <p class="text-sm text-stone-400 font-light max-w-xl mt-1" data-i18n="section_award_desc">
-                            Reconocido mundialmente en el Top 25 Global Rankings de CreativePool por fusionar código, creatividad e impacto de negocio.
-                        </p>
-                    </div>
-                </div>
-                <div class="flex flex-col sm:flex-row gap-3 w-full md:w-auto shrink-0">
-                    <a href="https://creativepool.com/top-25/creative-technologists/" target="_blank" class="px-6 py-3.5 bg-white/10 hover:bg-amber-500 hover:text-stone-950 border border-white/20 rounded-full text-xs font-black uppercase tracking-widest transition-all text-center">
-                        Ver Ranking Oficial ↗
-                    </a>
-                    <a href="https://www.behance.net/kulhunter" target="_blank" class="px-6 py-3.5 bg-amber-500 text-stone-950 rounded-full text-xs font-black uppercase tracking-widest hover:bg-white transition-all text-center">
-                        Portfolio Behance ↗
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- ADSENSE SLOT 1 -->
-        <div class="container mx-auto px-5 my-12 text-center">
-            <ins class="adsbygoogle"
-                 style="display:block"
-                 data-ad-client="ca-pub-7868880098336635"
-                 data-ad-slot="auto"
-                 data-ad-format="auto"
-                 data-full-width-responsive="true"></ins>
-            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    <!-- PURE SEARCH ENGINE (Google Style Centered) -->
+    <main class="flex-1 flex flex-col items-center justify-center px-4 sm:px-6 w-full max-w-4xl mx-auto py-12 md:py-24 text-center">
+        <!-- Logo / Brand Minimal -->
+        <div class="mb-8 select-none">
+            <h1 class="text-5xl sm:text-7xl md:text-8xl font-serif-title uppercase tracking-tight text-white mb-2">
+                DAN <span class="italic text-amber-400">TAGLE</span>
+            </h1>
+            <p class="text-sm sm:text-base text-stone-400 font-light max-w-md mx-auto">
+                ¿Qué problema necesitas solucionar en tu negocio?
+            </p>
         </div>
 
-        <!-- 19 CASOS REALES SHOWCASE -->
-        <section id="casos" class="py-24 px-5 md:px-12 lg:px-20 container mx-auto">
-            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 gap-6 reveal">
-                <div>
-                    <span class="text-xs font-mono text-amber-400 tracking-[0.4em] uppercase block mb-3">// PORTFOLIO BEHANCE (19 PROYECTOS)</span>
-                    <h2 class="title-section font-serif-title uppercase" data-i18n="section_cases">19 Casos de <span class="font-serif-title italic text-amber-400">Éxito e Impacto.</span></h2>
-                </div>
-                <div class="flex flex-col items-start md:items-end gap-2">
-                    <span class="font-handwriting text-amber-300 text-lg">~ Analog & Crudeza Real</span>
-                    <a href="https://www.behance.net/kulhunter" target="_blank" class="text-xs font-black uppercase tracking-widest border-b-2 border-amber-500 pb-1 text-amber-400 hover:text-white transition-colors">
-                        Ver Behance Completo (kulhunter) ↗
-                    </a>
-                </div>
-            </div>
-
-            <!-- Tags Filter Buttons -->
-            <div class="flex flex-wrap gap-2 mb-12 reveal" id="caseFilters">
-                <button onclick="filterCases('ALL')" class="case-filter-btn px-4 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-amber-500 text-stone-950 shadow-lg" data-filter="ALL">Todos (19)</button>
-                <button onclick="filterCases('AEO')" class="case-filter-btn px-4 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-white/5 border border-white/10 text-stone-400 hover:text-white" data-filter="AEO">AEO & SEO</button>
-                <button onclick="filterCases('Creative Tech')" class="case-filter-btn px-4 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-white/5 border border-white/10 text-stone-400 hover:text-white" data-filter="Creative Tech">Creative Tech</button>
-                <button onclick="filterCases('BTL')" class="case-filter-btn px-4 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-white/5 border border-white/10 text-stone-400 hover:text-white" data-filter="BTL">BTL & Hardware</button>
-                <button onclick="filterCases('Gold')" class="case-filter-btn px-4 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-white/5 border border-white/10 text-stone-400 hover:text-white" data-filter="Gold">Premios (Effie & WINA)</button>
-            </div>
-
-            <!-- Cases Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="casesGrid">
-                <!-- Cases rendered dynamically via orchestrator_data.js -->
-            </div>
-
-            <div class="mt-16 text-center">
-                <a href="casos.html" class="btn-secondary">Ver los 19 Casos en Detalle →</a>
-            </div>
-        </section>
-
-        <!-- DIAGNÓSTICO IA HUD (EYE IA) -->
-        <section id="diagnostico" class="py-24 px-5 md:px-12 lg:px-20 container mx-auto">
-            <div class="analog-card p-8 md:p-16 border-amber-500/20 bg-gradient-to-b from-stone-900/80 to-[#0d0b09]">
-                <div class="scanner-line"></div>
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                    <div class="lg:col-span-6 reveal">
-                        <span class="text-xs font-mono text-amber-400 tracking-[0.4em] uppercase block mb-3">// SISTEMA HUD PREDICTIVO (EYE IA)</span>
-                        <h2 class="text-4xl md:text-6xl font-serif-title uppercase mb-6" data-i18n="section_diag">Diagnóstico <br> de Negocio.</h2>
-                        <p class="text-stone-400 font-light text-base mb-8">
-                            Selecciona el síntoma principal de tu operación para simular el análisis táctico de fricción:
-                        </p>
-
-                        <div class="space-y-3" id="hudButtons">
-                            <button onclick="runHudDiagnosis(0)" class="hud-btn w-full p-4 text-left rounded-xl bg-white/5 border border-stone-800 hover:border-amber-500 hover:bg-white/10 transition-all font-bold text-sm uppercase tracking-wide flex justify-between items-center">
-                                <span data-i18n="diag_1">[01] Ventas estancadas / Checkout complejo</span> <i data-lucide="chevron-right" class="w-4 h-4 text-amber-400"></i>
-                            </button>
-                            <button onclick="runHudDiagnosis(1)" class="hud-btn w-full p-4 text-left rounded-xl bg-white/5 border border-stone-800 hover:border-amber-500 hover:bg-white/10 transition-all font-bold text-sm uppercase tracking-wide flex justify-between items-center">
-                                <span data-i18n="diag_2">[02] Invisibilidad en buscadores de IA (ChatGPT/Gemini)</span> <i data-lucide="chevron-right" class="w-4 h-4 text-amber-400"></i>
-                            </button>
-                            <button onclick="runHudDiagnosis(3)" class="hud-btn w-full p-4 text-left rounded-xl bg-white/5 border border-stone-800 hover:border-amber-500 hover:bg-white/10 transition-all font-bold text-sm uppercase tracking-wide flex justify-between items-center">
-                                <span data-i18n="diag_4">[03] Operación manual lenta y costosa</span> <i data-lucide="chevron-right" class="w-4 h-4 text-amber-400"></i>
-                            </button>
-                            <button onclick="runHudDiagnosis(2)" class="hud-btn w-full p-4 text-left rounded-xl bg-white/5 border border-stone-800 hover:border-amber-500 hover:bg-white/10 transition-all font-bold text-sm uppercase tracking-wide flex justify-between items-center">
-                                <span data-i18n="diag_3">[04] Web confusa / Alta tasa de rebote</span> <i data-lucide="chevron-right" class="w-4 h-4 text-amber-400"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Output Screen -->
-                    <div class="lg:col-span-6 reveal">
-                        <div class="p-8 rounded-2xl bg-[#090807] border border-amber-500/30 min-h-[360px] flex flex-col justify-between font-mono relative shadow-inner">
-                            <div class="flex justify-between items-center border-b border-stone-800 pb-4 text-xs text-stone-500">
-                                <span>TERMINAL_ID: DAN_TAGLE_HUD</span>
-                                <span class="text-amber-400 flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span> ONLINE</span>
-                            </div>
-
-                            <div id="hudOutput" class="py-6 space-y-4">
-                                <p class="text-stone-500 text-sm animate-pulse">> SELECCIONA UN SÍNTOMA EN EL PANEL IZQUIERDO PARA INICIAR EL ESCANEO...</p>
-                            </div>
-
-                            <div class="pt-4 border-t border-stone-800 flex justify-between items-center text-xs">
-                                <a href="dantagle-ai-eye.html" class="text-amber-400 hover:underline flex items-center gap-1">
-                                    Probar Neural Eye v4.0 ↗
-                                </a>
-                                <span class="text-stone-600">AEO_COMPLIANT</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ECOSISTEMA SAAS & DOMINIOS APROBADOS -->
-        <section id="ecosistema" class="py-24 px-5 md:px-12 lg:px-20 container mx-auto">
-            <!-- Editorial Zine-style image strip -->
-            <div class="relative mb-12 overflow-hidden rounded-3xl reveal" style="transform: rotate(-0.5deg)">
-                <img src="img_tech_collage.jpg" alt="SaaS & Digital Technology Collage editorial" class="w-full h-48 md:h-72 object-cover" style="filter: contrast(120%) brightness(80%) saturate(60%) sepia(20%)" loading="lazy">
-                <div class="absolute inset-0 bg-gradient-to-r from-[#0d0b09] via-transparent to-[#0d0b09]"></div>
-                <div class="absolute inset-0 flex items-center px-8 md:px-16">
-                    <div>
-                        <span class="text-xs font-mono text-amber-400 tracking-[0.4em] uppercase block mb-2">// INFRAESTRUCTURA Y DOMINIOS ADSENSE</span>
-                        <h2 class="title-section font-serif-title uppercase" data-i18n="section_apps">Ecosistema SaaS & <span class="font-serif-title italic text-amber-400">Dominios Aprobados.</span></h2>
-                    </div>
-                </div>
-                <!-- Handwriting overlay -->
-                <span class="font-handwriting text-amber-300 text-2xl absolute bottom-4 right-8" style="transform: rotate(-2deg)">~ 8 dominios live</span>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" id="developmentsGrid">
-                <!-- Core apps rendered dynamically -->
-            </div>
-        </section>
-
-        <!-- ADSENSE SLOT 2 -->
-        <div class="container mx-auto px-5 my-12 text-center">
-            <ins class="adsbygoogle"
-                 style="display:block"
-                 data-ad-client="ca-pub-7868880098336635"
-                 data-ad-slot="auto"
-                 data-ad-format="auto"
-                 data-full-width-responsive="true"></ins>
-            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-        </div>
-
-        <!-- ARMADA DE UTILIDADES GRATUITAS -->
-        <section id="utilidades" class="py-24 px-5 md:px-12 lg:px-20 container mx-auto bg-stone-950/60 border-y border-stone-800 rounded-3xl">
-            <div class="mb-12 reveal">
-                <span class="text-xs font-mono text-amber-400 tracking-[0.4em] uppercase block mb-3">// HERRAMIENTAS GRATUITAS Y FINANCIERAS</span>
-                <h2 class="title-section font-serif-title uppercase">Utilidades de <span class="font-serif-title italic text-amber-400">Alta Frecuencia.</span></h2>
-                <p class="text-stone-400 text-sm font-light mt-2 max-w-2xl">Herramientas instantáneas y calculadoras de impuestos/divisas optimizadas para uso diario en Chile.</p>
-            </div>
-
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" id="utilitiesGrid">
-                <!-- Utility tools rendered dynamically -->
-            </div>
-        </section>
-
-        <!-- BLOG TENDENCIAS & AEO -->
-        <section class="py-24 px-5 md:px-12 lg:px-20 container mx-auto">
-            <!-- Editorial layout: header with analog photo -->
-            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center mb-12">
-                <div class="md:col-span-7 reveal">
-                    <span class="text-xs font-mono text-amber-400 tracking-[0.4em] uppercase block mb-3">// PENSAMIENTO Y AEO ARCHITECTURE</span>
-                    <h2 class="title-section font-serif-title uppercase">Tendencias & <span class="font-serif-title italic text-amber-400">Estrategia.</span></h2>
-                    <p class="text-stone-400 text-sm font-light mt-4 max-w-md">Artículos tácticos sobre cómo posicionarte en la IA de Google antes de que lo haga tu competencia.</p>
-                </div>
-                <div class="md:col-span-5 relative reveal" style="transform: rotate(1.5deg)">
-                    <img src="img_blog_notes.jpg" alt="Handwritten strategy notes and AEO planning" class="w-full h-48 md:h-52 object-cover rounded-2xl border border-stone-800" style="filter: contrast(108%) brightness(90%) sepia(15%)" loading="lazy">
-                    <a href="blog.html" class="absolute -bottom-4 right-4 bg-amber-500 text-stone-950 font-handwriting font-bold text-sm px-4 py-2 shadow-lg hover:bg-white transition-all" style="transform: rotate(-2deg)">
-                        ver todo el blog →
-                    </a>
-                </div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8" id="blogGrid">
-                <!-- Rendered dynamically from blog/blog_index.json -->
-            </div>
-        </section>
-
-        <!-- FINAL DIRECT CTA -->
-        <section class="py-32 px-5 md:px-12 lg:px-20 container mx-auto text-center">
-            <div class="analog-card p-12 md:p-24 bg-gradient-to-br from-amber-950/30 via-stone-900/60 to-[#0d0b09] border-amber-500/30">
-                <span class="font-handwriting text-amber-300 text-2xl mb-4 block">~ Hablemos de tu cuello de botella real</span>
-                <h2 class="text-4xl md:text-7xl font-serif-title uppercase tracking-tight mb-8">
-                    ¿LISTO PARA <span class="italic text-amber-400">DESTRABAR</span> TU NEGOCIO?
-                </h2>
-                <p class="text-lg md:text-2xl text-stone-300 font-light max-w-3xl mx-auto mb-12 leading-relaxed">
-                    Desarrollemos la solución táctica que tu empresa necesita en tiempo récord.
-                </p>
-                
-                <!-- Direct Mail Contact -->
-                <div class="mt-8 text-left max-w-lg mx-auto mb-10 p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md">
-                  <h3 class="text-lg font-bold text-white mb-2">Escríbeme un correo directo</h3>
-                  <p class="text-xs text-stone-400 mb-4 font-light">Sin formularios lentos que se pierden. Se abre tu correo directo a mi bandeja personal:</p>
-                  <form action="mailto:hola@dantagle.cl" method="GET" class="space-y-4" onsubmit="return handleMailto(event)">
-                    <div>
-                      <label class="block mb-1 text-xs text-stone-300 uppercase tracking-wider font-mono" for="clientName">Tu Nombre o Empresa</label>
-                      <input type="text" id="clientName" required class="w-full p-3 rounded-xl bg-stone-900/90 border border-stone-700 text-stone-100 placeholder-stone-500 text-sm focus:outline-none focus:border-amber-400" placeholder="Ej: Marcela González">
-                    </div>
-                    <div>
-                      <label class="block mb-1 text-xs text-stone-300 uppercase tracking-wider font-mono" for="clientProblem">¿Qué necesitas destrabar o solucionar?</label>
-                      <textarea id="clientProblem" rows="3" required class="w-full p-3 rounded-xl bg-stone-900/90 border border-stone-700 text-stone-100 placeholder-stone-500 text-sm focus:outline-none focus:border-amber-400" placeholder="Cuéntame en 2 líneas tu problema..."></textarea>
-                    </div>
-                    <button type="submit" class="btn-primary w-full justify-center py-3.5 text-xs font-bold uppercase tracking-widest">
-                      <i data-lucide="mail" class="w-4 h-4"></i> Enviar correo a hola@dantagle.cl
+        <!-- Google-Style Search Box -->
+        <div class="w-full max-w-2xl">
+            <form id="problemSearchForm" onsubmit="handleProblemSearch(event)" class="relative">
+                <div class="flex items-center bg-stone-900/90 border-2 border-stone-700 hover:border-amber-400 focus-within:border-amber-400 rounded-2xl sm:rounded-full px-5 py-3.5 shadow-[0_10px_35px_rgba(0,0,0,0.6)] transition-all">
+                    <i data-lucide="search" class="w-5 h-5 text-amber-400 shrink-0 mr-3"></i>
+                    <input type="text" id="problemInput" required
+                        class="w-full bg-transparent text-white placeholder-stone-400 text-base sm:text-lg focus:outline-none font-sans"
+                        placeholder="Escribe tu problema o lo que necesitas destrabar...">
+                    <button type="submit" id="searchSubmitBtn" class="ml-2 p-2.5 rounded-full bg-amber-500 text-stone-950 hover:bg-white transition-all shrink-0" title="Buscar solución">
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
                     </button>
-                  </form>
                 </div>
 
-                <a href="https://wa.me/56928623092?text=Hola%20Dan,%20quiero%20destrabar%20un%20proyecto." target="_blank" class="btn-primary text-base py-5 px-10 inline-flex items-center gap-3">
-                    <i data-lucide="message-square" class="w-5 h-5"></i> Escribirme al WhatsApp Directo
-                </a>
+                <!-- Google Action Buttons -->
+                <div class="flex flex-wrap justify-center gap-3 mt-6">
+                    <button type="submit" class="px-5 py-2.5 rounded-xl bg-white/5 hover:bg-white/15 border border-white/10 text-xs sm:text-sm text-stone-200 transition-all font-medium">
+                        Buscar Solución
+                    </button>
+                    <button type="button" onclick="setRandomPrompt()" class="px-5 py-2.5 rounded-xl bg-white/5 hover:bg-white/15 border border-white/10 text-xs sm:text-sm text-stone-200 transition-all font-medium">
+                        Voy a tener suerte
+                    </button>
+                </div>
+            </form>
+
+            <!-- Boomer-Friendly Quick Examples -->
+            <div class="mt-8 pt-6 border-t border-stone-800/80 text-left">
+                <span class="text-[11px] font-mono text-stone-500 uppercase tracking-wider block mb-3 text-center">O toca una situación común:</span>
+                <div class="flex flex-wrap justify-center gap-2" id="quickExamples">
+                    <button type="button" onclick="setQuickPrompt('En Google no aparezco y la gente busca lo que yo vendo')" class="text-xs px-3.5 py-2 rounded-full bg-white/5 hover:bg-amber-500/20 hover:border-amber-500/40 border border-white/10 text-stone-300 hover:text-amber-300 transition-all">
+                        🔍 "En Google no aparezco"
+                    </button>
+                    <button type="button" onclick="setQuickPrompt('Hacemos todo a mano con planillas Excel y WhatsApp y perdemos demasiado tiempo')" class="text-xs px-3.5 py-2 rounded-full bg-white/5 hover:bg-amber-500/20 hover:border-amber-500/40 border border-white/10 text-stone-300 hover:text-amber-300 transition-all">
+                        ⚙️ "Hacemos todo a mano en Excel"
+                    </button>
+                    <button type="button" onclick="setQuickPrompt('Tengo un producto excelente pero me cuesta explicarlo para que me compren')" class="text-xs px-3.5 py-2 rounded-full bg-white/5 hover:bg-amber-500/20 hover:border-amber-500/40 border border-white/10 text-stone-300 hover:text-amber-300 transition-all">
+                        💡 "Me cuesta explicar lo que vendo"
+                    </button>
+                    <button type="button" onclick="setQuickPrompt('Quiero una idea creativa o campaña que llame la atención y dé que hablar')" class="text-xs px-3.5 py-2 rounded-full bg-white/5 hover:bg-amber-500/20 hover:border-amber-500/40 border border-white/10 text-stone-300 hover:text-amber-300 transition-all">
+                        🚀 "Quiero una campaña que dé que hablar"
+                    </button>
+                </div>
             </div>
-        </section>
+
+            <!-- RESULTS CONTAINER -->
+            <div id="oracleResultsContainer" class="hidden mt-8 text-left">
+                <div id="oracleLoading" class="py-10 text-center space-y-3">
+                    <div class="w-8 h-8 border-2 border-amber-400 border-t-transparent rounded-full animate-spin mx-auto"></div>
+                    <p class="text-sm font-mono text-amber-300 animate-pulse">Analizando tu consulta con los 15 años de casos de Dan Tagle...</p>
+                </div>
+                <div id="oracleResponse" class="hidden space-y-4">
+                    <!-- Dynamic response rendered here -->
+                </div>
+            </div>
+        </div>
     </main>
 
-    <!-- FOOTER -->
-    <footer class="py-20 px-5 md:px-12 lg:px-20 border-t border-stone-800 bg-[#080706]">
-        <div class="container mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12">
-            <div class="lg:col-span-6 space-y-6">
-                <a href="index.html" class="text-3xl font-serif-title italic tracking-tight uppercase block">DAN TAGLE <span class="text-amber-500">.</span></a>
-                <p class="text-stone-500 text-sm leading-relaxed max-w-md" data-i18n="footer_desc">
-                    Consultoría en tecnología creativa, ingeniería estratégica y desarrollo de software de alto impacto centrado en resultados de negocio.
-                </p>
-                <div class="flex gap-6">
-                    <a href="https://www.behance.net/kulhunter" target="_blank" class="text-stone-500 hover:text-amber-400 transition-colors text-xs font-bold uppercase tracking-widest">Behance</a>
-                    <a href="https://creativepool.com/Dondt" target="_blank" class="text-stone-500 hover:text-amber-400 transition-colors text-xs font-bold uppercase tracking-widest">CreativePool</a>
-                    <a href="https://www.linkedin.com/in/taglecl/" target="_blank" class="text-stone-500 hover:text-amber-400 transition-colors text-xs font-bold uppercase tracking-widest">LinkedIn</a>
-                    <a href="https://github.com/kulhunter" target="_blank" class="text-stone-500 hover:text-amber-400 transition-colors text-xs font-bold uppercase tracking-widest">GitHub</a>
-                </div>
-            </div>
-
-            <div class="lg:col-span-6 grid grid-cols-2 sm:grid-cols-3 gap-6 text-xs text-stone-400">
-                <div>
-                    <h4 class="font-bold uppercase text-white tracking-widest mb-4">Secciones</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#casos" class="hover:text-amber-400">19 Casos Reales</a></li>
-                        <li><a href="#ecosistema" class="hover:text-amber-400">SaaS & Dominios</a></li>
-                        <li><a href="#diagnostico" class="hover:text-amber-400">Diagnóstico IA</a></li>
-                        <li><a href="#utilidades" class="hover:text-amber-400">Herramientas</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-bold uppercase text-white tracking-widest mb-4">Dominios LIVE</h4>
-                    <ul class="space-y-2">
-                        <li><a href="https://tikk.cl" target="_blank" class="hover:text-amber-400">tikk.cl</a></li>
-                        <li><a href="https://criptobot.cl" target="_blank" class="hover:text-amber-400">criptobot.cl</a></li>
-                        <li><a href="https://saben.cl" target="_blank" class="hover:text-amber-400">saben.cl</a></li>
-                        <li><a href="https://leyresponsable.cl" target="_blank" class="hover:text-amber-400">leyresponsable.cl</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-bold uppercase text-white tracking-widest mb-4">Legal & Meta</h4>
-                    <ul class="space-y-2">
-                        <li><a href="politica-de-privacidad.html" class="hover:text-amber-400">Privacidad</a></li>
-                        <li><a href="terminos-y-condiciones.html" class="hover:text-amber-400">Términos</a></li>
-                        <li><a href="llms.txt" class="hover:text-amber-400">llms.txt</a></li>
-                    </ul>
-                </div>
-            </div>
+    <!-- Minimal Google-Style Footer -->
+    <footer class="w-full py-6 px-6 md:px-12 border-t border-stone-800/80 bg-black/40 text-stone-500 text-xs font-mono flex flex-col sm:flex-row justify-between items-center gap-4">
+        <div class="flex items-center gap-4">
+            <span>Chile</span>
+            <span>·</span>
+            <span>Dan Tagle (#1 Global Creative Technologist)</span>
         </div>
-
-        <div class="mt-16 pt-8 border-t border-stone-800 flex flex-col sm:flex-row justify-between items-center text-[11px] font-mono text-stone-600 gap-4">
-            <span>© 2026 DAN TAGLE — #1 GLOBAL CREATIVE TECHNOLOGIST</span>
-            <span>GOOGLE ADSENSE APPROVED NETWORK</span>
+        <div class="flex items-center gap-6">
+            <a href="mailto:hola@dantagle.cl" class="hover:text-amber-400 transition-colors">hola@dantagle.cl</a>
+            <a href="https://wa.me/56928623092" target="_blank" class="hover:text-amber-400 transition-colors">+56 9 2862 3092</a>
+            <a href="https://www.behance.net/kulhunter" target="_blank" class="hover:text-amber-400 transition-colors">Behance</a>
+            <a href="politica-de-privacidad.html" class="hover:text-amber-400 transition-colors">Privacidad</a>
         </div>
-    <!-- Sticky CTA Button -->
-<button id="sticky-cta" class="fixed bottom-6 right-6 bg-amber-500 text-stone-950 rounded-full px-6 py-3 shadow-lg hover:bg-amber-400 transition-colors" onclick="document.querySelector('.btn-primary').scrollIntoView({behavior:'smooth'});">¡Hablemos!</button>
-</footer>
+    </footer>
 
     <!-- SCRIPTS -->
     <script src="scripts/orchestrator_data.js"></script>
@@ -1024,41 +657,25 @@
             };
         }
 
-        async function renderBlog() {
-            try {
-                const response = await fetch('blog/blog_index.json');
-                const posts = await response.json();
-                const grid = document.getElementById('blogGrid');
-                grid.innerHTML = posts.slice(0, 3).map(p => `
-                    <a href="blog/${p.slug}.html" class="analog-card p-8 group flex flex-col justify-between">
-                        <div>
-                            <span class="text-xs font-mono text-amber-400 uppercase tracking-widest block mb-4">${p.category}</span>
-                            <h3 class="text-2xl font-serif-title uppercase text-white mb-4 group-hover:text-amber-400 transition-colors leading-tight">${p.title}</h3>
-                            <p class="text-xs text-stone-400 leading-relaxed font-light mb-6">${p.excerpt}</p>
-                        </div>
-                        <span class="text-xs font-black uppercase tracking-widest text-white group-hover:text-amber-400 border-b border-white/20 pb-1 w-fit">
-                            Leer Artículo →
-                        </span>
-                    </a>
-                `).join('');
-                lucide.createIcons();
-            } catch (e) { console.error("Error loading blog:", e); }
+        function setRandomPrompt() {
+            const prompts = [
+                "En Google no aparezco y la gente busca lo que yo vendo",
+                "Hacemos todo a mano con planillas Excel y WhatsApp y perdemos demasiado tiempo",
+                "Tengo un producto excelente pero me cuesta explicarlo para que me compren",
+                "Quiero una idea creativa o campaña que llame la atención y dé que hablar",
+                "Tengo un software pero a los clientes les cuesta entender cómo usarlo o comprarlo"
+            ];
+            const random = prompts[Math.floor(Math.random() * prompts.length)];
+            setQuickPrompt(random);
         }
 
         document.addEventListener('DOMContentLoaded', () => {
             lucide.createIcons();
-            setLanguage('es');
-            renderCases('ALL');
-            renderDevelopments();
-            renderUtilities();
-            renderBlog();
-
-            const observer = new IntersectionObserver(entries => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) entry.target.classList.add('active');
-                });
-            }, { threshold: 0.1 });
-            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+            // Focus on search input automatically like Google on desktop
+            if (window.innerWidth > 768) {
+                const input = document.getElementById('problemInput');
+                if (input) input.focus();
+            }
         });
     </script>
 <!-- Structured Data for Cases -->
