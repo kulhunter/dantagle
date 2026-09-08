@@ -1,378 +1,189 @@
 <!DOCTYPE html>
-<html lang="es-CL" class="scroll-smooth">
+<html lang="es-CL">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <!-- Hreflang tags for multilingual support -->
-    <link rel="alternate" hreflang="es" href="https://dantagle.cl/" />
-    <link rel="alternate" hreflang="en" href="https://dantagle.cl/en/" />
-    <link rel="alternate" hreflang="pt" href="https://dantagle.cl/pt/" />
-    <link rel="alternate" hreflang="zh" href="https://dantagle.cl/zh/" />
-    <title>Dan Tagle – Consultor IA & Automatización | #1 Global Creative Technologist</title>
-    <meta name="description" content="Consultor IA y automatización de procesos empresariales en Chile. #1 Global Creative Technologist por CreativePool. Mejora tu negocio con IA, SaaS y estrategia tecnológica.">
-    <meta name="keywords" content="consultor IA Chile, automatización procesos, AI automation, SaaS Chile, Creative Technologist, Dan Tagle">
+    <title>Dan Tagle | Solucionador de Problemas & Creative Technologist</title>
+    <meta name="description" content="¿Qué necesitas solucionar en tu negocio? Ingresa tu problema y descubre cómo lo resuelvo con estrategia, software e inteligencia artificial.">
+    <meta name="keywords" content="Dan Tagle, Soluciones Empresa, Automatización IA, SEO, AEO, Software Chile, Creative Technologist">
     <meta name="author" content="Dan Tagle">
-    <meta name="theme-color" content="#0d0b09">
-
-    <!-- Open Graph -->
-    <meta property="og:title" content="Dan Tagle | Unfuck Your Business | Creative Technologist">
-    <meta property="og:description" content="Ingeniería estratégica y tecnología creativa de alto impacto. 19 casos reales y soluciones SaaS en producción.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://dantagle.cl">
+    <meta name="theme-color" content="#0a0a0a">
+    <meta property="og:title" content="Dan Tagle | Solucionador de Problemas">
+    <meta property="og:description" content="Ingresa tu problema de negocio y descubre la solución táctica directa.">
     <meta property="og:image" content="https://dantagle.cl/hero_impact.png">
 
-    <!-- Google AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7868880098336635" crossorigin="anonymous"></script>
-
-    <!-- Tailwind & Lucide & Analog Editorial Fonts -->
+    <!-- Tailwind CSS & Lucide Icons -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@0.473.0/dist/umd/lucide.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@300;400;600;700;900&family=Caveat:wght@600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 
-    <link rel="preload" as="image" href="img_hero_workspace.jpg">
-        <meta name="google-site-verification" content="3kl_ygwfwp7yFEwizHDP4dKGhxW8lEgP2CqyVxq7rPY">
-        <!-- Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZWS146BM3E"></script>
-        <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-ZWS146BM3E');
-        </script>
-        <!-- Twitter Card Meta -->
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Dan Tagle | Unfuck Your Business" />
-        <meta name="twitter:description" content="Creative Technologist, AI Automation, #1 Global Creative Technologist by CreativePool" />
-        <meta name="twitter:image" content="https://dantagle.cl/hero_impact.png" />
-        <style>
-        :root { --accent: #f59e0b; --accent-glow: rgba(245, 158, 11, 0.25); --bg: #0d0b09; }
-        body { font-family: 'Outfit', sans-serif; background-color: var(--bg); color: #fcfaf6; overflow-x: hidden; font-size: 16px; -webkit-tap-highlight-color: transparent; }
-        ::selection { background-color: var(--accent); color: #0d0b09; }
-
-        .font-serif-title { font-family: 'Instrument Serif', serif; }
-        .font-handwriting { font-family: 'Caveat', cursive; }
-
-        /* Organic Warm Analog Grain Overlay */
-        .noise { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; opacity: 0.055; z-index: 9999; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"); }
-        
-        .bg-warm-mesh { 
-            background: 
-                radial-gradient(circle at 50% 0%, rgba(217, 119, 6, 0.12) 0%, transparent 60%),
-                radial-gradient(circle at 85% 55%, rgba(180, 83, 9, 0.08) 0%, transparent 50%),
-                radial-gradient(circle at 15% 85%, rgba(120, 53, 15, 0.06) 0%, transparent 50%);
-        }
-
-        /* Editorial Typography */
-        .text-huge { font-size: clamp(3.2rem, 14vw, 9.5rem); line-height: 0.88; letter-spacing: -0.04em; }
-        .title-section { font-size: clamp(2.4rem, 7.5vw, 5.5rem); line-height: 0.92; font-weight: 400; }
-
-        /* Motion & Analog Cards */
-        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1); }
-        .reveal.active { opacity: 1; transform: translateY(0); }
-
-        .glass-nav { background: rgba(13, 11, 9, 0.88); backdrop-filter: blur(25px); border-bottom: 1px solid rgba(255,255,255,0.08); }
-        .analog-card { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.09); border-radius: 1.5rem; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); position: relative; overflow: hidden; }
-        .analog-card:hover { border-color: var(--accent); transform: translateY(-5px) rotate(-0.5deg); box-shadow: 0 20px 45px rgba(0,0,0,0.7), 0 0 25px var(--accent-glow); }
-
-        /* Tape & Stamp Accents */
-        .tape-label { background: rgba(245, 158, 11, 0.15); border: 1px border border-amber-500/30; color: #fef3c7; font-family: 'JetBrains Mono', monospace; transform: rotate(-1deg); }
-
-        /* Buttons Touch-Friendly */
-        .btn-primary { padding: 1.25rem 2.5rem; background: #fdfbf7; color: #0d0b09; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; border-radius: 9999px; transition: all 0.3s; display: inline-flex; align-items: center; justify-content: center; gap: 0.75rem; min-height: 54px; }
-        .btn-primary:hover { background: var(--accent); color: #0d0b09; transform: scale(1.03); box-shadow: 0 12px 35px var(--accent-glow); }
-        .btn-secondary { padding: 1.25rem 2.5rem; background: rgba(255,255,255,0.06); color: #fcfaf6; border: 1px solid rgba(255,255,255,0.2); font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; border-radius: 9999px; transition: all 0.3s; display: inline-flex; align-items: center; justify-content: center; min-height: 54px; }
-        .btn-secondary:hover { background: rgba(255,255,255,0.18); border-color: var(--accent); }
-
-        /* Mobile Drawer Menu */
-        #mobile-menu { transform: translateX(100%); transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
-        #mobile-menu.open { transform: translateX(0); }
-
-        /* Analog Film Grain Filter on Images */
-        .analog-img { filter: contrast(105%) brightness(95%) saturate(90%); transition: all 0.5s; }
-        .analog-card:hover .analog-img { filter: contrast(110%) brightness(100%) saturate(105%); }
-
-        /* Scanner Line HUD */
-        .scanner-line { position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: var(--accent); box-shadow: 0 0 15px var(--accent); animation: scan 3.5s linear infinite; pointer-events: none; }
-        @keyframes scan { 0% { top: 0; } 100% { top: 100%; } }
-    </style>
-
-    <!-- Schema.org JSON-LD -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Dan Tagle",
-      "jobTitle": "Creative Technologist & Strategic Engineer",
-      "url": "https://dantagle.cl",
-      "sameAs": [
-        "https://creativepool.com/top-25/creative-technologists/",
-        "https://creativepool.com/Dondt",
-        "https://www.behance.net/kulhunter",
-        "https://www.linkedin.com/in/taglecl/",
-        "https://github.com/kulhunter"
-      ],
-      "award": "#1 Global Creative Technologist by CreativePool",
-      "knowsAbout": ["Creative Technology", "SaaS Development", "AEO", "Growth SEO", "AI Automation"]
-    }
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZWS146BM3E"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-ZWS146BM3E');
     </script>
-</head>
-<body class="min-h-screen flex flex-col justify-between relative bg-warm-mesh">
-    <div class="noise"></div>
+    <meta name="google-site-verification" content="3kl_ygwfwp7yFEwizHDP4dKGhxW8lEgP2CqyVxq7rPY">
 
-    <!-- Minimal Google-Style Header -->
-    <header class="w-full py-4 px-6 md:px-12 flex justify-between items-center z-50">
-        <div class="flex items-center gap-3">
-            <span class="text-[11px] font-mono font-bold tracking-widest text-amber-400 bg-amber-500/10 px-3 py-1 rounded-full border border-amber-500/30">
-                DAN TAGLE · SOLUCIONES
+    <style>
+        :root { --accent: #f59e0b; }
+        body { 
+            font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif; 
+            background-color: #0a0a0a; 
+            color: #ffffff; 
+            overflow-x: hidden; 
+            -webkit-tap-highlight-color: transparent; 
+        }
+        .font-serif-title { font-family: 'Instrument Serif', serif; }
+        .font-mono-code { font-family: 'JetBrains Mono', monospace; }
+
+        /* Dark High-Contrast Mesh Background */
+        .bg-mesh {
+            background-color: #070707;
+            background-image: 
+                radial-gradient(circle at 50% 15%, rgba(245, 158, 11, 0.15) 0%, transparent 60%),
+                radial-gradient(circle at 85% 75%, rgba(180, 83, 9, 0.08) 0%, transparent 50%);
+        }
+        
+        /* Input & Card High-Contrast Borders */
+        .search-box {
+            background: #141414;
+            border: 2px solid #333333;
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .search-box:focus-within {
+            border-color: #f59e0b;
+            box-shadow: 0 0 25px rgba(245, 158, 11, 0.25), 0 10px 30px rgba(0,0,0,0.8);
+        }
+        .result-card {
+            background: #121212;
+            border: 1.5px solid #2a2a2a;
+        }
+        .btn-action {
+            background: #222222;
+            border: 1px solid #3a3a3a;
+            color: #f3f3f3;
+            transition: all 0.2s;
+        }
+        .btn-action:hover, .btn-action:active {
+            background: #f59e0b;
+            color: #0a0a0a;
+            border-color: #f59e0b;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between relative bg-mesh">
+
+    <!-- HEADER / NAVBAR (GOOGLE MINIMAL STYLE) -->
+    <header class="w-full py-4 px-4 sm:px-8 flex justify-between items-center z-50 border-b border-stone-800/80 bg-black/60 backdrop-blur-md">
+        <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-amber-500 animate-pulse"></span>
+            <span class="text-xs font-mono-code font-bold tracking-widest text-amber-400">
+                DAN TAGLE
             </span>
         </div>
-        <div class="flex items-center gap-5 text-xs font-mono">
-            <a href="casos.html" class="text-stone-400 hover:text-white transition-colors">19 Casos</a>
-            <a href="desarrollos.html" class="text-stone-400 hover:text-white transition-colors">SaaS & Apps</a>
-            <a href="blog.html" class="text-stone-400 hover:text-white transition-colors">Blog</a>
-            <a href="https://wa.me/56928623092?text=Hola%20Dan,%20te%20contacto%20desde%20dantagle.cl" target="_blank" class="px-4 py-2 bg-amber-500 text-stone-950 font-bold rounded-full hover:bg-white transition-all">
-                WhatsApp Directo
+        <div class="flex items-center gap-3 sm:gap-5 text-xs font-mono-code">
+            <a href="casos.html" class="text-stone-300 hover:text-white transition-colors">19 Casos</a>
+            <a href="desarrollos.html" class="text-stone-300 hover:text-white transition-colors hidden sm:inline">SaaS</a>
+            <a href="blog.html" class="text-stone-300 hover:text-white transition-colors">Blog</a>
+            <a href="https://wa.me/56928623092?text=Hola%20Dan,%20te%20contacto%20desde%20dantagle.cl" target="_blank" class="px-3.5 py-1.5 bg-amber-500 hover:bg-amber-400 text-stone-950 font-bold rounded-full transition-all flex items-center gap-1.5 shadow-md text-[11px]">
+                <i data-lucide="message-square" class="w-3.5 h-3.5"></i> <span>WhatsApp</span>
             </a>
         </div>
     </header>
 
-    <!-- PURE SEARCH ENGINE (Google Style Centered) -->
-    <main class="flex-1 flex flex-col items-center justify-center px-4 sm:px-6 w-full max-w-4xl mx-auto py-12 md:py-24 text-center">
-        <!-- Logo / Brand Minimal -->
-        <div class="mb-8 select-none">
+    <!-- MAIN SEARCH ENGINE (MOBILE-FIRST GOOGLE STYLE) -->
+    <main class="flex-1 flex flex-col items-center justify-center px-4 sm:px-6 w-full max-w-3xl mx-auto py-8 sm:py-16 text-center">
+        
+        <!-- Logo / Heading -->
+        <div class="mb-6 sm:mb-8 select-none">
             <h1 class="text-5xl sm:text-7xl md:text-8xl font-serif-title uppercase tracking-tight text-white mb-2">
-                DAN <span class="italic text-amber-400">TAGLE</span>
+                DAN <span class="italic text-amber-400 font-serif-title">TAGLE</span>
             </h1>
-            <p class="text-sm sm:text-base text-stone-400 font-light max-w-md mx-auto">
-                ¿Qué problema necesitas solucionar en tu negocio?
+            <p class="text-sm sm:text-base text-stone-200 font-light max-w-md mx-auto leading-relaxed px-2">
+                Escribe tu problema o lo que necesitas destrabar en tu negocio.
             </p>
         </div>
 
-        <!-- Google-Style Search Box -->
-        <div class="w-full max-w-2xl">
-            <form id="problemSearchForm" onsubmit="handleProblemSearch(event)" class="relative">
-                <div class="flex items-center bg-stone-900/90 border-2 border-stone-700 hover:border-amber-400 focus-within:border-amber-400 rounded-2xl sm:rounded-full px-5 py-3.5 shadow-[0_10px_35px_rgba(0,0,0,0.6)] transition-all">
+        <!-- Google-Style Search Form -->
+        <div class="w-full max-w-xl mx-auto">
+            <form id="problemSearchForm" onsubmit="handleProblemSearch(event)" class="relative w-full">
+                <div class="search-box flex items-center rounded-2xl sm:rounded-full px-4 py-3 sm:py-4 shadow-2xl">
                     <i data-lucide="search" class="w-5 h-5 text-amber-400 shrink-0 mr-3"></i>
-                    <input type="text" id="problemInput" required
+                    <input type="text" id="problemInput" required autocomplete="off"
                         class="w-full bg-transparent text-white placeholder-stone-400 text-base sm:text-lg focus:outline-none font-sans"
-                        placeholder="Escribe tu problema o lo que necesitas destrabar...">
-                    <button type="submit" id="searchSubmitBtn" class="ml-2 p-2.5 rounded-full bg-amber-500 text-stone-950 hover:bg-white transition-all shrink-0" title="Buscar solución">
+                        placeholder="¿Qué necesitas solucionar hoy?">
+                    <button type="submit" id="searchSubmitBtn" class="ml-2 p-2.5 rounded-full bg-amber-500 hover:bg-amber-400 text-stone-950 transition-all shrink-0" title="Buscar solución" aria-label="Buscar">
                         <i data-lucide="arrow-right" class="w-4 h-4"></i>
                     </button>
                 </div>
 
                 <!-- Google Action Buttons -->
-                <div class="flex flex-wrap justify-center gap-3 mt-6">
-                    <button type="submit" class="px-5 py-2.5 rounded-xl bg-white/5 hover:bg-white/15 border border-white/10 text-xs sm:text-sm text-stone-200 transition-all font-medium">
+                <div class="flex justify-center gap-3 mt-4 sm:mt-6">
+                    <button type="submit" class="btn-action flex-1 sm:flex-initial px-5 py-3 rounded-xl text-xs sm:text-sm font-semibold shadow-md">
                         Buscar Solución
                     </button>
-                    <button type="button" onclick="setRandomPrompt()" class="px-5 py-2.5 rounded-xl bg-white/5 hover:bg-white/15 border border-white/10 text-xs sm:text-sm text-stone-200 transition-all font-medium">
+                    <button type="button" onclick="setRandomPrompt()" class="btn-action flex-1 sm:flex-initial px-5 py-3 rounded-xl text-xs sm:text-sm font-semibold shadow-md">
                         Voy a tener suerte
                     </button>
                 </div>
             </form>
 
-            <!-- Boomer-Friendly Quick Examples -->
-            <div class="mt-8 pt-6 border-t border-stone-800/80 text-left">
-                <span class="text-[11px] font-mono text-stone-500 uppercase tracking-wider block mb-3 text-center">O toca una situación común:</span>
-                <div class="flex flex-wrap justify-center gap-2" id="quickExamples">
-                    <button type="button" onclick="setQuickPrompt('En Google no aparezco y la gente busca lo que yo vendo')" class="text-xs px-3.5 py-2 rounded-full bg-white/5 hover:bg-amber-500/20 hover:border-amber-500/40 border border-white/10 text-stone-300 hover:text-amber-300 transition-all">
-                        🔍 "En Google no aparezco"
+            <!-- Frequent Boomer & Mobile Buttons -->
+            <div class="mt-6 sm:mt-8 pt-5 border-t border-stone-800 text-left">
+                <span class="text-[11px] font-mono-code text-amber-400 uppercase tracking-wider block mb-3 text-center font-bold">
+                    O presiona una situación frecuente:
+                </span>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5" id="quickExamples">
+                    <button type="button" onclick="setQuickPrompt('En Google no aparezco y la gente busca lo que yo vendo')" class="p-3.5 rounded-xl bg-stone-900 hover:bg-stone-800 border border-stone-700 hover:border-amber-400 text-stone-100 text-left text-xs sm:text-sm transition-all flex items-center gap-3">
+                        <span class="text-lg shrink-0">🔍</span> <span><strong>Google:</strong> No aparezco en búsquedas</span>
                     </button>
-                    <button type="button" onclick="setQuickPrompt('Hacemos todo a mano con planillas Excel y WhatsApp y perdemos demasiado tiempo')" class="text-xs px-3.5 py-2 rounded-full bg-white/5 hover:bg-amber-500/20 hover:border-amber-500/40 border border-white/10 text-stone-300 hover:text-amber-300 transition-all">
-                        ⚙️ "Hacemos todo a mano en Excel"
+                    <button type="button" onclick="setQuickPrompt('Hacemos todo a mano con planillas Excel y WhatsApp y perdemos demasiado tiempo')" class="p-3.5 rounded-xl bg-stone-900 hover:bg-stone-800 border border-stone-700 hover:border-amber-400 text-stone-100 text-left text-xs sm:text-sm transition-all flex items-center gap-3">
+                        <span class="text-lg shrink-0">⚙️</span> <span><strong>Operación:</strong> Todo a mano en Excel</span>
                     </button>
-                    <button type="button" onclick="setQuickPrompt('Tengo un producto excelente pero me cuesta explicarlo para que me compren')" class="text-xs px-3.5 py-2 rounded-full bg-white/5 hover:bg-amber-500/20 hover:border-amber-500/40 border border-white/10 text-stone-300 hover:text-amber-300 transition-all">
-                        💡 "Me cuesta explicar lo que vendo"
+                    <button type="button" onclick="setQuickPrompt('Tengo un producto excelente pero me cuesta explicarlo para que me compren')" class="p-3.5 rounded-xl bg-stone-900 hover:bg-stone-800 border border-stone-700 hover:border-amber-400 text-stone-100 text-left text-xs sm:text-sm transition-all flex items-center gap-3">
+                        <span class="text-lg shrink-0">💡</span> <span><strong>Ventas:</strong> Me cuesta explicar mi oferta</span>
                     </button>
-                    <button type="button" onclick="setQuickPrompt('Quiero una idea creativa o campaña que llame la atención y dé que hablar')" class="text-xs px-3.5 py-2 rounded-full bg-white/5 hover:bg-amber-500/20 hover:border-amber-500/40 border border-white/10 text-stone-300 hover:text-amber-300 transition-all">
-                        🚀 "Quiero una campaña que dé que hablar"
+                    <button type="button" onclick="setQuickPrompt('Quiero una idea creativa o campaña que llame la atención y dé que hablar')" class="p-3.5 rounded-xl bg-stone-900 hover:bg-stone-800 border border-stone-700 hover:border-amber-400 text-stone-100 text-left text-xs sm:text-sm transition-all flex items-center gap-3">
+                        <span class="text-lg shrink-0">🚀</span> <span><strong>Campaña:</strong> Quiero dar que hablar</span>
                     </button>
                 </div>
             </div>
 
-            <!-- RESULTS CONTAINER -->
-            <div id="oracleResultsContainer" class="hidden mt-8 text-left">
-                <div id="oracleLoading" class="py-10 text-center space-y-3">
-                    <div class="w-8 h-8 border-2 border-amber-400 border-t-transparent rounded-full animate-spin mx-auto"></div>
-                    <p class="text-sm font-mono text-amber-300 animate-pulse">Analizando tu consulta con los 15 años de casos de Dan Tagle...</p>
+            <!-- DYNAMIC RESULTS CONTAINER -->
+            <div id="oracleResultsContainer" class="hidden mt-6 text-left">
+                <div id="oracleLoading" class="py-10 text-center space-y-3 bg-stone-900 rounded-2xl border border-stone-700 p-6">
+                    <div class="w-8 h-8 border-4 border-amber-400 border-t-transparent rounded-full animate-spin mx-auto"></div>
+                    <p class="text-sm font-mono-code text-amber-400 font-bold animate-pulse">Analizando consulta en la base de datos de Dan Tagle...</p>
                 </div>
                 <div id="oracleResponse" class="hidden space-y-4">
-                    <!-- Dynamic response rendered here -->
+                    <!-- Results rendered dynamically -->
                 </div>
             </div>
         </div>
     </main>
 
-    <!-- Minimal Google-Style Footer -->
-    <footer class="w-full py-6 px-6 md:px-12 border-t border-stone-800/80 bg-black/40 text-stone-500 text-xs font-mono flex flex-col sm:flex-row justify-between items-center gap-4">
-        <div class="flex items-center gap-4">
+    <!-- FOOTER (GOOGLE MINIMAL STYLE) -->
+    <footer class="w-full py-6 px-4 sm:px-8 border-t border-stone-800 bg-black/80 text-stone-400 text-xs font-mono-code flex flex-col sm:flex-row justify-between items-center gap-4">
+        <div class="flex items-center gap-2">
             <span>Chile</span>
             <span>·</span>
-            <span>Dan Tagle (#1 Global Creative Technologist)</span>
+            <span class="text-amber-400 font-semibold">Dan Tagle (#1 Global Creative Technologist)</span>
         </div>
-        <div class="flex items-center gap-6">
-            <a href="mailto:hola@dantagle.cl" class="hover:text-amber-400 transition-colors">hola@dantagle.cl</a>
-            <a href="https://wa.me/56928623092" target="_blank" class="hover:text-amber-400 transition-colors">+56 9 2862 3092</a>
-            <a href="https://www.behance.net/kulhunter" target="_blank" class="hover:text-amber-400 transition-colors">Behance</a>
-            <a href="politica-de-privacidad.html" class="hover:text-amber-400 transition-colors">Privacidad</a>
+        <div class="flex flex-wrap justify-center items-center gap-5">
+            <a href="mailto:hola@dantagle.cl" class="hover:text-white transition-colors">hola@dantagle.cl</a>
+            <a href="https://wa.me/56928623092" target="_blank" class="hover:text-white transition-colors">+56 9 2862 3092</a>
+            <a href="https://www.behance.net/kulhunter" target="_blank" class="hover:text-white transition-colors">Behance</a>
+            <a href="politica-de-privacidad.html" class="hover:text-white transition-colors">Privacidad</a>
         </div>
     </footer>
 
     <!-- SCRIPTS -->
     <script src="scripts/orchestrator_data.js"></script>
-    <script src="scripts/translations.js"></script>
     <script>
-        let currentLang = 'es';
-        let isMenuOpen = false;
-
-        const caseImages = {
-            1: "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?auto=format&fit=crop&q=80&w=800",
-            2: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800",
-            3: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&q=80&w=800",
-            4: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=800",
-            5: "https://images.unsplash.com/photo-1525932765158-8cefbe5e7afd?auto=format&fit=crop&q=80&w=800",
-            6: "https://images.unsplash.com/photo-1493119508027-2b584f234d6c?auto=format&fit=crop&q=80&w=800",
-            7: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&q=80&w=800",
-            8: "https://images.unsplash.com/photo-1566140967404-b8b3932483f5?auto=format&fit=crop&q=80&w=800",
-            9: "https://images.unsplash.com/photo-1481635700431-6f7cc82c9fe6?auto=format&fit=crop&q=80&w=800",
-            10: "https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&q=80&w=800",
-            11: "https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?auto=format&fit=crop&q=80&w=800",
-            12: "https://images.unsplash.com/photo-1512389142860-9c449e58a543?auto=format&fit=crop&q=80&w=800",
-            13: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&q=80&w=800",
-            14: "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&q=80&w=800",
-            15: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&q=80&w=800",
-            16: "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?auto=format&fit=crop&q=80&w=800",
-            17: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&q=80&w=800",
-            18: "https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&q=80&w=800",
-            19: "https://images.unsplash.com/photo-1558403194-611308249627?auto=format&fit=crop&q=80&w=800"
-        };
-
-        function toggleMenu() {
-            isMenuOpen = !isMenuOpen;
-            const menu = document.getElementById('mobile-menu');
-            if (isMenuOpen) menu.classList.add('open');
-            else menu.classList.remove('open');
-        }
-
-        function setLanguage(lang) {
-            currentLang = lang;
-            document.querySelectorAll('[data-i18n]').forEach(el => {
-                const key = el.getAttribute('data-i18n');
-                if (TRANSLATIONS[lang] && TRANSLATIONS[lang][key]) {
-                    el.innerHTML = TRANSLATIONS[lang][key];
-                }
-            });
-            ['es', 'en', 'pt', 'zh'].forEach(l => {
-                const btn = document.getElementById(`btn-${l}`);
-                if (btn) btn.classList.toggle('opacity-60', l !== lang);
-            });
-        }
-
-        function renderCases(filterTag = 'ALL') {
-            const grid = document.getElementById('casesGrid');
-            let list = MASTER_DATA.cases;
-            if (filterTag === 'AEO') list = list.filter(c => c.tags.includes('AEO') || c.tags.includes('SEO B2B'));
-            else if (filterTag === 'Creative Tech') list = list.filter(c => c.tags.includes('Creative Tech') || c.tags.includes('Engineering') || c.tags.includes('Dashboard'));
-            else if (filterTag === 'BTL') list = list.filter(c => c.tags.includes('BTL') || c.tags.includes('Hardware'));
-            else if (filterTag === 'Gold') list = list.filter(c => c.tags.includes('Effie Gold') || c.tags.includes('Gold WINA') || c.tags.includes('Design Award'));
-
-            grid.innerHTML = list.map(c => {
-                const imgUrl = caseImages[c.id] || "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=800";
-                return `
-                <div class="analog-card group flex flex-col justify-between overflow-hidden">
-                    <div class="relative h-52 overflow-hidden bg-stone-900">
-                        <img src="${imgUrl}" alt="${c.title}" class="analog-img w-full h-full object-cover opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700">
-                        <div class="absolute inset-0 bg-gradient-to-t from-[#0d0b09] via-[#0d0b09]/30 to-transparent p-6 flex flex-col justify-between">
-                            <div class="flex justify-between items-start">
-                                <span class="text-[10px] font-mono font-bold bg-amber-500 text-stone-950 px-2.5 py-1 rounded uppercase tracking-wider">${c.client}</span>
-                                <span class="text-[10px] font-mono bg-black/70 backdrop-blur-md px-2.5 py-1 rounded text-amber-300 border border-amber-500/30">CASE #0${c.id}</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-6 md:p-8 flex-1 flex flex-col justify-between">
-                        <div>
-                            <h3 class="text-3xl font-serif-title uppercase text-white mb-6 group-hover:text-amber-400 transition-colors leading-tight">${c.title}</h3>
-
-                            <div class="space-y-4 text-xs text-stone-300 border-t border-stone-800 pt-4 mb-6">
-                                <p><strong class="text-stone-500 uppercase block tracking-widest text-[10px]">Problema:</strong> ${c.prob}</p>
-                                <p><strong class="text-stone-500 uppercase block tracking-widest text-[10px]">Solución:</strong> ${c.sol}</p>
-                                <p><strong class="text-amber-400 uppercase block tracking-widest text-[10px]">Resultado:</strong> ${c.res}</p>
-                            </div>
-                        </div>
-
-                        <a href="${c.link}" target="_blank" class="inline-flex items-center gap-2 text-xs font-black uppercase tracking-widest text-white hover:text-amber-400 border-b border-white/20 pb-1 w-fit transition-colors">
-                            Ver Case Study en Behance <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
-                        </a>
-                    </div>
-                </div>
-            `}).join('');
-            lucide.createIcons();
-        }
-
-        function filterCases(tag) {
-            document.querySelectorAll('.case-filter-btn').forEach(btn => {
-                if (btn.getAttribute('data-filter') === tag) {
-                    btn.className = 'case-filter-btn px-4 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-amber-500 text-stone-950 shadow-lg';
-                } else {
-                    btn.className = 'case-filter-btn px-4 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-white/5 border border-white/10 text-stone-400 hover:text-white';
-                }
-            });
-            renderCases(tag);
-        }
-
-        function renderDevelopments() {
-            const grid = document.getElementById('developmentsGrid');
-            grid.innerHTML = MASTER_DATA.developments.map(d => `
-                <a href="${d.link}" target="${d.link.startsWith('http') ? '_blank' : '_self'}" class="analog-card p-6 group flex flex-col justify-between">
-                    <div>
-                        <div class="flex justify-between items-center mb-6">
-                            <i data-lucide="${d.icon}" class="w-8 h-8 text-amber-400"></i>
-                            <span class="text-[10px] font-mono font-bold bg-amber-500/20 text-amber-300 px-2 py-0.5 rounded border border-amber-500/30 animate-pulse">${d.status}</span>
-                        </div>
-                        <h3 class="text-2xl font-serif-title uppercase text-white mb-1 group-hover:text-amber-400 transition-colors">${d.title}</h3>
-                        <span class="text-[10px] font-mono text-stone-500 uppercase tracking-widest block mb-4">${d.tag}</span>
-                        <p class="text-xs text-stone-400 font-light leading-relaxed mb-6">${d.desc}</p>
-                    </div>
-                    <span class="text-xs font-black uppercase tracking-widest text-amber-400 group-hover:translate-x-1 transition-transform flex items-center gap-1">
-                        Acceder ↗
-                    </span>
-                </a>
-            `).join('');
-            lucide.createIcons();
-        }
-
-        function renderUtilities() {
-            const grid = document.getElementById('utilitiesGrid');
-            grid.innerHTML = MASTER_DATA.utilities.map(u => `
-                <a href="${u.link}" class="p-5 rounded-2xl bg-white/5 border border-stone-800 hover:border-amber-500 hover:bg-white/10 transition-all block group">
-                    <h4 class="text-sm font-bold uppercase text-white group-hover:text-amber-400 transition-colors mb-1">${u.name}</h4>
-                    <p class="text-[11px] text-stone-400 font-light leading-tight">${u.desc}</p>
-                </a>
-            `).join('');
-        }
-
-        function runHudDiagnosis(index) {
-            const output = document.getElementById('hudOutput');
-            const item = MASTER_DATA.diagnosis[index];
-            output.innerHTML = `
-                <div class="space-y-4 animate-in fade-in duration-500">
-                    <div class="text-amber-400 text-xs font-mono flex items-center gap-2">
-                        <span class="w-2 h-2 rounded-full bg-amber-400 animate-ping"></span> [SCANNING FRICTION VECTORS...]
-                    </div>
-                    <div class="p-4 rounded-xl bg-white/5 border border-stone-800 text-xs text-stone-300">
-                        <strong class="text-white uppercase block mb-1">DIAGNOSED_PROBLEM:</strong>
-                        ${item.issue}
-                    </div>
-                    <div class="p-4 rounded-xl bg-amber-500/10 border border-amber-500/30 text-xs text-white">
-                        <strong class="text-amber-400 uppercase block mb-1">TACTICAL_RECOMMENDATION:</strong>
-                        ${item.recommendation.replace(/\*\*(.*?)\*\*/g, '<span class="text-amber-300 font-bold">$1</span>')}
-                    </div>
-                </div>
-            `;
-        }
-
-        // ORACLE / SEARCH ENGINE LOGIC
+        // Global variables & state
         let searchCount = parseInt(localStorage.getItem('dt_search_count') || '0', 10);
         let userHasSubmittedLead = localStorage.getItem('dt_lead_submitted') === 'true';
 
@@ -381,280 +192,8 @@
             if (input) {
                 input.value = text;
                 input.focus();
-                // scroll slightly to input if on mobile
                 input.scrollIntoView({ behavior: 'smooth', block: 'center' });
             }
-        }
-
-        function handleMailto(e) {
-            e.preventDefault();
-            const name = document.getElementById('clientName').value.trim();
-            const problem = document.getElementById('clientProblem').value.trim();
-            const subject = encodeURIComponent(`Consulta para Dan Tagle de ${name}`);
-            const body = encodeURIComponent(`Hola Dan,\n\nSoy ${name}.\n\nTe escribo porque tengo el siguiente problema en mi negocio:\n${problem}\n\nQuedo atento a tus comentarios.`);
-            window.location.href = `mailto:hola@dantagle.cl?subject=${subject}&body=${body}`;
-            return false;
-        }
-
-        async function handleProblemSearch(e) {
-            e.preventDefault();
-            const input = document.getElementById('problemInput');
-            const problemText = input ? input.value.trim() : '';
-            if (!problemText) return;
-
-            const container = document.getElementById('oracleResultsContainer');
-            const loading = document.getElementById('oracleLoading');
-            const responseDiv = document.getElementById('oracleResponse');
-            const badge = document.getElementById('searchStepBadge');
-
-            container.classList.remove('hidden');
-            loading.classList.remove('hidden');
-            responseDiv.classList.add('hidden');
-
-            // Scroll container into view smoothly
-            container.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-
-            searchCount++;
-            localStorage.setItem('dt_search_count', searchCount);
-
-            // Step 1: Check if limit reached (> 3 queries) -> Force direct WhatsApp meeting
-            if (searchCount >= 4) {
-                loading.classList.add('hidden');
-                responseDiv.classList.remove('hidden');
-                badge.innerText = 'LÍMITE ALCANZADO';
-                badge.className = 'font-mono text-rose-400 font-bold';
-
-                responseDiv.innerHTML = `
-                    <div class="p-5 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-stone-200 space-y-4">
-                        <div class="flex items-center gap-2 text-amber-400 font-bold text-sm uppercase tracking-wider">
-                            <i data-lucide="shield-alert" class="w-5 h-5 text-amber-400"></i>
-                            Hasta aquí llega la IA gratuita
-                        </div>
-                        <p class="text-sm font-light leading-relaxed">
-                            Has hecho varias consultas. Los problemas reales de un negocio no se resuelven con respuestas genéricas de robots: requieren que nos sentemos a conversar 15 minutos, revisar números y armar una estrategia que funcione.
-                        </p>
-                        <div class="pt-2 flex flex-col sm:flex-row gap-3">
-                            <a href="https://wa.me/56928623092?text=${encodeURIComponent('Hola Dan, estuve usando el buscador de tu web para el siguiente problema: ' + problemText + '. Me gustaría conversar contigo directamente.')}" target="_blank" class="btn-primary text-xs py-3.5 px-6 justify-center">
-                                <i data-lucide="message-square" class="w-4 h-4"></i> Hablar con Dan por WhatsApp (+56 9 2862 3092)
-                            </a>
-                            <a href="mailto:hola@dantagle.cl?subject=${encodeURIComponent('Consulta directa desde buscador: ' + problemText.substring(0, 30))}" class="btn-secondary text-xs py-3.5 px-6 justify-center">
-                                <i data-lucide="mail" class="w-4 h-4"></i> Escribir a hola@dantagle.cl
-                            </a>
-                        </div>
-                    </div>
-                `;
-                lucide.createIcons();
-                return;
-            }
-
-            // Step 2: If query 2 or 3 and hasn't submitted lead yet -> Ask for name/whatsapp to reveal deeper plan
-            if (searchCount >= 2 && !userHasSubmittedLead) {
-                loading.classList.add('hidden');
-                responseDiv.classList.remove('hidden');
-                badge.innerText = 'SEGUNDA CONSULTA';
-
-                responseDiv.innerHTML = `
-                    <div class="p-5 rounded-2xl bg-stone-900 border border-amber-500/40 text-stone-200 space-y-4">
-                        <div class="flex items-center gap-2 text-amber-400 font-bold text-sm uppercase tracking-wider font-mono">
-                            <i data-lucide="lock" class="w-4 h-4 text-amber-400"></i>
-                            Para profundizar en este plan, déjame tus datos
-                        </div>
-                        <p class="text-xs text-stone-300 font-light">
-                            Ya analizamos tu primer caso. Para desglosarte la solución técnica exacta y cómo aplicarla en tu empresa, cuéntame quién eres:
-                        </p>
-                        <form id="leadGateForm" onsubmit="handleLeadSubmit(event, '${encodeURIComponent(problemText)}')" class="space-y-3">
-                            <div>
-                                <label class="block text-[11px] font-mono uppercase text-stone-400 mb-1">Tu Nombre</label>
-                                <input type="text" id="leadName" required class="w-full p-2.5 rounded-xl bg-black/60 border border-stone-700 text-white text-sm focus:outline-none focus:border-amber-400" placeholder="Ej: Pedro Silva">
-                            </div>
-                            <div>
-                                <label class="block text-[11px] font-mono uppercase text-stone-400 mb-1">WhatsApp o Correo</label>
-                                <input type="text" id="leadContact" required class="w-full p-2.5 rounded-xl bg-black/60 border border-stone-700 text-white text-sm focus:outline-none focus:border-amber-400" placeholder="+569... o tu@empresa.cl">
-                            </div>
-                            <button type="submit" class="btn-primary w-full py-3 text-xs uppercase tracking-wider font-bold">
-                                Desbloquear Solución & Ver Casos →
-                            </button>
-                        </form>
-                    </div>
-                `;
-                lucide.createIcons();
-                return;
-            }
-
-            // Step 3: Run AI analysis (Generates real, customized tactical answer mapped to Dan's real CV and cases)
-            setTimeout(() => {
-                const analysis = generateTacticalDiagnosis(problemText);
-                loading.classList.add('hidden');
-                responseDiv.classList.remove('hidden');
-                badge.innerText = searchCount === 1 ? '1ª CONSULTA COMPLETADA' : `CONSULTA #${searchCount}`;
-
-                responseDiv.innerHTML = `
-                    <div class="space-y-4 text-stone-200">
-                        <!-- Dan's Human Verdict -->
-                        <div class="p-4 rounded-2xl bg-amber-500/10 border border-amber-500/30">
-                            <span class="text-[10px] font-mono text-amber-400 uppercase tracking-widest block mb-1">// DIAGNÓSTICO DE DAN TAGLE</span>
-                            <h3 class="text-lg font-bold text-white mb-2">${analysis.title}</h3>
-                            <p class="text-xs sm:text-sm text-stone-300 font-light leading-relaxed">${analysis.verdict}</p>
-                        </div>
-
-                        <!-- Tactical Approach: What Dan would actually do -->
-                        <div class="p-4 rounded-2xl bg-white/5 border border-white/10 space-y-2">
-                            <span class="text-[10px] font-mono text-stone-400 uppercase tracking-widest block">// CÓMO LO SOLUCIONARÍA (PASO A PASO)</span>
-                            <ul class="space-y-2 text-xs sm:text-sm text-stone-300 font-light">
-                                ${analysis.steps.map(s => `<li class="flex items-start gap-2"><i data-lucide="chevron-right" class="w-4 h-4 text-amber-400 shrink-0 mt-0.5"></i> <span>${s}</span></li>`).join('')}
-                            </ul>
-                        </div>
-
-                        <!-- Real Backed Cases from MASTER_DATA / Behance -->
-                        <div class="p-4 rounded-2xl bg-stone-900 border border-stone-800 space-y-2">
-                            <span class="text-[10px] font-mono text-amber-400 uppercase tracking-widest block">// CASO REAL SIMILAR EJECUTADO POR DAN</span>
-                            <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pt-1">
-                                <div>
-                                    <h4 class="text-sm font-bold text-white">${analysis.matchedCase.title} <span class="text-xs font-mono text-stone-400 font-normal">(${analysis.matchedCase.client})</span></h4>
-                                    <p class="text-xs text-stone-400 font-light">${analysis.matchedCase.res}</p>
-                                </div>
-                                <a href="${analysis.matchedCase.link}" target="_blank" class="text-xs font-mono text-amber-400 hover:text-white underline shrink-0 inline-flex items-center gap-1">
-                                    Ver en Behance <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
-                                </a>
-                            </div>
-                        </div>
-
-                        <!-- Direct Action CTA -->
-                        <div class="pt-2 flex flex-col sm:flex-row gap-3">
-                            <a href="https://wa.me/56928623092?text=${encodeURIComponent('Hola Dan, ingresé este problema en tu web: "' + problemText + '". Me interesa saber cómo lo aplicamos.')}" target="_blank" class="btn-primary text-xs py-3.5 px-6 justify-center">
-                                <i data-lucide="message-square" class="w-4 h-4"></i> Hablarlo directo con Dan por WhatsApp
-                            </a>
-                            <button type="button" onclick="document.getElementById('problemInput').value=''; document.getElementById('problemInput').focus();" class="btn-secondary text-xs py-3.5 px-6 justify-center">
-                                Probar otra duda
-                            </button>
-                        </div>
-                    </div>
-                `;
-                lucide.createIcons();
-            }, 600);
-        }
-
-        function handleLeadSubmit(e, encodedProblem) {
-            e.preventDefault();
-            const name = document.getElementById('leadName').value.trim();
-            const contact = document.getElementById('leadContact').value.trim();
-            const problem = decodeURIComponent(encodedProblem);
-
-            localStorage.setItem('dt_lead_submitted', 'true');
-            localStorage.setItem('dt_lead_name', name);
-            userHasSubmittedLead = true;
-
-            // Trigger silent notification or open WhatsApp option
-            const analysis = generateTacticalDiagnosis(problem);
-            const responseDiv = document.getElementById('oracleResponse');
-
-            responseDiv.innerHTML = `
-                <div class="space-y-4 text-stone-200">
-                    <div class="p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/30">
-                        <span class="text-xs font-mono text-emerald-400 font-bold block mb-1">✓ DATOS REGISTRADOS · HOLA ${name.toUpperCase()}</span>
-                        <p class="text-xs text-stone-300">Aquí está el plan táctico completo desbloqueado para tu consulta:</p>
-                    </div>
-
-                    <div class="p-4 rounded-2xl bg-amber-500/10 border border-amber-500/30">
-                        <span class="text-[10px] font-mono text-amber-400 uppercase tracking-widest block mb-1">// ESTRATEGIA A MEDIDA</span>
-                        <h3 class="text-lg font-bold text-white mb-2">${analysis.title}</h3>
-                        <p class="text-xs sm:text-sm text-stone-300 font-light leading-relaxed">${analysis.verdict}</p>
-                    </div>
-
-                    <div class="p-4 rounded-2xl bg-white/5 border border-white/10 space-y-2">
-                        <span class="text-[10px] font-mono text-stone-400 uppercase tracking-widest block">// PLAN DE ACCIÓN RECOMENDADO</span>
-                        <ul class="space-y-2 text-xs sm:text-sm text-stone-300 font-light">
-                            ${analysis.steps.map(s => `<li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-amber-400 shrink-0 mt-0.5"></i> <span>${s}</span></li>`).join('')}
-                        </ul>
-                    </div>
-
-                    <div class="p-4 rounded-2xl bg-stone-900 border border-stone-800">
-                        <span class="text-[10px] font-mono text-amber-400 uppercase tracking-widest block mb-1">// RESPALDO REAL</span>
-                        <p class="text-xs text-stone-300 mb-2">Esto mismo lo ejecutamos en <strong>${analysis.matchedCase.client}</strong> con el proyecto <em>"${analysis.matchedCase.title}"</em>: ${analysis.matchedCase.sol}.</p>
-                        <a href="${analysis.matchedCase.link}" target="_blank" class="text-xs font-mono text-amber-400 hover:text-white underline inline-flex items-center gap-1">
-                            Ver el caso documentado en Behance <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
-                        </a>
-                    </div>
-
-                    <a href="https://wa.me/56928623092?text=${encodeURIComponent('Hola Dan, soy ' + name + ' (' + contact + '). Estuve revisando el plan en tu web para: ' + problem)}" target="_blank" class="btn-primary w-full py-4 justify-center text-xs uppercase font-bold">
-                        <i data-lucide="message-square" class="w-4 h-4"></i> Agendar llamada con Dan Tagle ahora
-                    </a>
-                </div>
-            `;
-            lucide.createIcons();
-        }
-
-        // Tactical Diagnosis Engine: Uses Dan's real Master Data, Experience & Cases
-        function generateTacticalDiagnosis(query) {
-            const q = query.toLowerCase();
-
-            // 1. Google / SEO / AEO / Visibilidad
-            if (q.includes('google') || q.includes('aparezco') || q.includes('encuentra') || q.includes('posicion') || q.includes('visibilidad') || q.includes('seo') || q.includes('chatgpt') || q.includes('buscar')) {
-                return {
-                    title: "Sí, lo soluciono: Arquitectura de Visibilidad AEO & SEO B2B",
-                    verdict: "El problema no es que falte pagar anuncios en Google (eso quema plata). El problema es que tu sitio no está estructurado para que los algoritmos ni la IA de Google entiendan qué respondes. En 2Win lo demostramos llevando la empresa de 0 a Top 1 orgánico sin gastar en pauta.",
-                    steps: [
-                        "Auditoría de intenciones de búsqueda de decisores reales (cómo buscan tus clientes sin tecnicismos).",
-                        "Estructuración de datos en entidades semánticas que Google y ChatGPT reconocen de inmediato.",
-                        "Optimización de velocidad y contenido de alta conversión para que el visitante no rebote."
-                    ],
-                    matchedCase: MASTER_DATA.cases[0] // 2Win Hackeando B2B Orgánico
-                };
-            }
-
-            // 2. Tareas manuales / Excel / WhatsApp / Automatización / Procesos
-            if (q.includes('mano') || q.includes('excel') || q.includes('whatsapp') || q.includes('tiempo') || q.includes('repetitivo') || q.includes('automatiz') || q.includes('proceso') || q.includes('desorden') || q.includes('tienda')) {
-                return {
-                    title: "Sí, lo soluciono: Automatización de Flujos y Conexión de Herramientas",
-                    verdict: "Perder horas copiando datos de WhatsApp a Excel o enviando comprobantes a mano mata la rentabilidad. Unimos tus planillas, formularios y WhatsApp mediante automatizaciones ligeras o micro-apps que funcionan solas.",
-                    steps: [
-                        "Mapeo del cuello de botella: dónde se pierde más tiempo manual hoy.",
-                        "Integración de captura directa (ej. Google Sheets conectado a WhatsApp sin intermediarios lentos).",
-                        "Implementación de lógica automática para que el negocio opere 24/7 sin depender de ti."
-                    ],
-                    matchedCase: MASTER_DATA.cases[4] // Ruleta BTL Tenpo / Data-driven
-                };
-            }
-
-            // 3. Explicar producto / Ventas / No entienden / Marketing / Clientes
-            if (q.includes('explicar') || q.includes('producto') || q.includes('vender') || q.includes('entiende') || q.includes('cliente') || q.includes('compre') || q.includes('comprar') || q.includes('venta') || q.includes('comunicar')) {
-                return {
-                    title: "Sí, lo soluciono: Estrategia de Storytelling y Posicionamiento de Valor",
-                    verdict: "Cuando tienes algo bueno pero nadie lo compra, el 99% de las veces es un error de traducción: hablas desde tu producto en vez del dolor urgente del cliente. En MIDEA lanzamos la marca en Chile traduciendo tecnología a valor cotidiano y ganamos el Effie de Oro.",
-                    steps: [
-                        "Desarmar la propuesta: eliminar la jerga y dejar 1 beneficio indiscutible.",
-                        "Diseño de narrativa visual e interactiva que demuestra el valor en los primeros 5 segundos.",
-                        "Estructura comercial simple: propuesta clara + prueba social + contacto directo."
-                    ],
-                    matchedCase: MASTER_DATA.cases[6] // Lanzamiento MIDEA Effie Oro
-                };
-            }
-
-            // 4. Campañas creativas / Viral / Llamar la atención / Impacto
-            if (q.includes('viral') || q.includes('idea') || q.includes('campaña') || q.includes('atencion') || q.includes('hablar') || q.includes('impacto') || q.includes('btl') || q.includes('evento')) {
-                return {
-                    title: "Sí, lo soluciono: Creatividad Táctica y Tecnología Viral",
-                    verdict: "La publicidad tradicional aburre. Lo que funciona es el 'Storydoing': crear algo interactivo que la gente quiera compartir de verdad. Como la plataforma digital de Navidad para Correos de Chile (+10.000 cartas apadrinadas) o el auto que pintó un lienzo gigante para Ssangyong.",
-                    steps: [
-                        "Búsqueda del 'Hook' cultural: qué está pasando en la calle o en la mente de la gente.",
-                        "Desarrollo de una experiencia digital o física interactiva (sin pedir permisos burocráticos infinitos).",
-                        "Estrategia de amplificación orgánica en medios y redes."
-                    ],
-                    matchedCase: MASTER_DATA.cases[8] // CorreosChile Navidad
-                };
-            }
-
-            // 5. General / Solucionador a medida
-            return {
-                title: "Sí, lo podemos solucionar: Ingeniería Estratégica & Código",
-                verdict: "Tu caso mezcla negocio, personas y herramientas técnicas. Justamente a eso me dedico como Creative Technologist: en vez de pasarte con 4 áreas distintas (diseñador, programador, publicista), lo abordamos de forma integral y rápida.",
-                steps: [
-                    "Diagnóstico rápido del cuello de botella en una sesión directa de 15 minutos.",
-                    "Propuesta de solución táctica (software a medida, automatización o rediseño de oferta).",
-                    "Puesta en marcha con métricas claras y resultados medibles."
-                ],
-                matchedCase: MASTER_DATA.cases[1] // Santa's Live Tracking 2Win
-            };
         }
 
         function setRandomPrompt() {
@@ -669,39 +208,278 @@
             setQuickPrompt(random);
         }
 
-        document.addEventListener('DOMContentLoaded', () => {
+        function handleProblemSearch(e) {
+            if (e && e.preventDefault) e.preventDefault();
+            const input = document.getElementById('problemInput');
+            const problemText = input ? input.value.trim() : '';
+            if (!problemText) return;
+
+            const container = document.getElementById('oracleResultsContainer');
+            const loading = document.getElementById('oracleLoading');
+            const responseDiv = document.getElementById('oracleResponse');
+
+            container.classList.remove('hidden');
+            loading.classList.remove('hidden');
+            responseDiv.classList.add('hidden');
+
+            container.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+            searchCount++;
+            localStorage.setItem('dt_search_count', searchCount);
+
+            // Step 1: Limit reached (> 3 searches) -> WhatsApp / Direct Call
+            if (searchCount >= 4) {
+                setTimeout(() => {
+                    loading.classList.add('hidden');
+                    responseDiv.classList.remove('hidden');
+                    responseDiv.innerHTML = `
+                        <div class="result-card p-6 rounded-2xl text-stone-100 space-y-4 shadow-2xl">
+                            <div class="flex items-center gap-2 text-amber-400 font-bold text-base uppercase tracking-wider">
+                                <i data-lucide="shield-alert" class="w-5 h-5 text-amber-400"></i>
+                                <span>Límite de consultas gratuitas alcanzado</span>
+                            </div>
+                            <p class="text-sm text-stone-200 leading-relaxed">
+                                Los problemas reales de un negocio requieren que conversemos 15 minutos directamente por WhatsApp para revisar números y diseñar la estrategia exacta.
+                            </p>
+                            <div class="pt-2 flex flex-col sm:flex-row gap-3">
+                                <a href="https://wa.me/56928623092?text=${encodeURIComponent('Hola Dan, estuve usando el buscador de tu web para: ' + problemText + '. Me gustaría conversar 15 minutos.')}" target="_blank" class="w-full px-6 py-4 bg-amber-500 hover:bg-amber-400 text-stone-950 font-bold text-sm rounded-xl text-center flex items-center justify-center gap-2 transition-all shadow-lg">
+                                    <i data-lucide="message-square" class="w-5 h-5"></i> Hablar por WhatsApp (+56 9 2862 3092)
+                                </a>
+                                <a href="mailto:hola@dantagle.cl?subject=${encodeURIComponent('Consulta directa desde buscador: ' + problemText.substring(0, 30))}" class="w-full px-6 py-4 bg-stone-800 hover:bg-stone-700 text-white font-semibold text-sm rounded-xl text-center border border-stone-600 transition-all flex items-center justify-center gap-2">
+                                    <i data-lucide="mail" class="w-4 h-4"></i> Escribir a hola@dantagle.cl
+                                </a>
+                            </div>
+                        </div>
+                    `;
+                    lucide.createIcons();
+                }, 400);
+                return;
+            }
+
+            // Step 2: Query 2 or 3 without lead -> Lead Form Gate
+            if (searchCount >= 2 && !userHasSubmittedLead) {
+                setTimeout(() => {
+                    loading.classList.add('hidden');
+                    responseDiv.classList.remove('hidden');
+                    responseDiv.innerHTML = `
+                        <div class="result-card p-6 rounded-2xl text-stone-100 space-y-4 shadow-2xl">
+                            <div class="flex items-center gap-2 text-amber-400 font-bold text-base uppercase tracking-wider font-mono-code">
+                                <i data-lucide="lock" class="w-5 h-5 text-amber-400"></i>
+                                <span>Desbloquea el plan táctico para tu negocio</span>
+                            </div>
+                            <p class="text-xs sm:text-sm text-stone-300">
+                                Para mostrarte la recomendación técnica y enviártela a tu contacto:
+                            </p>
+                            <form id="leadGateForm" onsubmit="handleLeadSubmit(event, '${encodeURIComponent(problemText)}')" class="space-y-3">
+                                <div>
+                                    <label class="block text-xs font-mono-code uppercase text-stone-300 font-bold mb-1">Tu Nombre o Empresa</label>
+                                    <input type="text" id="leadName" required class="w-full p-3 rounded-xl bg-black border-2 border-stone-700 text-white text-base focus:outline-none focus:border-amber-400" placeholder="Ej: Juan Pérez">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-mono-code uppercase text-stone-300 font-bold mb-1">WhatsApp o Correo</label>
+                                    <input type="text" id="leadContact" required class="w-full p-3 rounded-xl bg-black border-2 border-stone-700 text-white text-base focus:outline-none focus:border-amber-400" placeholder="+56 9 1234 5678">
+                                </div>
+                                <button type="submit" class="w-full py-4 bg-amber-500 hover:bg-amber-400 text-stone-950 font-bold text-sm uppercase tracking-wider rounded-xl transition-all shadow-lg">
+                                    Desbloquear Solución Completa →
+                                </button>
+                            </form>
+                        </div>
+                    `;
+                    lucide.createIcons();
+                }, 400);
+                return;
+            }
+
+            // Step 3: Run AI analysis & render case match
+            setTimeout(() => {
+                const analysis = generateTacticalDiagnosis(problemText);
+                loading.classList.add('hidden');
+                responseDiv.classList.remove('hidden');
+
+                responseDiv.innerHTML = `
+                    <div class="space-y-4 text-stone-100 text-left">
+                        <!-- Verdict Card -->
+                        <div class="result-card p-5 sm:p-6 rounded-2xl shadow-xl">
+                            <span class="text-[11px] font-mono-code text-amber-400 font-bold uppercase tracking-widest block mb-1.5">// DIAGNÓSTICO DE DAN TAGLE</span>
+                            <h3 class="text-xl font-bold text-white mb-2 leading-snug">${analysis.title}</h3>
+                            <p class="text-sm text-stone-200 font-normal leading-relaxed">${analysis.verdict}</p>
+                        </div>
+
+                        <!-- Step-by-step -->
+                        <div class="result-card p-5 sm:p-6 rounded-2xl space-y-3">
+                            <span class="text-[11px] font-mono-code text-amber-400 uppercase tracking-widest block font-bold">// CÓMO LO SOLUCIONARÍA (PASO A PASO)</span>
+                            <ul class="space-y-2.5 text-sm text-stone-200">
+                                ${analysis.steps.map(s => `<li class="flex items-start gap-2.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-amber-400 shrink-0 mt-0.5"></i> <span>${s}</span></li>`).join('')}
+                            </ul>
+                        </div>
+
+                        <!-- Backed Case -->
+                        <div class="result-card p-5 sm:p-6 rounded-2xl space-y-2.5">
+                            <span class="text-[11px] font-mono-code text-amber-400 uppercase tracking-widest block font-bold">// CASO REAL SIMILAR EJECUTADO POR DAN</span>
+                            <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pt-1">
+                                <div>
+                                    <h4 class="text-base font-bold text-white">${analysis.matchedCase.title} <span class="text-xs font-mono-code text-amber-300 font-semibold">[${analysis.matchedCase.client}]</span></h4>
+                                    <p class="text-xs sm:text-sm text-stone-300 mt-1"><strong>Resultado:</strong> ${analysis.matchedCase.res}</p>
+                                </div>
+                                <a href="${analysis.matchedCase.link}" target="_blank" class="px-4 py-2.5 bg-amber-500 hover:bg-amber-400 text-stone-950 text-xs font-mono-code font-bold rounded-lg transition-all shrink-0 inline-flex items-center gap-1.5 shadow-md">
+                                    Ver en Behance <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Direct Action Buttons -->
+                        <div class="pt-2 flex flex-col sm:flex-row gap-3">
+                            <a href="https://wa.me/56928623092?text=${encodeURIComponent('Hola Dan, ingresé este problema en tu web: "' + problemText + '". Me interesa saber cómo lo aplicamos.')}" target="_blank" class="flex-1 px-6 py-4 bg-amber-500 hover:bg-amber-400 text-stone-950 font-bold text-sm rounded-xl text-center flex items-center justify-center gap-2 transition-all shadow-lg">
+                                <i data-lucide="message-square" class="w-5 h-5"></i> Hablarlo con Dan por WhatsApp
+                            </a>
+                            <button type="button" onclick="document.getElementById('problemInput').value=''; document.getElementById('problemInput').focus();" class="px-6 py-4 bg-stone-800 hover:bg-stone-700 text-stone-200 font-semibold text-sm rounded-xl text-center border border-stone-700 transition-all">
+                                Consultar otro problema
+                            </button>
+                        </div>
+                    </div>
+                `;
+                lucide.createIcons();
+            }, 500);
+        }
+
+        function handleLeadSubmit(e, encodedProblem) {
+            e.preventDefault();
+            const name = document.getElementById('leadName').value.trim();
+            const contact = document.getElementById('leadContact').value.trim();
+            const problem = decodeURIComponent(encodedProblem);
+
+            localStorage.setItem('dt_lead_submitted', 'true');
+            localStorage.setItem('dt_lead_name', name);
+            userHasSubmittedLead = true;
+
+            const analysis = generateTacticalDiagnosis(problem);
+            const responseDiv = document.getElementById('oracleResponse');
+
+            responseDiv.innerHTML = `
+                <div class="space-y-4 text-stone-100 text-left">
+                    <div class="p-4 rounded-2xl bg-emerald-500/20 border border-emerald-500/50">
+                        <span class="text-xs font-mono-code text-emerald-400 font-bold block mb-1">✓ DATOS REGISTRADOS · HOLA ${name.toUpperCase()}</span>
+                        <p class="text-xs text-stone-200">Aquí está el plan táctico completo para tu consulta:</p>
+                    </div>
+
+                    <div class="result-card p-5 sm:p-6 rounded-2xl shadow-xl">
+                        <span class="text-[11px] font-mono-code text-amber-400 font-bold uppercase tracking-widest block mb-1.5">// DIAGNÓSTICO DE DAN TAGLE</span>
+                        <h3 class="text-xl font-bold text-white mb-2 leading-snug">${analysis.title}</h3>
+                        <p class="text-sm text-stone-200 font-normal leading-relaxed">${analysis.verdict}</p>
+                    </div>
+
+                    <div class="result-card p-5 sm:p-6 rounded-2xl space-y-3">
+                        <span class="text-[11px] font-mono-code text-stone-300 uppercase tracking-widest block font-bold">// PLAN DE ACCIÓN RECOMENDADO</span>
+                        <ul class="space-y-2.5 text-sm text-stone-200">
+                            ${analysis.steps.map(s => `<li class="flex items-start gap-2.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-amber-400 shrink-0 mt-0.5"></i> <span>${s}</span></li>`).join('')}
+                        </ul>
+                    </div>
+
+                    <div class="result-card p-5 sm:p-6 rounded-2xl space-y-2.5">
+                        <span class="text-[11px] font-mono-code text-amber-400 uppercase tracking-widest block font-bold">// RESPALDO REAL</span>
+                        <p class="text-xs sm:text-sm text-stone-200 mb-2">Esto mismo lo ejecutamos en <strong>${analysis.matchedCase.client}</strong> con el proyecto <em>"${analysis.matchedCase.title}"</em>: ${analysis.matchedCase.sol}.</p>
+                        <a href="${analysis.matchedCase.link}" target="_blank" class="px-4 py-2.5 bg-amber-500 hover:bg-amber-400 text-stone-950 text-xs font-mono-code font-bold rounded-lg transition-all shrink-0 inline-flex items-center gap-1.5 shadow-md">
+                            Ver en Behance <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                        </a>
+                    </div>
+
+                    <a href="https://wa.me/56928623092?text=${encodeURIComponent('Hola Dan, soy ' + name + ' (' + contact + '). Estuve revisando el plan en tu web para: ' + problem)}" target="_blank" class="w-full py-4 bg-amber-500 hover:bg-amber-400 text-stone-950 font-bold text-sm uppercase tracking-wider rounded-xl transition-all shadow-lg text-center flex items-center justify-center gap-2">
+                        <i data-lucide="message-square" class="w-5 h-5"></i> Agendar llamada con Dan Tagle ahora
+                    </a>
+                </div>
+            `;
             lucide.createIcons();
-            // Focus on search input automatically like Google on desktop
+        }
+
+        // Tactical Engine using MASTER_DATA cases
+        function generateTacticalDiagnosis(query) {
+            const q = query.toLowerCase();
+            const cases = (typeof MASTER_DATA !== 'undefined' && MASTER_DATA.cases) ? MASTER_DATA.cases : [
+                { title: "Hackeando el B2B Orgánico", client: "2Win Cloud ERP", res: "10 keywords Top 1 en 3 meses sin gasto publicitario.", link: "https://www.behance.net/gallery/231096043/a-b2b-creative-solution" },
+                { title: "Santa's Live Tracking", client: "2Win Cloud ERP", res: "Activación viral B2B y récord de demos agendadas.", link: "https://www.behance.net/gallery/240982385/Santas-Tracking-Christmas-2025-2Win" },
+                { title: "DOOH Reactivo al Clima", client: "Ssangyong Motors", res: "Pioneros en DOOH dinámico y reactivo en Chile.", link: "https://www.behance.net/gallery/44019443/SSangyong-Actyon-Sports-ADS-realtime" },
+                { title: "Ruleta BTL Data-Driven", client: "Tenpo Fintech", res: "Captura instantánea de leads calificados durante la activación.", link: "https://www.behance.net/gallery/217013571/BTL_-Ruleta-Tenpo" },
+                { title: "Lanzamiento Estratégico Chile", client: "MIDEA Global", res: "Ganadores de Effie de Oro en Lanzamiento de Marca.", link: "https://www.behance.net/gallery/20824907/MIDEA-Growth-Chile-Lanzamiento-Win-Effie" },
+                { title: "Matchmaking Solidario Navidad", client: "CorreosChile", res: "Más de 10.000 cartas apadrinadas digitalmente.", link: "https://www.behance.net/gallery/139685235/CorreosChile-Navidad" }
+            ];
+
+            // 1. Google / SEO / AEO / Visibilidad
+            if (q.includes('google') || q.includes('aparezco') || q.includes('encuentra') || q.includes('posicion') || q.includes('visibilidad') || q.includes('seo') || q.includes('chatgpt') || q.includes('buscar')) {
+                return {
+                    title: "Sí, lo soluciono: Arquitectura de Visibilidad AEO & SEO B2B",
+                    verdict: "El problema no es pagar anuncios en Google (eso quema presupuesto). El problema es que tu sitio no está estructurado para que los algoritmos ni la IA entiendan qué vendes. En 2Win lo demostramos llevando la empresa de 0 a Top 1 orgánico sin gastar en pauta.",
+                    steps: [
+                        "Auditoría de intenciones de búsqueda de clientes reales (sin palabras raras).",
+                        "Estructuración de datos en entidades semánticas para Google y ChatGPT.",
+                        "Optimización de velocidad y landing page enfocada en conversión directa."
+                    ],
+                    matchedCase: cases[0]
+                };
+            }
+
+            // 2. Tareas manuales / Excel / WhatsApp / Automatización
+            if (q.includes('mano') || q.includes('excel') || q.includes('whatsapp') || q.includes('tiempo') || q.includes('repetitivo') || q.includes('automatiz') || q.includes('proceso') || q.includes('tienda')) {
+                return {
+                    title: "Sí, lo soluciono: Automatización de Flujos & Micro-Apps",
+                    verdict: "Perder horas copiando datos de WhatsApp a Excel o respondiendo mensajes repetitivos frena tu crecimiento. Conectamos tus planillas y formularios con WhatsApp mediante automatizaciones ligeras que trabajan solas.",
+                    steps: [
+                        "Mapeo exacto de dónde pierdes más tiempo manual hoy.",
+                        "Conexión directa entre planillas (Google Sheets) y tu WhatsApp.",
+                        "Implementación de lógica automática para operar 24/7 sin esfuerzo."
+                    ],
+                    matchedCase: cases[3] || cases[1]
+                };
+            }
+
+            // 3. Explicar producto / Ventas / No entienden / Marketing
+            if (q.includes('explicar') || q.includes('producto') || q.includes('vender') || q.includes('entiende') || q.includes('cliente') || q.includes('comprar') || q.includes('venta')) {
+                return {
+                    title: "Sí, lo soluciono: Estrategia de Narrative & Posicionamiento de Valor",
+                    verdict: "Cuando tienes un producto excelente pero nadie lo compra, el 99% de las veces es un error de traducción: hablas desde tu producto en vez del dolor del cliente. En MIDEA lanzamos la marca traduciendo tecnología a valor cotidiano y ganamos el Effie de Oro.",
+                    steps: [
+                        "Eliminar la jerga técnica y dejar 1 beneficio comercial indiscutible.",
+                        "Diseño de narrativa visual e interactiva que demuestra el valor en 5 segundos.",
+                        "Estructura comercial simple: propuesta clara + prueba social + WhatsApp directo."
+                    ],
+                    matchedCase: cases[4] || cases[0]
+                };
+            }
+
+            // 4. Campañas creativas / Viral / Llamar atención
+            if (q.includes('viral') || q.includes('idea') || q.includes('campaña') || q.includes('atencion') || q.includes('hablar') || q.includes('impacto') || q.includes('btl')) {
+                return {
+                    title: "Sí, lo soluciono: Creatividad Táctica & Storydoing",
+                    verdict: "La publicidad tradicional ya no impresiona a nadie. Lo que funciona es crear experiencias interactivas que la gente quiera compartir. Como la plataforma digital de Navidad para CorreosChile (+10.000 cartas) o el auto que pintó un lienzo gigante para Ssangyong.",
+                    steps: [
+                        "Encontrar la idea creativa conectada con la conversación actual.",
+                        "Desarrollo de una experiencia digital o BTL interactiva y rápida.",
+                        "Amplificación orgánica en medios y redes de alto impacto."
+                    ],
+                    matchedCase: cases[5] || cases[2]
+                };
+            }
+
+            // 5. General Fallback
+            return {
+                title: "Sí, lo soluciono: Ingeniería Estratégica & Código a Medida",
+                verdict: "Tu necesidad combina negocio, estrategia y tecnología. A eso me dedico como Creative Technologist: en vez de derivarte con 4 proveedores distintos, lo abordamos directamente y en tiempo récord.",
+                steps: [
+                    "Diagnóstico preciso en una llamada directa de 15 minutos.",
+                    "Propuesta de solución táctica (software, automatización o rediseño).",
+                    "Puesta en marcha con resultados medibles."
+                ],
+                matchedCase: cases[1] || cases[0]
+            };
+        }
+
+        // Initialize icons on load
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof lucide !== 'undefined') lucide.createIcons();
             if (window.innerWidth > 768) {
                 const input = document.getElementById('problemInput');
                 if (input) input.focus();
             }
         });
     </script>
-<!-- Structured Data for Cases -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "ItemList",
-  "name": "Casos Reales de Dan Tagle",
-  "itemListElement": [
-    {
-      "@type": "CreativeWork",
-      "name": "Caso 1",
-      "url": "https://dantagle.cl/casos.html#case1"
-    },
-    {
-      "@type": "CreativeWork",
-      "name": "Caso 2",
-      "url": "https://dantagle.cl/casos.html#case2"
-    }
-    // Additional cases can be added similarly
-  ]
-}
-</script>
-<!-- Sticky CTA -->
-<div class="fixed bottom-5 right-5">
-  <a href="https://wa.me/56928623092" target="_blank" class="bg-amber-500 text-stone-950 rounded-full px-4 py-2 font-bold shadow-lg hover:bg-amber-600 transition">Contactar</a>
-</div>
 </body>
 </html>
