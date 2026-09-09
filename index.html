@@ -1,21 +1,18 @@
 <!DOCTYPE html>
-<html lang="es-CL">
+<html lang="es-CL" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <title>Dan Tagle | Solucionador de Problemas & Creative Technologist</title>
-    <meta name="description" content="¿Qué necesitas solucionar en tu negocio? Ingresa tu problema y descubre cómo lo resuelvo con estrategia, software e inteligencia artificial.">
-    <meta name="keywords" content="Dan Tagle, Soluciones Empresa, Automatización IA, SEO, AEO, Software Chile, Creative Technologist">
-    <meta name="author" content="Dan Tagle">
-    <meta name="theme-color" content="#0a0a0a">
-    <meta property="og:title" content="Dan Tagle | Solucionador de Problemas">
-    <meta property="og:description" content="Ingresa tu problema de negocio y descubre la solución táctica directa.">
-    <meta property="og:image" content="https://dantagle.cl/hero_impact.png">
+    <title>Dan Tagle | AI Creative Technologist & Solution Engine</title>
+    <meta name="description" content="#1 Global Creative Technologist (Creativepool 2025-2026). Buscador interactivo de soluciones de negocio, software, IA y marketing estratégico.">
+    <meta name="theme-color" content="#030206">
+    <meta property="og:title" content="Dan Tagle | Solution Engine">
+    <meta property="og:description" content="Conversa tu desafío de negocio y recibe la estrategia técnica y creativa directa de Dan Tagle.">
 
     <!-- Tailwind CSS & Lucide Icons -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@0.473.0/dist/umd/lucide.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;700&family=Playfair+Display:ital,wght@1,600;1,700&display=swap" rel="stylesheet">
 
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZWS146BM3E"></script>
@@ -28,159 +25,211 @@
     <meta name="google-site-verification" content="3kl_ygwfwp7yFEwizHDP4dKGhxW8lEgP2CqyVxq7rPY">
 
     <style>
-        :root { --accent: #f59e0b; }
-        body { 
-            font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif; 
-            background-color: #0a0a0a; 
-            color: #ffffff; 
-            overflow-x: hidden; 
-            -webkit-tap-highlight-color: transparent; 
+        :root {
+            --bg-dark: #030206;
+            --purple-glow: rgba(168, 85, 247, 0.15);
+            --pink-glow: rgba(236, 72, 153, 0.12);
         }
-        .font-serif-title { font-family: 'Instrument Serif', serif; }
+        body {
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-dark);
+            color: #f3f4f6;
+            overflow-x: hidden;
+            -webkit-tap-highlight-color: transparent;
+        }
         .font-mono-code { font-family: 'JetBrains Mono', monospace; }
+        .font-serif-italic { font-family: 'Playfair Display', serif; font-style: italic; }
 
-        /* Dark High-Contrast Mesh Background */
-        .bg-mesh {
-            background-color: #070707;
+        /* Ultrafine Mesh & Neon Gradient background */
+        .bg-tech-mesh {
+            background-color: #030206;
             background-image: 
-                radial-gradient(circle at 50% 15%, rgba(245, 158, 11, 0.15) 0%, transparent 60%),
-                radial-gradient(circle at 85% 75%, rgba(180, 83, 9, 0.08) 0%, transparent 50%);
+                radial-gradient(circle at 50% 10%, rgba(168, 85, 247, 0.14) 0%, transparent 55%),
+                radial-gradient(circle at 90% 80%, rgba(236, 72, 153, 0.10) 0%, transparent 50%),
+                radial-gradient(circle at 10% 50%, rgba(139, 92, 246, 0.08) 0%, transparent 45%);
         }
-        
-        /* Input & Card High-Contrast Borders */
-        .search-box {
-            background: #141414;
-            border: 2px solid #333333;
-            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+
+        /* Glassmorphism Ultrafine Cards */
+        .ultra-card {
+            background: rgba(13, 10, 22, 0.65);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
         }
-        .search-box:focus-within {
-            border-color: #f59e0b;
-            box-shadow: 0 0 25px rgba(245, 158, 11, 0.25), 0 10px 30px rgba(0,0,0,0.8);
+
+        /* Ultrafine Glowing Border Input */
+        .ultra-input-wrapper {
+            background: rgba(15, 12, 25, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(168, 85, 247, 0.3);
+            box-shadow: 0 0 20px rgba(168, 85, 247, 0.1);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .result-card {
-            background: #121212;
-            border: 1.5px solid #2a2a2a;
+        .ultra-input-wrapper:focus-within {
+            border-color: rgba(236, 72, 153, 0.8);
+            box-shadow: 0 0 35px rgba(236, 72, 153, 0.25), 0 0 15px rgba(168, 85, 247, 0.4);
         }
-        .btn-action {
-            background: #222222;
-            border: 1px solid #3a3a3a;
-            color: #f3f3f3;
-            transition: all 0.2s;
+
+        /* Gradient Text Effects */
+        .gradient-text-pink-purple {
+            background: linear-gradient(135deg, #f472b6 0%, #c084fc 50%, #818cf8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
-        .btn-action:hover, .btn-action:active {
-            background: #f59e0b;
-            color: #0a0a0a;
-            border-color: #f59e0b;
-        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #030206; }
+        ::-webkit-scrollbar-thumb { background: #2e1065; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: #c084fc; }
     </style>
 </head>
-<body class="min-h-screen flex flex-col justify-between relative bg-mesh">
+<body class="min-h-screen flex flex-col justify-between relative bg-tech-mesh text-stone-100 antialiased selection:bg-pink-500 selection:text-white">
 
-    <!-- HEADER / NAVBAR (GOOGLE MINIMAL STYLE) -->
-    <header class="w-full py-4 px-4 sm:px-8 flex justify-between items-center z-50 border-b border-stone-800/80 bg-black/60 backdrop-blur-md">
-        <div class="flex items-center gap-2">
-            <span class="w-2.5 h-2.5 rounded-full bg-amber-500 animate-pulse"></span>
-            <span class="text-xs font-mono-code font-bold tracking-widest text-amber-400">
-                DAN TAGLE
+    <!-- ULTRA-TECH MINIMAL NAVBAR -->
+    <header class="w-full py-4 px-4 sm:px-8 flex justify-between items-center z-50 border-b border-purple-900/30 bg-black/40 backdrop-blur-xl">
+        <a href="index.html" class="flex items-center gap-2.5 group">
+            <div class="relative flex items-center justify-center w-7 h-7 rounded-full bg-gradient-to-tr from-pink-500 to-purple-600 p-[1px]">
+                <div class="w-full h-full bg-black rounded-full flex items-center justify-center">
+                    <span class="text-[10px] font-mono-code font-extrabold text-pink-400">DT</span>
+                </div>
+            </div>
+            <span class="text-xs font-mono-code font-bold tracking-widest text-stone-300 group-hover:text-pink-400 transition-colors">
+                DAN TAGLE <span class="text-[9px] px-1.5 py-0.5 rounded bg-purple-950/80 text-purple-300 border border-purple-700/50 hidden sm:inline ml-1">#1 CREATIVE TECH</span>
             </span>
-        </div>
-        <div class="flex items-center gap-3 sm:gap-5 text-xs font-mono-code">
-            <a href="casos.html" class="text-stone-300 hover:text-white transition-colors">19 Casos</a>
-            <a href="desarrollos.html" class="text-stone-300 hover:text-white transition-colors hidden sm:inline">SaaS</a>
-            <a href="blog.html" class="text-stone-300 hover:text-white transition-colors">Blog</a>
-            <a href="https://wa.me/56928623092?text=Hola%20Dan,%20te%20contacto%20desde%20dantagle.cl" target="_blank" class="px-3.5 py-1.5 bg-amber-500 hover:bg-amber-400 text-stone-950 font-bold rounded-full transition-all flex items-center gap-1.5 shadow-md text-[11px]">
-                <i data-lucide="message-square" class="w-3.5 h-3.5"></i> <span>WhatsApp Directo</span>
+        </a>
+
+        <nav class="flex items-center gap-4 sm:gap-6 text-xs font-mono-code">
+            <a href="casos.html" class="text-stone-400 hover:text-pink-300 transition-colors">Portafolio</a>
+            <a href="desarrollos.html" class="text-stone-400 hover:text-pink-300 transition-colors hidden sm:inline">SaaS</a>
+            <a href="blog.html" class="text-stone-400 hover:text-pink-300 transition-colors">Artículos</a>
+            <a href="https://wa.me/56928623092?text=Hola%20Dan,%20te%20contacto%20desde%20dantagle.cl" target="_blank" 
+               class="px-4 py-1.5 rounded-full bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 text-white font-semibold shadow-lg shadow-purple-900/30 hover:opacity-95 transition-all text-[11px] flex items-center gap-1.5">
+                <i data-lucide="sparkles" class="w-3.5 h-3.5"></i> <span>Contactar</span>
             </a>
-        </div>
+        </nav>
     </header>
 
-    <!-- MAIN SEARCH ENGINE (MOBILE-FIRST GOOGLE STYLE) -->
-    <main class="flex-1 flex flex-col items-center justify-center px-4 sm:px-6 w-full max-w-3xl mx-auto py-8 sm:py-16 text-center">
+    <!-- MAIN INTERACTIVE SOLUTION ENGINE -->
+    <main class="flex-1 flex flex-col items-center justify-center px-4 sm:px-6 w-full max-w-4xl mx-auto py-8 sm:py-16 text-center">
         
-        <!-- Logo / Heading -->
-        <div class="mb-6 sm:mb-8 select-none">
-            <h1 class="text-5xl sm:text-7xl md:text-8xl font-serif-title uppercase tracking-tight text-white mb-2">
-                DAN <span class="italic text-amber-400 font-serif-title">TAGLE</span>
+        <!-- Tech Hero Header -->
+        <div class="mb-8 sm:mb-12 select-none">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-950/50 border border-purple-500/30 text-purple-300 text-[11px] font-mono-code mb-4 backdrop-blur-md">
+                <span class="w-2 h-2 rounded-full bg-pink-500 animate-pulse"></span>
+                <span>AI Solution Engine · Dan Tagle</span>
+            </div>
+            
+            <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-white mb-3">
+                ¿Qué necesitas <span class="gradient-text-pink-purple font-serif-italic font-normal">resolver</span> hoy?
             </h1>
-            <p class="text-sm sm:text-base text-stone-200 font-light max-w-md mx-auto leading-relaxed px-2">
-                Buscador Inteligente de Soluciones de Negocio & Creative Tech.
+            <p class="text-xs sm:text-sm text-stone-400 font-light max-w-lg mx-auto leading-relaxed">
+                Plantea tu problema de negocio, marketing o software en tus propias palabras. La IA analizará la solución exacta respaldada con mi trayectoria.
             </p>
         </div>
 
-        <!-- Google-Style Search Form -->
-        <div class="w-full max-w-xl mx-auto">
+        <!-- Interactive Search Bar -->
+        <div class="w-full max-w-2xl mx-auto">
             <form id="problemSearchForm" onsubmit="handleProblemSearch(event)" class="relative w-full">
-                <div class="search-box flex items-center rounded-2xl sm:rounded-full px-4 py-3 sm:py-4 shadow-2xl">
-                    <i data-lucide="search" class="w-5 h-5 text-amber-400 shrink-0 mr-3"></i>
+                <div class="ultra-input-wrapper rounded-2xl p-2 sm:p-2.5 flex items-center gap-3">
+                    <div class="pl-3 text-pink-400 shrink-0">
+                        <i data-lucide="bot" class="w-5 h-5"></i>
+                    </div>
                     <input type="text" id="problemInput" required autocomplete="off"
-                        class="w-full bg-transparent text-white placeholder-stone-400 text-base sm:text-lg focus:outline-none font-sans"
-                        placeholder="Escribe tu problema (ej: ventas, Instagram, Excel, SEO, app...)">
-                    <button type="submit" id="searchSubmitBtn" class="ml-2 p-2.5 rounded-full bg-amber-500 hover:bg-amber-400 text-stone-950 transition-all shrink-0" title="Buscar solución" aria-label="Buscar">
+                        class="w-full bg-transparent text-white placeholder-stone-500 text-sm sm:text-base focus:outline-none font-sans font-light"
+                        placeholder="Ej: ¿Cómo vendo más por TikTok sin hacer el ridículo?">
+                    <button type="submit" id="searchSubmitBtn" 
+                            class="px-5 py-3 rounded-xl bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-bold text-xs uppercase tracking-wider transition-all shrink-0 flex items-center gap-2 shadow-lg shadow-pink-950/40">
+                        <span>Analizar</span>
                         <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                    </button>
-                </div>
-
-                <!-- Google Action Buttons -->
-                <div class="flex justify-center gap-3 mt-4 sm:mt-6">
-                    <button type="submit" class="btn-action flex-1 sm:flex-initial px-5 py-3 rounded-xl text-xs sm:text-sm font-semibold shadow-md">
-                        Buscar Solución Inteligente
-                    </button>
-                    <button type="button" onclick="setRandomPrompt()" class="btn-action flex-1 sm:flex-initial px-5 py-3 rounded-xl text-xs sm:text-sm font-semibold shadow-md">
-                        Voy a tener suerte
                     </button>
                 </div>
             </form>
 
-            <!-- Frequent Boomer & Mobile Buttons -->
-            <div class="mt-6 sm:mt-8 pt-5 border-t border-stone-800 text-left">
-                <span class="text-[11px] font-mono-code text-amber-400 uppercase tracking-wider block mb-3 text-center font-bold">
-                    O presiona un desafío frecuente:
+            <!-- Quick Pill Suggestions (Ultrafine Tech Pills) -->
+            <div class="mt-6 text-left">
+                <span class="text-[11px] font-mono-code text-purple-400/90 uppercase tracking-widest block mb-3 text-center">
+                    // CONSULTAS FRECUENTES DE EJECUTIVOS Y EMPRENDEDORES:
                 </span>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5" id="quickExamples">
-                    <button type="button" onclick="setQuickPrompt('Cómo mejorar mi Instagram, redes sociales y captación de clientes')" class="p-3.5 rounded-xl bg-stone-900 hover:bg-stone-800 border border-stone-700 hover:border-amber-400 text-stone-100 text-left text-xs sm:text-sm transition-all flex items-center gap-3">
-                        <span class="text-lg shrink-0">📱</span> <span><strong>Redes/Instagram:</strong> Captar clientes y engagement</span>
+                <div class="flex flex-wrap justify-center gap-2" id="quickExamples">
+                    <button type="button" onclick="setQuickPrompt('¿Cómo vender más por TikTok y Reels sin presupuesto publicitario?')" 
+                            class="px-3.5 py-2 rounded-full bg-purple-950/40 hover:bg-purple-900/50 border border-purple-800/40 hover:border-pink-500/60 text-stone-300 hover:text-white text-xs transition-all flex items-center gap-2 backdrop-blur-sm">
+                        <span class="text-pink-400">⚡</span> <span>Ventas en TikTok / Reels</span>
                     </button>
-                    <button type="button" onclick="setQuickPrompt('No aparezco en Google ni ChatGPT y la competencia se lleva los clientes')" class="p-3.5 rounded-xl bg-stone-900 hover:bg-stone-800 border border-stone-700 hover:border-amber-400 text-stone-100 text-left text-xs sm:text-sm transition-all flex items-center gap-3">
-                        <span class="text-lg shrink-0">🔍</span> <span><strong>SEO / AEO:</strong> Posicionamiento #1 en Google</span>
+                    <button type="button" onclick="setQuickPrompt('¿Cómo aparecer #1 en Google y ChatGPT cuando buscan mi servicio?')" 
+                            class="px-3.5 py-2 rounded-full bg-purple-950/40 hover:bg-purple-900/50 border border-purple-800/40 hover:border-pink-500/60 text-stone-300 hover:text-white text-xs transition-all flex items-center gap-2 backdrop-blur-sm">
+                        <span class="text-purple-400">🔍</span> <span>Posicionamiento SEO & AEO</span>
                     </button>
-                    <button type="button" onclick="setQuickPrompt('Automatizar planillas de Excel, WhatsApp y procesos repetitivos')" class="p-3.5 rounded-xl bg-stone-900 hover:bg-stone-800 border border-stone-700 hover:border-amber-400 text-stone-100 text-left text-xs sm:text-sm transition-all flex items-center gap-3">
-                        <span class="text-lg shrink-0">⚙️</span> <span><strong>Automatización:</strong> Eliminar trabajo manual</span>
+                    <button type="button" onclick="setQuickPrompt('Quiero automatizar mi operación manual de Excel y WhatsApp')" 
+                            class="px-3.5 py-2 rounded-full bg-purple-950/40 hover:bg-purple-900/50 border border-purple-800/40 hover:border-pink-500/60 text-stone-300 hover:text-white text-xs transition-all flex items-center gap-2 backdrop-blur-sm">
+                        <span class="text-indigo-400">⚙️</span> <span>Automatización de Flujos</span>
                     </button>
-                    <button type="button" onclick="setQuickPrompt('Crear un software a medida, App o SaaS interactivo para mi negocio')" class="p-3.5 rounded-xl bg-stone-900 hover:bg-stone-800 border border-stone-700 hover:border-amber-400 text-stone-100 text-left text-xs sm:text-sm transition-all flex items-center gap-3">
-                        <span class="text-lg shrink-0">💻</span> <span><strong>Software & App:</strong> Desarrollar producto a medida</span>
+                    <button type="button" onclick="setQuickPrompt('Necesito un software SaaS o App móvil a medida rápido')" 
+                            class="px-3.5 py-2 rounded-full bg-purple-950/40 hover:bg-purple-900/50 border border-purple-800/40 hover:border-pink-500/60 text-stone-300 hover:text-white text-xs transition-all flex items-center gap-2 backdrop-blur-sm">
+                        <span class="text-pink-400">💻</span> <span>Desarrollo SaaS & App</span>
                     </button>
                 </div>
             </div>
 
-            <!-- DYNAMIC RESULTS CONTAINER -->
-            <div id="oracleResultsContainer" class="hidden mt-6 text-left">
-                <div id="oracleLoading" class="py-10 text-center space-y-3 bg-stone-900 rounded-2xl border border-stone-700 p-6">
-                    <div class="w-8 h-8 border-4 border-amber-400 border-t-transparent rounded-full animate-spin mx-auto"></div>
-                    <p class="text-sm font-mono-code text-amber-400 font-bold animate-pulse">Consultando la Base de Conocimiento de Dan Tagle (CV + 19 Casos)...</p>
+            <!-- NATURAL CONVERSATIONAL AI RESPONSE AREA -->
+            <div id="oracleResultsContainer" class="hidden mt-8 text-left transition-all duration-500">
+                
+                <!-- Loading Animation -->
+                <div id="oracleLoading" class="py-12 text-center space-y-4 ultra-card rounded-2xl p-8 border border-purple-500/30">
+                    <div class="relative w-12 h-12 mx-auto">
+                        <div class="absolute inset-0 rounded-full border-2 border-pink-500/20"></div>
+                        <div class="absolute inset-0 rounded-full border-2 border-pink-500 border-t-transparent animate-spin"></div>
+                        <div class="absolute inset-2 rounded-full border-2 border-purple-400 border-b-transparent animate-spin" style="animation-direction: reverse; animation-duration: 0.8s;"></div>
+                    </div>
+                    <p class="text-xs font-mono-code text-pink-300 tracking-wider animate-pulse">
+                        Consultando motor conversacional con background real de Dan Tagle...
+                    </p>
                 </div>
-                <div id="oracleResponse" class="hidden space-y-4">
-                    <!-- Results rendered dynamically -->
+
+                <!-- Natural Interactive Response Card -->
+                <div id="oracleResponse" class="hidden space-y-5">
+                    <!-- RENDERED DYNAMICALLY BY JAVASCRIPT -->
                 </div>
             </div>
         </div>
     </main>
 
-    <!-- FOOTER (GOOGLE MINIMAL STYLE) -->
-    <footer class="w-full py-6 px-4 sm:px-8 border-t border-stone-800 bg-black/80 text-stone-400 text-xs font-mono-code flex flex-col sm:flex-row justify-between items-center gap-4">
+    <!-- ACREDITACIONES Y MEDIOS SLIDER / BADGES -->
+    <section class="w-full py-8 border-t border-purple-900/30 bg-black/60 backdrop-blur-md">
+        <div class="max-w-5xl mx-auto px-4 text-center">
+            <span class="text-[10px] font-mono-code text-stone-500 uppercase tracking-widest block mb-4">
+                RECONOCIMIENTOS Y PRENSA INTERNACIONAL
+            </span>
+            <div class="flex flex-wrap justify-center items-center gap-4 sm:gap-8 text-xs text-stone-400 font-mono-code">
+                <a href="https://creativepool.com/top-25/creative-technologists/" target="_blank" class="hover:text-pink-400 transition-colors">🏆 #1 Global Creativepool</a>
+                <span class="text-stone-700">·</span>
+                <a href="https://www.instagram.com/p/BV8p-mMHMN5/" target="_blank" class="hover:text-pink-400 transition-colors">🥇 Oro WINA Art Direction</a>
+                <span class="text-stone-700 font-normal hidden sm:inline">·</span>
+                <a href="https://www.elojodeiberoamerica.com/el-ojo-2018-todos-los-jurados-de-cada-premio/" target="_blank" class="hover:text-pink-400 transition-colors hidden sm:inline">👁️ Jurado El Ojo 2018</a>
+                <span class="text-stone-700 font-normal">·</span>
+                <a href="https://www.latinspots.com/noticia/the-lab-y-nescaf-celebran-la-friendzone/51833" target="_blank" class="hover:text-pink-400 transition-colors">📰 LatinSpots Friendzone</a>
+                <span class="text-stone-700 font-normal hidden md:inline">·</span>
+                <a href="https://www.behance.net/gallery/20824907/MIDEA-Growth-Chile-Lanzamiento-Win-Effie" target="_blank" class="hover:text-pink-400 transition-colors hidden md:inline">✨ Effie Gold Winner</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="w-full py-6 px-4 sm:px-8 border-t border-purple-900/20 bg-black/80 text-stone-400 text-xs font-mono-code flex flex-col sm:flex-row justify-between items-center gap-4">
         <div class="flex items-center gap-2">
-            <span>Chile</span>
-            <span>·</span>
-            <span class="text-amber-400 font-semibold">Dan Tagle (#1 Global Creative Technologist)</span>
+            <span class="w-2 h-2 rounded-full bg-pink-500"></span>
+            <span>Dan Tagle · Strategic Engineering & Creative Tech</span>
         </div>
         <div class="flex flex-wrap justify-center items-center gap-5">
-            <a href="mailto:hola@dantagle.cl" class="hover:text-white transition-colors">hola@dantagle.cl</a>
-            <a href="https://wa.me/56928623092?text=Hola%20Dan,%20te%20contacto%20desde%20dantagle.cl" target="_blank" class="hover:text-white transition-colors">WhatsApp Directo</a>
-            <a href="https://www.behance.net/kulhunter" target="_blank" class="hover:text-white transition-colors">Behance</a>
-            <a href="politica-de-privacidad.html" class="hover:text-white transition-colors">Privacidad</a>
+            <a href="mailto:hola@dantagle.cl" class="hover:text-pink-300 transition-colors">hola@dantagle.cl</a>
+            <a href="https://wa.me/56928623092?text=Hola%20Dan,%20te%20contacto%20desde%20dantagle.cl" target="_blank" class="hover:text-pink-300 transition-colors">WhatsApp Directo</a>
+            <a href="https://www.behance.net/kulhunter" target="_blank" class="hover:text-pink-300 transition-colors">Behance</a>
+            <a href="https://creativepool.com/Dondt" target="_blank" class="hover:text-pink-300 transition-colors">Creativepool</a>
         </div>
     </footer>
 
-    <!-- SCRIPTS -->
+    <!-- JAVASCRIPT KNOWLEDGE BASE AND NATURAL CONVERSATIONAL AI ENGINE -->
     <script src="scripts/orchestrator_data.js"></script>
     <script>
         function setQuickPrompt(text) {
@@ -191,25 +240,11 @@
             }
         }
 
-        function setRandomPrompt() {
-            const prompts = [
-                "Cómo mejorar mi Instagram y captar más clientes en redes",
-                "No aparezco en búsquedas de Google ni en ChatGPT",
-                "Hacemos todo a mano con planillas Excel y WhatsApp",
-                "Tengo un producto excelente pero cuesta explicar mi oferta",
-                "Quiero un software o app a medida para automatizar mi empresa"
-            ];
-            const random = prompts[Math.floor(Math.random() * prompts.length)];
-            setQuickPrompt(random);
-        }
-
         function handleProblemSearch(e) {
             if (e && e.preventDefault) e.preventDefault();
             const input = document.getElementById('problemInput');
-            const problemText = input ? input.value.trim() : '';
-            if (!problemText) return;
-
-            localStorage.removeItem('dt_search_count');
+            const userQuery = input ? input.value.trim() : '';
+            if (!userQuery) return;
 
             const container = document.getElementById('oracleResultsContainer');
             const loading = document.getElementById('oracleLoading');
@@ -221,162 +256,169 @@
 
             container.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
+            // Generate natural human response simulation
             setTimeout(() => {
-                const analysis = generateTacticalDiagnosis(problemText);
+                const responseData = generateNaturalResponse(userQuery);
                 loading.classList.add('hidden');
                 responseDiv.classList.remove('hidden');
 
                 responseDiv.innerHTML = `
-                    <div class="space-y-4 text-stone-100 text-left">
-                        <!-- Verdict Card -->
-                        <div class="result-card p-5 sm:p-6 rounded-2xl shadow-2xl border-2 border-amber-500/80">
-                            <span class="text-[11px] font-mono-code text-amber-400 font-bold uppercase tracking-widest block mb-1.5">// DIAGNÓSTICO INTELIGENTE (DAN TAGLE)</span>
-                            <h3 class="text-xl font-bold text-white mb-2 leading-snug">${analysis.title}</h3>
-                            <p class="text-sm text-stone-200 font-normal leading-relaxed">${analysis.verdict}</p>
-                            ${analysis.cvProof ? `<div class="mt-3 p-3 bg-stone-900/90 rounded-xl border border-stone-700 text-xs text-amber-300 font-mono-code">💡 <strong>Experiencia Real Acreditada:</strong> ${analysis.cvProof}</div>` : ''}
-                        </div>
-
-                        <!-- Step-by-step -->
-                        <div class="result-card p-5 sm:p-6 rounded-2xl space-y-3">
-                            <span class="text-[11px] font-mono-code text-amber-400 uppercase tracking-widest block font-bold">// PLAN DE ACCIÓN RECOMENDADO</span>
-                            <ul class="space-y-2.5 text-sm text-stone-200">
-                                ${analysis.steps.map(s => `<li class="flex items-start gap-2.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-amber-400 shrink-0 mt-0.5"></i> <span>${s}</span></li>`).join('')}
-                            </ul>
-                        </div>
-
-                        <!-- Backed Case -->
-                        <div class="result-card p-5 sm:p-6 rounded-2xl space-y-2.5">
-                            <span class="text-[11px] font-mono-code text-amber-400 uppercase tracking-widest block font-bold">// CASO REAL DE MI PORTAFOLIO</span>
-                            <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pt-1">
-                                <div>
-                                    <h4 class="text-base font-bold text-white">${analysis.matchedCase.title} <span class="text-xs font-mono-code text-amber-300 font-semibold">[${analysis.matchedCase.client}]</span></h4>
-                                    <p class="text-xs sm:text-sm text-stone-300 mt-1"><strong>Resultado:</strong> ${analysis.matchedCase.res}</p>
+                    <div class="ultra-card rounded-2xl p-6 sm:p-8 space-y-6 border border-purple-500/30">
+                        
+                        <!-- Header / User Intent Confirmation -->
+                        <div class="flex items-start gap-4 pb-4 border-b border-purple-900/30">
+                            <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-pink-500 to-purple-600 p-[1px] shrink-0">
+                                <div class="w-full h-full bg-black rounded-[11px] flex items-center justify-center">
+                                    <i data-lucide="sparkles" class="w-5 h-5 text-pink-400"></i>
                                 </div>
-                                <a href="${analysis.matchedCase.link}" target="_blank" class="px-4 py-2.5 bg-amber-500 hover:bg-amber-400 text-stone-950 text-xs font-mono-code font-bold rounded-lg transition-all shrink-0 inline-flex items-center gap-1.5 shadow-md">
-                                    Ver en Behance <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
-                                </a>
+                            </div>
+                            <div>
+                                <span class="text-[11px] font-mono-code text-pink-400 font-bold uppercase tracking-wider block mb-1">Respuesta Estratégica Directa</span>
+                                <h3 class="text-lg sm:text-xl font-bold text-white leading-snug">${responseData.title}</h3>
                             </div>
                         </div>
 
-                        <!-- Direct Action Buttons -->
-                        <div class="pt-2 flex flex-col sm:flex-row gap-3">
-                            <a href="https://wa.me/56928623092?text=${encodeURIComponent('Hola Dan, ingresé este problema en tu web: "' + problemText + '". Me interesa conversar la solución.')}" target="_blank" class="flex-1 px-6 py-4 bg-amber-500 hover:bg-amber-400 text-stone-950 font-bold text-sm rounded-xl text-center flex items-center justify-center gap-2 transition-all shadow-lg">
-                                <i data-lucide="message-square" class="w-5 h-5"></i> Hablar directamente por WhatsApp
+                        <!-- Natural Chat Dialogue Answer -->
+                        <div class="space-y-3 text-sm text-stone-200 leading-relaxed font-light">
+                            <p class="text-base text-stone-100 font-normal">${responseData.directAnswer}</p>
+                            <p class="text-stone-300">${responseData.explanation}</p>
+                        </div>
+
+                        <!-- CV & Accreditation Backing Pill -->
+                        ${responseData.accreditation ? `
+                        <div class="p-4 rounded-xl bg-purple-950/30 border border-purple-700/40 text-xs text-purple-200 font-mono-code flex items-start gap-3">
+                            <i data-lucide="award" class="w-4 h-4 text-pink-400 shrink-0 mt-0.5"></i>
+                            <div>
+                                <strong class="text-pink-300 block mb-0.5">Respaldo Profesional Acreditado:</strong>
+                                ${responseData.accreditation}
+                            </div>
+                        </div>` : ''}
+
+                        <!-- Actionable Steps Grid -->
+                        <div class="space-y-3 pt-2">
+                            <span class="text-[11px] font-mono-code text-purple-300 uppercase tracking-wider font-bold block">// PLAN TÁCTICO RECOMENDADO:</span>
+                            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                                ${responseData.steps.map((step, idx) => `
+                                    <div class="p-3.5 rounded-xl bg-black/50 border border-purple-900/40 text-xs text-stone-300 space-y-1">
+                                        <span class="text-[10px] font-mono-code text-pink-400 font-bold">PASO 0${idx + 1}</span>
+                                        <p class="text-stone-200 font-medium">${step}</p>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+
+                        <!-- Real Case Study Card -->
+                        <div class="p-4 sm:p-5 rounded-xl bg-gradient-to-r from-purple-950/40 to-pink-950/20 border border-purple-800/40 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                            <div>
+                                <span class="text-[10px] font-mono-code text-pink-400 uppercase tracking-widest font-semibold block mb-1">Caso de Éxito Relacionado</span>
+                                <h4 class="text-sm font-bold text-white">${responseData.matchedCase.title} <span class="text-xs text-purple-300 font-normal">(${responseData.matchedCase.client})</span></h4>
+                                <p class="text-xs text-stone-300 mt-1">${responseData.matchedCase.res}</p>
+                            </div>
+                            <a href="${responseData.matchedCase.link}" target="_blank" 
+                               class="px-4 py-2 rounded-lg bg-pink-500/20 hover:bg-pink-500/30 text-pink-300 border border-pink-500/40 text-xs font-mono-code font-semibold transition-all shrink-0 flex items-center gap-1.5">
+                                <span>Ver en Behance</span>
+                                <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
                             </a>
-                            <a href="mailto:hola@dantagle.cl?subject=${encodeURIComponent('Consulta desde dantagle.cl: ' + problemText.substring(0, 30))}" class="flex-1 px-6 py-4 bg-stone-800 hover:bg-stone-700 text-stone-200 font-semibold text-sm rounded-xl text-center border border-stone-700 transition-all flex items-center justify-center gap-2">
+                        </div>
+
+                        <!-- CTA Direct Whatsapp & Email Buttons -->
+                        <div class="pt-3 flex flex-col sm:flex-row gap-3">
+                            <a href="https://wa.me/56928623092?text=${encodeURIComponent('Hola Dan, estuve revisando en tu web la solución para: "' + userQuery + '". Me interesa conversar la implementación.')}" 
+                               target="_blank" 
+                               class="flex-1 px-6 py-3.5 rounded-xl bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-600 hover:from-pink-600 hover:to-indigo-700 text-white font-bold text-xs uppercase tracking-wider text-center flex items-center justify-center gap-2 shadow-lg shadow-purple-950/50 transition-all">
+                                <i data-lucide="message-square" class="w-4 h-4"></i> Conversar esta solución por WhatsApp
+                            </a>
+                            <a href="mailto:hola@dantagle.cl?subject=${encodeURIComponent('Consulta de solución: ' + userQuery.substring(0, 30))}" 
+                               class="px-6 py-3.5 rounded-xl bg-purple-950/40 hover:bg-purple-900/50 border border-purple-700/50 text-stone-200 font-semibold text-xs text-center transition-all flex items-center justify-center gap-2">
                                 <i data-lucide="mail" class="w-4 h-4"></i> Enviar Email
                             </a>
                         </div>
+
                     </div>
                 `;
                 lucide.createIcons();
-            }, 350);
+            }, 400);
         }
 
-        // Comprehensive Knowledge Base & Matching Engine
-        function generateTacticalDiagnosis(query) {
-            const q = query.toLowerCase().trim();
+        // Natural Language Knowledge Engine mapped to Dan Tagle's CV & Portfolio
+        function generateNaturalResponse(query) {
+            const q = query.toLowerCase();
             const cases = (typeof MASTER_DATA !== 'undefined' && MASTER_DATA.cases) ? MASTER_DATA.cases : [];
 
-            // 1. Redes Sociales / Instagram / Tiktok / Contenido / Audiencia / Fans
-            if (q.includes('instagram') || q.includes('redes') || q.includes('social') || q.includes('tiktok') || q.includes('meta') || q.includes('publicaciones') || q.includes('seguidores') || q.includes('contenido')) {
+            // 1. TikTok / Reels / Instagram / Redes / Contenido Viral
+            if (q.includes('tiktok') || q.includes('instagram') || q.includes('reels') || q.includes('redes') || q.includes('viral') || q.includes('seguidores') || q.includes('social')) {
                 return {
-                    title: "Estrategia de Contenido, Storytelling & Captación Digital",
-                    verdict: "Publicar contenido estático en Instagram sin una estrategia de conversión solo genera 'me gusta' sin ventas. Con más de 15 años dirigiendo áreas digitales (en Wunderman Thompson, Why., Proximity), transformamos las redes sociales de vitrina pasiva a canales de adquisición de clientes con ROI medible.",
-                    cvProof: "Social Media Strategist & Director Digital para marcas globales como Sony, Nescafé, Derco, Sodimac y MIDEA (Ganador Effie Gold).",
+                    title: "Estrategia de Storydoing & Conversión en TikTok / Instagram",
+                    directAnswer: "Para vender por TikTok o Reels no necesitas bailar ni hacer el ridículo; necesitas **Storydoing**: transformar tu producto o servicio en un experimento o demostración real que resuelva una duda en los primeros 3 segundos.",
+                    explanation: "Con más de 15 años de trayectoria liderando estrategia digital (Wunderman Thompson, Why., Proximity), el error común es intentar vender de inmediato. Lo que funciona es enganchar con la solución del problema y derivar directamente a un flujo automatizado de WhatsApp.",
+                    accreditation: "Social Media Strategist & Director Digital para Sony, Nescafé (Campaña Friendzone Nestlé en LatinSpots), Sodimac y MIDEA (Effie de Oro). Premio Oro en Dirección de Arte WINA 2017.",
                     steps: [
-                        "Rediseño de la narrativa visual e interacción directa enfocada en la oferta principal.",
-                        "Creación de contenidos tipo Storydoing (experiencias reales) que generan engagement orgánico.",
-                        "Enrutamiento directo desde la publicación/reels hacia canales de conversión rápida (WhatsApp / Landing SaaS)."
+                        "Crear 3 ganchos visuales basados en dolores reales de tu cliente en vez de hablar de tu empresa.",
+                        "Demostrar el valor o resultado en un video corto de 15 a 30 segundos máximo.",
+                        "Colocar un enlace directo a WhatsApp configurado para cerrar la venta sin fricción."
                     ],
-                    matchedCase: cases.find(c => c.id === 10) || cases[6] || cases[0]
+                    matchedCase: cases.find(c => c.id === 10) || cases.find(c => c.id === 13) || cases[0]
                 };
             }
 
-            // 2. SEO / Google / AEO / ChatGPT / Aparición / Visibilidad
-            if (q.includes('google') || q.includes('seo') || q.includes('aeo') || q.includes('chatgpt') || q.includes('aparezco') || q.includes('busqueda') || q.includes('posicion') || q.includes('ranking')) {
+            // 2. SEO / AEO / Google / ChatGPT / Gemini / Buscadores
+            if (q.includes('google') || q.includes('chatgpt') || q.includes('seo') || q.includes('aeo') || q.includes('aparecer') || q.includes('busqueda') || q.includes('posicionar')) {
                 return {
-                    title: "Arquitectura AEO & SEO B2B: Posicionamiento Orgánico #1",
-                    verdict: "El SEO tradicional ha cambiado con las IAs generativas (ChatGPT, Gemini, Perplexity). Si tu negocio no está optimizado con AEO (AI Engine Optimization), las personas y los modelos no te encuentran. En 2Win escalamos de 0 a Top 1 orgánico en Google sin gastar 1 solo peso en anuncios.",
-                    cvProof: "Ingeniería SEO & Growth en 2Win Consulting (+30% tráfico en Wunderman Thompson, Top 1 keywords en Chile).",
+                    title: "Dominio Orgánico AEO (AI Engine Optimization) & Google #1",
+                    directAnswer: "El SEO tradicional ya no basta. Hoy los clientes buscan en **ChatGPT, Gemini y Perplexity** tanto como en Google. Tu sitio necesita estar estructurado semánticamente para que los modelos de IA te recomienden como la opción #1 sin pagar pauta.",
+                    explanation: "En 2Win Consulting escalamos la empresa de 0 a estar en el Top 1 orgánico de Google para keywords B2B hipercompetitivas en solo 3 meses, multiplicando el tráfico sin gastar 1 solo peso en anuncios publicatorios.",
+                    accreditation: "#1 Global Creative Technologist (Creativepool 2025-2026). Experto en SEO B2B, AEO y Growth en 2Win y Wunderman Thompson (+30% tráfico orgánico).",
                     steps: [
-                        "Modelado semántico de tus productos/servicios para que Google e IAs entiendan exactamente tu propuesta de valor.",
-                        "Optimización técnica de velocidad, arquitectura web e intenciones de búsqueda de decisión de compra.",
-                        "Estrategia de autoridad y contenido de alta conversión directa sin pagar pauta publicitaria en Google Ads."
+                        "Indexar la arquitectura del sitio mediante entidades semánticas compatibles con ChatGPT.",
+                        "Optimizar la velocidad de carga a menos de 1 segundo y resolver la intención de búsqueda exacta.",
+                        "Crear contenido técnico enfocado en cerrar leads calificados (MQLs) directamente."
                     ],
                     matchedCase: cases.find(c => c.id === 1) || cases[0]
                 };
             }
 
-            // 3. Excel / Planillas / Tareas Manuales / Automatización / WhatsApp / Procesos
-            if (q.includes('excel') || q.includes('mano') || q.includes('planilla') || q.includes('automatiz') || q.includes('proceso') || q.includes('tiempo') || q.includes('repetitivo') || q.includes('software')) {
+            // 3. Excel / Automatización / WhatsApp / Trabajo manual
+            if (q.includes('excel') || q.includes('mano') || q.includes('automatiz') || q.includes('whatsapp') || q.includes('proceso') || q.includes('tiempo') || q.includes('planilla')) {
                 return {
-                    title: "Automatización de Procesos & Micro-Apps a Medida",
-                    verdict: "Depender de planillas de Excel manuales o mensajes copiados a mano frena la operación y causa errores humanos. Desarrollamos automatizaciones livianas, dashboards e integraciones vía API que conectan tus herramientas en tiempo real.",
-                    cvProof: "Ingeniero Civil Industrial (Univ. de Valparaíso / MIT Professional Ed) especializado en automatización de flujos y herramientas internas.",
+                    title: "Automatización Integrada: Adiós al Trabajo Manual en Excel",
+                    directAnswer: "Perder horas copiando planillas o respondiendo mensajes repetitivos frena el crecimiento de tu empresa. Conectamos tus planillas de Google Sheets, formularios y WhatsApp mediante micro-automatizaciones que trabajan solas 24/7.",
+                    explanation: "Como Ingeniero Civil Industrial (Univ. de Valparaíso / MIT Professional Ed), mi enfoque es eliminar el trabajo operativo aburrido y crear sistemas limpios que liberen tiempo comercial.",
+                    accreditation: "Desarrollador de herramientas de automatización como Tikk.cl (Google Sheets a WhatsApp E-commerce) y dashboards de captura de datos en tiempo real (Tenpo, Aramco).",
                     steps: [
-                        "Mapeo de cuellos de botella operativos donde tu equipo pierde horas diarias.",
-                        "Desarrollo de conectores directos (Google Sheets, WhatsApp API, CRMs o desarrollos custom).",
-                        "Automatización 24/7 sin interrumpir la atención a tus clientes."
+                        "Mapear los 2 o 3 procesos repetitivos donde tu equipo pierde más horas al día.",
+                        "Conectar tus herramientas (Sheets, CRM, WhatsApp API) con scripts automáticos.",
+                        "Desplegar un panel de control simple para monitorear las ventas o consultas en vivo."
                     ],
                     matchedCase: cases.find(c => c.id === 5) || cases.find(c => c.id === 2) || cases[1]
                 };
             }
 
-            // 4. Ventas / Explicar oferta / Conversión / No entienden / Producto
-            if (q.includes('ventas') || q.includes('vender') || q.includes('explicar') || q.includes('oferta') || q.includes('conversion') || q.includes('cliente') || q.includes('comprar')) {
+            // 4. Software / App / SaaS / Web a Medida
+            if (q.includes('software') || q.includes('app') || q.includes('saas') || q.includes('desarrollo') || q.includes('plataforma') || q.includes('web') || q.includes('programar')) {
                 return {
-                    title: "Ingeniería de Conversión (CRO) & Claridad de Propuesta",
-                    verdict: "Cuando los clientes no compran, el problema casi nunca es el precio sino la complejidad del mensaje. Eliminamos la jerga técnica y rediseñamos la experiencia de usuario (UX/CX) para que el beneficio sea evidente en menos de 3 segundos.",
-                    cvProof: "+166% en leads cualificados (SQL) y reducción del 47% del Costo de Adquisición (CAC) en campañas de conversión.",
+                    title: "Desarrollo de Software, SaaS & Apps a Medida en Tiempo Récord",
+                    directAnswer: "No necesitas agencias tradicionales que tardan 6 meses y cobran fortunas. Desarrollamos tu **MVP (Producto Mínimo Viable)** o SaaS interactivo en semanas, listo para captar clientes y validar el negocio.",
+                    explanation: "Combino arquitectura de software moderna con diseño UX ultra-limpio. He creado y mantenido SaaS vivos como Tikk.cl, Criptobot.cl, Saben.cl, LeyResponsable.cl y Neural Eye.",
+                    accreditation: "#1 Ranked Creative Technologist según Creativepool 2025-2026. Jurado internacional en El Ojo de Iberoamérica 2018 y FIAP 2016.",
                     steps: [
-                        "Simplificación radical del pitch comercial y propuesta de valor única.",
-                        "Rediseño mobile-first optimizando botones, llamadas a la acción y checkout sin fricción.",
-                        "Acompañamiento en el embudo desde el primer contacto hasta el cierre comercial."
-                    ],
-                    matchedCase: cases.find(c => c.id === 7) || cases.find(c => c.id === 8) || cases[4]
-                };
-            }
-
-            // 5. App / SaaS / Web / Código / Desarrollo / Plataforma
-            if (q.includes('app') || q.includes('saas') || q.includes('web') || q.includes('codigo') || q.includes('desarrollo') || q.includes('plataforma') || q.includes('sistema')) {
-                return {
-                    title: "Desarrollo Full-Stack SaaS & Experiencias Digitales",
-                    verdict: "No necesitas agencias lentas ni equipos inflados. Como Creative Technologist (#1 global en Creativepool), combino arquitectura de software moderno (Javascript, Tailwind, Python, IA) con diseño UX enfocado en resolver el problema exacto.",
-                    cvProof: "Creador de activos en producción como Tikk.cl, Criptobot.cl, Saben.cl, LeyResponsable.cl y Neural Eye.",
-                    steps: [
-                        "Definición del Producto Mínimo Viable (MVP) enfocado 100% en la necesidad de negocio.",
-                        "Desarrollo ultra-rápido mobile-first con estándares de velocidad y seguridad.",
-                        "Lanzamiento e integración de analítica para iterar con usuarios reales."
+                        "Definir las 3 funciones esenciales que resuelven el problema principal del usuario.",
+                        "Programación full-stack en arquitectura ultrarrápida y mobile-first.",
+                        "Lanzamiento inmediato e integración con pasarelas de pago o checkout WhatsApp."
                     ],
                     matchedCase: cases.find(c => c.id === 9) || cases.find(c => c.id === 4) || cases[8]
                 };
             }
 
-            // 6. Campaña Creativa / BTL / Eventos / Viral / Viralidad
-            if (q.includes('viral') || q.includes('campaña') || q.includes('btl') || q.includes('atencion') || q.includes('idea') || q.includes('creativ') || q.includes('evento')) {
-                return {
-                    title: "Storydoing, BTL Interactivo & Campañas de Alto Impacto",
-                    verdict: "Para destacar en mercados saturados se requiere creatividad conectada con tecnología. Desde intervenciones BTL con hardware hasta activaciones virales en tiempo real, generamos notoriedad que se traduce en métricas de negocio.",
-                    cvProof: "Premios de Creatividad e Innovación (Effie Gold, WINA Gold, Achap, FICE #1 Iberoamérica). Jurado Young Cannes.",
-                    steps: [
-                        "Conceptuación creativa disruptiva alineada con el ADN de la marca.",
-                        "Prototipado tecnológico o BTL rápido para validación en terreno.",
-                        "Amplificación orgánica y cobertura de prensa/medios."
-                    ],
-                    matchedCase: cases.find(c => c.id === 3) || cases.find(c => c.id === 6) || cases[2]
-                };
-            }
-
-            // 7. General Dynamic Fallback with CV context
+            // 5. General Fallback con lenguaje natural fluido
             return {
-                title: `Solución Táctica Especializada para: "${query.substring(0, 45)}"`,
-                verdict: `Abordamos este desafío integrando más de 15 años de trayectoria en estrategia digital, ingeniería de software y marketing enfocado en ROI. En lugar de parches superficiales, estructuramos una solución directa a la medida de tu empresa.`,
-                cvProof: "Dirección Digital & Creative Tech (#1 Global Creativepool 2026, MIT Professional Ed, Univ. de Valparaíso).",
+                title: `Propuesta Táctica para: "${query.substring(0, 40)}"`,
+                directAnswer: `Abordamos esta necesidad uniendo **ingeniería de software, estrategia comercial y diseño de experiencia de usuario (UX)** sin rodeos ni tecnicismos innecesarios.`,
+                explanation: `Con más de 15 años de trayectoria solucionando problemas para marcas globales y pymes (desde retail hasta startups fintech), diseñamos la ruta más corta entre tu desafío actual y la conversión directa.`,
+                accreditation: "#1 Global Creative Technologist 2025-2026 (Creativepool), Ganador Oro WINA 2017, Effie Gold Winner en Lanzamiento de Marca.",
                 steps: [
-                    "Diagnóstico técnico y estratégico en una sesión directa de 15 minutos.",
-                    "Diseño del plan de solución táctica (software, automatización, UX o estrategia).",
-                    "Ejecución en tiempo récord enfocada en resultados comerciales medibles."
+                    "Diagnóstico preciso en una llamada o sesión breve de 15 minutos.",
+                    "Diseño del prototipo o plan de acción técnico y comercial a medida.",
+                    "Puesta en marcha con métricas de resultados claras desde el día 1."
                 ],
                 matchedCase: cases[0]
             };

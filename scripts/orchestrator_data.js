@@ -235,6 +235,15 @@ const MASTER_DATA = {
         { name: "Contador Palabras", desc: "Análisis de caracteres y palabras.", link: "words.html" },
         { name: "UTM Builder", desc: "Creador de parámetros UTM de campaña.", link: "utm-builder.html" }
     ],
+    awardsAndPress: [
+        { title: "#1 Global Creative Technologist (2025-2026)", source: "Creativepool Global Rankings", link: "https://creativepool.com/top-25/creative-technologists/" },
+        { title: "Oro en Dirección de Arte", source: "WINA Festival 2017", link: "https://www.instagram.com/p/BV8p-mMHMN5/" },
+        { title: "Jurado Oficial El Ojo de Iberoamérica 2018", source: "El Ojo de Iberoamérica", link: "https://www.elojodeiberoamerica.com/el-ojo-2018-todos-los-jurados-de-cada-premio/" },
+        { title: "Jurado & Mentor Maratón Jóvenes Creativos FIAP 2016", source: "FIAP / UDD", link: "https://www.udd.cl/noticias/2016/03/22/maraton-de-jovenes-creativos-fiap-2016-en-la-udd/" },
+        { title: "Campaña 'Friendzone' Nescafé / Nestlé Chile", source: "LatinSpots & DossierNet", link: "https://www.latinspots.com/noticia/the-lab-y-nescaf-celebran-la-friendzone/51833" },
+        { title: "Fundador & Creative Digital Director", source: "Why Agency Chile", link: "https://www.adlatina.com/publicidad/nace-la-agencia-why-en-chile" },
+        { title: "Ganador Categoria Medios", source: "El Sol Festival", link: "https://marketingactivo.com/ganadores-de-la-categoria-medios-en-el-festival-el-sol/" }
+    ],
     diagnosis: [
         { issue: "Ventas estancadas / Funnel con fricción", recommendation: "Simplifiquemos la conversión implementando **Tikk** para vender directamente desde tu inventario a WhatsApp sin fricción." },
         { issue: "Invisibilidad en buscadores de IA (ChatGPT, Gemini)", recommendation: "El SEO tradicional no basta. Aplicamos **AEO (AI Engine Optimization)** para que los modelos de lenguaje te recomienden como la opción #1." },
