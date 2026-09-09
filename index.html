@@ -342,83 +342,115 @@
 
         // Natural Language Knowledge Engine mapped to Dan Tagle's CV & Portfolio
         function generateNaturalResponse(query) {
-            const q = query.toLowerCase();
+            const q = query.toLowerCase().trim();
             const cases = (typeof MASTER_DATA !== 'undefined' && MASTER_DATA.cases) ? MASTER_DATA.cases : [];
 
-            // 1. TikTok / Reels / Instagram / Redes / Contenido Viral
+            // 1. Timidez / No aparecer en cámara / No dar la cara / Formato Anónimo / Faceless
+            if (q.includes('camara') || q.includes('cámara') || q.includes('cara') || q.includes('rostro') || q.includes('aparecer') || q.includes('vergonz') || q.includes('timid') || q.includes('grabarm')) {
+                return {
+                    title: "Estrategia 'Faceless': Generar Contenido & Ventas sin Salir en Cámara",
+                    directAnswer: "Te entiendo perfectamente. El 80% de los dueños de negocio y ejecutivos no quieren ni necesitan poner su cara en videos para vender. Existen 3 formatos de alta conversión que funcionan mejor que hablar a la cámara: **Demostración de producto en uso (P.O.V.)**, **Pantalla grabada con voz en off/IA** y **Contenido basado en resultados reales (Storydoing).**",
+                    explanation: "En la campaña de *Santa's Live Tracking* o en los anuncios interactivos de *SsangYong* no apareció ningún actor ni CEO hablando a cámara: mostramos el software y la experiencia en vivo. Eso generó récord de ventas porque la gente quiere ver cómo le resuelves el problema, no tu cara.",
+                    accreditation: "Social Media Strategist & Director Digital para Sony, Nescafé y Sodimac. Creador de campañas B2B y B2C enfocadas en conversión técnica sin exposición personal.",
+                    steps: [
+                        "Crear videos POV (Point of View): mostrar solo tus manos, el producto o la pantalla de tu sistema trabajando.",
+                        "Usar locución en off profesional o clonación de voz por IA sobre b-roll del proceso real de trabajo.",
+                        "Implementar landings y flujos de WhatsApp donde el cliente interactúa con la solución directamente."
+                    ],
+                    matchedCase: cases.find(c => c.id === 2) || cases.find(c => c.id === 3) || cases[0]
+                };
+            }
+
+            // 2. TikTok / Reels / Instagram / Redes / Contenido / Seguidores
             if (q.includes('tiktok') || q.includes('instagram') || q.includes('reels') || q.includes('redes') || q.includes('viral') || q.includes('seguidores') || q.includes('social')) {
                 return {
-                    title: "Estrategia de Storydoing & Conversión en TikTok / Instagram",
-                    directAnswer: "Para vender por TikTok o Reels no necesitas bailar ni hacer el ridículo; necesitas **Storydoing**: transformar tu producto o servicio en un experimento o demostración real que resuelva una duda en los primeros 3 segundos.",
-                    explanation: "Con más de 15 años de trayectoria liderando estrategia digital (Wunderman Thompson, Why., Proximity), el error común es intentar vender de inmediato. Lo que funciona es enganchar con la solución del problema y derivar directamente a un flujo automatizado de WhatsApp.",
-                    accreditation: "Social Media Strategist & Director Digital para Sony, Nescafé (Campaña Friendzone Nestlé en LatinSpots), Sodimac y MIDEA (Effie de Oro). Premio Oro en Dirección de Arte WINA 2017.",
+                    title: "Estrategia de Contenido & Adquisición en Redes Sociales",
+                    directAnswer: "No necesitas bailar ni hacer modas absurdas en TikTok para captar clientes. Lo que funciona para un negocio real es el **Storydoing**: transformar las dudas frecuentes de tus clientes en videos cortos de demostración práctica.",
+                    explanation: "Con más de 15 años dirigiendo comunicación digital (Wunderman Thompson, Why., Proximity), el error habitual es publicar imágenes estáticas corporativas. Hay que enrutar el tráfico de reels directamente a un canal de respuesta rápida.",
+                    accreditation: "Director Digital & Social Media Strategist para Sony, Nescafé (Campaña Friendzone Nestlé en LatinSpots), Sodimac y MIDEA (Effie Gold Winner).",
                     steps: [
-                        "Crear 3 ganchos visuales basados en dolores reales de tu cliente en vez de hablar de tu empresa.",
-                        "Demostrar el valor o resultado en un video corto de 15 a 30 segundos máximo.",
-                        "Colocar un enlace directo a WhatsApp configurado para cerrar la venta sin fricción."
+                        "Crear 3 ganchos visuales enfocados en los 3 problemas más dolorosos de tu cliente.",
+                        "Demostrar el resultado o transformación en menos de 30 segundos de forma limpia.",
+                        "Enlazar a un flujo de WhatsApp automático preparado para cerrar la consulta."
                     ],
                     matchedCase: cases.find(c => c.id === 10) || cases.find(c => c.id === 13) || cases[0]
                 };
             }
 
-            // 2. SEO / AEO / Google / ChatGPT / Gemini / Buscadores
-            if (q.includes('google') || q.includes('chatgpt') || q.includes('seo') || q.includes('aeo') || q.includes('aparecer') || q.includes('busqueda') || q.includes('posicionar')) {
+            // 3. SEO / AEO / Google / ChatGPT / Gemini / Buscadores
+            if (q.includes('google') || q.includes('chatgpt') || q.includes('seo') || q.includes('aeo') || q.includes('busqueda') || q.includes('posicionar') || q.includes('invisib')) {
                 return {
                     title: "Dominio Orgánico AEO (AI Engine Optimization) & Google #1",
-                    directAnswer: "El SEO tradicional ya no basta. Hoy los clientes buscan en **ChatGPT, Gemini y Perplexity** tanto como en Google. Tu sitio necesita estar estructurado semánticamente para que los modelos de IA te recomienden como la opción #1 sin pagar pauta.",
-                    explanation: "En 2Win Consulting escalamos la empresa de 0 a estar en el Top 1 orgánico de Google para keywords B2B hipercompetitivas en solo 3 meses, multiplicando el tráfico sin gastar 1 solo peso en anuncios publicatorios.",
-                    accreditation: "#1 Global Creative Technologist (Creativepool 2025-2026). Experto en SEO B2B, AEO y Growth en 2Win y Wunderman Thompson (+30% tráfico orgánico).",
+                    directAnswer: "El SEO tradicional cambió radicalmente. Hoy la gente le pregunta directamente a **ChatGPT, Gemini y Perplexity**. Si tu sitio no está optimizado con AEO, las IAs no te van a recomendar. Te estructuramos para estar #1 sin quemar presupuesto en anuncios.",
+                    explanation: "En 2Win Consulting llevamos la empresa de 0 al Top 1 orgánico en Google para keywords B2B hipercompetitivas en solo 3 meses, multiplicando las oportunidades de negocio sin pagar anuncios.",
+                    accreditation: "#1 Global Creative Technologist (Creativepool 2025-2026). Experto en SEO B2B, AEO y Growth (+30% tráfico orgánico continuo).",
                     steps: [
-                        "Indexar la arquitectura del sitio mediante entidades semánticas compatibles con ChatGPT.",
-                        "Optimizar la velocidad de carga a menos de 1 segundo y resolver la intención de búsqueda exacta.",
-                        "Crear contenido técnico enfocado en cerrar leads calificados (MQLs) directamente."
+                        "Indexar la arquitectura del sitio mediante entidades semánticas que entienden los modelos de IA.",
+                        "Optimizar la velocidad de carga a menos de 1 segundo y resolver la intención exacta del comprador.",
+                        "Desplegar páginas de alta conversión directa enfocadas en leads calificados (MQLs)."
                     ],
                     matchedCase: cases.find(c => c.id === 1) || cases[0]
                 };
             }
 
-            // 3. Excel / Automatización / WhatsApp / Trabajo manual
-            if (q.includes('excel') || q.includes('mano') || q.includes('automatiz') || q.includes('whatsapp') || q.includes('proceso') || q.includes('tiempo') || q.includes('planilla')) {
+            // 4. Excel / Automatización / WhatsApp / Trabajo manual / Pérdida de tiempo
+            if (q.includes('excel') || q.includes('mano') || q.includes('automatiz') || q.includes('whatsapp') || q.includes('proceso') || q.includes('tiempo') || q.includes('planilla') || q.includes('repetitiv')) {
                 return {
-                    title: "Automatización Integrada: Adiós al Trabajo Manual en Excel",
-                    directAnswer: "Perder horas copiando planillas o respondiendo mensajes repetitivos frena el crecimiento de tu empresa. Conectamos tus planillas de Google Sheets, formularios y WhatsApp mediante micro-automatizaciones que trabajan solas 24/7.",
-                    explanation: "Como Ingeniero Civil Industrial (Univ. de Valparaíso / MIT Professional Ed), mi enfoque es eliminar el trabajo operativo aburrido y crear sistemas limpios que liberen tiempo comercial.",
-                    accreditation: "Desarrollador de herramientas de automatización como Tikk.cl (Google Sheets a WhatsApp E-commerce) y dashboards de captura de datos en tiempo real (Tenpo, Aramco).",
+                    title: "Automatización de Flujos: Elimina el Trabajo Manual Operativo",
+                    directAnswer: "Es muy frustrante perder horas valiosas copiando planillas o respondiendo los mismos mensajes a mano. Conectamos tus planillas (Google Sheets), formularios y WhatsApp con micro-automatizaciones que trabajan en segundo plano 24/7.",
+                    explanation: "Mi enfoque combina ingeniería y desarrollo para eliminar tareas repetitivas y liberar a tu equipo para vender y atender clientes reales.",
+                    accreditation: "Creador de SaaS y herramientas como Tikk.cl (Google Sheets a WhatsApp E-commerce) y tableros de automatización operativa (Tenpo, Aramco).",
                     steps: [
-                        "Mapear los 2 o 3 procesos repetitivos donde tu equipo pierde más horas al día.",
-                        "Conectar tus herramientas (Sheets, CRM, WhatsApp API) con scripts automáticos.",
-                        "Desplegar un panel de control simple para monitorear las ventas o consultas en vivo."
+                        "Mapear los 2 o 3 procesos manuales donde pierdes más tiempo al día.",
+                        "Conectar tus herramientas habituales (Excel/Sheets, CRM, WhatsApp API) con scripts automáticos.",
+                        "Instalar un panel simple para monitorear las consultas o pedidos en tiempo real."
                     ],
                     matchedCase: cases.find(c => c.id === 5) || cases.find(c => c.id === 2) || cases[1]
                 };
             }
 
-            // 4. Software / App / SaaS / Web a Medida
-            if (q.includes('software') || q.includes('app') || q.includes('saas') || q.includes('desarrollo') || q.includes('plataforma') || q.includes('web') || q.includes('programar')) {
+            // 5. Software / App / SaaS / Web a Medida / Producto Digital
+            if (q.includes('software') || q.includes('app') || q.includes('saas') || q.includes('desarrollo') || q.includes('plataforma') || q.includes('web') || q.includes('programar') || q.includes('sistema')) {
                 return {
                     title: "Desarrollo de Software, SaaS & Apps a Medida en Tiempo Récord",
-                    directAnswer: "No necesitas agencias tradicionales que tardan 6 meses y cobran fortunas. Desarrollamos tu **MVP (Producto Mínimo Viable)** o SaaS interactivo en semanas, listo para captar clientes y validar el negocio.",
-                    explanation: "Combino arquitectura de software moderna con diseño UX ultra-limpio. He creado y mantenido SaaS vivos como Tikk.cl, Criptobot.cl, Saben.cl, LeyResponsable.cl y Neural Eye.",
+                    directAnswer: "No necesitas agencias lentas que demoren 6 meses y cobren fortunas. Construimos tu **MVP (Producto Mínimo Viable)** o plataforma a medida en cuestión de semanas para validar y vender de inmediato.",
+                    explanation: "Combino código moderno con diseño de experiencia de usuario (UX) ultra-limpio. He lanzado y operado sistemas vivos como Tikk.cl, Criptobot.cl, Saben.cl y Neural Eye.",
                     accreditation: "#1 Ranked Creative Technologist según Creativepool 2025-2026. Jurado internacional en El Ojo de Iberoamérica 2018 y FIAP 2016.",
                     steps: [
-                        "Definir las 3 funciones esenciales que resuelven el problema principal del usuario.",
-                        "Programación full-stack en arquitectura ultrarrápida y mobile-first.",
-                        "Lanzamiento inmediato e integración con pasarelas de pago o checkout WhatsApp."
+                        "Definir las 3 funciones indispensables que resuelven el dolor principal del usuario.",
+                        "Desarrollo full-stack con arquitectura ultrarrápida y mobile-first.",
+                        "Lanzamiento inmediato e integración de pasarelas de pago o checkout a WhatsApp."
                     ],
                     matchedCase: cases.find(c => c.id === 9) || cases.find(c => c.id === 4) || cases[8]
                 };
             }
 
-            // 5. General Fallback con lenguaje natural fluido
+            // 6. Ventas / Poca conversión / Explicar producto / Me cuesta vender
+            if (q.includes('ventas') || q.includes('vender') || q.includes('explicar') || q.includes('oferta') || q.includes('comprar') || q.includes('conversion') || q.includes('conversión') || q.includes('cliente')) {
+                return {
+                    title: "Optimización de Conversión (CRO) & Claridad Comercial",
+                    directAnswer: "Entiendo la frustración de tener un servicio o producto excelente pero que la gente no termine comprando. Casi siempre el problema no es el precio, sino que la propuesta resulta compleja o confusa al navegar.",
+                    explanation: "Simplificamos la narrativa digital y rediseñamos la experiencia de usuario (UX/CX) para que el beneficio sea evidente en menos de 3 segundos.",
+                    accreditation: "+166% en leads cualificados (SQL) y reducción del 47% del costo de adquisición (CAC) en campañas de conversión.",
+                    steps: [
+                        "Simplificar el mensaje eliminando jerga técnica y destacando 1 beneficio irresistible.",
+                        "Rediseñar la landing page mobile-first enfocada en un único llamado a la acción.",
+                        "Implementar contacto directo por WhatsApp para cerrar la venta sin fricción."
+                    ],
+                    matchedCase: cases.find(c => c.id === 7) || cases.find(c => c.id === 8) || cases[4]
+                };
+            }
+
+            // 7. General Empathetic Fallback
             return {
-                title: `Propuesta Táctica para: "${query.substring(0, 40)}"`,
-                directAnswer: `Abordamos esta necesidad uniendo **ingeniería de software, estrategia comercial y diseño de experiencia de usuario (UX)** sin rodeos ni tecnicismos innecesarios.`,
-                explanation: `Con más de 15 años de trayectoria solucionando problemas para marcas globales y pymes (desde retail hasta startups fintech), diseñamos la ruta más corta entre tu desafío actual y la conversión directa.`,
-                accreditation: "#1 Global Creative Technologist 2025-2026 (Creativepool), Ganador Oro WINA 2017, Effie Gold Winner en Lanzamiento de Marca.",
+                title: `Diagnóstico & Solución Personalizada para: "${query.substring(0, 45)}"`,
+                directAnswer: `Te entiendo perfectamente. Abordamos este desafío combinando **estrategia de negocio, desarrollo de software y experiencia de usuario (UX)** de forma directa, empática y sin tecnicismos innecesarios.`,
+                explanation: `Con más de 15 años de trayectoria ayudando a emprendedores y empresas a destrabar su crecimiento, diseñamos la ruta más corta para lograr resultados medibles.`,
+                accreditation: "#1 Global Creative Technologist (Creativepool), Ganador Oro WINA 2017, Effie Gold Winner en Lanzamiento de Marca.",
                 steps: [
-                    "Diagnóstico preciso en una llamada o sesión breve de 15 minutos.",
-                    "Diseño del prototipo o plan de acción técnico y comercial a medida.",
-                    "Puesta en marcha con métricas de resultados claras desde el día 1."
+                    "Analizar tu situación en una conversación directa y breve de 15 minutos.",
+                    "Diseñar la propuesta táctica a medida (software, automatización, contenido o rediseño).",
+                    "Poner en marcha la solución con métricas claras desde el primer día."
                 ],
                 matchedCase: cases[0]
             };
